@@ -27,7 +27,37 @@ a { color: #0969da; text-decoration: none; }
 a:hover { text-decoration: underline; }
 code { background: #f6f8fa; padding: 0.15rem 0.35rem; border-radius: 4px; }
 ul { padding-left: 1.2rem; }
+.mermaid { border: 1px solid #d0d7de; border-radius: 8px; padding: 0.6rem; background: #fff; margin: 1rem 0; overflow: auto; }
 """
+
+MERMAID_SCRIPT = """
+<script type="module">
+  import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
+  mermaid.initialize({ startOnLoad: false, securityLevel: "loose" });
+  await mermaid.run({ querySelector: ".mermaid" });
+</script>
+"""
+
+
+def read_mermaid_diagram(diagrams_dir: Path, filename: str) -> str | None:
+    path = diagrams_dir / filename
+    if not path.is_file():
+        return None
+    body = path.read_text(encoding="utf-8").strip()
+    return body or None
+
+
+def render_mermaid_section(title: str, body: str) -> str:
+    return f"""
+    <h2>{html.escape(title)}</h2>
+    <div class="mermaid">{body.strip()}</div>
+"""
+
+
+def mermaid_tail(has_diagram: bool) -> str:
+    if not has_diagram:
+        return ""
+    return MERMAID_SCRIPT
 
 
 def normalize_description(value: object) -> str:
@@ -133,6 +163,7 @@ def render_landing_html(
     descriptor_href: str,
     schema_prefix: str,
     home_href: str,
+    diagrams_dir: Path,
 ) -> str:
     title = html.escape(str(module["title"]))
     module_id = html.escape(str(module["id"]))
@@ -157,6 +188,13 @@ def render_landing_html(
         for key, label, _, _ in ARTIFACTS
     )
 
+    diagram_block = ""
+    has_module_diagram = False
+    module_diagram = read_mermaid_diagram(diagrams_dir, f"modules/{module['slug']}.mmd")
+    if module_diagram:
+        has_module_diagram = True
+        diagram_block = render_mermaid_section("Class hierarchy", module_diagram)
+
     return f"""<!doctype html>
 <html lang="en">
   <head>
@@ -175,6 +213,7 @@ def render_landing_html(
     <h1>{title}</h1>
     <p><strong>Module URI:</strong> <code>{module_id}</code></p>
     <p>{description}</p>
+{diagram_block}
 {primary_block}
     <h2>Documentation</h2>
     <ul>
@@ -185,12 +224,19 @@ def render_landing_html(
     <ul>
 {artifact_items}
     </ul>
+{mermaid_tail(has_module_diagram)}
   </body>
 </html>
 """
 
 
-def render_root_index(base_url: str, modules: list[dict], release_label: str = "Stable") -> str:
+def render_root_index(
+    base_url: str,
+    modules: list[dict],
+    release_label: str = "Stable",
+    *,
+    diagrams_dir: Path,
+) -> str:
     docs_index = f"{base_url.rstrip('/')}/schema/pragmatic-bim.docs.html"
     module_items = "\n".join(
         f'      <li><a href="./{html.escape(module["slug"])}">{html.escape(str(module["title"]))}</a> '
@@ -204,6 +250,14 @@ def render_root_index(base_url: str, modules: list[dict], release_label: str = "
     latest_item = ""
     if release_label == "Stable":
         latest_item = '      <li><a href="./latest/index.html">Latest stable alias</a></li>\n'
+
+    module_map_block = ""
+    has_module_map = False
+    module_map = read_mermaid_diagram(diagrams_dir, "module-map-interactive.mmd")
+    if module_map:
+        has_module_map = True
+        module_map_block = render_mermaid_section("Module map", module_map)
+
     return f"""<!doctype html>
 <html lang="en">
   <head>
@@ -223,17 +277,25 @@ def render_root_index(base_url: str, modules: list[dict], release_label: str = "
     <ul>
 {module_items}
     </ul>
+{module_map_block}
     <h2>Artifacts</h2>
     <ul>
 {artifact_items}
       <li><a href="./schema/pragmatic-bim.docs.html">Docs (HTML)</a></li>
 {latest_item}    </ul>
+{mermaid_tail(has_module_map)}
   </body>
 </html>
 """
 
 
-def write_module_pages(site_dir: Path, modules: list[dict], base_url: str) -> None:
+def write_module_pages(
+    site_dir: Path,
+    modules: list[dict],
+    base_url: str,
+    *,
+    diagrams_dir: Path,
+) -> None:
     site_dir.mkdir(parents=True, exist_ok=True)
     for module in modules:
         slug = module["slug"]
@@ -252,6 +314,7 @@ def write_module_pages(site_dir: Path, modules: list[dict], base_url: str) -> No
             descriptor_href="./descriptor.json",
             schema_prefix="../schema",
             home_href="../index.html",
+            diagrams_dir=diagrams_dir,
         )
         html_root_page = render_landing_html(
             module,
@@ -260,6 +323,7 @@ def write_module_pages(site_dir: Path, modules: list[dict], base_url: str) -> No
             descriptor_href=f"./{slug}/descriptor.json",
             schema_prefix="./schema",
             home_href="./index.html",
+            diagrams_dir=diagrams_dir,
         )
         (slug_dir / "index.html").write_text(html_dir_page, encoding="utf-8")
         (site_dir / f"{slug}.html").write_text(html_root_page, encoding="utf-8")
@@ -280,13 +344,24 @@ def main() -> None:
         default="Stable",
         help="Label used in generated root index.html title.",
     )
+    parser.add_argument(
+        "--diagrams-dir",
+        type=Path,
+        default=Path("docs/diagrams"),
+        help="Directory containing generated Mermaid diagram files.",
+    )
     args = parser.parse_args()
 
     modules = load_modules(args.schema_dir, args.base_url)
     if not modules:
         raise SystemExit(f"No modules found in {args.schema_dir}")
 
-    write_module_pages(args.site_dir, modules, args.base_url.rstrip("/"))
+    write_module_pages(
+        args.site_dir,
+        modules,
+        args.base_url.rstrip("/"),
+        diagrams_dir=args.diagrams_dir,
+    )
     manifest = {
         "base_url": args.base_url.rstrip("/"),
         "modules": [
@@ -307,7 +382,12 @@ def main() -> None:
 
     if args.write_root_index:
         (args.site_dir / "index.html").write_text(
-            render_root_index(args.base_url.rstrip("/"), modules, args.release_label),
+            render_root_index(
+                args.base_url.rstrip("/"),
+                modules,
+                args.release_label,
+                diagrams_dir=args.diagrams_dir,
+            ),
             encoding="utf-8",
         )
 

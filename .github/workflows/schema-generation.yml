@@ -9,10 +9,16 @@ on:
     branches: ["main"]
     paths:
       - "schema/**"
+      - "scripts/generate_diagrams.py"
+      - "scripts/generate_module_pages.py"
+      - "docs/diagrams/**"
       - ".github/workflows/schema-generation.yml"
   pull_request:
     paths:
       - "schema/**"
+      - "scripts/generate_diagrams.py"
+      - "scripts/generate_module_pages.py"
+      - "docs/diagrams/**"
       - ".github/workflows/schema-generation.yml"
   workflow_dispatch:
 
@@ -31,6 +37,12 @@ jobs:
         uses: actions/setup-python@v6
         with:
           python-version: "3.11"
+
+      - name: Verify generated schema diagrams
+        run: |
+          python -m pip install --upgrade pip
+          pip install pyyaml
+          python scripts/generate_diagrams.py --check
 
       - name: Install LinkML
         run: |

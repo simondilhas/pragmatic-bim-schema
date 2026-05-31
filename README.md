@@ -123,7 +123,57 @@ Without having to:
 - `schema/enum_localizations.yaml`: enum label/localization metadata.
 - `converter/`: converter module for transforming data to and from the schema (see `converter/README.md`).
 
+<!-- diagram:module-map begin -->
+```mermaid
+flowchart TB
+  Root["Pragmatic BIM Data Contract"]
+  Root --> core["Core"]
+  Root --> performance_enums["Performance Enums"]
+  Root --> requirements_enums["Requirements Enums"]
+  Root --> performance["Performance"]
+  Root --> requirements["Requirements"]
+  Root --> elements_physical["Elements Physical"]
+  Root --> elements_virtual["Elements Virtual"]
+  Root --> enums["Enums"]
+  Root --> changes["Changes"]
+```
+<!-- diagram:module-map end -->
+
 ## Schema overview
+
+<!-- diagram:entity-overview begin -->
+```mermaid
+classDiagram
+  VirtualEntity <|-- AbstractCostRecord
+  PerformanceProperty <|-- AcousticProperty
+  Entity <|-- Agent
+  PhysicalElement <|-- Boundary
+  Agent <|-- Company
+  PhysicalElement <|-- ConnectionPhysical
+  VirtualEntity <|-- ConnectionVirtual
+  PhysicalElement <|-- Equipment
+  PerformanceProperty <|-- FireProperty
+  VirtualEntity <|-- Material
+  PerformanceProperty <|-- MaterialProperty
+  Entity <|-- Message
+  ScheduleItem <|-- Milestone
+  Agent <|-- Person
+  Entity <|-- PhysicalElement
+  Entity <|-- ScheduleDependency
+  Entity <|-- ScheduleItem
+  Entity <|-- ScheduleTemplate
+  PerformanceProperty <|-- SecurityProperty
+  PhysicalElement <|-- Separator
+  VirtualEntity <|-- Space
+  VirtualEntity <|-- SpatialContext
+  PerformanceProperty <|-- StructuralProperty
+  VirtualEntity <|-- System
+  PerformanceProperty <|-- ThermalProperty
+  Entity <|-- VirtualEntity
+```
+<!-- diagram:entity-overview end -->
+
+Interactive full class hierarchy: [schema documentation](https://schema.pragmaticbim.ch/schema/pragmatic-bim.docs.html).
 
 The schema is organized into five core modules:
 

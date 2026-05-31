@@ -100,6 +100,19 @@ jobs:
             "$DOC_CMD" "$SCHEMA_ROOT" > site/schema/pragmatic-bim.docs.md
           fi
 
+          python scripts/generate_diagrams.py --skip-readme
+
+          python - <<'PY'
+          from pathlib import Path
+
+          marker = "<!-- schema-diagrams-preamble -->"
+          docs_path = Path("site/schema/pragmatic-bim.docs.md")
+          preamble_path = Path("docs/diagrams/docs-preamble.md")
+          text = docs_path.read_text(encoding="utf-8")
+          if marker not in text:
+              docs_path.write_text(preamble_path.read_text(encoding="utf-8") + text, encoding="utf-8")
+          PY
+
           case "$RELEASE_VERSION" in
             v[0-9]*)
               ;;
