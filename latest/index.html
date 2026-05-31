@@ -12,6 +12,7 @@ a { color: #0969da; text-decoration: none; }
 a:hover { text-decoration: underline; }
 code { background: #f6f8fa; padding: 0.15rem 0.35rem; border-radius: 4px; }
 ul { padding-left: 1.2rem; }
+.mermaid { border: 1px solid #d0d7de; border-radius: 8px; padding: 0.6rem; background: #fff; margin: 1rem 0; overflow: auto; }
 </style>
   </head>
   <body>
@@ -33,6 +34,29 @@ ul { padding-left: 1.2rem; }
       <li><a href="./requirements-enums">Pragmatic BIM Data Contract - Requirements Enums</a> (<code>https://schema.pragmaticbim.ch/requirements-enums</code>)</li>
       <li><a href="./requirements">Pragmatic BIM Data Contract - Requirements</a> (<code>https://schema.pragmaticbim.ch/requirements</code>)</li>
     </ul>
+
+    <h2>Module map</h2>
+    <div class="mermaid">flowchart TB
+  Root["Pragmatic BIM Data Contract"]
+  Root --> core["Core"]
+  click core href "./core.html" _blank
+  Root --> performance_enums["Performance Enums"]
+  click performance_enums href "./performance-enums.html" _blank
+  Root --> requirements_enums["Requirements Enums"]
+  click requirements_enums href "./requirements-enums.html" _blank
+  Root --> performance["Performance"]
+  click performance href "./performance.html" _blank
+  Root --> requirements["Requirements"]
+  click requirements href "./requirements.html" _blank
+  Root --> elements_physical["Elements Physical"]
+  click elements_physical href "./elements-physical.html" _blank
+  Root --> elements_virtual["Elements Virtual"]
+  click elements_virtual href "./elements-virtual.html" _blank
+  Root --> enums["Enums"]
+  click enums href "./enums.html" _blank
+  Root --> changes["Changes"]
+  click changes href "./changes.html" _blank</div>
+
     <h2>Artifacts</h2>
     <ul>
       <li><a href="./schema/pragmatic-bim.schema.json">JSON Schema</a></li>
@@ -43,5 +67,12 @@ ul { padding-left: 1.2rem; }
       <li><a href="./schema/pragmatic-bim.docs.html">Docs (HTML)</a></li>
       <li><a href="./latest/index.html">Latest stable alias</a></li>
     </ul>
+
+<script type="module">
+  import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
+  mermaid.initialize({ startOnLoad: false, securityLevel: "loose" });
+  await mermaid.run({ querySelector: ".mermaid" });
+</script>
+
   </body>
 </html>

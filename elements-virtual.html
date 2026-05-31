@@ -14,6 +14,7 @@ a { color: #0969da; text-decoration: none; }
 a:hover { text-decoration: underline; }
 code { background: #f6f8fa; padding: 0.15rem 0.35rem; border-radius: 4px; }
 ul { padding-left: 1.2rem; }
+.mermaid { border: 1px solid #d0d7de; border-radius: 8px; padding: 0.6rem; background: #fff; margin: 1rem 0; overflow: auto; }
 </style>
   </head>
   <body>
@@ -24,6 +25,31 @@ ul { padding-left: 1.2rem; }
     <h1>Pragmatic BIM Data Contract - Elements Virtual</h1>
     <p><strong>Module URI:</strong> <code>https://schema.pragmaticbim.ch/elements-virtual</code></p>
     <p>Virtual entities such as context, space, system, schedule, and cost/material information.</p>
+
+    <h2>Class hierarchy</h2>
+    <div class="mermaid">classDiagram
+  VirtualEntity <|-- AbstractCostRecord
+  BuiltAssetContext <|-- BuildingContext
+  SpatialContext <|-- BuiltAssetContext
+  BuiltAssetContext <|-- CivilStructureContext
+  VirtualEntity <|-- ConnectionVirtual
+  AbstractCostRecord <|-- CostAssembly
+  AbstractCostRecord <|-- CostItem
+  SpatialContext <|-- LegalSiteContext
+  SpatialContext <|-- LevelContext
+  VirtualEntity <|-- Material
+  ScheduleItem <|-- Milestone
+  SpatialContext <|-- PerimeterContext
+  SpatialContext <|-- ProjectContext
+  Entity <|-- ScheduleDependency
+  Entity <|-- ScheduleItem
+  Entity <|-- ScheduleTemplate
+  VirtualEntity <|-- Space
+  VirtualEntity <|-- SpatialContext
+  VirtualEntity <|-- System
+  Entity <|-- VirtualEntity
+  SpatialContext <|-- ZoneContext</div>
+
 
       <h2>Primary entry</h2>
       <ul>
@@ -43,5 +69,12 @@ ul { padding-left: 1.2rem; }
         <li><a href="https://schema.pragmaticbim.ch/schema/pragmatic-bim.pydantic.py">Pydantic</a></li>
         <li><a href="https://schema.pragmaticbim.ch/schema/pragmatic-bim.docs.md">Docs (Markdown)</a></li>
     </ul>
+
+<script type="module">
+  import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
+  mermaid.initialize({ startOnLoad: false, securityLevel: "loose" });
+  await mermaid.run({ querySelector: ".mermaid" });
+</script>
+
   </body>
 </html>

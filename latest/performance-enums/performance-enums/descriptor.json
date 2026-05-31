@@ -1,0 +1,15 @@
+{
+  "id": "https://schema.pragmaticbim.ch/performance-enums",
+  "title": "Pragmatic BIM Data Contract - Performance Enums",
+  "description": "Controlled vocabularies for normalized performance properties.",
+  "source_file": "performance_enums_schema.yaml",
+  "docs_index": "https://schema.pragmaticbim.ch/schema/pragmatic-bim.docs.html",
+  "json_schema": "https://schema.pragmaticbim.ch/schema/pragmatic-bim.schema.json",
+  "shacl": "https://schema.pragmaticbim.ch/schema/pragmatic-bim.shacl.ttl",
+  "csv": "https://schema.pragmaticbim.ch/schema/pragmatic-bim.csv",
+  "pydantic": "https://schema.pragmaticbim.ch/schema/pragmatic-bim.pydantic.py",
+  "docs_md": "https://schema.pragmaticbim.ch/schema/pragmatic-bim.docs.md",
+  "landing_page": "https://schema.pragmaticbim.ch/performance-enums",
+  "html": "https://schema.pragmaticbim.ch/schema/PerformancePropertyValueType.html",
+  "primary_doc": "PerformancePropertyValueType"
+}

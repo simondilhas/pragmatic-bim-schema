@@ -33,7 +33,69 @@ a:hover { text-decoration: underline; }
       <a href="../index.html">Home</a>
       <a href="./pragmatic-bim.docs.html">Schema Index</a>
     </nav>
-    <h1 id="pragmatic-bim-data-contract">Pragmatic BIM Data Contract</h1>
+    <!-- schema-diagrams-preamble -->
+
+<h2 id="schema-diagrams">Schema diagrams</h2>
+<p>Generated from <code>schema/*.yaml</code>. See the <a href="https://schema.pragmaticbim.ch/schema/pragmatic-bim.docs.html">schema documentation</a> for interactive class pages.</p>
+<h3 id="module-map">Module map</h3>
+<div class="mermaid">
+flowchart TB
+  Root["Pragmatic BIM Data Contract"]
+  Root --> core["Core"]
+  Root --> performance_enums["Performance Enums"]
+  Root --> requirements_enums["Requirements Enums"]
+  Root --> performance["Performance"]
+  Root --> requirements["Requirements"]
+  Root --> elements_physical["Elements Physical"]
+  Root --> elements_virtual["Elements Virtual"]
+  Root --> enums["Enums"]
+  Root --> changes["Changes"]
+
+</div>
+<h3 id="entity-hierarchy">Entity hierarchy</h3>
+<div class="mermaid">
+classDiagram
+  VirtualEntity <|-- AbstractCostRecord
+  PerformanceProperty <|-- AcousticProperty
+  Entity <|-- Agent
+  PhysicalElement <|-- Boundary
+  BuiltAssetContext <|-- BuildingContext
+  SpatialContext <|-- BuiltAssetContext
+  BuiltAssetContext <|-- CivilStructureContext
+  Agent <|-- Company
+  PhysicalElement <|-- ConnectionPhysical
+  VirtualEntity <|-- ConnectionVirtual
+  AbstractCostRecord <|-- CostAssembly
+  AbstractCostRecord <|-- CostItem
+  PhysicalElement <|-- Equipment
+  PerformanceProperty <|-- FireProperty
+  SpatialContext <|-- LegalSiteContext
+  SpatialContext <|-- LevelContext
+  VirtualEntity <|-- Material
+  PerformanceProperty <|-- MaterialProperty
+  Entity <|-- Message
+  ScheduleItem <|-- Milestone
+  SpatialContext <|-- PerimeterContext
+  Agent <|-- Person
+  Entity <|-- PhysicalElement
+  SpatialContext <|-- ProjectContext
+  Entity <|-- ScheduleDependency
+  Entity <|-- ScheduleItem
+  Entity <|-- ScheduleTemplate
+  PerformanceProperty <|-- SecurityProperty
+  PhysicalElement <|-- Separator
+  Separator <|-- SeparatorSlab
+  Separator <|-- SeparatorWall
+  VirtualEntity <|-- Space
+  VirtualEntity <|-- SpatialContext
+  PerformanceProperty <|-- StructuralProperty
+  VirtualEntity <|-- System
+  PerformanceProperty <|-- ThermalProperty
+  Entity <|-- VirtualEntity
+  SpatialContext <|-- ZoneContext
+
+</div>
+<h1 id="pragmatic-bim-data-contract">Pragmatic BIM Data Contract</h1>
 <p>To provide a simple, implementation-ready BIM data model for integration, querying, costing, and analysis workflows, this schema defines a pragmatic, graph-first LinkML structure that is IFC-aware and extensible across classification schemes.</p>
 <p>URI: https://schema.pragmaticbim.ch</p>
 <p>Name: pragmatic_bim_data_contract</p>
