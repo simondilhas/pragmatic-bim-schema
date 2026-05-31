@@ -20,38 +20,17 @@ flowchart TB
   Root --> changes["Changes"]
 ```
 
-### Entity hierarchy (overview)
+### Three pillars (overview)
 
 ```mermaid
-classDiagram
-  direction TB
-  Entity <|-- Agent
-  Agent <|-- Company
-  Agent <|-- Person
-  Entity <|-- Message
-  Entity <|-- PhysicalElement
-  PhysicalElement <|-- Boundary
-  PhysicalElement <|-- ConnectionPhysical
-  PhysicalElement <|-- Equipment
-  PhysicalElement <|-- Separator
-  Entity <|-- VirtualEntity
-  VirtualEntity <|-- AbstractCostRecord
-  VirtualEntity <|-- AbstractTimeRecord
-  VirtualEntity <|-- ConnectionVirtual
-  VirtualEntity <|-- Material
-  VirtualEntity <|-- Space
-  VirtualEntity <|-- SpatialContext
-  VirtualEntity <|-- System
-  VirtualEntity <|-- TimeDependency
-  PerformanceProperty <|-- AcousticProperty
-  PerformanceProperty <|-- FireProperty
-  PerformanceProperty <|-- MaterialProperty
-  PerformanceProperty <|-- SecurityProperty
-  PerformanceProperty <|-- StructuralProperty
-  PerformanceProperty <|-- ThermalProperty
+flowchart TB
+  Root["Pragmatic BIM Data Contract"]
+  Root --> Entity["Entities"]
+  Root --> Requirement["Requirements"]
+  Root --> Change["Changes"]
 ```
 
-### Entity model
+### Entities (detail)
 
 ```mermaid
 classDiagram
@@ -89,22 +68,16 @@ classDiagram
   SpatialContext <|-- ZoneContext
   VirtualEntity <|-- System
   VirtualEntity <|-- TimeDependency
-```
-
-### Entity performance properties
-
-```mermaid
-classDiagram
-  direction TB
   PerformanceProperty <|-- AcousticProperty
   PerformanceProperty <|-- FireProperty
   PerformanceProperty <|-- MaterialProperty
   PerformanceProperty <|-- SecurityProperty
   PerformanceProperty <|-- StructuralProperty
   PerformanceProperty <|-- ThermalProperty
+  Entity *-- PerformanceProperty
 ```
 
-### Requirements
+### Requirements (detail)
 
 ```mermaid
 classDiagram
@@ -115,7 +88,7 @@ classDiagram
   Requirement <|-- SpatialRequirement
 ```
 
-### Changes
+### Changes (detail)
 
 ```mermaid
 classDiagram

@@ -39,19 +39,11 @@ a:hover { text-decoration: underline; }
 <hr>
 <h1 id="class-entity">Class: Entity</h1>
 <p><em>Common base class for all schema entities.</em></p>
-<div data-search-exclude markdown="1">
-
-
-* __NOTE__: this is an abstract class and should not be instantiated directly
-
-
-URI: [pbs:Entity](https://schema.pragmaticbim.ch/Entity)
-
-
-
-
-
-
+<div data-search-exclude>
+<ul>
+<li><strong>NOTE</strong>: this is an abstract class and should not be instantiated directly</li>
+</ul>
+<p>URI: <a href="https://schema.pragmaticbim.ch/Entity">pbs:Entity</a></p>
 <div class="mermaid">
  classDiagram
     class Entity
@@ -110,128 +102,348 @@ URI: [pbs:Entity](https://schema.pragmaticbim.ch/Entity)
         click Task href "./Task.html"
 
 </div>
-
-
-
-
-
-
-## Inheritance
-* **Entity**
-    * [Agent](Agent.md)
-    * [Message](Message.md)
-    * [PhysicalElement](PhysicalElement.md)
-    * [VirtualEntity](VirtualEntity.md)
-
-
-## Class Properties
-
-| Property | Value |
-| --- | --- |
-| Class URI | [pbs:Entity](https://schema.pragmaticbim.ch/Entity) |
-
-
-## Slots
-
-| Name | Cardinality and Range | Description | Inheritance |
-| ---  | --- | --- | --- |
-| [id](id.md) | 1 <br/> [String](String.md) | Unique local identifier | direct |
-| [name](name.md) | 1 <br/> [String](String.md) | Default display name | direct |
-| [localized_names](localized_names.md) | * <br/> [LocalizedText](LocalizedText.md) | Localized variants of name | direct |
-| [description](description.md) | 0..1 <br/> [String](String.md) | Default description text | direct |
-| [meaning_uri](meaning_uri.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | Optional semantic URI for linking the entity instance to an external ontology... | direct |
-| [localized_descriptions](localized_descriptions.md) | * <br/> [LocalizedText](LocalizedText.md) | Localized variants of description | direct |
-| [ifc_global_id](ifc_global_id.md) | 0..1 <br/> [String](String.md) | IFC GlobalId of the mapped entity | direct |
-| [classifications](classifications.md) | * <br/> [Classification](Classification.md) | Classification entries from IFC and other schemes | direct |
-| [geometry_representations](geometry_representations.md) | * <br/> [GeometryRepresentation](GeometryRepresentation.md) | Geometry references associated with the entity | direct |
-| [quantity_values](quantity_values.md) | * <br/> [QuantityValue](QuantityValue.md) | Quantities associated with the entity | direct |
-| [documents](documents.md) | * <br/> [Document](Document.md) | Linked documents associated with this entity | direct |
-| [metadata](metadata.md) | * <br/> [MetadataEntry](MetadataEntry.md) | Generic metadata container for IFC attributes/properties and project-specific... | direct |
-| [performance_properties](performance_properties.md) | * <br/> [PerformanceProperty](PerformanceProperty.md) | Normalized, strongly typed domain properties (fire/acoustic/thermal/structura... | direct |
-| [decisions](decisions.md) | * <br/> [Decision](Decision.md) | Decision records associated with this entity | direct |
-| [tasks](tasks.md) | * <br/> [Task](Task.md) | Tasks associated with this entity | direct |
-| [messages](messages.md) | * <br/> [Message](Message.md) | Messages associated with this entity | direct |
-| [created_at](created_at.md) | 0..1 <br/> [Datetime](Datetime.md) | Creation timestamp for this entity record | direct |
-| [modified_at](modified_at.md) | 0..1 <br/> [Datetime](Datetime.md) | Last modification timestamp for this entity record | direct |
-| [revision](revision.md) | 0..1 <br/> [Integer](Integer.md) | Integer revision counter for change tracking | direct |
-| [status](status.md) | 0..1 <br/> [StatusType](StatusType.md) | Lifecycle or QA status | direct |
-
-
-
-
-
-## Usages
-
-| used by | used in | type | used |
-| ---  | --- | --- | --- |
-| [Requirement](Requirement.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
-| [PerformanceRequirement](PerformanceRequirement.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
-| [SpatialRequirement](SpatialRequirement.md) | [related_entity](related_entity.md) | range | [Entity](Entity.md) |
-| [SpatialRequirement](SpatialRequirement.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
-| [RegulatoryRequirement](RegulatoryRequirement.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
-| [BriefRequirement](BriefRequirement.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
-| [SpatialContext](SpatialContext.md) | [group_members](group_members.md) | range | [Entity](Entity.md) |
-| [ProjectContext](ProjectContext.md) | [group_members](group_members.md) | range | [Entity](Entity.md) |
-| [PerimeterContext](PerimeterContext.md) | [group_members](group_members.md) | range | [Entity](Entity.md) |
-| [LegalSiteContext](LegalSiteContext.md) | [group_members](group_members.md) | range | [Entity](Entity.md) |
-| [BuiltAssetContext](BuiltAssetContext.md) | [group_members](group_members.md) | range | [Entity](Entity.md) |
-| [BuildingContext](BuildingContext.md) | [group_members](group_members.md) | range | [Entity](Entity.md) |
-| [CivilStructureContext](CivilStructureContext.md) | [group_members](group_members.md) | range | [Entity](Entity.md) |
-| [LevelContext](LevelContext.md) | [group_members](group_members.md) | range | [Entity](Entity.md) |
-| [ZoneContext](ZoneContext.md) | [group_members](group_members.md) | range | [Entity](Entity.md) |
-| [Space](Space.md) | [contained_entities](contained_entities.md) | range | [Entity](Entity.md) |
-| [System](System.md) | [contained_entities](contained_entities.md) | range | [Entity](Entity.md) |
-| [AbstractTimeRecord](AbstractTimeRecord.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
-| [TimeItem](TimeItem.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
-| [Milestone](Milestone.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
-| [TimePlan](TimePlan.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
-| [AbstractCostRecord](AbstractCostRecord.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
-| [CostItem](CostItem.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
-| [CostAssembly](CostAssembly.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
-
-
-
-
-
-
-
-
-
-
-
-
-## Identifier and Mapping Information
-
-
-
-
-
-### Schema Source
-
-
-* from schema: https://schema.pragmaticbim.ch
-
-
-
-
-## Mappings
-
-| Mapping Type | Mapped Value |
-| ---  | ---  |
-| self | pbs:Entity |
-| native | pbs:Entity |
-
-
-
-
-
-
-## LinkML Source
-
+<h2 id="inheritance">Inheritance</h2>
+<ul>
+<li><strong>Entity</strong><ul>
+<li><a href="Agent.html">Agent</a></li>
+<li><a href="Message.html">Message</a></li>
+<li><a href="PhysicalElement.html">PhysicalElement</a></li>
+<li><a href="VirtualEntity.html">VirtualEntity</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="class-properties">Class Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Class URI</td>
+<td><a href="https://schema.pragmaticbim.ch/Entity">pbs:Entity</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="slots">Slots</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Cardinality and Range</th>
+<th>Description</th>
+<th>Inheritance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="id.html">id</a></td>
+<td>1 <br/> <a href="String.html">String</a></td>
+<td>Unique local identifier</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="name.html">name</a></td>
+<td>1 <br/> <a href="String.html">String</a></td>
+<td>Default display name</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="localized_names.html">localized_names</a></td>
+<td>* <br/> <a href="LocalizedText.html">LocalizedText</a></td>
+<td>Localized variants of name</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="description.html">description</a></td>
+<td>0..1 <br/> <a href="String.html">String</a></td>
+<td>Default description text</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="meaning_uri.html">meaning_uri</a></td>
+<td>0..1 <br/> <a href="Uriorcurie.html">Uriorcurie</a></td>
+<td>Optional semantic URI for linking the entity instance to an external ontology...</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="localized_descriptions.html">localized_descriptions</a></td>
+<td>* <br/> <a href="LocalizedText.html">LocalizedText</a></td>
+<td>Localized variants of description</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="ifc_global_id.html">ifc_global_id</a></td>
+<td>0..1 <br/> <a href="String.html">String</a></td>
+<td>IFC GlobalId of the mapped entity</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="classifications.html">classifications</a></td>
+<td>* <br/> <a href="Classification.html">Classification</a></td>
+<td>Classification entries from IFC and other schemes</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="geometry_representations.html">geometry_representations</a></td>
+<td>* <br/> <a href="GeometryRepresentation.html">GeometryRepresentation</a></td>
+<td>Geometry references associated with the entity</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="quantity_values.html">quantity_values</a></td>
+<td>* <br/> <a href="QuantityValue.html">QuantityValue</a></td>
+<td>Quantities associated with the entity</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="documents.html">documents</a></td>
+<td>* <br/> <a href="Document.html">Document</a></td>
+<td>Linked documents associated with this entity</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="metadata.html">metadata</a></td>
+<td>* <br/> <a href="MetadataEntry.html">MetadataEntry</a></td>
+<td>Generic metadata container for IFC attributes/properties and project-specific...</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="performance_properties.html">performance_properties</a></td>
+<td>* <br/> <a href="PerformanceProperty.html">PerformanceProperty</a></td>
+<td>Normalized, strongly typed domain properties (fire/acoustic/thermal/structura...</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="decisions.html">decisions</a></td>
+<td>* <br/> <a href="Decision.html">Decision</a></td>
+<td>Decision records associated with this entity</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="tasks.html">tasks</a></td>
+<td>* <br/> <a href="Task.html">Task</a></td>
+<td>Tasks associated with this entity</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="messages.html">messages</a></td>
+<td>* <br/> <a href="Message.html">Message</a></td>
+<td>Messages associated with this entity</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="created_at.html">created_at</a></td>
+<td>0..1 <br/> <a href="Datetime.html">Datetime</a></td>
+<td>Creation timestamp for this entity record</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="modified_at.html">modified_at</a></td>
+<td>0..1 <br/> <a href="Datetime.html">Datetime</a></td>
+<td>Last modification timestamp for this entity record</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="revision.html">revision</a></td>
+<td>0..1 <br/> <a href="Integer.html">Integer</a></td>
+<td>Integer revision counter for change tracking</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="status.html">status</a></td>
+<td>0..1 <br/> <a href="StatusType.html">StatusType</a></td>
+<td>Lifecycle or QA status</td>
+<td>direct</td>
+</tr>
+</tbody>
+</table>
+<h2 id="usages">Usages</h2>
+<table>
+<thead>
+<tr>
+<th>used by</th>
+<th>used in</th>
+<th>type</th>
+<th>used</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Requirement.html">Requirement</a></td>
+<td><a href="applies_to_entities.html">applies_to_entities</a></td>
+<td>range</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="PerformanceRequirement.html">PerformanceRequirement</a></td>
+<td><a href="applies_to_entities.html">applies_to_entities</a></td>
+<td>range</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="SpatialRequirement.html">SpatialRequirement</a></td>
+<td><a href="related_entity.html">related_entity</a></td>
+<td>range</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="SpatialRequirement.html">SpatialRequirement</a></td>
+<td><a href="applies_to_entities.html">applies_to_entities</a></td>
+<td>range</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="RegulatoryRequirement.html">RegulatoryRequirement</a></td>
+<td><a href="applies_to_entities.html">applies_to_entities</a></td>
+<td>range</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="BriefRequirement.html">BriefRequirement</a></td>
+<td><a href="applies_to_entities.html">applies_to_entities</a></td>
+<td>range</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="SpatialContext.html">SpatialContext</a></td>
+<td><a href="group_members.html">group_members</a></td>
+<td>range</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="ProjectContext.html">ProjectContext</a></td>
+<td><a href="group_members.html">group_members</a></td>
+<td>range</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="PerimeterContext.html">PerimeterContext</a></td>
+<td><a href="group_members.html">group_members</a></td>
+<td>range</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="LegalSiteContext.html">LegalSiteContext</a></td>
+<td><a href="group_members.html">group_members</a></td>
+<td>range</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="BuiltAssetContext.html">BuiltAssetContext</a></td>
+<td><a href="group_members.html">group_members</a></td>
+<td>range</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="BuildingContext.html">BuildingContext</a></td>
+<td><a href="group_members.html">group_members</a></td>
+<td>range</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="CivilStructureContext.html">CivilStructureContext</a></td>
+<td><a href="group_members.html">group_members</a></td>
+<td>range</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="LevelContext.html">LevelContext</a></td>
+<td><a href="group_members.html">group_members</a></td>
+<td>range</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="ZoneContext.html">ZoneContext</a></td>
+<td><a href="group_members.html">group_members</a></td>
+<td>range</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="Space.html">Space</a></td>
+<td><a href="contained_entities.html">contained_entities</a></td>
+<td>range</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="System.html">System</a></td>
+<td><a href="contained_entities.html">contained_entities</a></td>
+<td>range</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="AbstractTimeRecord.html">AbstractTimeRecord</a></td>
+<td><a href="applies_to_entities.html">applies_to_entities</a></td>
+<td>range</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="TimeItem.html">TimeItem</a></td>
+<td><a href="applies_to_entities.html">applies_to_entities</a></td>
+<td>range</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="Milestone.html">Milestone</a></td>
+<td><a href="applies_to_entities.html">applies_to_entities</a></td>
+<td>range</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="TimePlan.html">TimePlan</a></td>
+<td><a href="applies_to_entities.html">applies_to_entities</a></td>
+<td>range</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="AbstractCostRecord.html">AbstractCostRecord</a></td>
+<td><a href="applies_to_entities.html">applies_to_entities</a></td>
+<td>range</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="CostItem.html">CostItem</a></td>
+<td><a href="applies_to_entities.html">applies_to_entities</a></td>
+<td>range</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="CostAssembly.html">CostAssembly</a></td>
+<td><a href="applies_to_entities.html">applies_to_entities</a></td>
+<td>range</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
+<h3 id="schema-source">Schema Source</h3>
+<ul>
+<li>from schema: https://schema.pragmaticbim.ch</li>
+</ul>
+<h2 id="mappings">Mappings</h2>
+<table>
+<thead>
+<tr>
+<th>Mapping Type</th>
+<th>Mapped Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>self</td>
+<td>pbs:Entity</td>
+</tr>
+<tr>
+<td>native</td>
+<td>pbs:Entity</td>
+</tr>
+</tbody>
+</table>
+<h2 id="linkml-source">LinkML Source</h2>
 <!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
-
-### Direct
-
+<h3 id="direct">Direct</h3>
 <details>
 
 <pre><code class="language-yaml">name: Entity
@@ -264,9 +476,7 @@ class_uri: pbs:Entity
 </code></pre>
 
 </details>
-
-### Induced
-
+<h3 id="induced">Induced</h3>
 <details>
 
 <pre><code class="language-yaml">name: Entity
@@ -504,7 +714,8 @@ class_uri: pbs:Entity
 
 </code></pre>
 
-</details></div>
+</details>
+</div>
     <div id="diagram-modal" hidden>
       <div class="diagram-modal-panel">
         <div class="diagram-modal-header">

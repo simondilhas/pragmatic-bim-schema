@@ -39,59 +39,72 @@ a:hover { text-decoration: underline; }
 <hr>
 <h1 id="enum-changekind">Enum: ChangeKind</h1>
 <p><em>Severity or category of change detected between two revisions.</em></p>
-<div data-search-exclude markdown="1">
-
-URI: [pbs:ChangeKind](https://schema.pragmaticbim.ch/ChangeKind)
-
-**Enum URI:** [pbs:ChangeKind](https://schema.pragmaticbim.ch/ChangeKind)
-
-
-## Permissible Values
-| Value | Meaning | Description |
-| --- | --- | --- |
-| unchanged | pbs:change_kind_unchanged | No material difference (typically omitted from persisted Change records) |
-| minor | pbs:change_kind_minor | Small attribute, metadata, or wording adjustment |
-| major | pbs:change_kind_major | Significant attribute, geometry, relationship, or structural content change |
-| rewritten | pbs:change_kind_rewritten | Subject substantially replaced while retaining the same identity |
-| new | pbs:change_kind_new | Subject introduced in to_revision (absent in from_revision) |
-| deleted | pbs:change_kind_deleted | Subject removed in to_revision (present in from_revision) |
-
-
-
-
-## Slots
-
-| Name | Description |
-| ---  | --- |
-| [change_kind](change_kind.md) | Severity or category of change detected between two revisions |
-
-
-
-
-
-
-
-
-
-
-## Identifier and Mapping Information
-
-
-
-
-
-### Schema Source
-
-
-* from schema: https://schema.pragmaticbim.ch
-
-
-
-
-
-
-## LinkML Source
-
+<div data-search-exclude>
+<p>URI: <a href="https://schema.pragmaticbim.ch/ChangeKind">pbs:ChangeKind</a></p>
+<p><strong>Enum URI:</strong> <a href="https://schema.pragmaticbim.ch/ChangeKind">pbs:ChangeKind</a></p>
+<h2 id="permissible-values">Permissible Values</h2>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Meaning</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>unchanged</td>
+<td>pbs:change_kind_unchanged</td>
+<td>No material difference (typically omitted from persisted Change records)</td>
+</tr>
+<tr>
+<td>minor</td>
+<td>pbs:change_kind_minor</td>
+<td>Small attribute, metadata, or wording adjustment</td>
+</tr>
+<tr>
+<td>major</td>
+<td>pbs:change_kind_major</td>
+<td>Significant attribute, geometry, relationship, or structural content change</td>
+</tr>
+<tr>
+<td>rewritten</td>
+<td>pbs:change_kind_rewritten</td>
+<td>Subject substantially replaced while retaining the same identity</td>
+</tr>
+<tr>
+<td>new</td>
+<td>pbs:change_kind_new</td>
+<td>Subject introduced in to_revision (absent in from_revision)</td>
+</tr>
+<tr>
+<td>deleted</td>
+<td>pbs:change_kind_deleted</td>
+<td>Subject removed in to_revision (present in from_revision)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="slots">Slots</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="change_kind.html">change_kind</a></td>
+<td>Severity or category of change detected between two revisions</td>
+</tr>
+</tbody>
+</table>
+<h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
+<h3 id="schema-source">Schema Source</h3>
+<ul>
+<li>from schema: https://schema.pragmaticbim.ch</li>
+</ul>
+<h2 id="linkml-source">LinkML Source</h2>
 <details>
 
 <pre><code class="language-yaml">name: ChangeKind
@@ -129,7 +142,6 @@ permissible_values:
 </code></pre>
 
 </details>
-
 </div>
     <div id="diagram-modal" hidden>
       <div class="diagram-modal-panel">

@@ -39,56 +39,57 @@ a:hover { text-decoration: underline; }
 <hr>
 <h1 id="enum-systemtype">Enum: SystemType</h1>
 <p><em>Role of an MEP-related element or grouping in the service chain.</em></p>
-<div data-search-exclude markdown="1">
-
-URI: [pbs:SystemType](https://schema.pragmaticbim.ch/SystemType)
-
-**Enum URI:** [pbs:SystemType](https://schema.pragmaticbim.ch/SystemType)
-
-
-## Permissible Values
-| Value | Meaning | Description |
-| --- | --- | --- |
-| unit | ifcowl:IfcUnitaryEquipment | Generating or converting unit (for example AHU, chiller, heat pump) |
-| network | ifcowl:IfcDistributionFlowElement | Distribution network element carrying flow (for example ducts, pipes, cable c... |
-| terminal | ifcowl:IfcFlowTerminal | End/terminal element located in served spaces |
-
-
-
-
-## Slots
-
-| Name | Description |
-| ---  | --- |
-| [system_type](system_type.md) | Classification of system role (unit, network, terminal) |
-
-
-
-
-
-
-
-
-
-
-## Identifier and Mapping Information
-
-
-
-
-
-### Schema Source
-
-
-* from schema: https://schema.pragmaticbim.ch
-
-
-
-
-
-
-## LinkML Source
-
+<div data-search-exclude>
+<p>URI: <a href="https://schema.pragmaticbim.ch/SystemType">pbs:SystemType</a></p>
+<p><strong>Enum URI:</strong> <a href="https://schema.pragmaticbim.ch/SystemType">pbs:SystemType</a></p>
+<h2 id="permissible-values">Permissible Values</h2>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Meaning</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>unit</td>
+<td>ifcowl:IfcUnitaryEquipment</td>
+<td>Generating or converting unit (for example AHU, chiller, heat pump)</td>
+</tr>
+<tr>
+<td>network</td>
+<td>ifcowl:IfcDistributionFlowElement</td>
+<td>Distribution network element carrying flow (for example ducts, pipes, cable c...</td>
+</tr>
+<tr>
+<td>terminal</td>
+<td>ifcowl:IfcFlowTerminal</td>
+<td>End/terminal element located in served spaces</td>
+</tr>
+</tbody>
+</table>
+<h2 id="slots">Slots</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="system_type.html">system_type</a></td>
+<td>Classification of system role (unit, network, terminal)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
+<h3 id="schema-source">Schema Source</h3>
+<ul>
+<li>from schema: https://schema.pragmaticbim.ch</li>
+</ul>
+<h2 id="linkml-source">LinkML Source</h2>
 <details>
 
 <pre><code class="language-yaml">name: SystemType
@@ -114,7 +115,6 @@ permissible_values:
 </code></pre>
 
 </details>
-
 </div>
     <div id="diagram-modal" hidden>
       <div class="diagram-modal-panel">

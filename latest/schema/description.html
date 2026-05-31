@@ -39,115 +39,276 @@ a:hover { text-decoration: underline; }
 <hr>
 <h1 id="slot-description">Slot: description</h1>
 <p><em>Default description text.</em></p>
-<div data-search-exclude markdown="1">
-
-
-
-URI: [pbs:description](https://schema.pragmaticbim.ch/description)
+<div data-search-exclude>
+<p>URI: <a href="https://schema.pragmaticbim.ch/description">pbs:description</a></p>
 <!-- no inheritance hierarchy -->
-
-
-
-
-
-## Applicable Classes
-
-| Name | Description | Modifies Slot |
-| --- | --- | --- |
-| [Entity](Entity.md) | Common base class for all schema entities |  no  |
-| [Requirement](Requirement.md) | Prescriptive requirement record (content_kind requirement) |  no  |
-| [Agent](Agent.md) | Abstract base class for people or organizations acting in workflow and commun... |  no  |
-| [Person](Person.md) | Individual stakeholder, contributor, assignee, or responsible party represent... |  no  |
-| [Company](Company.md) | Organization, company, or legal entity participating in the project or asset ... |  no  |
-| [Message](Message.md) | Message or communication record linked to an entity for coordination and trac... |  no  |
-| [PerformanceRequirement](PerformanceRequirement.md) | Performance target requirement (U-value, fire rating, airflow, acoustic, etc |  no  |
-| [SpatialRequirement](SpatialRequirement.md) | Spatial constraint requirement (min area, min height, adjacency, etc |  no  |
-| [RegulatoryRequirement](RegulatoryRequirement.md) | Regulatory reference requirement (building code, norm, standard) |  no  |
-| [BriefRequirement](BriefRequirement.md) | Client or programme requirement, including free-standing brief items |  no  |
-| [PhysicalElement](PhysicalElement.md) | Base class for physical elements that can be placed in built asset/level cont... |  no  |
-| [Separator](Separator.md) | Abstract base class for elements that separate spaces or zones |  no  |
-| [SeparatorWall](SeparatorWall.md) | Wall-based separating element |  no  |
-| [SeparatorSlab](SeparatorSlab.md) | Slab-based separating element (for example floor/roof/base slab separators) |  no  |
-| [ConnectionPhysical](ConnectionPhysical.md) | Physical connector providing functional connection between spaces (for exampl... |  no  |
-| [Boundary](Boundary.md) | Physical element acting as a boundary treatment (for example covering) |  no  |
-| [Equipment](Equipment.md) | Endpoint or device element (for example terminal, unit, control device, senso... |  no  |
-| [VirtualEntity](VirtualEntity.md) | Abstract base class for non-physical, conceptual, or informational entities |  no  |
-| [SpatialContext](SpatialContext.md) | Context node used to represent project, perimeter, legal site, built asset, l... |  no  |
-| [ProjectContext](ProjectContext.md) | Spatial context node constrained to project semantics |  no  |
-| [PerimeterContext](PerimeterContext.md) | Spatial context node constrained to perimeter semantics |  no  |
-| [LegalSiteContext](LegalSiteContext.md) | Spatial context node constrained to legal site semantics |  no  |
-| [BuiltAssetContext](BuiltAssetContext.md) | Abstract spatial context for built assets such as buildings and civil structu... |  no  |
-| [BuildingContext](BuildingContext.md) | Spatial context node constrained to building semantics |  no  |
-| [CivilStructureContext](CivilStructureContext.md) | Spatial context node constrained to civil structure semantics |  no  |
-| [LevelContext](LevelContext.md) | Spatial context node constrained to level/storey semantics |  no  |
-| [ZoneContext](ZoneContext.md) | Spatial context node constrained to zone semantics |  no  |
-| [Space](Space.md) | Spatial container used for occupancy, circulation, service, or analysis |  no  |
-| [System](System.md) | Building service system grouping that serves spaces or zones |  no  |
-| [ConnectionVirtual](ConnectionVirtual.md) | Logical or topological connection between spaces and/or physical elements |  no  |
-| [AbstractTimeRecord](AbstractTimeRecord.md) | Abstract base for reusable time/schedule record fields shared by atomic and g... |  no  |
-| [TimeItem](TimeItem.md) | Planned work item with baseline and actual dates, optionally linked to model ... |  no  |
-| [Milestone](Milestone.md) | Zero-duration checkpoint or delivery target within a time plan |  no  |
-| [TimePlan](TimePlan.md) | Grouped schedule container defining component items, milestones, and dependen... |  no  |
-| [TimeDependency](TimeDependency.md) | Precedence relationship between two time items within a plan, optionally with... |  no  |
-| [AbstractCostRecord](AbstractCostRecord.md) | Abstract base for reusable cost record fields shared by atomic and aggregated... |  no  |
-| [CostItem](CostItem.md) | Cost record used for estimation and calculation, optionally linked to quantit... |  no  |
-| [CostAssembly](CostAssembly.md) | Aggregated unit price assembled from multiple cost items |  no  |
-| [Material](Material.md) | Material definition that can be associated with one or more entities |  no  |
-
-
-
-
-
-
-## Properties
-
-### Type and Range
-
-| Property | Value |
-| --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Entity](Entity.md), [Requirement](Requirement.md) |
-
-### Cardinality and Requirements
-
-| Property | Value |
-| --- | --- |
-
-
-
-
-
-
-
-
-
-
-## Identifier and Mapping Information
-
-
-
-
-
-### Schema Source
-
-
-* from schema: https://schema.pragmaticbim.ch
-
-
-
-
-## Mappings
-
-| Mapping Type | Mapped Value |
-| ---  | ---  |
-| self | pbs:description |
-| native | pbs:description |
-
-
-
-
-## LinkML Source
-
+<h2 id="applicable-classes">Applicable Classes</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Modifies Slot</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Entity.html">Entity</a></td>
+<td>Common base class for all schema entities</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="Requirement.html">Requirement</a></td>
+<td>Prescriptive requirement record (content_kind requirement)</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="Agent.html">Agent</a></td>
+<td>Abstract base class for people or organizations acting in workflow and commun...</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="Person.html">Person</a></td>
+<td>Individual stakeholder, contributor, assignee, or responsible party represent...</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="Company.html">Company</a></td>
+<td>Organization, company, or legal entity participating in the project or asset ...</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="Message.html">Message</a></td>
+<td>Message or communication record linked to an entity for coordination and trac...</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="PerformanceRequirement.html">PerformanceRequirement</a></td>
+<td>Performance target requirement (U-value, fire rating, airflow, acoustic, etc</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="SpatialRequirement.html">SpatialRequirement</a></td>
+<td>Spatial constraint requirement (min area, min height, adjacency, etc</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="RegulatoryRequirement.html">RegulatoryRequirement</a></td>
+<td>Regulatory reference requirement (building code, norm, standard)</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="BriefRequirement.html">BriefRequirement</a></td>
+<td>Client or programme requirement, including free-standing brief items</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="PhysicalElement.html">PhysicalElement</a></td>
+<td>Base class for physical elements that can be placed in built asset/level cont...</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="Separator.html">Separator</a></td>
+<td>Abstract base class for elements that separate spaces or zones</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="SeparatorWall.html">SeparatorWall</a></td>
+<td>Wall-based separating element</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="SeparatorSlab.html">SeparatorSlab</a></td>
+<td>Slab-based separating element (for example floor/roof/base slab separators)</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="ConnectionPhysical.html">ConnectionPhysical</a></td>
+<td>Physical connector providing functional connection between spaces (for exampl...</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="Boundary.html">Boundary</a></td>
+<td>Physical element acting as a boundary treatment (for example covering)</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="Equipment.html">Equipment</a></td>
+<td>Endpoint or device element (for example terminal, unit, control device, senso...</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="VirtualEntity.html">VirtualEntity</a></td>
+<td>Abstract base class for non-physical, conceptual, or informational entities</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="SpatialContext.html">SpatialContext</a></td>
+<td>Context node used to represent project, perimeter, legal site, built asset, l...</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="ProjectContext.html">ProjectContext</a></td>
+<td>Spatial context node constrained to project semantics</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="PerimeterContext.html">PerimeterContext</a></td>
+<td>Spatial context node constrained to perimeter semantics</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="LegalSiteContext.html">LegalSiteContext</a></td>
+<td>Spatial context node constrained to legal site semantics</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="BuiltAssetContext.html">BuiltAssetContext</a></td>
+<td>Abstract spatial context for built assets such as buildings and civil structu...</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="BuildingContext.html">BuildingContext</a></td>
+<td>Spatial context node constrained to building semantics</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="CivilStructureContext.html">CivilStructureContext</a></td>
+<td>Spatial context node constrained to civil structure semantics</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="LevelContext.html">LevelContext</a></td>
+<td>Spatial context node constrained to level/storey semantics</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="ZoneContext.html">ZoneContext</a></td>
+<td>Spatial context node constrained to zone semantics</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="Space.html">Space</a></td>
+<td>Spatial container used for occupancy, circulation, service, or analysis</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="System.html">System</a></td>
+<td>Building service system grouping that serves spaces or zones</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="ConnectionVirtual.html">ConnectionVirtual</a></td>
+<td>Logical or topological connection between spaces and/or physical elements</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="AbstractTimeRecord.html">AbstractTimeRecord</a></td>
+<td>Abstract base for reusable time/schedule record fields shared by atomic and g...</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="TimeItem.html">TimeItem</a></td>
+<td>Planned work item with baseline and actual dates, optionally linked to model ...</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="Milestone.html">Milestone</a></td>
+<td>Zero-duration checkpoint or delivery target within a time plan</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="TimePlan.html">TimePlan</a></td>
+<td>Grouped schedule container defining component items, milestones, and dependen...</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="TimeDependency.html">TimeDependency</a></td>
+<td>Precedence relationship between two time items within a plan, optionally with...</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="AbstractCostRecord.html">AbstractCostRecord</a></td>
+<td>Abstract base for reusable cost record fields shared by atomic and aggregated...</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="CostItem.html">CostItem</a></td>
+<td>Cost record used for estimation and calculation, optionally linked to quantit...</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="CostAssembly.html">CostAssembly</a></td>
+<td>Aggregated unit price assembled from multiple cost items</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="Material.html">Material</a></td>
+<td>Material definition that can be associated with one or more entities</td>
+<td>no</td>
+</tr>
+</tbody>
+</table>
+<h2 id="properties">Properties</h2>
+<h3 id="type-and-range">Type and Range</h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Range</td>
+<td><a href="String.html">String</a></td>
+</tr>
+<tr>
+<td>Domain Of</td>
+<td><a href="Entity.html">Entity</a>, <a href="Requirement.html">Requirement</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="cardinality-and-requirements">Cardinality and Requirements</h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
+<h3 id="schema-source">Schema Source</h3>
+<ul>
+<li>from schema: https://schema.pragmaticbim.ch</li>
+</ul>
+<h2 id="mappings">Mappings</h2>
+<table>
+<thead>
+<tr>
+<th>Mapping Type</th>
+<th>Mapped Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>self</td>
+<td>pbs:description</td>
+</tr>
+<tr>
+<td>native</td>
+<td>pbs:description</td>
+</tr>
+</tbody>
+</table>
+<h2 id="linkml-source">LinkML Source</h2>
 <details>
 
 <pre><code class="language-yaml">name: description
@@ -161,7 +322,8 @@ range: string
 
 </code></pre>
 
-</details></div>
+</details>
+</div>
     <div id="diagram-modal" hidden>
       <div class="diagram-modal-panel">
         <div class="diagram-modal-header">

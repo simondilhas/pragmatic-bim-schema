@@ -39,58 +39,67 @@ a:hover { text-decoration: underline; }
 <hr>
 <h1 id="enum-propertypathkind">Enum: PropertyPathKind</h1>
 <p><em>Classification of a property path for diff interpretation across IFC and text sources.</em></p>
-<div data-search-exclude markdown="1">
-
-URI: [pbs:PropertyPathKind](https://schema.pragmaticbim.ch/PropertyPathKind)
-
-**Enum URI:** [pbs:PropertyPathKind](https://schema.pragmaticbim.ch/PropertyPathKind)
-
-
-## Permissible Values
-| Value | Meaning | Description |
-| --- | --- | --- |
-| ifc_attribute | pbs:property_path_kind_ifc_attribute | Direct IFC entity attribute (for example IfcWall |
-| ifc_pset | pbs:property_path_kind_ifc_pset | IFC PropertySet property (for example Pset_WallCommon |
-| schema_slot | pbs:property_path_kind_schema_slot | Field on a schema entity (for example description, space_type) |
-| document_field | pbs:property_path_kind_document_field | Structured field in an extracted document (for example section |
-| text_span | pbs:property_path_kind_text_span | Free-text span anchor (for example body:char_offset:1204-1389) |
-
-
-
-
-## Slots
-
-| Name | Description |
-| ---  | --- |
-| [property_path_kind](property_path_kind.md) | Classification of the property path for downstream diff interpretation |
-
-
-
-
-
-
-
-
-
-
-## Identifier and Mapping Information
-
-
-
-
-
-### Schema Source
-
-
-* from schema: https://schema.pragmaticbim.ch
-
-
-
-
-
-
-## LinkML Source
-
+<div data-search-exclude>
+<p>URI: <a href="https://schema.pragmaticbim.ch/PropertyPathKind">pbs:PropertyPathKind</a></p>
+<p><strong>Enum URI:</strong> <a href="https://schema.pragmaticbim.ch/PropertyPathKind">pbs:PropertyPathKind</a></p>
+<h2 id="permissible-values">Permissible Values</h2>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Meaning</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ifc_attribute</td>
+<td>pbs:property_path_kind_ifc_attribute</td>
+<td>Direct IFC entity attribute (for example IfcWall</td>
+</tr>
+<tr>
+<td>ifc_pset</td>
+<td>pbs:property_path_kind_ifc_pset</td>
+<td>IFC PropertySet property (for example Pset_WallCommon</td>
+</tr>
+<tr>
+<td>schema_slot</td>
+<td>pbs:property_path_kind_schema_slot</td>
+<td>Field on a schema entity (for example description, space_type)</td>
+</tr>
+<tr>
+<td>document_field</td>
+<td>pbs:property_path_kind_document_field</td>
+<td>Structured field in an extracted document (for example section</td>
+</tr>
+<tr>
+<td>text_span</td>
+<td>pbs:property_path_kind_text_span</td>
+<td>Free-text span anchor (for example body:char_offset:1204-1389)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="slots">Slots</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="property_path_kind.html">property_path_kind</a></td>
+<td>Classification of the property path for downstream diff interpretation</td>
+</tr>
+</tbody>
+</table>
+<h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
+<h3 id="schema-source">Schema Source</h3>
+<ul>
+<li>from schema: https://schema.pragmaticbim.ch</li>
+</ul>
+<h2 id="linkml-source">LinkML Source</h2>
 <details>
 
 <pre><code class="language-yaml">name: PropertyPathKind
@@ -124,7 +133,6 @@ permissible_values:
 </code></pre>
 
 </details>
-
 </div>
     <div id="diagram-modal" hidden>
       <div class="diagram-modal-panel">

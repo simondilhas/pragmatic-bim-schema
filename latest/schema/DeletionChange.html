@@ -39,17 +39,8 @@ a:hover { text-decoration: underline; }
 <hr>
 <h1 id="class-deletionchange">Class: DeletionChange</h1>
 <p><em>Entity or requirement removed in to_revision.</em></p>
-<div data-search-exclude markdown="1">
-
-
-
-URI: [pbs:DeletionChange](https://schema.pragmaticbim.ch/DeletionChange)
-
-
-
-
-
-
+<div data-search-exclude>
+<p>URI: <a href="https://schema.pragmaticbim.ch/DeletionChange">pbs:DeletionChange</a></p>
 <div class="mermaid">
  classDiagram
     class DeletionChange
@@ -83,93 +74,174 @@ URI: [pbs:DeletionChange](https://schema.pragmaticbim.ch/DeletionChange)
       DeletionChange : triggered_task
 
 </div>
-
-
-
-
-
-
-## Inheritance
-* [Change](Change.md)
-    * **DeletionChange**
-
-
-## Class Properties
-
-| Property | Value |
-| --- | --- |
-| Class URI | [pbs:DeletionChange](https://schema.pragmaticbim.ch/DeletionChange) |
-
-
-## Slots
-
-| Name | Cardinality and Range | Description | Inheritance |
-| ---  | --- | --- | --- |
-| [id](id.md) | 1 <br/> [String](String.md) | Unique local identifier | [Change](Change.md) |
-| [change_type](change_type.md) | 1 <br/> [String](String.md) | Category of change detected between two revisions | [Change](Change.md) |
-| [change_severity](change_severity.md) | 0..1 <br/> [ChangeSeverity](ChangeSeverity.md) | Optional severity independent of change type | [Change](Change.md) |
-| [intent_verdict](intent_verdict.md) | 0..1 <br/> [ChangeIntentVerdict](ChangeIntentVerdict.md) | Intent stability verdict from an automated judge (for example iterthink STABL... | [Change](Change.md) |
-| [affected_subject_id](affected_subject_id.md) | 1 <br/> [String](String.md) | Identifier of the changed subject (entity id, document id, or external key) | [Change](Change.md) |
-| [affected_subject_type](affected_subject_type.md) | 1 <br/> [String](String.md) | LinkML class name of the changed subject (for example Space, SeparatorWall, D... | [Change](Change.md) |
-| [affected_subject_path](affected_subject_path.md) | 0..1 <br/> [String](String.md) | Optional JSON-pointer-style path for nested targets (for example documents[2]... | [Change](Change.md) |
-| [ifc_global_id](ifc_global_id.md) | 0..1 <br/> [String](String.md) | IFC GlobalId of the mapped entity | [Change](Change.md) |
-| [document_storage_link](document_storage_link.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | Document location when the subject is or embeds a Document | [Change](Change.md) |
-| [from_revision](from_revision.md) | 1 <br/> [Integer](Integer.md) | Source revision number for this change | [Change](Change.md) |
-| [to_revision](to_revision.md) | 1 <br/> [Integer](Integer.md) | Target revision number for this change | [Change](Change.md) |
-| [from_state_ref](from_state_ref.md) | 0..1 <br/> [StateRef](StateRef.md) | Content state pointer at the source revision | [Change](Change.md) |
-| [to_state_ref](to_state_ref.md) | 0..1 <br/> [StateRef](StateRef.md) | Content state pointer at the target revision | [Change](Change.md) |
-| [triggered_task](triggered_task.md) | 0..1 <br/> [String](String.md) | Id of a Task record that this change triggered or should trigger | [Change](Change.md) |
-| [triggered_process](triggered_process.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | External workflow process URI (for example yourcompanyos process instance) | [Change](Change.md) |
-| [detected_at](detected_at.md) | 0..1 <br/> [Datetime](Datetime.md) | Timestamp when this change was detected | [Change](Change.md) |
-| [change_source](change_source.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | URI identifying the tool or pipeline that produced this change record | [Change](Change.md) |
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Identifier and Mapping Information
-
-
-
-
-
-### Schema Source
-
-
-* from schema: https://schema.pragmaticbim.ch
-
-
-
-
-## Mappings
-
-| Mapping Type | Mapped Value |
-| ---  | ---  |
-| self | pbs:DeletionChange |
-| native | pbs:DeletionChange |
-| exact | prov:Activity |
-
-
-
-
-
-
-## LinkML Source
-
+<h2 id="inheritance">Inheritance</h2>
+<ul>
+<li><a href="Change.html">Change</a><ul>
+<li><strong>DeletionChange</strong></li>
+</ul>
+</li>
+</ul>
+<h2 id="class-properties">Class Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Class URI</td>
+<td><a href="https://schema.pragmaticbim.ch/DeletionChange">pbs:DeletionChange</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="slots">Slots</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Cardinality and Range</th>
+<th>Description</th>
+<th>Inheritance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="id.html">id</a></td>
+<td>1 <br/> <a href="String.html">String</a></td>
+<td>Unique local identifier</td>
+<td><a href="Change.html">Change</a></td>
+</tr>
+<tr>
+<td><a href="change_type.html">change_type</a></td>
+<td>1 <br/> <a href="String.html">String</a></td>
+<td>Category of change detected between two revisions</td>
+<td><a href="Change.html">Change</a></td>
+</tr>
+<tr>
+<td><a href="change_severity.html">change_severity</a></td>
+<td>0..1 <br/> <a href="ChangeSeverity.html">ChangeSeverity</a></td>
+<td>Optional severity independent of change type</td>
+<td><a href="Change.html">Change</a></td>
+</tr>
+<tr>
+<td><a href="intent_verdict.html">intent_verdict</a></td>
+<td>0..1 <br/> <a href="ChangeIntentVerdict.html">ChangeIntentVerdict</a></td>
+<td>Intent stability verdict from an automated judge (for example iterthink STABL...</td>
+<td><a href="Change.html">Change</a></td>
+</tr>
+<tr>
+<td><a href="affected_subject_id.html">affected_subject_id</a></td>
+<td>1 <br/> <a href="String.html">String</a></td>
+<td>Identifier of the changed subject (entity id, document id, or external key)</td>
+<td><a href="Change.html">Change</a></td>
+</tr>
+<tr>
+<td><a href="affected_subject_type.html">affected_subject_type</a></td>
+<td>1 <br/> <a href="String.html">String</a></td>
+<td>LinkML class name of the changed subject (for example Space, SeparatorWall, D...</td>
+<td><a href="Change.html">Change</a></td>
+</tr>
+<tr>
+<td><a href="affected_subject_path.html">affected_subject_path</a></td>
+<td>0..1 <br/> <a href="String.html">String</a></td>
+<td>Optional JSON-pointer-style path for nested targets (for example documents[2]...</td>
+<td><a href="Change.html">Change</a></td>
+</tr>
+<tr>
+<td><a href="ifc_global_id.html">ifc_global_id</a></td>
+<td>0..1 <br/> <a href="String.html">String</a></td>
+<td>IFC GlobalId of the mapped entity</td>
+<td><a href="Change.html">Change</a></td>
+</tr>
+<tr>
+<td><a href="document_storage_link.html">document_storage_link</a></td>
+<td>0..1 <br/> <a href="Uriorcurie.html">Uriorcurie</a></td>
+<td>Document location when the subject is or embeds a Document</td>
+<td><a href="Change.html">Change</a></td>
+</tr>
+<tr>
+<td><a href="from_revision.html">from_revision</a></td>
+<td>1 <br/> <a href="Integer.html">Integer</a></td>
+<td>Source revision number for this change</td>
+<td><a href="Change.html">Change</a></td>
+</tr>
+<tr>
+<td><a href="to_revision.html">to_revision</a></td>
+<td>1 <br/> <a href="Integer.html">Integer</a></td>
+<td>Target revision number for this change</td>
+<td><a href="Change.html">Change</a></td>
+</tr>
+<tr>
+<td><a href="from_state_ref.html">from_state_ref</a></td>
+<td>0..1 <br/> <a href="StateRef.html">StateRef</a></td>
+<td>Content state pointer at the source revision</td>
+<td><a href="Change.html">Change</a></td>
+</tr>
+<tr>
+<td><a href="to_state_ref.html">to_state_ref</a></td>
+<td>0..1 <br/> <a href="StateRef.html">StateRef</a></td>
+<td>Content state pointer at the target revision</td>
+<td><a href="Change.html">Change</a></td>
+</tr>
+<tr>
+<td><a href="triggered_task.html">triggered_task</a></td>
+<td>0..1 <br/> <a href="String.html">String</a></td>
+<td>Id of a Task record that this change triggered or should trigger</td>
+<td><a href="Change.html">Change</a></td>
+</tr>
+<tr>
+<td><a href="triggered_process.html">triggered_process</a></td>
+<td>0..1 <br/> <a href="Uriorcurie.html">Uriorcurie</a></td>
+<td>External workflow process URI (for example yourcompanyos process instance)</td>
+<td><a href="Change.html">Change</a></td>
+</tr>
+<tr>
+<td><a href="detected_at.html">detected_at</a></td>
+<td>0..1 <br/> <a href="Datetime.html">Datetime</a></td>
+<td>Timestamp when this change was detected</td>
+<td><a href="Change.html">Change</a></td>
+</tr>
+<tr>
+<td><a href="change_source.html">change_source</a></td>
+<td>0..1 <br/> <a href="Uriorcurie.html">Uriorcurie</a></td>
+<td>URI identifying the tool or pipeline that produced this change record</td>
+<td><a href="Change.html">Change</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
+<h3 id="schema-source">Schema Source</h3>
+<ul>
+<li>from schema: https://schema.pragmaticbim.ch</li>
+</ul>
+<h2 id="mappings">Mappings</h2>
+<table>
+<thead>
+<tr>
+<th>Mapping Type</th>
+<th>Mapped Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>self</td>
+<td>pbs:DeletionChange</td>
+</tr>
+<tr>
+<td>native</td>
+<td>pbs:DeletionChange</td>
+</tr>
+<tr>
+<td>exact</td>
+<td>prov:Activity</td>
+</tr>
+</tbody>
+</table>
+<h2 id="linkml-source">LinkML Source</h2>
 <!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
-
-### Direct
-
+<h3 id="direct">Direct</h3>
 <details>
 
 <pre><code class="language-yaml">name: DeletionChange
@@ -188,9 +260,7 @@ class_uri: pbs:DeletionChange
 </code></pre>
 
 </details>
-
-### Induced
-
+<h3 id="induced">Induced</h3>
 <details>
 
 <pre><code class="language-yaml">name: DeletionChange
@@ -393,7 +463,8 @@ class_uri: pbs:DeletionChange
 
 </code></pre>
 
-</details></div>
+</details>
+</div>
     <div id="diagram-modal" hidden>
       <div class="diagram-modal-panel">
         <div class="diagram-modal-header">

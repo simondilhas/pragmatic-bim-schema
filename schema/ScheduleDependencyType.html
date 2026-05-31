@@ -39,57 +39,62 @@ a:hover { text-decoration: underline; }
 <hr>
 <h1 id="enum-scheduledependencytype">Enum: ScheduleDependencyType</h1>
 <p><em>Precedence logic between two schedule items.</em></p>
-<div data-search-exclude markdown="1">
-
-URI: [pbs:ScheduleDependencyType](https://schema.pragmaticbim.ch/ScheduleDependencyType)
-
-**Enum URI:** [pbs:ScheduleDependencyType](https://schema.pragmaticbim.ch/ScheduleDependencyType)
-
-
-## Permissible Values
-| Value | Meaning | Description |
-| --- | --- | --- |
-| finish_to_start | pbs:schedule_dependency_type_finish_to_start | Successor starts when the predecessor finishes |
-| start_to_start | pbs:schedule_dependency_type_start_to_start | Successor starts when the predecessor starts |
-| finish_to_finish | pbs:schedule_dependency_type_finish_to_finish | Successor finishes when the predecessor finishes |
-| start_to_finish | pbs:schedule_dependency_type_start_to_finish | Successor finishes when the predecessor starts |
-
-
-
-
-## Slots
-
-| Name | Description |
-| ---  | --- |
-| [dependency_type](dependency_type.md) | Precedence logic used between the predecessor and successor items |
-
-
-
-
-
-
-
-
-
-
-## Identifier and Mapping Information
-
-
-
-
-
-### Schema Source
-
-
-* from schema: https://schema.pragmaticbim.ch
-
-
-
-
-
-
-## LinkML Source
-
+<div data-search-exclude>
+<p>URI: <a href="https://schema.pragmaticbim.ch/ScheduleDependencyType">pbs:ScheduleDependencyType</a></p>
+<p><strong>Enum URI:</strong> <a href="https://schema.pragmaticbim.ch/ScheduleDependencyType">pbs:ScheduleDependencyType</a></p>
+<h2 id="permissible-values">Permissible Values</h2>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Meaning</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>finish_to_start</td>
+<td>pbs:schedule_dependency_type_finish_to_start</td>
+<td>Successor starts when the predecessor finishes</td>
+</tr>
+<tr>
+<td>start_to_start</td>
+<td>pbs:schedule_dependency_type_start_to_start</td>
+<td>Successor starts when the predecessor starts</td>
+</tr>
+<tr>
+<td>finish_to_finish</td>
+<td>pbs:schedule_dependency_type_finish_to_finish</td>
+<td>Successor finishes when the predecessor finishes</td>
+</tr>
+<tr>
+<td>start_to_finish</td>
+<td>pbs:schedule_dependency_type_start_to_finish</td>
+<td>Successor finishes when the predecessor starts</td>
+</tr>
+</tbody>
+</table>
+<h2 id="slots">Slots</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="dependency_type.html">dependency_type</a></td>
+<td>Precedence logic used between the predecessor and successor items</td>
+</tr>
+</tbody>
+</table>
+<h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
+<h3 id="schema-source">Schema Source</h3>
+<ul>
+<li>from schema: https://schema.pragmaticbim.ch</li>
+</ul>
+<h2 id="linkml-source">LinkML Source</h2>
 <details>
 
 <pre><code class="language-yaml">name: ScheduleDependencyType
@@ -118,7 +123,6 @@ permissible_values:
 </code></pre>
 
 </details>
-
 </div>
     <div id="diagram-modal" hidden>
       <div class="diagram-modal-panel">

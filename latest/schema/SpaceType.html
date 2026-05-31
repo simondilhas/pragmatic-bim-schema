@@ -39,59 +39,72 @@ a:hover { text-decoration: underline; }
 <hr>
 <h1 id="enum-spacetype">Enum: SpaceType</h1>
 <p><em>Classification of space semantics used by modeling and downstream conversion.</em></p>
-<div data-search-exclude markdown="1">
-
-URI: [pbs:SpaceType](https://schema.pragmaticbim.ch/SpaceType)
-
-**Enum URI:** [pbs:SpaceType](https://schema.pragmaticbim.ch/SpaceType)
-
-
-## Permissible Values
-| Value | Meaning | Description |
-| --- | --- | --- |
-| void | ifcowl:IfcSpace | Non-occupiable or intentionally empty space in the model |
-| circulation | ifcowl:IfcSpace | Space primarily intended for movement and access |
-| usable | ifcowl:IfcSpace | Space intended for regular occupancy or primary use |
-| service | ifcowl:IfcSpace | Space primarily intended for technical/service functions |
-| modeled_gross_floor_area | ifcowl:IfcSpace | Space classification used when representing gross floor area as modeled space |
-| modeled_gross_volume | ifcowl:IfcSpace | Space classification used when representing gross volume as modeled space |
-
-
-
-
-## Slots
-
-| Name | Description |
-| ---  | --- |
-| [space_type](space_type.md) | Classification of space (void, circulation, usable, service) |
-
-
-
-
-
-
-
-
-
-
-## Identifier and Mapping Information
-
-
-
-
-
-### Schema Source
-
-
-* from schema: https://schema.pragmaticbim.ch
-
-
-
-
-
-
-## LinkML Source
-
+<div data-search-exclude>
+<p>URI: <a href="https://schema.pragmaticbim.ch/SpaceType">pbs:SpaceType</a></p>
+<p><strong>Enum URI:</strong> <a href="https://schema.pragmaticbim.ch/SpaceType">pbs:SpaceType</a></p>
+<h2 id="permissible-values">Permissible Values</h2>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Meaning</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>void</td>
+<td>ifcowl:IfcSpace</td>
+<td>Non-occupiable or intentionally empty space in the model</td>
+</tr>
+<tr>
+<td>circulation</td>
+<td>ifcowl:IfcSpace</td>
+<td>Space primarily intended for movement and access</td>
+</tr>
+<tr>
+<td>usable</td>
+<td>ifcowl:IfcSpace</td>
+<td>Space intended for regular occupancy or primary use</td>
+</tr>
+<tr>
+<td>service</td>
+<td>ifcowl:IfcSpace</td>
+<td>Space primarily intended for technical/service functions</td>
+</tr>
+<tr>
+<td>modeled_gross_floor_area</td>
+<td>ifcowl:IfcSpace</td>
+<td>Space classification used when representing gross floor area as modeled space</td>
+</tr>
+<tr>
+<td>modeled_gross_volume</td>
+<td>ifcowl:IfcSpace</td>
+<td>Space classification used when representing gross volume as modeled space</td>
+</tr>
+</tbody>
+</table>
+<h2 id="slots">Slots</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="space_type.html">space_type</a></td>
+<td>Classification of space (void, circulation, usable, service)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
+<h3 id="schema-source">Schema Source</h3>
+<ul>
+<li>from schema: https://schema.pragmaticbim.ch</li>
+</ul>
+<h2 id="linkml-source">LinkML Source</h2>
 <details>
 
 <pre><code class="language-yaml">name: SpaceType
@@ -130,7 +143,6 @@ permissible_values:
 </code></pre>
 
 </details>
-
 </div>
     <div id="diagram-modal" hidden>
       <div class="diagram-modal-panel">

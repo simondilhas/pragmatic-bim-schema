@@ -39,58 +39,66 @@ a:hover { text-decoration: underline; }
 <hr>
 <h1 id="enum-geometryrepresentationtype">Enum: GeometryRepresentationType</h1>
 <p><em>Classification of geometric representation dimension/style.</em></p>
-<div data-search-exclude markdown="1">
-
-URI: [pbs:GeometryRepresentationType](https://schema.pragmaticbim.ch/GeometryRepresentationType)
-
-**Enum URI:** [pbs:GeometryRepresentationType](https://schema.pragmaticbim.ch/GeometryRepresentationType)
-
-
-## Permissible Values
-| Value | Meaning | Description |
-| --- | --- | --- |
-| axis | None | Linear axis/centerline representation |
-| body_3d | None | 3D volumetric/body representation |
-| footprint_2d | None | 2D surface/footprint representation |
-| point | None | Point/dot representation |
-
-
-
-
-## Slots
-
-| Name | Description |
-| ---  | --- |
-| [geometry_representation](geometry_representation.md) | Representation kind/dimension (for example body_3d, footprint_2d, point), ind... |
-| [affected_geometry_role](affected_geometry_role.md) | Geometry role affected when change_type is geometry_change |
-
-
-
-
-
-
-
-
-
-
-## Identifier and Mapping Information
-
-
-
-
-
-### Schema Source
-
-
-* from schema: https://schema.pragmaticbim.ch
-
-
-
-
-
-
-## LinkML Source
-
+<div data-search-exclude>
+<p>URI: <a href="https://schema.pragmaticbim.ch/GeometryRepresentationType">pbs:GeometryRepresentationType</a></p>
+<p><strong>Enum URI:</strong> <a href="https://schema.pragmaticbim.ch/GeometryRepresentationType">pbs:GeometryRepresentationType</a></p>
+<h2 id="permissible-values">Permissible Values</h2>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Meaning</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>axis</td>
+<td>None</td>
+<td>Linear axis/centerline representation</td>
+</tr>
+<tr>
+<td>body_3d</td>
+<td>None</td>
+<td>3D volumetric/body representation</td>
+</tr>
+<tr>
+<td>footprint_2d</td>
+<td>None</td>
+<td>2D surface/footprint representation</td>
+</tr>
+<tr>
+<td>point</td>
+<td>None</td>
+<td>Point/dot representation</td>
+</tr>
+</tbody>
+</table>
+<h2 id="slots">Slots</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="geometry_representation.html">geometry_representation</a></td>
+<td>Representation kind/dimension (for example body_3d, footprint_2d, point), ind...</td>
+</tr>
+<tr>
+<td><a href="affected_geometry_role.html">affected_geometry_role</a></td>
+<td>Geometry role affected when change_type is geometry_change</td>
+</tr>
+</tbody>
+</table>
+<h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
+<h3 id="schema-source">Schema Source</h3>
+<ul>
+<li>from schema: https://schema.pragmaticbim.ch</li>
+</ul>
+<h2 id="linkml-source">LinkML Source</h2>
 <details>
 
 <pre><code class="language-yaml">name: GeometryRepresentationType
@@ -115,7 +123,6 @@ permissible_values:
 </code></pre>
 
 </details>
-
 </div>
     <div id="diagram-modal" hidden>
       <div class="diagram-modal-panel">

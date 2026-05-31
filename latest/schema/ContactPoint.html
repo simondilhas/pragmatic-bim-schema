@@ -39,17 +39,8 @@ a:hover { text-decoration: underline; }
 <hr>
 <h1 id="class-contactpoint">Class: ContactPoint</h1>
 <p><em>Structured communication endpoint or profile for an agent.</em></p>
-<div data-search-exclude markdown="1">
-
-
-
-URI: [pbs:ContactPoint](https://schema.pragmaticbim.ch/ContactPoint)
-
-
-
-
-
-
+<div data-search-exclude>
+<p>URI: <a href="https://schema.pragmaticbim.ch/ContactPoint">pbs:ContactPoint</a></p>
 <div class="mermaid">
  classDiagram
     class ContactPoint
@@ -62,87 +53,133 @@ URI: [pbs:ContactPoint](https://schema.pragmaticbim.ch/ContactPoint)
       ContactPoint : usage_context
 
 </div>
-
-
-
-
-
 <!-- no inheritance hierarchy -->
-
-## Class Properties
-
-| Property | Value |
-| --- | --- |
-| Class URI | [pbs:ContactPoint](https://schema.pragmaticbim.ch/ContactPoint) |
-
-
-## Slots
-
-| Name | Cardinality and Range | Description | Inheritance |
-| ---  | --- | --- | --- |
-| [contact_channel_type](contact_channel_type.md) | 0..1 <br/> [String](String.md) | Communication channel type such as email, phone, website, linkedin, whatsapp,... | direct |
-| [contact_value](contact_value.md) | 0..1 <br/> [String](String.md) | Human-readable contact value such as an email address, phone number, handle, ... | direct |
-| [contact_uri](contact_uri.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | URI for the contact endpoint or profile where applicable | direct |
-| [usage_context](usage_context.md) | 0..1 <br/> [String](String.md) | Optional usage context such as work, personal, support, billing, or emergency | direct |
-| [is_preferred](is_preferred.md) | 0..1 <br/> [Boolean](Boolean.md) | Indicates whether this is the preferred contact point | direct |
-| [availability_notes](availability_notes.md) | 0..1 <br/> [String](String.md) | Optional notes about availability, office hours, or response expectations | direct |
-
-
-
-
-
-## Usages
-
-| used by | used in | type | used |
-| ---  | --- | --- | --- |
-| [Agent](Agent.md) | [contact_points](contact_points.md) | range | [ContactPoint](ContactPoint.md) |
-| [Person](Person.md) | [contact_points](contact_points.md) | range | [ContactPoint](ContactPoint.md) |
-| [Company](Company.md) | [contact_points](contact_points.md) | range | [ContactPoint](ContactPoint.md) |
-
-
-
-
-
-
-
-
-
-
-
-
-## Identifier and Mapping Information
-
-
-
-
-
-### Schema Source
-
-
-* from schema: https://schema.pragmaticbim.ch
-
-
-
-
-## Mappings
-
-| Mapping Type | Mapped Value |
-| ---  | ---  |
-| self | pbs:ContactPoint |
-| native | pbs:ContactPoint |
-| exact | schema:ContactPoint |
-
-
-
-
-
-
-## LinkML Source
-
+<h2 id="class-properties">Class Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Class URI</td>
+<td><a href="https://schema.pragmaticbim.ch/ContactPoint">pbs:ContactPoint</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="slots">Slots</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Cardinality and Range</th>
+<th>Description</th>
+<th>Inheritance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="contact_channel_type.html">contact_channel_type</a></td>
+<td>0..1 <br/> <a href="String.html">String</a></td>
+<td>Communication channel type such as email, phone, website, linkedin, whatsapp,...</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="contact_value.html">contact_value</a></td>
+<td>0..1 <br/> <a href="String.html">String</a></td>
+<td>Human-readable contact value such as an email address, phone number, handle, ...</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="contact_uri.html">contact_uri</a></td>
+<td>0..1 <br/> <a href="Uriorcurie.html">Uriorcurie</a></td>
+<td>URI for the contact endpoint or profile where applicable</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="usage_context.html">usage_context</a></td>
+<td>0..1 <br/> <a href="String.html">String</a></td>
+<td>Optional usage context such as work, personal, support, billing, or emergency</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="is_preferred.html">is_preferred</a></td>
+<td>0..1 <br/> <a href="Boolean.html">Boolean</a></td>
+<td>Indicates whether this is the preferred contact point</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="availability_notes.html">availability_notes</a></td>
+<td>0..1 <br/> <a href="String.html">String</a></td>
+<td>Optional notes about availability, office hours, or response expectations</td>
+<td>direct</td>
+</tr>
+</tbody>
+</table>
+<h2 id="usages">Usages</h2>
+<table>
+<thead>
+<tr>
+<th>used by</th>
+<th>used in</th>
+<th>type</th>
+<th>used</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Agent.html">Agent</a></td>
+<td><a href="contact_points.html">contact_points</a></td>
+<td>range</td>
+<td><a href="ContactPoint.html">ContactPoint</a></td>
+</tr>
+<tr>
+<td><a href="Person.html">Person</a></td>
+<td><a href="contact_points.html">contact_points</a></td>
+<td>range</td>
+<td><a href="ContactPoint.html">ContactPoint</a></td>
+</tr>
+<tr>
+<td><a href="Company.html">Company</a></td>
+<td><a href="contact_points.html">contact_points</a></td>
+<td>range</td>
+<td><a href="ContactPoint.html">ContactPoint</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
+<h3 id="schema-source">Schema Source</h3>
+<ul>
+<li>from schema: https://schema.pragmaticbim.ch</li>
+</ul>
+<h2 id="mappings">Mappings</h2>
+<table>
+<thead>
+<tr>
+<th>Mapping Type</th>
+<th>Mapped Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>self</td>
+<td>pbs:ContactPoint</td>
+</tr>
+<tr>
+<td>native</td>
+<td>pbs:ContactPoint</td>
+</tr>
+<tr>
+<td>exact</td>
+<td>schema:ContactPoint</td>
+</tr>
+</tbody>
+</table>
+<h2 id="linkml-source">LinkML Source</h2>
 <!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
-
-### Direct
-
+<h3 id="direct">Direct</h3>
 <details>
 
 <pre><code class="language-yaml">name: ContactPoint
@@ -162,9 +199,7 @@ class_uri: pbs:ContactPoint
 </code></pre>
 
 </details>
-
-### Induced
-
+<h3 id="induced">Induced</h3>
 <details>
 
 <pre><code class="language-yaml">name: ContactPoint
@@ -234,7 +269,8 @@ class_uri: pbs:ContactPoint
 
 </code></pre>
 
-</details></div>
+</details>
+</div>
     <div id="diagram-modal" hidden>
       <div class="diagram-modal-panel">
         <div class="diagram-modal-header">

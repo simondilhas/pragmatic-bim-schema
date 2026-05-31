@@ -39,55 +39,52 @@ a:hover { text-decoration: underline; }
 <hr>
 <h1 id="enum-changeintentverdict">Enum: ChangeIntentVerdict</h1>
 <p><em>Intent stability verdict from an automated judge (for example iterthink STABLE/NEW).</em></p>
-<div data-search-exclude markdown="1">
-
-URI: [pbs:ChangeIntentVerdict](https://schema.pragmaticbim.ch/ChangeIntentVerdict)
-
-**Enum URI:** [pbs:ChangeIntentVerdict](https://schema.pragmaticbim.ch/ChangeIntentVerdict)
-
-
-## Permissible Values
-| Value | Meaning | Description |
-| --- | --- | --- |
-| stable | pbs:change_intent_verdict_stable | Change preserves design intent; downstream rules may treat as cosmetic |
-| new_intent | pbs:change_intent_verdict_new_intent | Change alters design intent; may require re-evaluation or new tasks |
-
-
-
-
-## Slots
-
-| Name | Description |
-| ---  | --- |
-| [intent_verdict](intent_verdict.md) | Intent stability verdict from an automated judge (for example iterthink STABL... |
-
-
-
-
-
-
-
-
-
-
-## Identifier and Mapping Information
-
-
-
-
-
-### Schema Source
-
-
-* from schema: https://schema.pragmaticbim.ch
-
-
-
-
-
-
-## LinkML Source
-
+<div data-search-exclude>
+<p>URI: <a href="https://schema.pragmaticbim.ch/ChangeIntentVerdict">pbs:ChangeIntentVerdict</a></p>
+<p><strong>Enum URI:</strong> <a href="https://schema.pragmaticbim.ch/ChangeIntentVerdict">pbs:ChangeIntentVerdict</a></p>
+<h2 id="permissible-values">Permissible Values</h2>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Meaning</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>stable</td>
+<td>pbs:change_intent_verdict_stable</td>
+<td>Change preserves design intent; downstream rules may treat as cosmetic</td>
+</tr>
+<tr>
+<td>new_intent</td>
+<td>pbs:change_intent_verdict_new_intent</td>
+<td>Change alters design intent; may require re-evaluation or new tasks</td>
+</tr>
+</tbody>
+</table>
+<h2 id="slots">Slots</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="intent_verdict.html">intent_verdict</a></td>
+<td>Intent stability verdict from an automated judge (for example iterthink STABL...</td>
+</tr>
+</tbody>
+</table>
+<h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
+<h3 id="schema-source">Schema Source</h3>
+<ul>
+<li>from schema: https://schema.pragmaticbim.ch</li>
+</ul>
+<h2 id="linkml-source">LinkML Source</h2>
 <details>
 
 <pre><code class="language-yaml">name: ChangeIntentVerdict
@@ -109,7 +106,6 @@ permissible_values:
 </code></pre>
 
 </details>
-
 </div>
     <div id="diagram-modal" hidden>
       <div class="diagram-modal-panel">

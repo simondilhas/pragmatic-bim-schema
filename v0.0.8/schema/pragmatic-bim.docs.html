@@ -52,37 +52,16 @@ flowchart TB
   Root --> changes["Changes"]
 
 </div>
-<h3 id="entity-hierarchy-overview">Entity hierarchy (overview)</h3>
+<h3 id="three-pillars-overview">Three pillars (overview)</h3>
 <div class="mermaid">
-classDiagram
-  direction TB
-  Entity <|-- Agent
-  Agent <|-- Company
-  Agent <|-- Person
-  Entity <|-- Message
-  Entity <|-- PhysicalElement
-  PhysicalElement <|-- Boundary
-  PhysicalElement <|-- ConnectionPhysical
-  PhysicalElement <|-- Equipment
-  PhysicalElement <|-- Separator
-  Entity <|-- VirtualEntity
-  VirtualEntity <|-- AbstractCostRecord
-  VirtualEntity <|-- AbstractTimeRecord
-  VirtualEntity <|-- ConnectionVirtual
-  VirtualEntity <|-- Material
-  VirtualEntity <|-- Space
-  VirtualEntity <|-- SpatialContext
-  VirtualEntity <|-- System
-  VirtualEntity <|-- TimeDependency
-  PerformanceProperty <|-- AcousticProperty
-  PerformanceProperty <|-- FireProperty
-  PerformanceProperty <|-- MaterialProperty
-  PerformanceProperty <|-- SecurityProperty
-  PerformanceProperty <|-- StructuralProperty
-  PerformanceProperty <|-- ThermalProperty
+flowchart TB
+  Root["Pragmatic BIM Data Contract"]
+  Root --> Entity["Entities"]
+  Root --> Requirement["Requirements"]
+  Root --> Change["Changes"]
 
 </div>
-<h3 id="entity-model">Entity model</h3>
+<h3 id="entities-detail">Entities (detail)</h3>
 <div class="mermaid">
 classDiagram
   direction TB
@@ -119,21 +98,16 @@ classDiagram
   SpatialContext <|-- ZoneContext
   VirtualEntity <|-- System
   VirtualEntity <|-- TimeDependency
-
-</div>
-<h3 id="entity-performance-properties">Entity performance properties</h3>
-<div class="mermaid">
-classDiagram
-  direction TB
   PerformanceProperty <|-- AcousticProperty
   PerformanceProperty <|-- FireProperty
   PerformanceProperty <|-- MaterialProperty
   PerformanceProperty <|-- SecurityProperty
   PerformanceProperty <|-- StructuralProperty
   PerformanceProperty <|-- ThermalProperty
+  Entity *-- PerformanceProperty
 
 </div>
-<h3 id="requirements">Requirements</h3>
+<h3 id="requirements-detail">Requirements (detail)</h3>
 <div class="mermaid">
 classDiagram
   direction TB
@@ -143,7 +117,7 @@ classDiagram
   Requirement <|-- SpatialRequirement
 
 </div>
-<h3 id="changes">Changes</h3>
+<h3 id="changes-detail">Changes (detail)</h3>
 <div class="mermaid">
 classDiagram
   direction TB

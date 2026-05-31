@@ -39,17 +39,8 @@ a:hover { text-decoration: underline; }
 <hr>
 <h1 id="class-decision">Class: Decision</h1>
 <p><em>Decision record linked to an entity for workflow traceability and governance.</em></p>
-<div data-search-exclude markdown="1">
-
-
-
-URI: [pbs:Decision](https://schema.pragmaticbim.ch/Decision)
-
-
-
-
-
-
+<div data-search-exclude>
+<p>URI: <a href="https://schema.pragmaticbim.ch/Decision">pbs:Decision</a></p>
 <div class="mermaid">
  classDiagram
     class Decision
@@ -63,118 +54,319 @@ URI: [pbs:Decision](https://schema.pragmaticbim.ch/Decision)
       Decision : rationale
 
 </div>
-
-
-
-
-
 <!-- no inheritance hierarchy -->
-
-## Class Properties
-
-| Property | Value |
-| --- | --- |
-| Class URI | [pbs:Decision](https://schema.pragmaticbim.ch/Decision) |
-
-
-## Slots
-
-| Name | Cardinality and Range | Description | Inheritance |
-| ---  | --- | --- | --- |
-| [decision_type](decision_type.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | Decision type expressed as a URI/CURIE from a controlled vocabulary | direct |
-| [decision_status](decision_status.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | Decision status expressed as a URI/CURIE (for example proposed, accepted, rej... | direct |
-| [decided_by](decided_by.md) | 0..1 <br/> [Agent](Agent.md) | Agent responsible for the decision | direct |
-| [decided_at](decided_at.md) | 0..1 <br/> [Datetime](Datetime.md) | Timestamp when the decision was made | direct |
-| [rationale](rationale.md) | 0..1 <br/> [String](String.md) | Human-readable rationale that explains why the decision was made | direct |
-
-
-
-
-
-## Usages
-
-| used by | used in | type | used |
-| ---  | --- | --- | --- |
-| [Entity](Entity.md) | [decisions](decisions.md) | range | [Decision](Decision.md) |
-| [Agent](Agent.md) | [decisions](decisions.md) | range | [Decision](Decision.md) |
-| [Person](Person.md) | [decisions](decisions.md) | range | [Decision](Decision.md) |
-| [Company](Company.md) | [decisions](decisions.md) | range | [Decision](Decision.md) |
-| [Task](Task.md) | [related_decision](related_decision.md) | range | [Decision](Decision.md) |
-| [Message](Message.md) | [decisions](decisions.md) | range | [Decision](Decision.md) |
-| [PhysicalElement](PhysicalElement.md) | [decisions](decisions.md) | range | [Decision](Decision.md) |
-| [Separator](Separator.md) | [decisions](decisions.md) | range | [Decision](Decision.md) |
-| [SeparatorWall](SeparatorWall.md) | [decisions](decisions.md) | range | [Decision](Decision.md) |
-| [SeparatorSlab](SeparatorSlab.md) | [decisions](decisions.md) | range | [Decision](Decision.md) |
-| [ConnectionPhysical](ConnectionPhysical.md) | [decisions](decisions.md) | range | [Decision](Decision.md) |
-| [Boundary](Boundary.md) | [decisions](decisions.md) | range | [Decision](Decision.md) |
-| [Equipment](Equipment.md) | [decisions](decisions.md) | range | [Decision](Decision.md) |
-| [VirtualEntity](VirtualEntity.md) | [decisions](decisions.md) | range | [Decision](Decision.md) |
-| [SpatialContext](SpatialContext.md) | [decisions](decisions.md) | range | [Decision](Decision.md) |
-| [ProjectContext](ProjectContext.md) | [decisions](decisions.md) | range | [Decision](Decision.md) |
-| [PerimeterContext](PerimeterContext.md) | [decisions](decisions.md) | range | [Decision](Decision.md) |
-| [LegalSiteContext](LegalSiteContext.md) | [decisions](decisions.md) | range | [Decision](Decision.md) |
-| [BuiltAssetContext](BuiltAssetContext.md) | [decisions](decisions.md) | range | [Decision](Decision.md) |
-| [BuildingContext](BuildingContext.md) | [decisions](decisions.md) | range | [Decision](Decision.md) |
-| [CivilStructureContext](CivilStructureContext.md) | [decisions](decisions.md) | range | [Decision](Decision.md) |
-| [LevelContext](LevelContext.md) | [decisions](decisions.md) | range | [Decision](Decision.md) |
-| [ZoneContext](ZoneContext.md) | [decisions](decisions.md) | range | [Decision](Decision.md) |
-| [Space](Space.md) | [decisions](decisions.md) | range | [Decision](Decision.md) |
-| [System](System.md) | [decisions](decisions.md) | range | [Decision](Decision.md) |
-| [ConnectionVirtual](ConnectionVirtual.md) | [decisions](decisions.md) | range | [Decision](Decision.md) |
-| [AbstractTimeRecord](AbstractTimeRecord.md) | [decisions](decisions.md) | range | [Decision](Decision.md) |
-| [TimeItem](TimeItem.md) | [decisions](decisions.md) | range | [Decision](Decision.md) |
-| [Milestone](Milestone.md) | [decisions](decisions.md) | range | [Decision](Decision.md) |
-| [TimePlan](TimePlan.md) | [decisions](decisions.md) | range | [Decision](Decision.md) |
-| [TimeDependency](TimeDependency.md) | [decisions](decisions.md) | range | [Decision](Decision.md) |
-| [AbstractCostRecord](AbstractCostRecord.md) | [decisions](decisions.md) | range | [Decision](Decision.md) |
-| [CostItem](CostItem.md) | [decisions](decisions.md) | range | [Decision](Decision.md) |
-| [CostAssembly](CostAssembly.md) | [decisions](decisions.md) | range | [Decision](Decision.md) |
-| [Material](Material.md) | [decisions](decisions.md) | range | [Decision](Decision.md) |
-
-
-
-
-
-
-
-
-
-
-
-
-## Identifier and Mapping Information
-
-
-
-
-
-### Schema Source
-
-
-* from schema: https://schema.pragmaticbim.ch
-
-
-
-
-## Mappings
-
-| Mapping Type | Mapped Value |
-| ---  | ---  |
-| self | pbs:Decision |
-| native | pbs:Decision |
-| exact | prov:Entity |
-
-
-
-
-
-
-## LinkML Source
-
+<h2 id="class-properties">Class Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Class URI</td>
+<td><a href="https://schema.pragmaticbim.ch/Decision">pbs:Decision</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="slots">Slots</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Cardinality and Range</th>
+<th>Description</th>
+<th>Inheritance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="decision_type.html">decision_type</a></td>
+<td>0..1 <br/> <a href="Uriorcurie.html">Uriorcurie</a></td>
+<td>Decision type expressed as a URI/CURIE from a controlled vocabulary</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="decision_status.html">decision_status</a></td>
+<td>0..1 <br/> <a href="Uriorcurie.html">Uriorcurie</a></td>
+<td>Decision status expressed as a URI/CURIE (for example proposed, accepted, rej...</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="decided_by.html">decided_by</a></td>
+<td>0..1 <br/> <a href="Agent.html">Agent</a></td>
+<td>Agent responsible for the decision</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="decided_at.html">decided_at</a></td>
+<td>0..1 <br/> <a href="Datetime.html">Datetime</a></td>
+<td>Timestamp when the decision was made</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="rationale.html">rationale</a></td>
+<td>0..1 <br/> <a href="String.html">String</a></td>
+<td>Human-readable rationale that explains why the decision was made</td>
+<td>direct</td>
+</tr>
+</tbody>
+</table>
+<h2 id="usages">Usages</h2>
+<table>
+<thead>
+<tr>
+<th>used by</th>
+<th>used in</th>
+<th>type</th>
+<th>used</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Entity.html">Entity</a></td>
+<td><a href="decisions.html">decisions</a></td>
+<td>range</td>
+<td><a href="Decision.html">Decision</a></td>
+</tr>
+<tr>
+<td><a href="Agent.html">Agent</a></td>
+<td><a href="decisions.html">decisions</a></td>
+<td>range</td>
+<td><a href="Decision.html">Decision</a></td>
+</tr>
+<tr>
+<td><a href="Person.html">Person</a></td>
+<td><a href="decisions.html">decisions</a></td>
+<td>range</td>
+<td><a href="Decision.html">Decision</a></td>
+</tr>
+<tr>
+<td><a href="Company.html">Company</a></td>
+<td><a href="decisions.html">decisions</a></td>
+<td>range</td>
+<td><a href="Decision.html">Decision</a></td>
+</tr>
+<tr>
+<td><a href="Task.html">Task</a></td>
+<td><a href="related_decision.html">related_decision</a></td>
+<td>range</td>
+<td><a href="Decision.html">Decision</a></td>
+</tr>
+<tr>
+<td><a href="Message.html">Message</a></td>
+<td><a href="decisions.html">decisions</a></td>
+<td>range</td>
+<td><a href="Decision.html">Decision</a></td>
+</tr>
+<tr>
+<td><a href="PhysicalElement.html">PhysicalElement</a></td>
+<td><a href="decisions.html">decisions</a></td>
+<td>range</td>
+<td><a href="Decision.html">Decision</a></td>
+</tr>
+<tr>
+<td><a href="Separator.html">Separator</a></td>
+<td><a href="decisions.html">decisions</a></td>
+<td>range</td>
+<td><a href="Decision.html">Decision</a></td>
+</tr>
+<tr>
+<td><a href="SeparatorWall.html">SeparatorWall</a></td>
+<td><a href="decisions.html">decisions</a></td>
+<td>range</td>
+<td><a href="Decision.html">Decision</a></td>
+</tr>
+<tr>
+<td><a href="SeparatorSlab.html">SeparatorSlab</a></td>
+<td><a href="decisions.html">decisions</a></td>
+<td>range</td>
+<td><a href="Decision.html">Decision</a></td>
+</tr>
+<tr>
+<td><a href="ConnectionPhysical.html">ConnectionPhysical</a></td>
+<td><a href="decisions.html">decisions</a></td>
+<td>range</td>
+<td><a href="Decision.html">Decision</a></td>
+</tr>
+<tr>
+<td><a href="Boundary.html">Boundary</a></td>
+<td><a href="decisions.html">decisions</a></td>
+<td>range</td>
+<td><a href="Decision.html">Decision</a></td>
+</tr>
+<tr>
+<td><a href="Equipment.html">Equipment</a></td>
+<td><a href="decisions.html">decisions</a></td>
+<td>range</td>
+<td><a href="Decision.html">Decision</a></td>
+</tr>
+<tr>
+<td><a href="VirtualEntity.html">VirtualEntity</a></td>
+<td><a href="decisions.html">decisions</a></td>
+<td>range</td>
+<td><a href="Decision.html">Decision</a></td>
+</tr>
+<tr>
+<td><a href="SpatialContext.html">SpatialContext</a></td>
+<td><a href="decisions.html">decisions</a></td>
+<td>range</td>
+<td><a href="Decision.html">Decision</a></td>
+</tr>
+<tr>
+<td><a href="ProjectContext.html">ProjectContext</a></td>
+<td><a href="decisions.html">decisions</a></td>
+<td>range</td>
+<td><a href="Decision.html">Decision</a></td>
+</tr>
+<tr>
+<td><a href="PerimeterContext.html">PerimeterContext</a></td>
+<td><a href="decisions.html">decisions</a></td>
+<td>range</td>
+<td><a href="Decision.html">Decision</a></td>
+</tr>
+<tr>
+<td><a href="LegalSiteContext.html">LegalSiteContext</a></td>
+<td><a href="decisions.html">decisions</a></td>
+<td>range</td>
+<td><a href="Decision.html">Decision</a></td>
+</tr>
+<tr>
+<td><a href="BuiltAssetContext.html">BuiltAssetContext</a></td>
+<td><a href="decisions.html">decisions</a></td>
+<td>range</td>
+<td><a href="Decision.html">Decision</a></td>
+</tr>
+<tr>
+<td><a href="BuildingContext.html">BuildingContext</a></td>
+<td><a href="decisions.html">decisions</a></td>
+<td>range</td>
+<td><a href="Decision.html">Decision</a></td>
+</tr>
+<tr>
+<td><a href="CivilStructureContext.html">CivilStructureContext</a></td>
+<td><a href="decisions.html">decisions</a></td>
+<td>range</td>
+<td><a href="Decision.html">Decision</a></td>
+</tr>
+<tr>
+<td><a href="LevelContext.html">LevelContext</a></td>
+<td><a href="decisions.html">decisions</a></td>
+<td>range</td>
+<td><a href="Decision.html">Decision</a></td>
+</tr>
+<tr>
+<td><a href="ZoneContext.html">ZoneContext</a></td>
+<td><a href="decisions.html">decisions</a></td>
+<td>range</td>
+<td><a href="Decision.html">Decision</a></td>
+</tr>
+<tr>
+<td><a href="Space.html">Space</a></td>
+<td><a href="decisions.html">decisions</a></td>
+<td>range</td>
+<td><a href="Decision.html">Decision</a></td>
+</tr>
+<tr>
+<td><a href="System.html">System</a></td>
+<td><a href="decisions.html">decisions</a></td>
+<td>range</td>
+<td><a href="Decision.html">Decision</a></td>
+</tr>
+<tr>
+<td><a href="ConnectionVirtual.html">ConnectionVirtual</a></td>
+<td><a href="decisions.html">decisions</a></td>
+<td>range</td>
+<td><a href="Decision.html">Decision</a></td>
+</tr>
+<tr>
+<td><a href="AbstractTimeRecord.html">AbstractTimeRecord</a></td>
+<td><a href="decisions.html">decisions</a></td>
+<td>range</td>
+<td><a href="Decision.html">Decision</a></td>
+</tr>
+<tr>
+<td><a href="TimeItem.html">TimeItem</a></td>
+<td><a href="decisions.html">decisions</a></td>
+<td>range</td>
+<td><a href="Decision.html">Decision</a></td>
+</tr>
+<tr>
+<td><a href="Milestone.html">Milestone</a></td>
+<td><a href="decisions.html">decisions</a></td>
+<td>range</td>
+<td><a href="Decision.html">Decision</a></td>
+</tr>
+<tr>
+<td><a href="TimePlan.html">TimePlan</a></td>
+<td><a href="decisions.html">decisions</a></td>
+<td>range</td>
+<td><a href="Decision.html">Decision</a></td>
+</tr>
+<tr>
+<td><a href="TimeDependency.html">TimeDependency</a></td>
+<td><a href="decisions.html">decisions</a></td>
+<td>range</td>
+<td><a href="Decision.html">Decision</a></td>
+</tr>
+<tr>
+<td><a href="AbstractCostRecord.html">AbstractCostRecord</a></td>
+<td><a href="decisions.html">decisions</a></td>
+<td>range</td>
+<td><a href="Decision.html">Decision</a></td>
+</tr>
+<tr>
+<td><a href="CostItem.html">CostItem</a></td>
+<td><a href="decisions.html">decisions</a></td>
+<td>range</td>
+<td><a href="Decision.html">Decision</a></td>
+</tr>
+<tr>
+<td><a href="CostAssembly.html">CostAssembly</a></td>
+<td><a href="decisions.html">decisions</a></td>
+<td>range</td>
+<td><a href="Decision.html">Decision</a></td>
+</tr>
+<tr>
+<td><a href="Material.html">Material</a></td>
+<td><a href="decisions.html">decisions</a></td>
+<td>range</td>
+<td><a href="Decision.html">Decision</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
+<h3 id="schema-source">Schema Source</h3>
+<ul>
+<li>from schema: https://schema.pragmaticbim.ch</li>
+</ul>
+<h2 id="mappings">Mappings</h2>
+<table>
+<thead>
+<tr>
+<th>Mapping Type</th>
+<th>Mapped Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>self</td>
+<td>pbs:Decision</td>
+</tr>
+<tr>
+<td>native</td>
+<td>pbs:Decision</td>
+</tr>
+<tr>
+<td>exact</td>
+<td>prov:Entity</td>
+</tr>
+</tbody>
+</table>
+<h2 id="linkml-source">LinkML Source</h2>
 <!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
-
-### Direct
-
+<h3 id="direct">Direct</h3>
 <details>
 
 <pre><code class="language-yaml">name: Decision
@@ -193,9 +385,7 @@ class_uri: pbs:Decision
 </code></pre>
 
 </details>
-
-### Induced
-
+<h3 id="induced">Induced</h3>
 <details>
 
 <pre><code class="language-yaml">name: Decision
@@ -260,7 +450,8 @@ class_uri: pbs:Decision
 
 </code></pre>
 
-</details></div>
+</details>
+</div>
     <div id="diagram-modal" hidden>
       <div class="diagram-modal-panel">
         <div class="diagram-modal-header">

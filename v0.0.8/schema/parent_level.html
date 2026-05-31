@@ -39,93 +39,166 @@ a:hover { text-decoration: underline; }
 <hr>
 <h1 id="slot-parent_level">Slot: parent_level</h1>
 <p><em>Parent level/storey context reference.</em></p>
-<div data-search-exclude markdown="1">
-
-
-
-URI: [pbs:parent_level](https://schema.pragmaticbim.ch/parent_level)
+<div data-search-exclude>
+<p>URI: <a href="https://schema.pragmaticbim.ch/parent_level">pbs:parent_level</a></p>
 <!-- no inheritance hierarchy -->
-
-
-
-
-
-## Applicable Classes
-
-| Name | Description | Modifies Slot |
-| --- | --- | --- |
-| [PhysicalElement](PhysicalElement.md) | Base class for physical elements that can be placed in built asset/level cont... |  yes  |
-| [SpatialContext](SpatialContext.md) | Context node used to represent project, perimeter, legal site, built asset, l... |  yes  |
-| [Space](Space.md) | Spatial container used for occupancy, circulation, service, or analysis |  yes  |
-| [Separator](Separator.md) | Abstract base class for elements that separate spaces or zones |  no  |
-| [SeparatorWall](SeparatorWall.md) | Wall-based separating element |  no  |
-| [SeparatorSlab](SeparatorSlab.md) | Slab-based separating element (for example floor/roof/base slab separators) |  no  |
-| [ConnectionPhysical](ConnectionPhysical.md) | Physical connector providing functional connection between spaces (for exampl... |  no  |
-| [Boundary](Boundary.md) | Physical element acting as a boundary treatment (for example covering) |  no  |
-| [Equipment](Equipment.md) | Endpoint or device element (for example terminal, unit, control device, senso... |  no  |
-| [ProjectContext](ProjectContext.md) | Spatial context node constrained to project semantics |  no  |
-| [PerimeterContext](PerimeterContext.md) | Spatial context node constrained to perimeter semantics |  no  |
-| [LegalSiteContext](LegalSiteContext.md) | Spatial context node constrained to legal site semantics |  no  |
-| [BuiltAssetContext](BuiltAssetContext.md) | Abstract spatial context for built assets such as buildings and civil structu... |  no  |
-| [BuildingContext](BuildingContext.md) | Spatial context node constrained to building semantics |  no  |
-| [CivilStructureContext](CivilStructureContext.md) | Spatial context node constrained to civil structure semantics |  no  |
-| [LevelContext](LevelContext.md) | Spatial context node constrained to level/storey semantics |  no  |
-| [ZoneContext](ZoneContext.md) | Spatial context node constrained to zone semantics |  no  |
-
-
-
-
-
-
-## Properties
-
-### Type and Range
-
-| Property | Value |
-| --- | --- |
-| Range | [Entity](Entity.md) |
-| Domain Of | [PhysicalElement](PhysicalElement.md), [SpatialContext](SpatialContext.md), [Space](Space.md) |
-
-### Cardinality and Requirements
-
-| Property | Value |
-| --- | --- |
-
-
-
-
-
-
-
-
-
-
-## Identifier and Mapping Information
-
-
-
-
-
-### Schema Source
-
-
-* from schema: https://schema.pragmaticbim.ch
-
-
-
-
-## Mappings
-
-| Mapping Type | Mapped Value |
-| ---  | ---  |
-| self | pbs:parent_level |
-| native | pbs:parent_level |
-
-
-
-
-## LinkML Source
-
+<h2 id="applicable-classes">Applicable Classes</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Modifies Slot</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="PhysicalElement.html">PhysicalElement</a></td>
+<td>Base class for physical elements that can be placed in built asset/level cont...</td>
+<td>yes</td>
+</tr>
+<tr>
+<td><a href="SpatialContext.html">SpatialContext</a></td>
+<td>Context node used to represent project, perimeter, legal site, built asset, l...</td>
+<td>yes</td>
+</tr>
+<tr>
+<td><a href="Space.html">Space</a></td>
+<td>Spatial container used for occupancy, circulation, service, or analysis</td>
+<td>yes</td>
+</tr>
+<tr>
+<td><a href="Separator.html">Separator</a></td>
+<td>Abstract base class for elements that separate spaces or zones</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="SeparatorWall.html">SeparatorWall</a></td>
+<td>Wall-based separating element</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="SeparatorSlab.html">SeparatorSlab</a></td>
+<td>Slab-based separating element (for example floor/roof/base slab separators)</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="ConnectionPhysical.html">ConnectionPhysical</a></td>
+<td>Physical connector providing functional connection between spaces (for exampl...</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="Boundary.html">Boundary</a></td>
+<td>Physical element acting as a boundary treatment (for example covering)</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="Equipment.html">Equipment</a></td>
+<td>Endpoint or device element (for example terminal, unit, control device, senso...</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="ProjectContext.html">ProjectContext</a></td>
+<td>Spatial context node constrained to project semantics</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="PerimeterContext.html">PerimeterContext</a></td>
+<td>Spatial context node constrained to perimeter semantics</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="LegalSiteContext.html">LegalSiteContext</a></td>
+<td>Spatial context node constrained to legal site semantics</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="BuiltAssetContext.html">BuiltAssetContext</a></td>
+<td>Abstract spatial context for built assets such as buildings and civil structu...</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="BuildingContext.html">BuildingContext</a></td>
+<td>Spatial context node constrained to building semantics</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="CivilStructureContext.html">CivilStructureContext</a></td>
+<td>Spatial context node constrained to civil structure semantics</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="LevelContext.html">LevelContext</a></td>
+<td>Spatial context node constrained to level/storey semantics</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="ZoneContext.html">ZoneContext</a></td>
+<td>Spatial context node constrained to zone semantics</td>
+<td>no</td>
+</tr>
+</tbody>
+</table>
+<h2 id="properties">Properties</h2>
+<h3 id="type-and-range">Type and Range</h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Range</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td>Domain Of</td>
+<td><a href="PhysicalElement.html">PhysicalElement</a>, <a href="SpatialContext.html">SpatialContext</a>, <a href="Space.html">Space</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="cardinality-and-requirements">Cardinality and Requirements</h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
+<h3 id="schema-source">Schema Source</h3>
+<ul>
+<li>from schema: https://schema.pragmaticbim.ch</li>
+</ul>
+<h2 id="mappings">Mappings</h2>
+<table>
+<thead>
+<tr>
+<th>Mapping Type</th>
+<th>Mapped Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>self</td>
+<td>pbs:parent_level</td>
+</tr>
+<tr>
+<td>native</td>
+<td>pbs:parent_level</td>
+</tr>
+</tbody>
+</table>
+<h2 id="linkml-source">LinkML Source</h2>
 <details>
 
 <pre><code class="language-yaml">name: parent_level
@@ -140,7 +213,8 @@ range: Entity
 
 </code></pre>
 
-</details></div>
+</details>
+</div>
     <div id="diagram-modal" hidden>
       <div class="diagram-modal-panel">
         <div class="diagram-modal-header">

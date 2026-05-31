@@ -40,17 +40,8 @@ a:hover { text-decoration: underline; }
 <h1 id="class-changeset">Class: ChangeSet</h1>
 <p><em>Batch of Change records produced by comparing two model or document revisions.</em></p>
 <p>__</p>
-<div data-search-exclude markdown="1">
-
-
-
-URI: [pbs:ChangeSet](https://schema.pragmaticbim.ch/ChangeSet)
-
-
-
-
-
-
+<div data-search-exclude>
+<p>URI: <a href="https://schema.pragmaticbim.ch/ChangeSet">pbs:ChangeSet</a></p>
 <div class="mermaid">
  classDiagram
     class ChangeSet
@@ -73,80 +64,114 @@ URI: [pbs:ChangeSet](https://schema.pragmaticbim.ch/ChangeSet)
       ChangeSet : to_revision
 
 </div>
-
-
-
-
-
 <!-- no inheritance hierarchy -->
-
-## Class Properties
-
-| Property | Value |
-| --- | --- |
-| Class URI | [pbs:ChangeSet](https://schema.pragmaticbim.ch/ChangeSet) |
-
-
-## Slots
-
-| Name | Cardinality and Range | Description | Inheritance |
-| ---  | --- | --- | --- |
-| [id](id.md) | 1 <br/> [String](String.md) | Unique local identifier | direct |
-| [from_revision](from_revision.md) | 1 <br/> [Integer](Integer.md) | Source revision number for this change | direct |
-| [to_revision](to_revision.md) | 1 <br/> [Integer](Integer.md) | Target revision number for this change | direct |
-| [changes](changes.md) | * <br/> [Change](Change.md) | Change records included in this batch | direct |
-| [ifc_state_ref](ifc_state_ref.md) | 0..1 <br/> [StateRef](StateRef.md) | Optional baseline IFC model state for the comparison that produced this chang... | direct |
-| [document_state_refs](document_state_refs.md) | * <br/> [StateRef](StateRef.md) | Optional baseline document states for the comparison that produced this chang... | direct |
-| [produced_at](produced_at.md) | 0..1 <br/> [Datetime](Datetime.md) | Timestamp when this changeset was produced | direct |
-| [produced_by](produced_by.md) | 0..1 <br/> [Agent](Agent.md) | Agent or system that produced this changeset | direct |
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Identifier and Mapping Information
-
-
-
-
-
-### Schema Source
-
-
-* from schema: https://schema.pragmaticbim.ch
-
-
-
-
-## Mappings
-
-| Mapping Type | Mapped Value |
-| ---  | ---  |
-| self | pbs:ChangeSet |
-| native | pbs:ChangeSet |
-| exact | prov:Entity |
-
-
-
-
-
-
-## LinkML Source
-
+<h2 id="class-properties">Class Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Class URI</td>
+<td><a href="https://schema.pragmaticbim.ch/ChangeSet">pbs:ChangeSet</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="slots">Slots</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Cardinality and Range</th>
+<th>Description</th>
+<th>Inheritance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="id.html">id</a></td>
+<td>1 <br/> <a href="String.html">String</a></td>
+<td>Unique local identifier</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="from_revision.html">from_revision</a></td>
+<td>1 <br/> <a href="Integer.html">Integer</a></td>
+<td>Source revision number for this change</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="to_revision.html">to_revision</a></td>
+<td>1 <br/> <a href="Integer.html">Integer</a></td>
+<td>Target revision number for this change</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="changes.html">changes</a></td>
+<td>* <br/> <a href="Change.html">Change</a></td>
+<td>Change records included in this batch</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="ifc_state_ref.html">ifc_state_ref</a></td>
+<td>0..1 <br/> <a href="StateRef.html">StateRef</a></td>
+<td>Optional baseline IFC model state for the comparison that produced this chang...</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="document_state_refs.html">document_state_refs</a></td>
+<td>* <br/> <a href="StateRef.html">StateRef</a></td>
+<td>Optional baseline document states for the comparison that produced this chang...</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="produced_at.html">produced_at</a></td>
+<td>0..1 <br/> <a href="Datetime.html">Datetime</a></td>
+<td>Timestamp when this changeset was produced</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="produced_by.html">produced_by</a></td>
+<td>0..1 <br/> <a href="Agent.html">Agent</a></td>
+<td>Agent or system that produced this changeset</td>
+<td>direct</td>
+</tr>
+</tbody>
+</table>
+<h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
+<h3 id="schema-source">Schema Source</h3>
+<ul>
+<li>from schema: https://schema.pragmaticbim.ch</li>
+</ul>
+<h2 id="mappings">Mappings</h2>
+<table>
+<thead>
+<tr>
+<th>Mapping Type</th>
+<th>Mapped Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>self</td>
+<td>pbs:ChangeSet</td>
+</tr>
+<tr>
+<td>native</td>
+<td>pbs:ChangeSet</td>
+</tr>
+<tr>
+<td>exact</td>
+<td>prov:Entity</td>
+</tr>
+</tbody>
+</table>
+<h2 id="linkml-source">LinkML Source</h2>
 <!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
-
-### Direct
-
+<h3 id="direct">Direct</h3>
 <details>
 
 <pre><code class="language-yaml">name: ChangeSet
@@ -176,9 +201,7 @@ class_uri: pbs:ChangeSet
 </code></pre>
 
 </details>
-
-### Induced
-
+<h3 id="induced">Induced</h3>
 <details>
 
 <pre><code class="language-yaml">name: ChangeSet
@@ -294,7 +317,8 @@ class_uri: pbs:ChangeSet
 
 </code></pre>
 
-</details></div>
+</details>
+</div>
     <div id="diagram-modal" hidden>
       <div class="diagram-modal-panel">
         <div class="diagram-modal-header">

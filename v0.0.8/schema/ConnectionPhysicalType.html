@@ -39,61 +39,82 @@ a:hover { text-decoration: underline; }
 <hr>
 <h1 id="enum-connectionphysicaltype">Enum: ConnectionPhysicalType</h1>
 <p><em>Classification of physical connector elements that connect spaces.</em></p>
-<div data-search-exclude markdown="1">
-
-URI: [pbs:ConnectionPhysicalType](https://schema.pragmaticbim.ch/ConnectionPhysicalType)
-
-**Enum URI:** [pbs:ConnectionPhysicalType](https://schema.pragmaticbim.ch/ConnectionPhysicalType)
-
-
-## Permissible Values
-| Value | Meaning | Description |
-| --- | --- | --- |
-| door | ifcowl:IfcDoor | Human access connector via a door element |
-| window | ifcowl:IfcWindow | Visual/daylight connector via a window element |
-| duct | ifcowl:IfcDuctSegment | Air distribution connector segment |
-| pipe | ifcowl:IfcPipeSegment | Fluid/gas distribution connector segment |
-| cable | ifcowl:IfcCableSegment | Electrical/data cable connector segment |
-| conduit | ifcowl:IfcConduitSegment | Electrical/data conduit connector segment |
-| opening_other | ifcowl:IfcOpeningElement | Other opening-style connector not covered by door/window |
-| network_other | ifcowl:IfcFlowSegment | Other network connector segment not covered by controlled values |
-
-
-
-
-## Slots
-
-| Name | Description |
-| ---  | --- |
-| [connection_physical_type](connection_physical_type.md) | Classification of physical connector type (for example door, window, duct, pi... |
-
-
-
-
-
-
-
-
-
-
-## Identifier and Mapping Information
-
-
-
-
-
-### Schema Source
-
-
-* from schema: https://schema.pragmaticbim.ch
-
-
-
-
-
-
-## LinkML Source
-
+<div data-search-exclude>
+<p>URI: <a href="https://schema.pragmaticbim.ch/ConnectionPhysicalType">pbs:ConnectionPhysicalType</a></p>
+<p><strong>Enum URI:</strong> <a href="https://schema.pragmaticbim.ch/ConnectionPhysicalType">pbs:ConnectionPhysicalType</a></p>
+<h2 id="permissible-values">Permissible Values</h2>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Meaning</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>door</td>
+<td>ifcowl:IfcDoor</td>
+<td>Human access connector via a door element</td>
+</tr>
+<tr>
+<td>window</td>
+<td>ifcowl:IfcWindow</td>
+<td>Visual/daylight connector via a window element</td>
+</tr>
+<tr>
+<td>duct</td>
+<td>ifcowl:IfcDuctSegment</td>
+<td>Air distribution connector segment</td>
+</tr>
+<tr>
+<td>pipe</td>
+<td>ifcowl:IfcPipeSegment</td>
+<td>Fluid/gas distribution connector segment</td>
+</tr>
+<tr>
+<td>cable</td>
+<td>ifcowl:IfcCableSegment</td>
+<td>Electrical/data cable connector segment</td>
+</tr>
+<tr>
+<td>conduit</td>
+<td>ifcowl:IfcConduitSegment</td>
+<td>Electrical/data conduit connector segment</td>
+</tr>
+<tr>
+<td>opening_other</td>
+<td>ifcowl:IfcOpeningElement</td>
+<td>Other opening-style connector not covered by door/window</td>
+</tr>
+<tr>
+<td>network_other</td>
+<td>ifcowl:IfcFlowSegment</td>
+<td>Other network connector segment not covered by controlled values</td>
+</tr>
+</tbody>
+</table>
+<h2 id="slots">Slots</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="connection_physical_type.html">connection_physical_type</a></td>
+<td>Classification of physical connector type (for example door, window, duct, pi...</td>
+</tr>
+</tbody>
+</table>
+<h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
+<h3 id="schema-source">Schema Source</h3>
+<ul>
+<li>from schema: https://schema.pragmaticbim.ch</li>
+</ul>
+<h2 id="linkml-source">LinkML Source</h2>
 <details>
 
 <pre><code class="language-yaml">name: ConnectionPhysicalType
@@ -138,7 +159,6 @@ permissible_values:
 </code></pre>
 
 </details>
-
 </div>
     <div id="diagram-modal" hidden>
       <div class="diagram-modal-panel">

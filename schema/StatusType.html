@@ -39,59 +39,72 @@ a:hover { text-decoration: underline; }
 <hr>
 <h1 id="enum-statustype">Enum: StatusType</h1>
 <p><em>Lifecycle or QA gate status used for model progression and approvals.</em></p>
-<div data-search-exclude markdown="1">
-
-URI: [pbs:StatusType](https://schema.pragmaticbim.ch/StatusType)
-
-**Enum URI:** [pbs:StatusType](https://schema.pragmaticbim.ch/StatusType)
-
-
-## Permissible Values
-| Value | Meaning | Description |
-| --- | --- | --- |
-| draft | pbs:status_draft | Work-in-progress state before formal review |
-| submitted | pbs:status_submitted | Submitted state for review or approval |
-| reviewed | pbs:status_reviewed | Reviewed state pending final approval decision |
-| approved | pbs:status_approved | Approved state accepted for downstream use |
-| rejected | pbs:status_rejected | Rejected state not accepted for downstream use |
-| archived | pbs:status_archived | Archived state no longer in use |
-
-
-
-
-## Slots
-
-| Name | Description |
-| ---  | --- |
-| [status](status.md) | Lifecycle or QA status |
-
-
-
-
-
-
-
-
-
-
-## Identifier and Mapping Information
-
-
-
-
-
-### Schema Source
-
-
-* from schema: https://schema.pragmaticbim.ch
-
-
-
-
-
-
-## LinkML Source
-
+<div data-search-exclude>
+<p>URI: <a href="https://schema.pragmaticbim.ch/StatusType">pbs:StatusType</a></p>
+<p><strong>Enum URI:</strong> <a href="https://schema.pragmaticbim.ch/StatusType">pbs:StatusType</a></p>
+<h2 id="permissible-values">Permissible Values</h2>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Meaning</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>draft</td>
+<td>pbs:status_draft</td>
+<td>Work-in-progress state before formal review</td>
+</tr>
+<tr>
+<td>submitted</td>
+<td>pbs:status_submitted</td>
+<td>Submitted state for review or approval</td>
+</tr>
+<tr>
+<td>reviewed</td>
+<td>pbs:status_reviewed</td>
+<td>Reviewed state pending final approval decision</td>
+</tr>
+<tr>
+<td>approved</td>
+<td>pbs:status_approved</td>
+<td>Approved state accepted for downstream use</td>
+</tr>
+<tr>
+<td>rejected</td>
+<td>pbs:status_rejected</td>
+<td>Rejected state not accepted for downstream use</td>
+</tr>
+<tr>
+<td>archived</td>
+<td>pbs:status_archived</td>
+<td>Archived state no longer in use</td>
+</tr>
+</tbody>
+</table>
+<h2 id="slots">Slots</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="status.html">status</a></td>
+<td>Lifecycle or QA status</td>
+</tr>
+</tbody>
+</table>
+<h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
+<h3 id="schema-source">Schema Source</h3>
+<ul>
+<li>from schema: https://schema.pragmaticbim.ch</li>
+</ul>
+<h2 id="linkml-source">LinkML Source</h2>
 <details>
 
 <pre><code class="language-yaml">name: StatusType
@@ -128,7 +141,6 @@ permissible_values:
 </code></pre>
 
 </details>
-
 </div>
     <div id="diagram-modal" hidden>
       <div class="diagram-modal-panel">

@@ -39,59 +39,72 @@ a:hover { text-decoration: underline; }
 <hr>
 <h1 id="enum-staterefkind">Enum: StateRefKind</h1>
 <p><em>Kind of content referenced by a StateRef pointer.</em></p>
-<div data-search-exclude markdown="1">
-
-URI: [pbs:StateRefKind](https://schema.pragmaticbim.ch/StateRefKind)
-
-**Enum URI:** [pbs:StateRefKind](https://schema.pragmaticbim.ch/StateRefKind)
-
-
-## Permissible Values
-| Value | Meaning | Description |
-| --- | --- | --- |
-| ifc_model | pbs:state_ref_kind_ifc_model | Whole IFC file or subset export |
-| geometry | pbs:state_ref_kind_geometry | Geometry payload or representation blob |
-| document | pbs:state_ref_kind_document | Original file in DMS or object storage |
-| text_extract | pbs:state_ref_kind_text_extract | Normalized or extracted text used for diffing |
-| entity_record | pbs:state_ref_kind_entity_record | Serialized entity record at a specific revision |
-| other | pbs:state_ref_kind_other | Other content kind not covered by controlled values |
-
-
-
-
-## Slots
-
-| Name | Description |
-| ---  | --- |
-| [state_ref_kind](state_ref_kind.md) | Kind of content referenced (for example ifc_model, document, text_extract) |
-
-
-
-
-
-
-
-
-
-
-## Identifier and Mapping Information
-
-
-
-
-
-### Schema Source
-
-
-* from schema: https://schema.pragmaticbim.ch
-
-
-
-
-
-
-## LinkML Source
-
+<div data-search-exclude>
+<p>URI: <a href="https://schema.pragmaticbim.ch/StateRefKind">pbs:StateRefKind</a></p>
+<p><strong>Enum URI:</strong> <a href="https://schema.pragmaticbim.ch/StateRefKind">pbs:StateRefKind</a></p>
+<h2 id="permissible-values">Permissible Values</h2>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Meaning</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ifc_model</td>
+<td>pbs:state_ref_kind_ifc_model</td>
+<td>Whole IFC file or subset export</td>
+</tr>
+<tr>
+<td>geometry</td>
+<td>pbs:state_ref_kind_geometry</td>
+<td>Geometry payload or representation blob</td>
+</tr>
+<tr>
+<td>document</td>
+<td>pbs:state_ref_kind_document</td>
+<td>Original file in DMS or object storage</td>
+</tr>
+<tr>
+<td>text_extract</td>
+<td>pbs:state_ref_kind_text_extract</td>
+<td>Normalized or extracted text used for diffing</td>
+</tr>
+<tr>
+<td>entity_record</td>
+<td>pbs:state_ref_kind_entity_record</td>
+<td>Serialized entity record at a specific revision</td>
+</tr>
+<tr>
+<td>other</td>
+<td>pbs:state_ref_kind_other</td>
+<td>Other content kind not covered by controlled values</td>
+</tr>
+</tbody>
+</table>
+<h2 id="slots">Slots</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="state_ref_kind.html">state_ref_kind</a></td>
+<td>Kind of content referenced (for example ifc_model, document, text_extract)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
+<h3 id="schema-source">Schema Source</h3>
+<ul>
+<li>from schema: https://schema.pragmaticbim.ch</li>
+</ul>
+<h2 id="linkml-source">LinkML Source</h2>
 <details>
 
 <pre><code class="language-yaml">name: StateRefKind
@@ -128,7 +141,6 @@ permissible_values:
 </code></pre>
 
 </details>
-
 </div>
     <div id="diagram-modal" hidden>
       <div class="diagram-modal-panel">

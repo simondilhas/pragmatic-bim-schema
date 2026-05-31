@@ -39,17 +39,8 @@ a:hover { text-decoration: underline; }
 <hr>
 <h1 id="class-briefrequirement">Class: BriefRequirement</h1>
 <p><em>Client or programme requirement, including free-standing brief items.</em></p>
-<div data-search-exclude markdown="1">
-
-
-
-URI: [pbs:BriefRequirement](https://schema.pragmaticbim.ch/BriefRequirement)
-
-
-
-
-
-
+<div data-search-exclude>
+<p>URI: <a href="https://schema.pragmaticbim.ch/BriefRequirement">pbs:BriefRequirement</a></p>
 <div class="mermaid">
  classDiagram
     class BriefRequirement
@@ -71,84 +62,122 @@ URI: [pbs:BriefRequirement](https://schema.pragmaticbim.ch/BriefRequirement)
         click StatusType href "./StatusType.html"
 
 </div>
-
-
-
-
-
-
-## Inheritance
-* [Requirement](Requirement.md)
-    * **BriefRequirement**
-
-
-## Class Properties
-
-| Property | Value |
-| --- | --- |
-| Class URI | [pbs:BriefRequirement](https://schema.pragmaticbim.ch/BriefRequirement) |
-
-
-## Slots
-
-| Name | Cardinality and Range | Description | Inheritance |
-| ---  | --- | --- | --- |
-| [programme_ref](programme_ref.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | URI or identifier for a programme or brief document | direct |
-| [statement](statement.md) | 0..1 <br/> [String](String.md) | Free-text requirement statement from client or programme | direct |
-| [id](id.md) | 1 <br/> [String](String.md) | Unique local identifier | [Requirement](Requirement.md) |
-| [name](name.md) | 1 <br/> [String](String.md) | Default display name | [Requirement](Requirement.md) |
-| [description](description.md) | 0..1 <br/> [String](String.md) | Default description text | [Requirement](Requirement.md) |
-| [requirement_domain](requirement_domain.md) | 1 <br/> [String](String.md) | Domain of this requirement record (performance, spatial, regulatory, brief) | [Requirement](Requirement.md) |
-| [applies_to_entities](applies_to_entities.md) | * <br/> [Entity](Entity.md) | Model entities this record applies to (requirements, cost items, schedule ite... | [Requirement](Requirement.md) |
-| [source_document](source_document.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | Optional URI to norm, brief, or source document backing this requirement | [Requirement](Requirement.md) |
-| [status](status.md) | 0..1 <br/> [StatusType](StatusType.md) | Lifecycle or QA status | [Requirement](Requirement.md) |
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Identifier and Mapping Information
-
-
-
-
-
-### Schema Source
-
-
-* from schema: https://schema.pragmaticbim.ch
-
-
-
-
-## Mappings
-
-| Mapping Type | Mapped Value |
-| ---  | ---  |
-| self | pbs:BriefRequirement |
-| native | pbs:BriefRequirement |
-
-
-
-
-
-
-## LinkML Source
-
+<h2 id="inheritance">Inheritance</h2>
+<ul>
+<li><a href="Requirement.html">Requirement</a><ul>
+<li><strong>BriefRequirement</strong></li>
+</ul>
+</li>
+</ul>
+<h2 id="class-properties">Class Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Class URI</td>
+<td><a href="https://schema.pragmaticbim.ch/BriefRequirement">pbs:BriefRequirement</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="slots">Slots</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Cardinality and Range</th>
+<th>Description</th>
+<th>Inheritance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="programme_ref.html">programme_ref</a></td>
+<td>0..1 <br/> <a href="Uriorcurie.html">Uriorcurie</a></td>
+<td>URI or identifier for a programme or brief document</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="statement.html">statement</a></td>
+<td>0..1 <br/> <a href="String.html">String</a></td>
+<td>Free-text requirement statement from client or programme</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="id.html">id</a></td>
+<td>1 <br/> <a href="String.html">String</a></td>
+<td>Unique local identifier</td>
+<td><a href="Requirement.html">Requirement</a></td>
+</tr>
+<tr>
+<td><a href="name.html">name</a></td>
+<td>1 <br/> <a href="String.html">String</a></td>
+<td>Default display name</td>
+<td><a href="Requirement.html">Requirement</a></td>
+</tr>
+<tr>
+<td><a href="description.html">description</a></td>
+<td>0..1 <br/> <a href="String.html">String</a></td>
+<td>Default description text</td>
+<td><a href="Requirement.html">Requirement</a></td>
+</tr>
+<tr>
+<td><a href="requirement_domain.html">requirement_domain</a></td>
+<td>1 <br/> <a href="String.html">String</a></td>
+<td>Domain of this requirement record (performance, spatial, regulatory, brief)</td>
+<td><a href="Requirement.html">Requirement</a></td>
+</tr>
+<tr>
+<td><a href="applies_to_entities.html">applies_to_entities</a></td>
+<td>* <br/> <a href="Entity.html">Entity</a></td>
+<td>Model entities this record applies to (requirements, cost items, schedule ite...</td>
+<td><a href="Requirement.html">Requirement</a></td>
+</tr>
+<tr>
+<td><a href="source_document.html">source_document</a></td>
+<td>0..1 <br/> <a href="Uriorcurie.html">Uriorcurie</a></td>
+<td>Optional URI to norm, brief, or source document backing this requirement</td>
+<td><a href="Requirement.html">Requirement</a></td>
+</tr>
+<tr>
+<td><a href="status.html">status</a></td>
+<td>0..1 <br/> <a href="StatusType.html">StatusType</a></td>
+<td>Lifecycle or QA status</td>
+<td><a href="Requirement.html">Requirement</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
+<h3 id="schema-source">Schema Source</h3>
+<ul>
+<li>from schema: https://schema.pragmaticbim.ch</li>
+</ul>
+<h2 id="mappings">Mappings</h2>
+<table>
+<thead>
+<tr>
+<th>Mapping Type</th>
+<th>Mapped Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>self</td>
+<td>pbs:BriefRequirement</td>
+</tr>
+<tr>
+<td>native</td>
+<td>pbs:BriefRequirement</td>
+</tr>
+</tbody>
+</table>
+<h2 id="linkml-source">LinkML Source</h2>
 <!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
-
-### Direct
-
+<h3 id="direct">Direct</h3>
 <details>
 
 <pre><code class="language-yaml">name: BriefRequirement
@@ -168,9 +197,7 @@ class_uri: pbs:BriefRequirement
 </code></pre>
 
 </details>
-
-### Induced
-
+<h3 id="induced">Induced</h3>
 <details>
 
 <pre><code class="language-yaml">name: BriefRequirement
@@ -287,7 +314,8 @@ class_uri: pbs:BriefRequirement
 
 </code></pre>
 
-</details></div>
+</details>
+</div>
     <div id="diagram-modal" hidden>
       <div class="diagram-modal-panel">
         <div class="diagram-modal-header">

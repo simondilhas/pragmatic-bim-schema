@@ -39,57 +39,62 @@ a:hover { text-decoration: underline; }
 <hr>
 <h1 id="enum-changeseverity">Enum: ChangeSeverity</h1>
 <p><em>Optional severity of a change independent of change type.</em></p>
-<div data-search-exclude markdown="1">
-
-URI: [pbs:ChangeSeverity](https://schema.pragmaticbim.ch/ChangeSeverity)
-
-**Enum URI:** [pbs:ChangeSeverity](https://schema.pragmaticbim.ch/ChangeSeverity)
-
-
-## Permissible Values
-| Value | Meaning | Description |
-| --- | --- | --- |
-| unchanged | pbs:change_severity_unchanged | No material difference (typically omitted from persisted Change records) |
-| minor | pbs:change_severity_minor | Small attribute, metadata, or wording adjustment |
-| major | pbs:change_severity_major | Significant attribute, geometry, relationship, or structural content change |
-| rewritten | pbs:change_severity_rewritten | Subject substantially replaced while retaining the same identity |
-
-
-
-
-## Slots
-
-| Name | Description |
-| ---  | --- |
-| [change_severity](change_severity.md) | Optional severity independent of change type |
-
-
-
-
-
-
-
-
-
-
-## Identifier and Mapping Information
-
-
-
-
-
-### Schema Source
-
-
-* from schema: https://schema.pragmaticbim.ch
-
-
-
-
-
-
-## LinkML Source
-
+<div data-search-exclude>
+<p>URI: <a href="https://schema.pragmaticbim.ch/ChangeSeverity">pbs:ChangeSeverity</a></p>
+<p><strong>Enum URI:</strong> <a href="https://schema.pragmaticbim.ch/ChangeSeverity">pbs:ChangeSeverity</a></p>
+<h2 id="permissible-values">Permissible Values</h2>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Meaning</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>unchanged</td>
+<td>pbs:change_severity_unchanged</td>
+<td>No material difference (typically omitted from persisted Change records)</td>
+</tr>
+<tr>
+<td>minor</td>
+<td>pbs:change_severity_minor</td>
+<td>Small attribute, metadata, or wording adjustment</td>
+</tr>
+<tr>
+<td>major</td>
+<td>pbs:change_severity_major</td>
+<td>Significant attribute, geometry, relationship, or structural content change</td>
+</tr>
+<tr>
+<td>rewritten</td>
+<td>pbs:change_severity_rewritten</td>
+<td>Subject substantially replaced while retaining the same identity</td>
+</tr>
+</tbody>
+</table>
+<h2 id="slots">Slots</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="change_severity.html">change_severity</a></td>
+<td>Optional severity independent of change type</td>
+</tr>
+</tbody>
+</table>
+<h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
+<h3 id="schema-source">Schema Source</h3>
+<ul>
+<li>from schema: https://schema.pragmaticbim.ch</li>
+</ul>
+<h2 id="linkml-source">LinkML Source</h2>
 <details>
 
 <pre><code class="language-yaml">name: ChangeSeverity
@@ -119,7 +124,6 @@ permissible_values:
 </code></pre>
 
 </details>
-
 </div>
     <div id="diagram-modal" hidden>
       <div class="diagram-modal-panel">

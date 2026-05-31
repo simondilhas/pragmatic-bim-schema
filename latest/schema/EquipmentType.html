@@ -38,60 +38,77 @@ a:hover { text-decoration: underline; }
   boost: 2.0</p>
 <hr>
 <h1 id="enum-equipmenttype">Enum: EquipmentType</h1>
-<div data-search-exclude markdown="1">
-
-URI: [pbs:EquipmentType](https://schema.pragmaticbim.ch/EquipmentType)
-
-**Enum URI:** [pbs:EquipmentType](https://schema.pragmaticbim.ch/EquipmentType)
-
-
-## Permissible Values
-| Value | Meaning | Description |
-| --- | --- | --- |
-| hvac | ifcowl:IfcDistributionElement | HVAC endpoint/device such as terminal units or packaged devices |
-| electrical | ifcowl:IfcElectricalElement | Electrical endpoint/device such as appliances, outlets, or fixtures |
-| plumbing | ifcowl:IfcFlowTerminal | Plumbing endpoint/device such as sanitary terminals and fixtures |
-| fire_safety | ifcowl:IfcFireSuppressionTerminal | Fire safety endpoint/device such as suppression terminals and alarms |
-| controls | ifcowl:IfcDistributionControlElement | Monitoring/control device such as sensors, actuators, and controllers |
-| furniture | ifcowl:IfcFurniture | Furniture/device objects treated as endpoint assets |
-| other | ifcowl:IfcElement | Other endpoint/device element not covered by controlled values |
-
-
-
-
-## Slots
-
-| Name | Description |
-| ---  | --- |
-| [equipment_type](equipment_type.md) | Classification of equipment (for example HVAC, electrical, plumbing) |
-
-
-
-
-
-
-
-
-
-
-## Identifier and Mapping Information
-
-
-
-
-
-### Schema Source
-
-
-* from schema: https://schema.pragmaticbim.ch
-
-
-
-
-
-
-## LinkML Source
-
+<div data-search-exclude>
+<p>URI: <a href="https://schema.pragmaticbim.ch/EquipmentType">pbs:EquipmentType</a></p>
+<p><strong>Enum URI:</strong> <a href="https://schema.pragmaticbim.ch/EquipmentType">pbs:EquipmentType</a></p>
+<h2 id="permissible-values">Permissible Values</h2>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Meaning</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>hvac</td>
+<td>ifcowl:IfcDistributionElement</td>
+<td>HVAC endpoint/device such as terminal units or packaged devices</td>
+</tr>
+<tr>
+<td>electrical</td>
+<td>ifcowl:IfcElectricalElement</td>
+<td>Electrical endpoint/device such as appliances, outlets, or fixtures</td>
+</tr>
+<tr>
+<td>plumbing</td>
+<td>ifcowl:IfcFlowTerminal</td>
+<td>Plumbing endpoint/device such as sanitary terminals and fixtures</td>
+</tr>
+<tr>
+<td>fire_safety</td>
+<td>ifcowl:IfcFireSuppressionTerminal</td>
+<td>Fire safety endpoint/device such as suppression terminals and alarms</td>
+</tr>
+<tr>
+<td>controls</td>
+<td>ifcowl:IfcDistributionControlElement</td>
+<td>Monitoring/control device such as sensors, actuators, and controllers</td>
+</tr>
+<tr>
+<td>furniture</td>
+<td>ifcowl:IfcFurniture</td>
+<td>Furniture/device objects treated as endpoint assets</td>
+</tr>
+<tr>
+<td>other</td>
+<td>ifcowl:IfcElement</td>
+<td>Other endpoint/device element not covered by controlled values</td>
+</tr>
+</tbody>
+</table>
+<h2 id="slots">Slots</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="equipment_type.html">equipment_type</a></td>
+<td>Classification of equipment (for example HVAC, electrical, plumbing)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
+<h3 id="schema-source">Schema Source</h3>
+<ul>
+<li>from schema: https://schema.pragmaticbim.ch</li>
+</ul>
+<h2 id="linkml-source">LinkML Source</h2>
 <details>
 
 <pre><code class="language-yaml">name: EquipmentType
@@ -131,7 +148,6 @@ permissible_values:
 </code></pre>
 
 </details>
-
 </div>
     <div id="diagram-modal" hidden>
       <div class="diagram-modal-panel">

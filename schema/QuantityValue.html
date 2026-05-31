@@ -39,17 +39,8 @@ a:hover { text-decoration: underline; }
 <hr>
 <h1 id="class-quantityvalue">Class: QuantityValue</h1>
 <p><em>Minimal quantity record for costing and analysis.</em></p>
-<div data-search-exclude markdown="1">
-
-
-
-URI: [pbs:QuantityValue](https://schema.pragmaticbim.ch/QuantityValue)
-
-
-
-
-
-
+<div data-search-exclude>
+<p>URI: <a href="https://schema.pragmaticbim.ch/QuantityValue">pbs:QuantityValue</a></p>
 <div class="mermaid">
  classDiagram
     class QuantityValue
@@ -62,115 +53,303 @@ URI: [pbs:QuantityValue](https://schema.pragmaticbim.ch/QuantityValue)
       QuantityValue : quantity_value
 
 </div>
-
-
-
-
-
 <!-- no inheritance hierarchy -->
-
-## Class Properties
-
-| Property | Value |
-| --- | --- |
-| Class URI | [pbs:QuantityValue](https://schema.pragmaticbim.ch/QuantityValue) |
-
-
-## Slots
-
-| Name | Cardinality and Range | Description | Inheritance |
-| ---  | --- | --- | --- |
-| [quantity_type](quantity_type.md) | 1 <br/> [QuantityType](QuantityType.md) | Controlled quantity type | direct |
-| [quantity_value](quantity_value.md) | 1 <br/> [Double](Double.md) | Numeric quantity value | direct |
-| [quantity_unit](quantity_unit.md) | 1 <br/> [String](String.md) | Unit of the quantity value | direct |
-| [quantity_unit_uri](quantity_unit_uri.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | Optional URI that identifies the quantity unit in an external vocabulary such... | direct |
-
-
-
-
-
-## Usages
-
-| used by | used in | type | used |
-| ---  | --- | --- | --- |
-| [Entity](Entity.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
-| [Agent](Agent.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
-| [Person](Person.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
-| [Company](Company.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
-| [Message](Message.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
-| [PhysicalElement](PhysicalElement.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
-| [Separator](Separator.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
-| [SeparatorWall](SeparatorWall.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
-| [SeparatorSlab](SeparatorSlab.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
-| [ConnectionPhysical](ConnectionPhysical.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
-| [Boundary](Boundary.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
-| [Equipment](Equipment.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
-| [VirtualEntity](VirtualEntity.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
-| [SpatialContext](SpatialContext.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
-| [ProjectContext](ProjectContext.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
-| [PerimeterContext](PerimeterContext.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
-| [LegalSiteContext](LegalSiteContext.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
-| [BuiltAssetContext](BuiltAssetContext.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
-| [BuildingContext](BuildingContext.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
-| [CivilStructureContext](CivilStructureContext.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
-| [LevelContext](LevelContext.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
-| [ZoneContext](ZoneContext.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
-| [Space](Space.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
-| [System](System.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
-| [ConnectionVirtual](ConnectionVirtual.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
-| [AbstractTimeRecord](AbstractTimeRecord.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
-| [TimeItem](TimeItem.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
-| [Milestone](Milestone.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
-| [TimePlan](TimePlan.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
-| [TimeDependency](TimeDependency.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
-| [AbstractCostRecord](AbstractCostRecord.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
-| [CostItem](CostItem.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
-| [CostAssembly](CostAssembly.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
-| [Material](Material.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
-
-
-
-
-
-
-
-
-
-
-
-
-## Identifier and Mapping Information
-
-
-
-
-
-### Schema Source
-
-
-* from schema: https://schema.pragmaticbim.ch
-
-
-
-
-## Mappings
-
-| Mapping Type | Mapped Value |
-| ---  | ---  |
-| self | pbs:QuantityValue |
-| native | pbs:QuantityValue |
-
-
-
-
-
-
-## LinkML Source
-
+<h2 id="class-properties">Class Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Class URI</td>
+<td><a href="https://schema.pragmaticbim.ch/QuantityValue">pbs:QuantityValue</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="slots">Slots</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Cardinality and Range</th>
+<th>Description</th>
+<th>Inheritance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="quantity_type.html">quantity_type</a></td>
+<td>1 <br/> <a href="QuantityType.html">QuantityType</a></td>
+<td>Controlled quantity type</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="quantity_value.html">quantity_value</a></td>
+<td>1 <br/> <a href="Double.html">Double</a></td>
+<td>Numeric quantity value</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="quantity_unit.html">quantity_unit</a></td>
+<td>1 <br/> <a href="String.html">String</a></td>
+<td>Unit of the quantity value</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="quantity_unit_uri.html">quantity_unit_uri</a></td>
+<td>0..1 <br/> <a href="Uriorcurie.html">Uriorcurie</a></td>
+<td>Optional URI that identifies the quantity unit in an external vocabulary such...</td>
+<td>direct</td>
+</tr>
+</tbody>
+</table>
+<h2 id="usages">Usages</h2>
+<table>
+<thead>
+<tr>
+<th>used by</th>
+<th>used in</th>
+<th>type</th>
+<th>used</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Entity.html">Entity</a></td>
+<td><a href="quantity_values.html">quantity_values</a></td>
+<td>range</td>
+<td><a href="QuantityValue.html">QuantityValue</a></td>
+</tr>
+<tr>
+<td><a href="Agent.html">Agent</a></td>
+<td><a href="quantity_values.html">quantity_values</a></td>
+<td>range</td>
+<td><a href="QuantityValue.html">QuantityValue</a></td>
+</tr>
+<tr>
+<td><a href="Person.html">Person</a></td>
+<td><a href="quantity_values.html">quantity_values</a></td>
+<td>range</td>
+<td><a href="QuantityValue.html">QuantityValue</a></td>
+</tr>
+<tr>
+<td><a href="Company.html">Company</a></td>
+<td><a href="quantity_values.html">quantity_values</a></td>
+<td>range</td>
+<td><a href="QuantityValue.html">QuantityValue</a></td>
+</tr>
+<tr>
+<td><a href="Message.html">Message</a></td>
+<td><a href="quantity_values.html">quantity_values</a></td>
+<td>range</td>
+<td><a href="QuantityValue.html">QuantityValue</a></td>
+</tr>
+<tr>
+<td><a href="PhysicalElement.html">PhysicalElement</a></td>
+<td><a href="quantity_values.html">quantity_values</a></td>
+<td>range</td>
+<td><a href="QuantityValue.html">QuantityValue</a></td>
+</tr>
+<tr>
+<td><a href="Separator.html">Separator</a></td>
+<td><a href="quantity_values.html">quantity_values</a></td>
+<td>range</td>
+<td><a href="QuantityValue.html">QuantityValue</a></td>
+</tr>
+<tr>
+<td><a href="SeparatorWall.html">SeparatorWall</a></td>
+<td><a href="quantity_values.html">quantity_values</a></td>
+<td>range</td>
+<td><a href="QuantityValue.html">QuantityValue</a></td>
+</tr>
+<tr>
+<td><a href="SeparatorSlab.html">SeparatorSlab</a></td>
+<td><a href="quantity_values.html">quantity_values</a></td>
+<td>range</td>
+<td><a href="QuantityValue.html">QuantityValue</a></td>
+</tr>
+<tr>
+<td><a href="ConnectionPhysical.html">ConnectionPhysical</a></td>
+<td><a href="quantity_values.html">quantity_values</a></td>
+<td>range</td>
+<td><a href="QuantityValue.html">QuantityValue</a></td>
+</tr>
+<tr>
+<td><a href="Boundary.html">Boundary</a></td>
+<td><a href="quantity_values.html">quantity_values</a></td>
+<td>range</td>
+<td><a href="QuantityValue.html">QuantityValue</a></td>
+</tr>
+<tr>
+<td><a href="Equipment.html">Equipment</a></td>
+<td><a href="quantity_values.html">quantity_values</a></td>
+<td>range</td>
+<td><a href="QuantityValue.html">QuantityValue</a></td>
+</tr>
+<tr>
+<td><a href="VirtualEntity.html">VirtualEntity</a></td>
+<td><a href="quantity_values.html">quantity_values</a></td>
+<td>range</td>
+<td><a href="QuantityValue.html">QuantityValue</a></td>
+</tr>
+<tr>
+<td><a href="SpatialContext.html">SpatialContext</a></td>
+<td><a href="quantity_values.html">quantity_values</a></td>
+<td>range</td>
+<td><a href="QuantityValue.html">QuantityValue</a></td>
+</tr>
+<tr>
+<td><a href="ProjectContext.html">ProjectContext</a></td>
+<td><a href="quantity_values.html">quantity_values</a></td>
+<td>range</td>
+<td><a href="QuantityValue.html">QuantityValue</a></td>
+</tr>
+<tr>
+<td><a href="PerimeterContext.html">PerimeterContext</a></td>
+<td><a href="quantity_values.html">quantity_values</a></td>
+<td>range</td>
+<td><a href="QuantityValue.html">QuantityValue</a></td>
+</tr>
+<tr>
+<td><a href="LegalSiteContext.html">LegalSiteContext</a></td>
+<td><a href="quantity_values.html">quantity_values</a></td>
+<td>range</td>
+<td><a href="QuantityValue.html">QuantityValue</a></td>
+</tr>
+<tr>
+<td><a href="BuiltAssetContext.html">BuiltAssetContext</a></td>
+<td><a href="quantity_values.html">quantity_values</a></td>
+<td>range</td>
+<td><a href="QuantityValue.html">QuantityValue</a></td>
+</tr>
+<tr>
+<td><a href="BuildingContext.html">BuildingContext</a></td>
+<td><a href="quantity_values.html">quantity_values</a></td>
+<td>range</td>
+<td><a href="QuantityValue.html">QuantityValue</a></td>
+</tr>
+<tr>
+<td><a href="CivilStructureContext.html">CivilStructureContext</a></td>
+<td><a href="quantity_values.html">quantity_values</a></td>
+<td>range</td>
+<td><a href="QuantityValue.html">QuantityValue</a></td>
+</tr>
+<tr>
+<td><a href="LevelContext.html">LevelContext</a></td>
+<td><a href="quantity_values.html">quantity_values</a></td>
+<td>range</td>
+<td><a href="QuantityValue.html">QuantityValue</a></td>
+</tr>
+<tr>
+<td><a href="ZoneContext.html">ZoneContext</a></td>
+<td><a href="quantity_values.html">quantity_values</a></td>
+<td>range</td>
+<td><a href="QuantityValue.html">QuantityValue</a></td>
+</tr>
+<tr>
+<td><a href="Space.html">Space</a></td>
+<td><a href="quantity_values.html">quantity_values</a></td>
+<td>range</td>
+<td><a href="QuantityValue.html">QuantityValue</a></td>
+</tr>
+<tr>
+<td><a href="System.html">System</a></td>
+<td><a href="quantity_values.html">quantity_values</a></td>
+<td>range</td>
+<td><a href="QuantityValue.html">QuantityValue</a></td>
+</tr>
+<tr>
+<td><a href="ConnectionVirtual.html">ConnectionVirtual</a></td>
+<td><a href="quantity_values.html">quantity_values</a></td>
+<td>range</td>
+<td><a href="QuantityValue.html">QuantityValue</a></td>
+</tr>
+<tr>
+<td><a href="AbstractTimeRecord.html">AbstractTimeRecord</a></td>
+<td><a href="quantity_values.html">quantity_values</a></td>
+<td>range</td>
+<td><a href="QuantityValue.html">QuantityValue</a></td>
+</tr>
+<tr>
+<td><a href="TimeItem.html">TimeItem</a></td>
+<td><a href="quantity_values.html">quantity_values</a></td>
+<td>range</td>
+<td><a href="QuantityValue.html">QuantityValue</a></td>
+</tr>
+<tr>
+<td><a href="Milestone.html">Milestone</a></td>
+<td><a href="quantity_values.html">quantity_values</a></td>
+<td>range</td>
+<td><a href="QuantityValue.html">QuantityValue</a></td>
+</tr>
+<tr>
+<td><a href="TimePlan.html">TimePlan</a></td>
+<td><a href="quantity_values.html">quantity_values</a></td>
+<td>range</td>
+<td><a href="QuantityValue.html">QuantityValue</a></td>
+</tr>
+<tr>
+<td><a href="TimeDependency.html">TimeDependency</a></td>
+<td><a href="quantity_values.html">quantity_values</a></td>
+<td>range</td>
+<td><a href="QuantityValue.html">QuantityValue</a></td>
+</tr>
+<tr>
+<td><a href="AbstractCostRecord.html">AbstractCostRecord</a></td>
+<td><a href="quantity_values.html">quantity_values</a></td>
+<td>range</td>
+<td><a href="QuantityValue.html">QuantityValue</a></td>
+</tr>
+<tr>
+<td><a href="CostItem.html">CostItem</a></td>
+<td><a href="quantity_values.html">quantity_values</a></td>
+<td>range</td>
+<td><a href="QuantityValue.html">QuantityValue</a></td>
+</tr>
+<tr>
+<td><a href="CostAssembly.html">CostAssembly</a></td>
+<td><a href="quantity_values.html">quantity_values</a></td>
+<td>range</td>
+<td><a href="QuantityValue.html">QuantityValue</a></td>
+</tr>
+<tr>
+<td><a href="Material.html">Material</a></td>
+<td><a href="quantity_values.html">quantity_values</a></td>
+<td>range</td>
+<td><a href="QuantityValue.html">QuantityValue</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
+<h3 id="schema-source">Schema Source</h3>
+<ul>
+<li>from schema: https://schema.pragmaticbim.ch</li>
+</ul>
+<h2 id="mappings">Mappings</h2>
+<table>
+<thead>
+<tr>
+<th>Mapping Type</th>
+<th>Mapped Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>self</td>
+<td>pbs:QuantityValue</td>
+</tr>
+<tr>
+<td>native</td>
+<td>pbs:QuantityValue</td>
+</tr>
+</tbody>
+</table>
+<h2 id="linkml-source">LinkML Source</h2>
 <!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
-
-### Direct
-
+<h3 id="direct">Direct</h3>
 <details>
 
 <pre><code class="language-yaml">name: QuantityValue
@@ -186,9 +365,7 @@ class_uri: pbs:QuantityValue
 </code></pre>
 
 </details>
-
-### Induced
-
+<h3 id="induced">Induced</h3>
 <details>
 
 <pre><code class="language-yaml">name: QuantityValue
@@ -240,7 +417,8 @@ class_uri: pbs:QuantityValue
 
 </code></pre>
 
-</details></div>
+</details>
+</div>
     <div id="diagram-modal" hidden>
       <div class="diagram-modal-panel">
         <div class="diagram-modal-header">

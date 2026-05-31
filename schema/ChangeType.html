@@ -39,59 +39,72 @@ a:hover { text-decoration: underline; }
 <hr>
 <h1 id="enum-changetype">Enum: ChangeType</h1>
 <p><em>Category of change detected between two revisions.</em></p>
-<div data-search-exclude markdown="1">
-
-URI: [pbs:ChangeType](https://schema.pragmaticbim.ch/ChangeType)
-
-**Enum URI:** [pbs:ChangeType](https://schema.pragmaticbim.ch/ChangeType)
-
-
-## Permissible Values
-| Value | Meaning | Description |
-| --- | --- | --- |
-| geometry_change | pbs:change_type_geometry_change | Geometry or representation changed |
-| property_change | pbs:change_type_property_change | Attribute, PropertySet, or schema slot changed |
-| requirement_change | pbs:change_type_requirement_change | Requirement record or field changed |
-| match_change | pbs:change_type_match_change | Entity match status against a requirement changed (met / unmet) |
-| addition | pbs:change_type_addition | New entity or requirement introduced |
-| deletion | pbs:change_type_deletion | Entity or requirement removed |
-
-
-
-
-## Slots
-
-| Name | Description |
-| ---  | --- |
-| [change_type](change_type.md) | Category of change detected between two revisions |
-
-
-
-
-
-
-
-
-
-
-## Identifier and Mapping Information
-
-
-
-
-
-### Schema Source
-
-
-* from schema: https://schema.pragmaticbim.ch
-
-
-
-
-
-
-## LinkML Source
-
+<div data-search-exclude>
+<p>URI: <a href="https://schema.pragmaticbim.ch/ChangeType">pbs:ChangeType</a></p>
+<p><strong>Enum URI:</strong> <a href="https://schema.pragmaticbim.ch/ChangeType">pbs:ChangeType</a></p>
+<h2 id="permissible-values">Permissible Values</h2>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Meaning</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>geometry_change</td>
+<td>pbs:change_type_geometry_change</td>
+<td>Geometry or representation changed</td>
+</tr>
+<tr>
+<td>property_change</td>
+<td>pbs:change_type_property_change</td>
+<td>Attribute, PropertySet, or schema slot changed</td>
+</tr>
+<tr>
+<td>requirement_change</td>
+<td>pbs:change_type_requirement_change</td>
+<td>Requirement record or field changed</td>
+</tr>
+<tr>
+<td>match_change</td>
+<td>pbs:change_type_match_change</td>
+<td>Entity match status against a requirement changed (met / unmet)</td>
+</tr>
+<tr>
+<td>addition</td>
+<td>pbs:change_type_addition</td>
+<td>New entity or requirement introduced</td>
+</tr>
+<tr>
+<td>deletion</td>
+<td>pbs:change_type_deletion</td>
+<td>Entity or requirement removed</td>
+</tr>
+</tbody>
+</table>
+<h2 id="slots">Slots</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="change_type.html">change_type</a></td>
+<td>Category of change detected between two revisions</td>
+</tr>
+</tbody>
+</table>
+<h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
+<h3 id="schema-source">Schema Source</h3>
+<ul>
+<li>from schema: https://schema.pragmaticbim.ch</li>
+</ul>
+<h2 id="linkml-source">LinkML Source</h2>
 <details>
 
 <pre><code class="language-yaml">name: ChangeType
@@ -128,7 +141,6 @@ permissible_values:
 </code></pre>
 
 </details>
-
 </div>
     <div id="diagram-modal" hidden>
       <div class="diagram-modal-panel">

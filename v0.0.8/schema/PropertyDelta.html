@@ -40,17 +40,8 @@ a:hover { text-decoration: underline; }
 <h1 id="class-propertydelta">Class: PropertyDelta</h1>
 <p><em>Field-level difference between two revision states. Supports IFC attributes, PropertySets, schema slots, document fields, and text spans.</em></p>
 <p>__</p>
-<div data-search-exclude markdown="1">
-
-
-
-URI: [pbs:PropertyDelta](https://schema.pragmaticbim.ch/PropertyDelta)
-
-
-
-
-
-
+<div data-search-exclude>
+<p>URI: <a href="https://schema.pragmaticbim.ch/PropertyDelta">pbs:PropertyDelta</a></p>
 <div class="mermaid">
  classDiagram
     class PropertyDelta
@@ -66,86 +57,129 @@ URI: [pbs:PropertyDelta](https://schema.pragmaticbim.ch/PropertyDelta)
       PropertyDelta : to_value
 
 </div>
-
-
-
-
-
 <!-- no inheritance hierarchy -->
-
-## Class Properties
-
-| Property | Value |
-| --- | --- |
-| Class URI | [pbs:PropertyDelta](https://schema.pragmaticbim.ch/PropertyDelta) |
-
-
-## Slots
-
-| Name | Cardinality and Range | Description | Inheritance |
-| ---  | --- | --- | --- |
-| [property_path](property_path.md) | 1 <br/> [String](String.md) | Canonical path to the changed field | direct |
-| [property_path_kind](property_path_kind.md) | 1 <br/> [PropertyPathKind](PropertyPathKind.md) | Classification of the property path for downstream diff interpretation | direct |
-| [from_value](from_value.md) | 0..1 <br/> [String](String.md) | Prior value serialized as text | direct |
-| [to_value](to_value.md) | 0..1 <br/> [String](String.md) | New value serialized as text | direct |
-| [source_pset](source_pset.md) | 0..1 <br/> [String](String.md) | Original IFC PropertySet name (for example Pset_WallCommon) | direct |
-| [source_property](source_property.md) | 0..1 <br/> [String](String.md) | Original property name inside the source PropertySet (for example FireRating) | direct |
-| [ifc_attribute_name](ifc_attribute_name.md) | 0..1 <br/> [String](String.md) | IFC attribute name when property_path_kind is ifc_attribute (for example Name... | direct |
-
-
-
-
-
-## Usages
-
-| used by | used in | type | used |
-| ---  | --- | --- | --- |
-| [PropertyChange](PropertyChange.md) | [property_delta](property_delta.md) | range | [PropertyDelta](PropertyDelta.md) |
-| [RequirementChange](RequirementChange.md) | [property_delta](property_delta.md) | range | [PropertyDelta](PropertyDelta.md) |
-
-
-
-
-
-
-
-
-
-
-
-
-## Identifier and Mapping Information
-
-
-
-
-
-### Schema Source
-
-
-* from schema: https://schema.pragmaticbim.ch
-
-
-
-
-## Mappings
-
-| Mapping Type | Mapped Value |
-| ---  | ---  |
-| self | pbs:PropertyDelta |
-| native | pbs:PropertyDelta |
-
-
-
-
-
-
-## LinkML Source
-
+<h2 id="class-properties">Class Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Class URI</td>
+<td><a href="https://schema.pragmaticbim.ch/PropertyDelta">pbs:PropertyDelta</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="slots">Slots</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Cardinality and Range</th>
+<th>Description</th>
+<th>Inheritance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="property_path.html">property_path</a></td>
+<td>1 <br/> <a href="String.html">String</a></td>
+<td>Canonical path to the changed field</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="property_path_kind.html">property_path_kind</a></td>
+<td>1 <br/> <a href="PropertyPathKind.html">PropertyPathKind</a></td>
+<td>Classification of the property path for downstream diff interpretation</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="from_value.html">from_value</a></td>
+<td>0..1 <br/> <a href="String.html">String</a></td>
+<td>Prior value serialized as text</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="to_value.html">to_value</a></td>
+<td>0..1 <br/> <a href="String.html">String</a></td>
+<td>New value serialized as text</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="source_pset.html">source_pset</a></td>
+<td>0..1 <br/> <a href="String.html">String</a></td>
+<td>Original IFC PropertySet name (for example Pset_WallCommon)</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="source_property.html">source_property</a></td>
+<td>0..1 <br/> <a href="String.html">String</a></td>
+<td>Original property name inside the source PropertySet (for example FireRating)</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="ifc_attribute_name.html">ifc_attribute_name</a></td>
+<td>0..1 <br/> <a href="String.html">String</a></td>
+<td>IFC attribute name when property_path_kind is ifc_attribute (for example Name...</td>
+<td>direct</td>
+</tr>
+</tbody>
+</table>
+<h2 id="usages">Usages</h2>
+<table>
+<thead>
+<tr>
+<th>used by</th>
+<th>used in</th>
+<th>type</th>
+<th>used</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="PropertyChange.html">PropertyChange</a></td>
+<td><a href="property_delta.html">property_delta</a></td>
+<td>range</td>
+<td><a href="PropertyDelta.html">PropertyDelta</a></td>
+</tr>
+<tr>
+<td><a href="RequirementChange.html">RequirementChange</a></td>
+<td><a href="property_delta.html">property_delta</a></td>
+<td>range</td>
+<td><a href="PropertyDelta.html">PropertyDelta</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
+<h3 id="schema-source">Schema Source</h3>
+<ul>
+<li>from schema: https://schema.pragmaticbim.ch</li>
+</ul>
+<h2 id="mappings">Mappings</h2>
+<table>
+<thead>
+<tr>
+<th>Mapping Type</th>
+<th>Mapped Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>self</td>
+<td>pbs:PropertyDelta</td>
+</tr>
+<tr>
+<td>native</td>
+<td>pbs:PropertyDelta</td>
+</tr>
+</tbody>
+</table>
+<h2 id="linkml-source">LinkML Source</h2>
 <!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
-
-### Direct
-
+<h3 id="direct">Direct</h3>
 <details>
 
 <pre><code class="language-yaml">name: PropertyDelta
@@ -167,9 +201,7 @@ class_uri: pbs:PropertyDelta
 </code></pre>
 
 </details>
-
-### Induced
-
+<h3 id="induced">Induced</h3>
 <details>
 
 <pre><code class="language-yaml">name: PropertyDelta
@@ -257,7 +289,8 @@ class_uri: pbs:PropertyDelta
 
 </code></pre>
 
-</details></div>
+</details>
+</div>
     <div id="diagram-modal" hidden>
       <div class="diagram-modal-panel">
         <div class="diagram-modal-header">

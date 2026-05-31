@@ -39,17 +39,8 @@ a:hover { text-decoration: underline; }
 <hr>
 <h1 id="class-securityproperty">Class: SecurityProperty</h1>
 <p><em>Normalized security-related property.</em></p>
-<div data-search-exclude markdown="1">
-
-
-
-URI: [pbs:SecurityProperty](https://schema.pragmaticbim.ch/SecurityProperty)
-
-
-
-
-
-
+<div data-search-exclude>
+<p>URI: <a href="https://schema.pragmaticbim.ch/SecurityProperty">pbs:SecurityProperty</a></p>
 <div class="mermaid">
  classDiagram
     class SecurityProperty
@@ -73,86 +64,134 @@ URI: [pbs:SecurityProperty](https://schema.pragmaticbim.ch/SecurityProperty)
       SecurityProperty : source_value_raw
 
 </div>
-
-
-
-
-
-
-## Inheritance
-* [PerformanceProperty](PerformanceProperty.md)
-    * **SecurityProperty**
-
-
-## Class Properties
-
-| Property | Value |
-| --- | --- |
-| Class URI | [pbs:SecurityProperty](https://schema.pragmaticbim.ch/SecurityProperty) |
-
-
-## Slots
-
-| Name | Cardinality and Range | Description | Inheritance |
-| ---  | --- | --- | --- |
-| [property_key](property_key.md) | 1 <br/> [SecurityPropertyKey](SecurityPropertyKey.md) | Canonical key inside the domain; constrained via subclass slot_usage to a dom... | [PerformanceProperty](PerformanceProperty.md) |
-| [property_value_type](property_value_type.md) | 1 <br/> [PerformancePropertyValueType](PerformancePropertyValueType.md) | Value type discriminator for normalized storage (for example string, number, ... | [PerformanceProperty](PerformanceProperty.md) |
-| [property_value_string](property_value_string.md) | 0..1 <br/> [String](String.md) | String value when property_value_type is string | [PerformanceProperty](PerformanceProperty.md) |
-| [property_value_number](property_value_number.md) | 0..1 <br/> [Double](Double.md) | Numeric value when property_value_type is number | [PerformanceProperty](PerformanceProperty.md) |
-| [property_value_boolean](property_value_boolean.md) | 0..1 <br/> [Boolean](Boolean.md) | Boolean value when property_value_type is boolean | [PerformanceProperty](PerformanceProperty.md) |
-| [property_unit](property_unit.md) | 0..1 <br/> [String](String.md) | Normalized unit where applicable (for example min, dB, W/m2K) | [PerformanceProperty](PerformanceProperty.md) |
-| [property_unit_uri](property_unit_uri.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | Optional URI that identifies the normalized property unit in an external voca... | [PerformanceProperty](PerformanceProperty.md) |
-| [source_pset](source_pset.md) | 0..1 <br/> [String](String.md) | Original IFC PropertySet name (for example Pset_WallCommon) | [PerformanceProperty](PerformanceProperty.md) |
-| [source_property](source_property.md) | 0..1 <br/> [String](String.md) | Original property name inside the source PropertySet (for example FireRating) | [PerformanceProperty](PerformanceProperty.md) |
-| [source_value_raw](source_value_raw.md) | 0..1 <br/> [String](String.md) | Raw source value before normalization | [PerformanceProperty](PerformanceProperty.md) |
-| [mapping_version](mapping_version.md) | 0..1 <br/> [String](String.md) | Mapping specification version used to derive the normalized property | [PerformanceProperty](PerformanceProperty.md) |
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Identifier and Mapping Information
-
-
-
-
-
-### Schema Source
-
-
-* from schema: https://schema.pragmaticbim.ch
-
-
-
-
-## Mappings
-
-| Mapping Type | Mapped Value |
-| ---  | ---  |
-| self | pbs:SecurityProperty |
-| native | pbs:SecurityProperty |
-
-
-
-
-
-
-## LinkML Source
-
+<h2 id="inheritance">Inheritance</h2>
+<ul>
+<li><a href="PerformanceProperty.html">PerformanceProperty</a><ul>
+<li><strong>SecurityProperty</strong></li>
+</ul>
+</li>
+</ul>
+<h2 id="class-properties">Class Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Class URI</td>
+<td><a href="https://schema.pragmaticbim.ch/SecurityProperty">pbs:SecurityProperty</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="slots">Slots</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Cardinality and Range</th>
+<th>Description</th>
+<th>Inheritance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="property_key.html">property_key</a></td>
+<td>1 <br/> <a href="SecurityPropertyKey.html">SecurityPropertyKey</a></td>
+<td>Canonical key inside the domain; constrained via subclass slot_usage to a dom...</td>
+<td><a href="PerformanceProperty.html">PerformanceProperty</a></td>
+</tr>
+<tr>
+<td><a href="property_value_type.html">property_value_type</a></td>
+<td>1 <br/> <a href="PerformancePropertyValueType.html">PerformancePropertyValueType</a></td>
+<td>Value type discriminator for normalized storage (for example string, number, ...</td>
+<td><a href="PerformanceProperty.html">PerformanceProperty</a></td>
+</tr>
+<tr>
+<td><a href="property_value_string.html">property_value_string</a></td>
+<td>0..1 <br/> <a href="String.html">String</a></td>
+<td>String value when property_value_type is string</td>
+<td><a href="PerformanceProperty.html">PerformanceProperty</a></td>
+</tr>
+<tr>
+<td><a href="property_value_number.html">property_value_number</a></td>
+<td>0..1 <br/> <a href="Double.html">Double</a></td>
+<td>Numeric value when property_value_type is number</td>
+<td><a href="PerformanceProperty.html">PerformanceProperty</a></td>
+</tr>
+<tr>
+<td><a href="property_value_boolean.html">property_value_boolean</a></td>
+<td>0..1 <br/> <a href="Boolean.html">Boolean</a></td>
+<td>Boolean value when property_value_type is boolean</td>
+<td><a href="PerformanceProperty.html">PerformanceProperty</a></td>
+</tr>
+<tr>
+<td><a href="property_unit.html">property_unit</a></td>
+<td>0..1 <br/> <a href="String.html">String</a></td>
+<td>Normalized unit where applicable (for example min, dB, W/m2K)</td>
+<td><a href="PerformanceProperty.html">PerformanceProperty</a></td>
+</tr>
+<tr>
+<td><a href="property_unit_uri.html">property_unit_uri</a></td>
+<td>0..1 <br/> <a href="Uriorcurie.html">Uriorcurie</a></td>
+<td>Optional URI that identifies the normalized property unit in an external voca...</td>
+<td><a href="PerformanceProperty.html">PerformanceProperty</a></td>
+</tr>
+<tr>
+<td><a href="source_pset.html">source_pset</a></td>
+<td>0..1 <br/> <a href="String.html">String</a></td>
+<td>Original IFC PropertySet name (for example Pset_WallCommon)</td>
+<td><a href="PerformanceProperty.html">PerformanceProperty</a></td>
+</tr>
+<tr>
+<td><a href="source_property.html">source_property</a></td>
+<td>0..1 <br/> <a href="String.html">String</a></td>
+<td>Original property name inside the source PropertySet (for example FireRating)</td>
+<td><a href="PerformanceProperty.html">PerformanceProperty</a></td>
+</tr>
+<tr>
+<td><a href="source_value_raw.html">source_value_raw</a></td>
+<td>0..1 <br/> <a href="String.html">String</a></td>
+<td>Raw source value before normalization</td>
+<td><a href="PerformanceProperty.html">PerformanceProperty</a></td>
+</tr>
+<tr>
+<td><a href="mapping_version.html">mapping_version</a></td>
+<td>0..1 <br/> <a href="String.html">String</a></td>
+<td>Mapping specification version used to derive the normalized property</td>
+<td><a href="PerformanceProperty.html">PerformanceProperty</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
+<h3 id="schema-source">Schema Source</h3>
+<ul>
+<li>from schema: https://schema.pragmaticbim.ch</li>
+</ul>
+<h2 id="mappings">Mappings</h2>
+<table>
+<thead>
+<tr>
+<th>Mapping Type</th>
+<th>Mapped Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>self</td>
+<td>pbs:SecurityProperty</td>
+</tr>
+<tr>
+<td>native</td>
+<td>pbs:SecurityProperty</td>
+</tr>
+</tbody>
+</table>
+<h2 id="linkml-source">LinkML Source</h2>
 <!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
-
-### Direct
-
+<h3 id="direct">Direct</h3>
 <details>
 
 <pre><code class="language-yaml">name: SecurityProperty
@@ -168,9 +207,7 @@ class_uri: pbs:SecurityProperty
 </code></pre>
 
 </details>
-
-### Induced
-
+<h3 id="induced">Induced</h3>
 <details>
 
 <pre><code class="language-yaml">name: SecurityProperty
@@ -293,7 +330,8 @@ class_uri: pbs:SecurityProperty
 
 </code></pre>
 
-</details></div>
+</details>
+</div>
     <div id="diagram-modal" hidden>
       <div class="diagram-modal-panel">
         <div class="diagram-modal-header">

@@ -39,17 +39,8 @@ a:hover { text-decoration: underline; }
 <hr>
 <h1 id="class-geometryrepresentation">Class: GeometryRepresentation</h1>
 <p><em>Minimal geometry reference for an entity, separating representation from encoding format.</em></p>
-<div data-search-exclude markdown="1">
-
-
-
-URI: [pbs:GeometryRepresentation](https://schema.pragmaticbim.ch/GeometryRepresentation)
-
-
-
-
-
-
+<div data-search-exclude>
+<p>URI: <a href="https://schema.pragmaticbim.ch/GeometryRepresentation">pbs:GeometryRepresentation</a></p>
 <div class="mermaid">
  classDiagram
     class GeometryRepresentation
@@ -61,114 +52,297 @@ URI: [pbs:GeometryRepresentation](https://schema.pragmaticbim.ch/GeometryReprese
         click GeometryRepresentationType href "./GeometryRepresentationType.html"
 
 </div>
-
-
-
-
-
 <!-- no inheritance hierarchy -->
-
-## Class Properties
-
-| Property | Value |
-| --- | --- |
-| Class URI | [pbs:GeometryRepresentation](https://schema.pragmaticbim.ch/GeometryRepresentation) |
-
-
-## Slots
-
-| Name | Cardinality and Range | Description | Inheritance |
-| ---  | --- | --- | --- |
-| [geometry_reference](geometry_reference.md) | 1 <br/> [String](String.md) | URI/path/hash/pointer to geometry payload | direct |
-| [geometry_representation](geometry_representation.md) | 1 <br/> [GeometryRepresentationType](GeometryRepresentationType.md) | Representation kind/dimension (for example body_3d, footprint_2d, point), ind... | direct |
-| [geometry_format](geometry_format.md) | 0..1 <br/> [String](String.md) | Optional serialization/encoding format (for example ifc, gltf, wkt, geojson),... | direct |
-
-
-
-
-
-## Usages
-
-| used by | used in | type | used |
-| ---  | --- | --- | --- |
-| [Entity](Entity.md) | [geometry_representations](geometry_representations.md) | range | [GeometryRepresentation](GeometryRepresentation.md) |
-| [Agent](Agent.md) | [geometry_representations](geometry_representations.md) | range | [GeometryRepresentation](GeometryRepresentation.md) |
-| [Person](Person.md) | [geometry_representations](geometry_representations.md) | range | [GeometryRepresentation](GeometryRepresentation.md) |
-| [Company](Company.md) | [geometry_representations](geometry_representations.md) | range | [GeometryRepresentation](GeometryRepresentation.md) |
-| [Message](Message.md) | [geometry_representations](geometry_representations.md) | range | [GeometryRepresentation](GeometryRepresentation.md) |
-| [PhysicalElement](PhysicalElement.md) | [geometry_representations](geometry_representations.md) | range | [GeometryRepresentation](GeometryRepresentation.md) |
-| [Separator](Separator.md) | [geometry_representations](geometry_representations.md) | range | [GeometryRepresentation](GeometryRepresentation.md) |
-| [SeparatorWall](SeparatorWall.md) | [geometry_representations](geometry_representations.md) | range | [GeometryRepresentation](GeometryRepresentation.md) |
-| [SeparatorSlab](SeparatorSlab.md) | [geometry_representations](geometry_representations.md) | range | [GeometryRepresentation](GeometryRepresentation.md) |
-| [ConnectionPhysical](ConnectionPhysical.md) | [geometry_representations](geometry_representations.md) | range | [GeometryRepresentation](GeometryRepresentation.md) |
-| [Boundary](Boundary.md) | [geometry_representations](geometry_representations.md) | range | [GeometryRepresentation](GeometryRepresentation.md) |
-| [Equipment](Equipment.md) | [geometry_representations](geometry_representations.md) | range | [GeometryRepresentation](GeometryRepresentation.md) |
-| [VirtualEntity](VirtualEntity.md) | [geometry_representations](geometry_representations.md) | range | [GeometryRepresentation](GeometryRepresentation.md) |
-| [SpatialContext](SpatialContext.md) | [geometry_representations](geometry_representations.md) | range | [GeometryRepresentation](GeometryRepresentation.md) |
-| [ProjectContext](ProjectContext.md) | [geometry_representations](geometry_representations.md) | range | [GeometryRepresentation](GeometryRepresentation.md) |
-| [PerimeterContext](PerimeterContext.md) | [geometry_representations](geometry_representations.md) | range | [GeometryRepresentation](GeometryRepresentation.md) |
-| [LegalSiteContext](LegalSiteContext.md) | [geometry_representations](geometry_representations.md) | range | [GeometryRepresentation](GeometryRepresentation.md) |
-| [BuiltAssetContext](BuiltAssetContext.md) | [geometry_representations](geometry_representations.md) | range | [GeometryRepresentation](GeometryRepresentation.md) |
-| [BuildingContext](BuildingContext.md) | [geometry_representations](geometry_representations.md) | range | [GeometryRepresentation](GeometryRepresentation.md) |
-| [CivilStructureContext](CivilStructureContext.md) | [geometry_representations](geometry_representations.md) | range | [GeometryRepresentation](GeometryRepresentation.md) |
-| [LevelContext](LevelContext.md) | [geometry_representations](geometry_representations.md) | range | [GeometryRepresentation](GeometryRepresentation.md) |
-| [ZoneContext](ZoneContext.md) | [geometry_representations](geometry_representations.md) | range | [GeometryRepresentation](GeometryRepresentation.md) |
-| [Space](Space.md) | [geometry_representations](geometry_representations.md) | range | [GeometryRepresentation](GeometryRepresentation.md) |
-| [System](System.md) | [geometry_representations](geometry_representations.md) | range | [GeometryRepresentation](GeometryRepresentation.md) |
-| [ConnectionVirtual](ConnectionVirtual.md) | [geometry_representations](geometry_representations.md) | range | [GeometryRepresentation](GeometryRepresentation.md) |
-| [AbstractTimeRecord](AbstractTimeRecord.md) | [geometry_representations](geometry_representations.md) | range | [GeometryRepresentation](GeometryRepresentation.md) |
-| [TimeItem](TimeItem.md) | [geometry_representations](geometry_representations.md) | range | [GeometryRepresentation](GeometryRepresentation.md) |
-| [Milestone](Milestone.md) | [geometry_representations](geometry_representations.md) | range | [GeometryRepresentation](GeometryRepresentation.md) |
-| [TimePlan](TimePlan.md) | [geometry_representations](geometry_representations.md) | range | [GeometryRepresentation](GeometryRepresentation.md) |
-| [TimeDependency](TimeDependency.md) | [geometry_representations](geometry_representations.md) | range | [GeometryRepresentation](GeometryRepresentation.md) |
-| [AbstractCostRecord](AbstractCostRecord.md) | [geometry_representations](geometry_representations.md) | range | [GeometryRepresentation](GeometryRepresentation.md) |
-| [CostItem](CostItem.md) | [geometry_representations](geometry_representations.md) | range | [GeometryRepresentation](GeometryRepresentation.md) |
-| [CostAssembly](CostAssembly.md) | [geometry_representations](geometry_representations.md) | range | [GeometryRepresentation](GeometryRepresentation.md) |
-| [Material](Material.md) | [geometry_representations](geometry_representations.md) | range | [GeometryRepresentation](GeometryRepresentation.md) |
-
-
-
-
-
-
-
-
-
-
-
-
-## Identifier and Mapping Information
-
-
-
-
-
-### Schema Source
-
-
-* from schema: https://schema.pragmaticbim.ch
-
-
-
-
-## Mappings
-
-| Mapping Type | Mapped Value |
-| ---  | ---  |
-| self | pbs:GeometryRepresentation |
-| native | pbs:GeometryRepresentation |
-
-
-
-
-
-
-## LinkML Source
-
+<h2 id="class-properties">Class Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Class URI</td>
+<td><a href="https://schema.pragmaticbim.ch/GeometryRepresentation">pbs:GeometryRepresentation</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="slots">Slots</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Cardinality and Range</th>
+<th>Description</th>
+<th>Inheritance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="geometry_reference.html">geometry_reference</a></td>
+<td>1 <br/> <a href="String.html">String</a></td>
+<td>URI/path/hash/pointer to geometry payload</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="geometry_representation.html">geometry_representation</a></td>
+<td>1 <br/> <a href="GeometryRepresentationType.html">GeometryRepresentationType</a></td>
+<td>Representation kind/dimension (for example body_3d, footprint_2d, point), ind...</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="geometry_format.html">geometry_format</a></td>
+<td>0..1 <br/> <a href="String.html">String</a></td>
+<td>Optional serialization/encoding format (for example ifc, gltf, wkt, geojson),...</td>
+<td>direct</td>
+</tr>
+</tbody>
+</table>
+<h2 id="usages">Usages</h2>
+<table>
+<thead>
+<tr>
+<th>used by</th>
+<th>used in</th>
+<th>type</th>
+<th>used</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Entity.html">Entity</a></td>
+<td><a href="geometry_representations.html">geometry_representations</a></td>
+<td>range</td>
+<td><a href="GeometryRepresentation.html">GeometryRepresentation</a></td>
+</tr>
+<tr>
+<td><a href="Agent.html">Agent</a></td>
+<td><a href="geometry_representations.html">geometry_representations</a></td>
+<td>range</td>
+<td><a href="GeometryRepresentation.html">GeometryRepresentation</a></td>
+</tr>
+<tr>
+<td><a href="Person.html">Person</a></td>
+<td><a href="geometry_representations.html">geometry_representations</a></td>
+<td>range</td>
+<td><a href="GeometryRepresentation.html">GeometryRepresentation</a></td>
+</tr>
+<tr>
+<td><a href="Company.html">Company</a></td>
+<td><a href="geometry_representations.html">geometry_representations</a></td>
+<td>range</td>
+<td><a href="GeometryRepresentation.html">GeometryRepresentation</a></td>
+</tr>
+<tr>
+<td><a href="Message.html">Message</a></td>
+<td><a href="geometry_representations.html">geometry_representations</a></td>
+<td>range</td>
+<td><a href="GeometryRepresentation.html">GeometryRepresentation</a></td>
+</tr>
+<tr>
+<td><a href="PhysicalElement.html">PhysicalElement</a></td>
+<td><a href="geometry_representations.html">geometry_representations</a></td>
+<td>range</td>
+<td><a href="GeometryRepresentation.html">GeometryRepresentation</a></td>
+</tr>
+<tr>
+<td><a href="Separator.html">Separator</a></td>
+<td><a href="geometry_representations.html">geometry_representations</a></td>
+<td>range</td>
+<td><a href="GeometryRepresentation.html">GeometryRepresentation</a></td>
+</tr>
+<tr>
+<td><a href="SeparatorWall.html">SeparatorWall</a></td>
+<td><a href="geometry_representations.html">geometry_representations</a></td>
+<td>range</td>
+<td><a href="GeometryRepresentation.html">GeometryRepresentation</a></td>
+</tr>
+<tr>
+<td><a href="SeparatorSlab.html">SeparatorSlab</a></td>
+<td><a href="geometry_representations.html">geometry_representations</a></td>
+<td>range</td>
+<td><a href="GeometryRepresentation.html">GeometryRepresentation</a></td>
+</tr>
+<tr>
+<td><a href="ConnectionPhysical.html">ConnectionPhysical</a></td>
+<td><a href="geometry_representations.html">geometry_representations</a></td>
+<td>range</td>
+<td><a href="GeometryRepresentation.html">GeometryRepresentation</a></td>
+</tr>
+<tr>
+<td><a href="Boundary.html">Boundary</a></td>
+<td><a href="geometry_representations.html">geometry_representations</a></td>
+<td>range</td>
+<td><a href="GeometryRepresentation.html">GeometryRepresentation</a></td>
+</tr>
+<tr>
+<td><a href="Equipment.html">Equipment</a></td>
+<td><a href="geometry_representations.html">geometry_representations</a></td>
+<td>range</td>
+<td><a href="GeometryRepresentation.html">GeometryRepresentation</a></td>
+</tr>
+<tr>
+<td><a href="VirtualEntity.html">VirtualEntity</a></td>
+<td><a href="geometry_representations.html">geometry_representations</a></td>
+<td>range</td>
+<td><a href="GeometryRepresentation.html">GeometryRepresentation</a></td>
+</tr>
+<tr>
+<td><a href="SpatialContext.html">SpatialContext</a></td>
+<td><a href="geometry_representations.html">geometry_representations</a></td>
+<td>range</td>
+<td><a href="GeometryRepresentation.html">GeometryRepresentation</a></td>
+</tr>
+<tr>
+<td><a href="ProjectContext.html">ProjectContext</a></td>
+<td><a href="geometry_representations.html">geometry_representations</a></td>
+<td>range</td>
+<td><a href="GeometryRepresentation.html">GeometryRepresentation</a></td>
+</tr>
+<tr>
+<td><a href="PerimeterContext.html">PerimeterContext</a></td>
+<td><a href="geometry_representations.html">geometry_representations</a></td>
+<td>range</td>
+<td><a href="GeometryRepresentation.html">GeometryRepresentation</a></td>
+</tr>
+<tr>
+<td><a href="LegalSiteContext.html">LegalSiteContext</a></td>
+<td><a href="geometry_representations.html">geometry_representations</a></td>
+<td>range</td>
+<td><a href="GeometryRepresentation.html">GeometryRepresentation</a></td>
+</tr>
+<tr>
+<td><a href="BuiltAssetContext.html">BuiltAssetContext</a></td>
+<td><a href="geometry_representations.html">geometry_representations</a></td>
+<td>range</td>
+<td><a href="GeometryRepresentation.html">GeometryRepresentation</a></td>
+</tr>
+<tr>
+<td><a href="BuildingContext.html">BuildingContext</a></td>
+<td><a href="geometry_representations.html">geometry_representations</a></td>
+<td>range</td>
+<td><a href="GeometryRepresentation.html">GeometryRepresentation</a></td>
+</tr>
+<tr>
+<td><a href="CivilStructureContext.html">CivilStructureContext</a></td>
+<td><a href="geometry_representations.html">geometry_representations</a></td>
+<td>range</td>
+<td><a href="GeometryRepresentation.html">GeometryRepresentation</a></td>
+</tr>
+<tr>
+<td><a href="LevelContext.html">LevelContext</a></td>
+<td><a href="geometry_representations.html">geometry_representations</a></td>
+<td>range</td>
+<td><a href="GeometryRepresentation.html">GeometryRepresentation</a></td>
+</tr>
+<tr>
+<td><a href="ZoneContext.html">ZoneContext</a></td>
+<td><a href="geometry_representations.html">geometry_representations</a></td>
+<td>range</td>
+<td><a href="GeometryRepresentation.html">GeometryRepresentation</a></td>
+</tr>
+<tr>
+<td><a href="Space.html">Space</a></td>
+<td><a href="geometry_representations.html">geometry_representations</a></td>
+<td>range</td>
+<td><a href="GeometryRepresentation.html">GeometryRepresentation</a></td>
+</tr>
+<tr>
+<td><a href="System.html">System</a></td>
+<td><a href="geometry_representations.html">geometry_representations</a></td>
+<td>range</td>
+<td><a href="GeometryRepresentation.html">GeometryRepresentation</a></td>
+</tr>
+<tr>
+<td><a href="ConnectionVirtual.html">ConnectionVirtual</a></td>
+<td><a href="geometry_representations.html">geometry_representations</a></td>
+<td>range</td>
+<td><a href="GeometryRepresentation.html">GeometryRepresentation</a></td>
+</tr>
+<tr>
+<td><a href="AbstractTimeRecord.html">AbstractTimeRecord</a></td>
+<td><a href="geometry_representations.html">geometry_representations</a></td>
+<td>range</td>
+<td><a href="GeometryRepresentation.html">GeometryRepresentation</a></td>
+</tr>
+<tr>
+<td><a href="TimeItem.html">TimeItem</a></td>
+<td><a href="geometry_representations.html">geometry_representations</a></td>
+<td>range</td>
+<td><a href="GeometryRepresentation.html">GeometryRepresentation</a></td>
+</tr>
+<tr>
+<td><a href="Milestone.html">Milestone</a></td>
+<td><a href="geometry_representations.html">geometry_representations</a></td>
+<td>range</td>
+<td><a href="GeometryRepresentation.html">GeometryRepresentation</a></td>
+</tr>
+<tr>
+<td><a href="TimePlan.html">TimePlan</a></td>
+<td><a href="geometry_representations.html">geometry_representations</a></td>
+<td>range</td>
+<td><a href="GeometryRepresentation.html">GeometryRepresentation</a></td>
+</tr>
+<tr>
+<td><a href="TimeDependency.html">TimeDependency</a></td>
+<td><a href="geometry_representations.html">geometry_representations</a></td>
+<td>range</td>
+<td><a href="GeometryRepresentation.html">GeometryRepresentation</a></td>
+</tr>
+<tr>
+<td><a href="AbstractCostRecord.html">AbstractCostRecord</a></td>
+<td><a href="geometry_representations.html">geometry_representations</a></td>
+<td>range</td>
+<td><a href="GeometryRepresentation.html">GeometryRepresentation</a></td>
+</tr>
+<tr>
+<td><a href="CostItem.html">CostItem</a></td>
+<td><a href="geometry_representations.html">geometry_representations</a></td>
+<td>range</td>
+<td><a href="GeometryRepresentation.html">GeometryRepresentation</a></td>
+</tr>
+<tr>
+<td><a href="CostAssembly.html">CostAssembly</a></td>
+<td><a href="geometry_representations.html">geometry_representations</a></td>
+<td>range</td>
+<td><a href="GeometryRepresentation.html">GeometryRepresentation</a></td>
+</tr>
+<tr>
+<td><a href="Material.html">Material</a></td>
+<td><a href="geometry_representations.html">geometry_representations</a></td>
+<td>range</td>
+<td><a href="GeometryRepresentation.html">GeometryRepresentation</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
+<h3 id="schema-source">Schema Source</h3>
+<ul>
+<li>from schema: https://schema.pragmaticbim.ch</li>
+</ul>
+<h2 id="mappings">Mappings</h2>
+<table>
+<thead>
+<tr>
+<th>Mapping Type</th>
+<th>Mapped Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>self</td>
+<td>pbs:GeometryRepresentation</td>
+</tr>
+<tr>
+<td>native</td>
+<td>pbs:GeometryRepresentation</td>
+</tr>
+</tbody>
+</table>
+<h2 id="linkml-source">LinkML Source</h2>
 <!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
-
-### Direct
-
+<h3 id="direct">Direct</h3>
 <details>
 
 <pre><code class="language-yaml">name: GeometryRepresentation
@@ -184,9 +358,7 @@ class_uri: pbs:GeometryRepresentation
 </code></pre>
 
 </details>
-
-### Induced
-
+<h3 id="induced">Induced</h3>
 <details>
 
 <pre><code class="language-yaml">name: GeometryRepresentation
@@ -229,7 +401,8 @@ class_uri: pbs:GeometryRepresentation
 
 </code></pre>
 
-</details></div>
+</details>
+</div>
     <div id="diagram-modal" hidden>
       <div class="diagram-modal-panel">
         <div class="diagram-modal-header">

@@ -39,17 +39,8 @@ a:hover { text-decoration: underline; }
 <hr>
 <h1 id="class-localizedtext">Class: LocalizedText</h1>
 <p><em>Localized text value for a specific language tag.</em></p>
-<div data-search-exclude markdown="1">
-
-
-
-URI: [pbs:LocalizedText](https://schema.pragmaticbim.ch/LocalizedText)
-
-
-
-
-
-
+<div data-search-exclude>
+<p>URI: <a href="https://schema.pragmaticbim.ch/LocalizedText">pbs:LocalizedText</a></p>
 <div class="mermaid">
  classDiagram
     class LocalizedText
@@ -58,147 +49,495 @@ URI: [pbs:LocalizedText](https://schema.pragmaticbim.ch/LocalizedText)
       LocalizedText : text_value
 
 </div>
-
-
-
-
-
 <!-- no inheritance hierarchy -->
-
-## Class Properties
-
-| Property | Value |
-| --- | --- |
-| Class URI | [pbs:LocalizedText](https://schema.pragmaticbim.ch/LocalizedText) |
-
-
-## Slots
-
-| Name | Cardinality and Range | Description | Inheritance |
-| ---  | --- | --- | --- |
-| [language_tag](language_tag.md) | 1 <br/> [String](String.md) | IETF BCP 47 language tag (for example en, de, pt-BR) | direct |
-| [text_value](text_value.md) | 1 <br/> [String](String.md) | Localized text value | direct |
-
-
-
-
-
-## Usages
-
-| used by | used in | type | used |
-| ---  | --- | --- | --- |
-| [Entity](Entity.md) | [localized_names](localized_names.md) | range | [LocalizedText](LocalizedText.md) |
-| [Entity](Entity.md) | [localized_descriptions](localized_descriptions.md) | range | [LocalizedText](LocalizedText.md) |
-| [Agent](Agent.md) | [localized_names](localized_names.md) | range | [LocalizedText](LocalizedText.md) |
-| [Agent](Agent.md) | [localized_descriptions](localized_descriptions.md) | range | [LocalizedText](LocalizedText.md) |
-| [Person](Person.md) | [localized_names](localized_names.md) | range | [LocalizedText](LocalizedText.md) |
-| [Person](Person.md) | [localized_descriptions](localized_descriptions.md) | range | [LocalizedText](LocalizedText.md) |
-| [Company](Company.md) | [localized_names](localized_names.md) | range | [LocalizedText](LocalizedText.md) |
-| [Company](Company.md) | [localized_descriptions](localized_descriptions.md) | range | [LocalizedText](LocalizedText.md) |
-| [Message](Message.md) | [localized_names](localized_names.md) | range | [LocalizedText](LocalizedText.md) |
-| [Message](Message.md) | [localized_descriptions](localized_descriptions.md) | range | [LocalizedText](LocalizedText.md) |
-| [PhysicalElement](PhysicalElement.md) | [localized_names](localized_names.md) | range | [LocalizedText](LocalizedText.md) |
-| [PhysicalElement](PhysicalElement.md) | [localized_descriptions](localized_descriptions.md) | range | [LocalizedText](LocalizedText.md) |
-| [Separator](Separator.md) | [localized_names](localized_names.md) | range | [LocalizedText](LocalizedText.md) |
-| [Separator](Separator.md) | [localized_descriptions](localized_descriptions.md) | range | [LocalizedText](LocalizedText.md) |
-| [SeparatorWall](SeparatorWall.md) | [localized_names](localized_names.md) | range | [LocalizedText](LocalizedText.md) |
-| [SeparatorWall](SeparatorWall.md) | [localized_descriptions](localized_descriptions.md) | range | [LocalizedText](LocalizedText.md) |
-| [SeparatorSlab](SeparatorSlab.md) | [localized_names](localized_names.md) | range | [LocalizedText](LocalizedText.md) |
-| [SeparatorSlab](SeparatorSlab.md) | [localized_descriptions](localized_descriptions.md) | range | [LocalizedText](LocalizedText.md) |
-| [ConnectionPhysical](ConnectionPhysical.md) | [localized_names](localized_names.md) | range | [LocalizedText](LocalizedText.md) |
-| [ConnectionPhysical](ConnectionPhysical.md) | [localized_descriptions](localized_descriptions.md) | range | [LocalizedText](LocalizedText.md) |
-| [Boundary](Boundary.md) | [localized_names](localized_names.md) | range | [LocalizedText](LocalizedText.md) |
-| [Boundary](Boundary.md) | [localized_descriptions](localized_descriptions.md) | range | [LocalizedText](LocalizedText.md) |
-| [Equipment](Equipment.md) | [localized_names](localized_names.md) | range | [LocalizedText](LocalizedText.md) |
-| [Equipment](Equipment.md) | [localized_descriptions](localized_descriptions.md) | range | [LocalizedText](LocalizedText.md) |
-| [VirtualEntity](VirtualEntity.md) | [localized_names](localized_names.md) | range | [LocalizedText](LocalizedText.md) |
-| [VirtualEntity](VirtualEntity.md) | [localized_descriptions](localized_descriptions.md) | range | [LocalizedText](LocalizedText.md) |
-| [SpatialContext](SpatialContext.md) | [localized_names](localized_names.md) | range | [LocalizedText](LocalizedText.md) |
-| [SpatialContext](SpatialContext.md) | [localized_descriptions](localized_descriptions.md) | range | [LocalizedText](LocalizedText.md) |
-| [ProjectContext](ProjectContext.md) | [localized_names](localized_names.md) | range | [LocalizedText](LocalizedText.md) |
-| [ProjectContext](ProjectContext.md) | [localized_descriptions](localized_descriptions.md) | range | [LocalizedText](LocalizedText.md) |
-| [PerimeterContext](PerimeterContext.md) | [localized_names](localized_names.md) | range | [LocalizedText](LocalizedText.md) |
-| [PerimeterContext](PerimeterContext.md) | [localized_descriptions](localized_descriptions.md) | range | [LocalizedText](LocalizedText.md) |
-| [LegalSiteContext](LegalSiteContext.md) | [localized_names](localized_names.md) | range | [LocalizedText](LocalizedText.md) |
-| [LegalSiteContext](LegalSiteContext.md) | [localized_descriptions](localized_descriptions.md) | range | [LocalizedText](LocalizedText.md) |
-| [BuiltAssetContext](BuiltAssetContext.md) | [localized_names](localized_names.md) | range | [LocalizedText](LocalizedText.md) |
-| [BuiltAssetContext](BuiltAssetContext.md) | [localized_descriptions](localized_descriptions.md) | range | [LocalizedText](LocalizedText.md) |
-| [BuildingContext](BuildingContext.md) | [localized_names](localized_names.md) | range | [LocalizedText](LocalizedText.md) |
-| [BuildingContext](BuildingContext.md) | [localized_descriptions](localized_descriptions.md) | range | [LocalizedText](LocalizedText.md) |
-| [CivilStructureContext](CivilStructureContext.md) | [localized_names](localized_names.md) | range | [LocalizedText](LocalizedText.md) |
-| [CivilStructureContext](CivilStructureContext.md) | [localized_descriptions](localized_descriptions.md) | range | [LocalizedText](LocalizedText.md) |
-| [LevelContext](LevelContext.md) | [localized_names](localized_names.md) | range | [LocalizedText](LocalizedText.md) |
-| [LevelContext](LevelContext.md) | [localized_descriptions](localized_descriptions.md) | range | [LocalizedText](LocalizedText.md) |
-| [ZoneContext](ZoneContext.md) | [localized_names](localized_names.md) | range | [LocalizedText](LocalizedText.md) |
-| [ZoneContext](ZoneContext.md) | [localized_descriptions](localized_descriptions.md) | range | [LocalizedText](LocalizedText.md) |
-| [Space](Space.md) | [localized_names](localized_names.md) | range | [LocalizedText](LocalizedText.md) |
-| [Space](Space.md) | [localized_descriptions](localized_descriptions.md) | range | [LocalizedText](LocalizedText.md) |
-| [System](System.md) | [localized_names](localized_names.md) | range | [LocalizedText](LocalizedText.md) |
-| [System](System.md) | [localized_descriptions](localized_descriptions.md) | range | [LocalizedText](LocalizedText.md) |
-| [ConnectionVirtual](ConnectionVirtual.md) | [localized_names](localized_names.md) | range | [LocalizedText](LocalizedText.md) |
-| [ConnectionVirtual](ConnectionVirtual.md) | [localized_descriptions](localized_descriptions.md) | range | [LocalizedText](LocalizedText.md) |
-| [AbstractTimeRecord](AbstractTimeRecord.md) | [localized_names](localized_names.md) | range | [LocalizedText](LocalizedText.md) |
-| [AbstractTimeRecord](AbstractTimeRecord.md) | [localized_descriptions](localized_descriptions.md) | range | [LocalizedText](LocalizedText.md) |
-| [TimeItem](TimeItem.md) | [localized_names](localized_names.md) | range | [LocalizedText](LocalizedText.md) |
-| [TimeItem](TimeItem.md) | [localized_descriptions](localized_descriptions.md) | range | [LocalizedText](LocalizedText.md) |
-| [Milestone](Milestone.md) | [localized_names](localized_names.md) | range | [LocalizedText](LocalizedText.md) |
-| [Milestone](Milestone.md) | [localized_descriptions](localized_descriptions.md) | range | [LocalizedText](LocalizedText.md) |
-| [TimePlan](TimePlan.md) | [localized_names](localized_names.md) | range | [LocalizedText](LocalizedText.md) |
-| [TimePlan](TimePlan.md) | [localized_descriptions](localized_descriptions.md) | range | [LocalizedText](LocalizedText.md) |
-| [TimeDependency](TimeDependency.md) | [localized_names](localized_names.md) | range | [LocalizedText](LocalizedText.md) |
-| [TimeDependency](TimeDependency.md) | [localized_descriptions](localized_descriptions.md) | range | [LocalizedText](LocalizedText.md) |
-| [AbstractCostRecord](AbstractCostRecord.md) | [localized_names](localized_names.md) | range | [LocalizedText](LocalizedText.md) |
-| [AbstractCostRecord](AbstractCostRecord.md) | [localized_descriptions](localized_descriptions.md) | range | [LocalizedText](LocalizedText.md) |
-| [CostItem](CostItem.md) | [localized_names](localized_names.md) | range | [LocalizedText](LocalizedText.md) |
-| [CostItem](CostItem.md) | [localized_descriptions](localized_descriptions.md) | range | [LocalizedText](LocalizedText.md) |
-| [CostAssembly](CostAssembly.md) | [localized_names](localized_names.md) | range | [LocalizedText](LocalizedText.md) |
-| [CostAssembly](CostAssembly.md) | [localized_descriptions](localized_descriptions.md) | range | [LocalizedText](LocalizedText.md) |
-| [Material](Material.md) | [localized_names](localized_names.md) | range | [LocalizedText](LocalizedText.md) |
-| [Material](Material.md) | [localized_descriptions](localized_descriptions.md) | range | [LocalizedText](LocalizedText.md) |
-
-
-
-
-
-
-
-
-
-
-
-
-## Identifier and Mapping Information
-
-
-
-
-
-### Schema Source
-
-
-* from schema: https://schema.pragmaticbim.ch
-
-
-
-
-## Mappings
-
-| Mapping Type | Mapped Value |
-| ---  | ---  |
-| self | pbs:LocalizedText |
-| native | pbs:LocalizedText |
-
-
-
-
-
-
-## LinkML Source
-
+<h2 id="class-properties">Class Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Class URI</td>
+<td><a href="https://schema.pragmaticbim.ch/LocalizedText">pbs:LocalizedText</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="slots">Slots</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Cardinality and Range</th>
+<th>Description</th>
+<th>Inheritance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="language_tag.html">language_tag</a></td>
+<td>1 <br/> <a href="String.html">String</a></td>
+<td>IETF BCP 47 language tag (for example en, de, pt-BR)</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="text_value.html">text_value</a></td>
+<td>1 <br/> <a href="String.html">String</a></td>
+<td>Localized text value</td>
+<td>direct</td>
+</tr>
+</tbody>
+</table>
+<h2 id="usages">Usages</h2>
+<table>
+<thead>
+<tr>
+<th>used by</th>
+<th>used in</th>
+<th>type</th>
+<th>used</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Entity.html">Entity</a></td>
+<td><a href="localized_names.html">localized_names</a></td>
+<td>range</td>
+<td><a href="LocalizedText.html">LocalizedText</a></td>
+</tr>
+<tr>
+<td><a href="Entity.html">Entity</a></td>
+<td><a href="localized_descriptions.html">localized_descriptions</a></td>
+<td>range</td>
+<td><a href="LocalizedText.html">LocalizedText</a></td>
+</tr>
+<tr>
+<td><a href="Agent.html">Agent</a></td>
+<td><a href="localized_names.html">localized_names</a></td>
+<td>range</td>
+<td><a href="LocalizedText.html">LocalizedText</a></td>
+</tr>
+<tr>
+<td><a href="Agent.html">Agent</a></td>
+<td><a href="localized_descriptions.html">localized_descriptions</a></td>
+<td>range</td>
+<td><a href="LocalizedText.html">LocalizedText</a></td>
+</tr>
+<tr>
+<td><a href="Person.html">Person</a></td>
+<td><a href="localized_names.html">localized_names</a></td>
+<td>range</td>
+<td><a href="LocalizedText.html">LocalizedText</a></td>
+</tr>
+<tr>
+<td><a href="Person.html">Person</a></td>
+<td><a href="localized_descriptions.html">localized_descriptions</a></td>
+<td>range</td>
+<td><a href="LocalizedText.html">LocalizedText</a></td>
+</tr>
+<tr>
+<td><a href="Company.html">Company</a></td>
+<td><a href="localized_names.html">localized_names</a></td>
+<td>range</td>
+<td><a href="LocalizedText.html">LocalizedText</a></td>
+</tr>
+<tr>
+<td><a href="Company.html">Company</a></td>
+<td><a href="localized_descriptions.html">localized_descriptions</a></td>
+<td>range</td>
+<td><a href="LocalizedText.html">LocalizedText</a></td>
+</tr>
+<tr>
+<td><a href="Message.html">Message</a></td>
+<td><a href="localized_names.html">localized_names</a></td>
+<td>range</td>
+<td><a href="LocalizedText.html">LocalizedText</a></td>
+</tr>
+<tr>
+<td><a href="Message.html">Message</a></td>
+<td><a href="localized_descriptions.html">localized_descriptions</a></td>
+<td>range</td>
+<td><a href="LocalizedText.html">LocalizedText</a></td>
+</tr>
+<tr>
+<td><a href="PhysicalElement.html">PhysicalElement</a></td>
+<td><a href="localized_names.html">localized_names</a></td>
+<td>range</td>
+<td><a href="LocalizedText.html">LocalizedText</a></td>
+</tr>
+<tr>
+<td><a href="PhysicalElement.html">PhysicalElement</a></td>
+<td><a href="localized_descriptions.html">localized_descriptions</a></td>
+<td>range</td>
+<td><a href="LocalizedText.html">LocalizedText</a></td>
+</tr>
+<tr>
+<td><a href="Separator.html">Separator</a></td>
+<td><a href="localized_names.html">localized_names</a></td>
+<td>range</td>
+<td><a href="LocalizedText.html">LocalizedText</a></td>
+</tr>
+<tr>
+<td><a href="Separator.html">Separator</a></td>
+<td><a href="localized_descriptions.html">localized_descriptions</a></td>
+<td>range</td>
+<td><a href="LocalizedText.html">LocalizedText</a></td>
+</tr>
+<tr>
+<td><a href="SeparatorWall.html">SeparatorWall</a></td>
+<td><a href="localized_names.html">localized_names</a></td>
+<td>range</td>
+<td><a href="LocalizedText.html">LocalizedText</a></td>
+</tr>
+<tr>
+<td><a href="SeparatorWall.html">SeparatorWall</a></td>
+<td><a href="localized_descriptions.html">localized_descriptions</a></td>
+<td>range</td>
+<td><a href="LocalizedText.html">LocalizedText</a></td>
+</tr>
+<tr>
+<td><a href="SeparatorSlab.html">SeparatorSlab</a></td>
+<td><a href="localized_names.html">localized_names</a></td>
+<td>range</td>
+<td><a href="LocalizedText.html">LocalizedText</a></td>
+</tr>
+<tr>
+<td><a href="SeparatorSlab.html">SeparatorSlab</a></td>
+<td><a href="localized_descriptions.html">localized_descriptions</a></td>
+<td>range</td>
+<td><a href="LocalizedText.html">LocalizedText</a></td>
+</tr>
+<tr>
+<td><a href="ConnectionPhysical.html">ConnectionPhysical</a></td>
+<td><a href="localized_names.html">localized_names</a></td>
+<td>range</td>
+<td><a href="LocalizedText.html">LocalizedText</a></td>
+</tr>
+<tr>
+<td><a href="ConnectionPhysical.html">ConnectionPhysical</a></td>
+<td><a href="localized_descriptions.html">localized_descriptions</a></td>
+<td>range</td>
+<td><a href="LocalizedText.html">LocalizedText</a></td>
+</tr>
+<tr>
+<td><a href="Boundary.html">Boundary</a></td>
+<td><a href="localized_names.html">localized_names</a></td>
+<td>range</td>
+<td><a href="LocalizedText.html">LocalizedText</a></td>
+</tr>
+<tr>
+<td><a href="Boundary.html">Boundary</a></td>
+<td><a href="localized_descriptions.html">localized_descriptions</a></td>
+<td>range</td>
+<td><a href="LocalizedText.html">LocalizedText</a></td>
+</tr>
+<tr>
+<td><a href="Equipment.html">Equipment</a></td>
+<td><a href="localized_names.html">localized_names</a></td>
+<td>range</td>
+<td><a href="LocalizedText.html">LocalizedText</a></td>
+</tr>
+<tr>
+<td><a href="Equipment.html">Equipment</a></td>
+<td><a href="localized_descriptions.html">localized_descriptions</a></td>
+<td>range</td>
+<td><a href="LocalizedText.html">LocalizedText</a></td>
+</tr>
+<tr>
+<td><a href="VirtualEntity.html">VirtualEntity</a></td>
+<td><a href="localized_names.html">localized_names</a></td>
+<td>range</td>
+<td><a href="LocalizedText.html">LocalizedText</a></td>
+</tr>
+<tr>
+<td><a href="VirtualEntity.html">VirtualEntity</a></td>
+<td><a href="localized_descriptions.html">localized_descriptions</a></td>
+<td>range</td>
+<td><a href="LocalizedText.html">LocalizedText</a></td>
+</tr>
+<tr>
+<td><a href="SpatialContext.html">SpatialContext</a></td>
+<td><a href="localized_names.html">localized_names</a></td>
+<td>range</td>
+<td><a href="LocalizedText.html">LocalizedText</a></td>
+</tr>
+<tr>
+<td><a href="SpatialContext.html">SpatialContext</a></td>
+<td><a href="localized_descriptions.html">localized_descriptions</a></td>
+<td>range</td>
+<td><a href="LocalizedText.html">LocalizedText</a></td>
+</tr>
+<tr>
+<td><a href="ProjectContext.html">ProjectContext</a></td>
+<td><a href="localized_names.html">localized_names</a></td>
+<td>range</td>
+<td><a href="LocalizedText.html">LocalizedText</a></td>
+</tr>
+<tr>
+<td><a href="ProjectContext.html">ProjectContext</a></td>
+<td><a href="localized_descriptions.html">localized_descriptions</a></td>
+<td>range</td>
+<td><a href="LocalizedText.html">LocalizedText</a></td>
+</tr>
+<tr>
+<td><a href="PerimeterContext.html">PerimeterContext</a></td>
+<td><a href="localized_names.html">localized_names</a></td>
+<td>range</td>
+<td><a href="LocalizedText.html">LocalizedText</a></td>
+</tr>
+<tr>
+<td><a href="PerimeterContext.html">PerimeterContext</a></td>
+<td><a href="localized_descriptions.html">localized_descriptions</a></td>
+<td>range</td>
+<td><a href="LocalizedText.html">LocalizedText</a></td>
+</tr>
+<tr>
+<td><a href="LegalSiteContext.html">LegalSiteContext</a></td>
+<td><a href="localized_names.html">localized_names</a></td>
+<td>range</td>
+<td><a href="LocalizedText.html">LocalizedText</a></td>
+</tr>
+<tr>
+<td><a href="LegalSiteContext.html">LegalSiteContext</a></td>
+<td><a href="localized_descriptions.html">localized_descriptions</a></td>
+<td>range</td>
+<td><a href="LocalizedText.html">LocalizedText</a></td>
+</tr>
+<tr>
+<td><a href="BuiltAssetContext.html">BuiltAssetContext</a></td>
+<td><a href="localized_names.html">localized_names</a></td>
+<td>range</td>
+<td><a href="LocalizedText.html">LocalizedText</a></td>
+</tr>
+<tr>
+<td><a href="BuiltAssetContext.html">BuiltAssetContext</a></td>
+<td><a href="localized_descriptions.html">localized_descriptions</a></td>
+<td>range</td>
+<td><a href="LocalizedText.html">LocalizedText</a></td>
+</tr>
+<tr>
+<td><a href="BuildingContext.html">BuildingContext</a></td>
+<td><a href="localized_names.html">localized_names</a></td>
+<td>range</td>
+<td><a href="LocalizedText.html">LocalizedText</a></td>
+</tr>
+<tr>
+<td><a href="BuildingContext.html">BuildingContext</a></td>
+<td><a href="localized_descriptions.html">localized_descriptions</a></td>
+<td>range</td>
+<td><a href="LocalizedText.html">LocalizedText</a></td>
+</tr>
+<tr>
+<td><a href="CivilStructureContext.html">CivilStructureContext</a></td>
+<td><a href="localized_names.html">localized_names</a></td>
+<td>range</td>
+<td><a href="LocalizedText.html">LocalizedText</a></td>
+</tr>
+<tr>
+<td><a href="CivilStructureContext.html">CivilStructureContext</a></td>
+<td><a href="localized_descriptions.html">localized_descriptions</a></td>
+<td>range</td>
+<td><a href="LocalizedText.html">LocalizedText</a></td>
+</tr>
+<tr>
+<td><a href="LevelContext.html">LevelContext</a></td>
+<td><a href="localized_names.html">localized_names</a></td>
+<td>range</td>
+<td><a href="LocalizedText.html">LocalizedText</a></td>
+</tr>
+<tr>
+<td><a href="LevelContext.html">LevelContext</a></td>
+<td><a href="localized_descriptions.html">localized_descriptions</a></td>
+<td>range</td>
+<td><a href="LocalizedText.html">LocalizedText</a></td>
+</tr>
+<tr>
+<td><a href="ZoneContext.html">ZoneContext</a></td>
+<td><a href="localized_names.html">localized_names</a></td>
+<td>range</td>
+<td><a href="LocalizedText.html">LocalizedText</a></td>
+</tr>
+<tr>
+<td><a href="ZoneContext.html">ZoneContext</a></td>
+<td><a href="localized_descriptions.html">localized_descriptions</a></td>
+<td>range</td>
+<td><a href="LocalizedText.html">LocalizedText</a></td>
+</tr>
+<tr>
+<td><a href="Space.html">Space</a></td>
+<td><a href="localized_names.html">localized_names</a></td>
+<td>range</td>
+<td><a href="LocalizedText.html">LocalizedText</a></td>
+</tr>
+<tr>
+<td><a href="Space.html">Space</a></td>
+<td><a href="localized_descriptions.html">localized_descriptions</a></td>
+<td>range</td>
+<td><a href="LocalizedText.html">LocalizedText</a></td>
+</tr>
+<tr>
+<td><a href="System.html">System</a></td>
+<td><a href="localized_names.html">localized_names</a></td>
+<td>range</td>
+<td><a href="LocalizedText.html">LocalizedText</a></td>
+</tr>
+<tr>
+<td><a href="System.html">System</a></td>
+<td><a href="localized_descriptions.html">localized_descriptions</a></td>
+<td>range</td>
+<td><a href="LocalizedText.html">LocalizedText</a></td>
+</tr>
+<tr>
+<td><a href="ConnectionVirtual.html">ConnectionVirtual</a></td>
+<td><a href="localized_names.html">localized_names</a></td>
+<td>range</td>
+<td><a href="LocalizedText.html">LocalizedText</a></td>
+</tr>
+<tr>
+<td><a href="ConnectionVirtual.html">ConnectionVirtual</a></td>
+<td><a href="localized_descriptions.html">localized_descriptions</a></td>
+<td>range</td>
+<td><a href="LocalizedText.html">LocalizedText</a></td>
+</tr>
+<tr>
+<td><a href="AbstractTimeRecord.html">AbstractTimeRecord</a></td>
+<td><a href="localized_names.html">localized_names</a></td>
+<td>range</td>
+<td><a href="LocalizedText.html">LocalizedText</a></td>
+</tr>
+<tr>
+<td><a href="AbstractTimeRecord.html">AbstractTimeRecord</a></td>
+<td><a href="localized_descriptions.html">localized_descriptions</a></td>
+<td>range</td>
+<td><a href="LocalizedText.html">LocalizedText</a></td>
+</tr>
+<tr>
+<td><a href="TimeItem.html">TimeItem</a></td>
+<td><a href="localized_names.html">localized_names</a></td>
+<td>range</td>
+<td><a href="LocalizedText.html">LocalizedText</a></td>
+</tr>
+<tr>
+<td><a href="TimeItem.html">TimeItem</a></td>
+<td><a href="localized_descriptions.html">localized_descriptions</a></td>
+<td>range</td>
+<td><a href="LocalizedText.html">LocalizedText</a></td>
+</tr>
+<tr>
+<td><a href="Milestone.html">Milestone</a></td>
+<td><a href="localized_names.html">localized_names</a></td>
+<td>range</td>
+<td><a href="LocalizedText.html">LocalizedText</a></td>
+</tr>
+<tr>
+<td><a href="Milestone.html">Milestone</a></td>
+<td><a href="localized_descriptions.html">localized_descriptions</a></td>
+<td>range</td>
+<td><a href="LocalizedText.html">LocalizedText</a></td>
+</tr>
+<tr>
+<td><a href="TimePlan.html">TimePlan</a></td>
+<td><a href="localized_names.html">localized_names</a></td>
+<td>range</td>
+<td><a href="LocalizedText.html">LocalizedText</a></td>
+</tr>
+<tr>
+<td><a href="TimePlan.html">TimePlan</a></td>
+<td><a href="localized_descriptions.html">localized_descriptions</a></td>
+<td>range</td>
+<td><a href="LocalizedText.html">LocalizedText</a></td>
+</tr>
+<tr>
+<td><a href="TimeDependency.html">TimeDependency</a></td>
+<td><a href="localized_names.html">localized_names</a></td>
+<td>range</td>
+<td><a href="LocalizedText.html">LocalizedText</a></td>
+</tr>
+<tr>
+<td><a href="TimeDependency.html">TimeDependency</a></td>
+<td><a href="localized_descriptions.html">localized_descriptions</a></td>
+<td>range</td>
+<td><a href="LocalizedText.html">LocalizedText</a></td>
+</tr>
+<tr>
+<td><a href="AbstractCostRecord.html">AbstractCostRecord</a></td>
+<td><a href="localized_names.html">localized_names</a></td>
+<td>range</td>
+<td><a href="LocalizedText.html">LocalizedText</a></td>
+</tr>
+<tr>
+<td><a href="AbstractCostRecord.html">AbstractCostRecord</a></td>
+<td><a href="localized_descriptions.html">localized_descriptions</a></td>
+<td>range</td>
+<td><a href="LocalizedText.html">LocalizedText</a></td>
+</tr>
+<tr>
+<td><a href="CostItem.html">CostItem</a></td>
+<td><a href="localized_names.html">localized_names</a></td>
+<td>range</td>
+<td><a href="LocalizedText.html">LocalizedText</a></td>
+</tr>
+<tr>
+<td><a href="CostItem.html">CostItem</a></td>
+<td><a href="localized_descriptions.html">localized_descriptions</a></td>
+<td>range</td>
+<td><a href="LocalizedText.html">LocalizedText</a></td>
+</tr>
+<tr>
+<td><a href="CostAssembly.html">CostAssembly</a></td>
+<td><a href="localized_names.html">localized_names</a></td>
+<td>range</td>
+<td><a href="LocalizedText.html">LocalizedText</a></td>
+</tr>
+<tr>
+<td><a href="CostAssembly.html">CostAssembly</a></td>
+<td><a href="localized_descriptions.html">localized_descriptions</a></td>
+<td>range</td>
+<td><a href="LocalizedText.html">LocalizedText</a></td>
+</tr>
+<tr>
+<td><a href="Material.html">Material</a></td>
+<td><a href="localized_names.html">localized_names</a></td>
+<td>range</td>
+<td><a href="LocalizedText.html">LocalizedText</a></td>
+</tr>
+<tr>
+<td><a href="Material.html">Material</a></td>
+<td><a href="localized_descriptions.html">localized_descriptions</a></td>
+<td>range</td>
+<td><a href="LocalizedText.html">LocalizedText</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
+<h3 id="schema-source">Schema Source</h3>
+<ul>
+<li>from schema: https://schema.pragmaticbim.ch</li>
+</ul>
+<h2 id="mappings">Mappings</h2>
+<table>
+<thead>
+<tr>
+<th>Mapping Type</th>
+<th>Mapped Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>self</td>
+<td>pbs:LocalizedText</td>
+</tr>
+<tr>
+<td>native</td>
+<td>pbs:LocalizedText</td>
+</tr>
+</tbody>
+</table>
+<h2 id="linkml-source">LinkML Source</h2>
 <!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
-
-### Direct
-
+<h3 id="direct">Direct</h3>
 <details>
 
 <pre><code class="language-yaml">name: LocalizedText
@@ -212,9 +551,7 @@ class_uri: pbs:LocalizedText
 </code></pre>
 
 </details>
-
-### Induced
-
+<h3 id="induced">Induced</h3>
 <details>
 
 <pre><code class="language-yaml">name: LocalizedText
@@ -245,7 +582,8 @@ class_uri: pbs:LocalizedText
 
 </code></pre>
 
-</details></div>
+</details>
+</div>
     <div id="diagram-modal" hidden>
       <div class="diagram-modal-panel">
         <div class="diagram-modal-header">

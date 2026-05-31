@@ -38,64 +38,96 @@ a:hover { text-decoration: underline; }
   boost: 2.0</p>
 <hr>
 <h1 id="enum-quantitytype">Enum: QuantityType</h1>
-<div data-search-exclude markdown="1">
-
-URI: [pbs:QuantityType](https://schema.pragmaticbim.ch/QuantityType)
-
-**Enum URI:** [pbs:QuantityType](https://schema.pragmaticbim.ch/QuantityType)
-
-
-## Permissible Values
-| Value | Meaning | Description |
-| --- | --- | --- |
-| area_net_horizontal | ifcowl:IfcQuantityArea | Net horizontal area, typically usable floor area excluding non-net parts |
-| area_gross_horizontal | ifcowl:IfcQuantityArea | Gross horizontal area, typically measured to outer boundaries |
-| area_net_vertical | ifcowl:IfcQuantityArea | Net vertical area, typically wall or facade area excluding deductions |
-| area_gross_vertical | ifcowl:IfcQuantityArea | Gross vertical area, typically full wall or facade area including non-net por... |
-| volume_net | ifcowl:IfcQuantityVolume | Net enclosed volume after subtracting non-counted voids or deductions |
-| volume_gross | ifcowl:IfcQuantityVolume | Gross enclosed volume measured to external or gross boundaries |
-| length | ifcowl:IfcQuantityLength | Linear extent of an element or feature |
-| width | ifcowl:IfcQuantityLength | Width dimension of an element, opening, or space proxy |
-| height | ifcowl:IfcQuantityLength | Height dimension of an element, opening, or space proxy |
-| perimeter | ifcowl:IfcQuantityLength | Boundary length around a 2D shape or footprint |
-
-
-
-
-## Slots
-
-| Name | Description |
-| ---  | --- |
-| [quantity_type](quantity_type.md) | Controlled quantity type |
-| [cost_quantity_type](cost_quantity_type.md) | Quantity type used as basis for this cost calculation |
-
-
-
-
-
-
-
-
-
-
-## Identifier and Mapping Information
-
-
-
-
-
-### Schema Source
-
-
-* from schema: https://schema.pragmaticbim.ch
-
-
-
-
-
-
-## LinkML Source
-
+<div data-search-exclude>
+<p>URI: <a href="https://schema.pragmaticbim.ch/QuantityType">pbs:QuantityType</a></p>
+<p><strong>Enum URI:</strong> <a href="https://schema.pragmaticbim.ch/QuantityType">pbs:QuantityType</a></p>
+<h2 id="permissible-values">Permissible Values</h2>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Meaning</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>area_net_horizontal</td>
+<td>ifcowl:IfcQuantityArea</td>
+<td>Net horizontal area, typically usable floor area excluding non-net parts</td>
+</tr>
+<tr>
+<td>area_gross_horizontal</td>
+<td>ifcowl:IfcQuantityArea</td>
+<td>Gross horizontal area, typically measured to outer boundaries</td>
+</tr>
+<tr>
+<td>area_net_vertical</td>
+<td>ifcowl:IfcQuantityArea</td>
+<td>Net vertical area, typically wall or facade area excluding deductions</td>
+</tr>
+<tr>
+<td>area_gross_vertical</td>
+<td>ifcowl:IfcQuantityArea</td>
+<td>Gross vertical area, typically full wall or facade area including non-net por...</td>
+</tr>
+<tr>
+<td>volume_net</td>
+<td>ifcowl:IfcQuantityVolume</td>
+<td>Net enclosed volume after subtracting non-counted voids or deductions</td>
+</tr>
+<tr>
+<td>volume_gross</td>
+<td>ifcowl:IfcQuantityVolume</td>
+<td>Gross enclosed volume measured to external or gross boundaries</td>
+</tr>
+<tr>
+<td>length</td>
+<td>ifcowl:IfcQuantityLength</td>
+<td>Linear extent of an element or feature</td>
+</tr>
+<tr>
+<td>width</td>
+<td>ifcowl:IfcQuantityLength</td>
+<td>Width dimension of an element, opening, or space proxy</td>
+</tr>
+<tr>
+<td>height</td>
+<td>ifcowl:IfcQuantityLength</td>
+<td>Height dimension of an element, opening, or space proxy</td>
+</tr>
+<tr>
+<td>perimeter</td>
+<td>ifcowl:IfcQuantityLength</td>
+<td>Boundary length around a 2D shape or footprint</td>
+</tr>
+</tbody>
+</table>
+<h2 id="slots">Slots</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="quantity_type.html">quantity_type</a></td>
+<td>Controlled quantity type</td>
+</tr>
+<tr>
+<td><a href="cost_quantity_type.html">cost_quantity_type</a></td>
+<td>Quantity type used as basis for this cost calculation</td>
+</tr>
+</tbody>
+</table>
+<h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
+<h3 id="schema-source">Schema Source</h3>
+<ul>
+<li>from schema: https://schema.pragmaticbim.ch</li>
+</ul>
+<h2 id="linkml-source">LinkML Source</h2>
 <details>
 
 <pre><code class="language-yaml">name: QuantityType
@@ -149,7 +181,6 @@ permissible_values:
 </code></pre>
 
 </details>
-
 </div>
     <div id="diagram-modal" hidden>
       <div class="diagram-modal-panel">

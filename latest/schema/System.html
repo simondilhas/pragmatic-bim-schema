@@ -39,17 +39,8 @@ a:hover { text-decoration: underline; }
 <hr>
 <h1 id="class-system">Class: System</h1>
 <p><em>Building service system grouping that serves spaces or zones.</em></p>
-<div data-search-exclude markdown="1">
-
-
-
-URI: [pbs:System](https://schema.pragmaticbim.ch/System)
-
-
-
-
-
-
+<div data-search-exclude>
+<p>URI: <a href="https://schema.pragmaticbim.ch/System">pbs:System</a></p>
 <div class="mermaid">
  classDiagram
     class System
@@ -138,116 +129,286 @@ URI: [pbs:System](https://schema.pragmaticbim.ch/System)
         click TimePlan href "./TimePlan.html"
 
 </div>
-
-
-
-
-
-
-## Inheritance
-* [Entity](Entity.md)
-    * [VirtualEntity](VirtualEntity.md)
-        * **System**
-
-
-## Class Properties
-
-| Property | Value |
-| --- | --- |
-| Class URI | [pbs:System](https://schema.pragmaticbim.ch/System) |
-
-
-## Slots
-
-| Name | Cardinality and Range | Description | Inheritance |
-| ---  | --- | --- | --- |
-| [system_type](system_type.md) | 1 <br/> [SystemType](SystemType.md) | Classification of system role (unit, network, terminal) | direct |
-| [system_discipline](system_discipline.md) | 1 <br/> [SystemDiscipline](SystemDiscipline.md) | Classification of system discipline (electrical, sanitary, ventilation, heati... | direct |
-| [parent_project](parent_project.md) | 0..1 <br/> [ProjectContext](ProjectContext.md) | Parent project context reference | direct |
-| [parent_building](parent_building.md) | 0..1 <br/> [BuiltAssetContext](BuiltAssetContext.md) | Parent building context reference | direct |
-| [serves_spaces](serves_spaces.md) | * <br/> [Space](Space.md) | Spaces served by this system | direct |
-| [serves_zones](serves_zones.md) | * <br/> [ZoneContext](ZoneContext.md) | Zone context nodes served by this system | direct |
-| [contained_entities](contained_entities.md) | * <br/> [Entity](Entity.md) | Generic containment for associated entities | direct |
-| [cost_items](cost_items.md) | * <br/> [CostItem](CostItem.md) | Cost items associated with this entity | [VirtualEntity](VirtualEntity.md) |
-| [cost_assemblies](cost_assemblies.md) | * <br/> [CostAssembly](CostAssembly.md) | Aggregated unit prices associated with this entity | [VirtualEntity](VirtualEntity.md) |
-| [time_items](time_items.md) | * <br/> [TimeItem](TimeItem.md) | Time items associated with this entity | [VirtualEntity](VirtualEntity.md) |
-| [time_plans](time_plans.md) | * <br/> [TimePlan](TimePlan.md) | Grouped time plans associated with this entity | [VirtualEntity](VirtualEntity.md) |
-| [materials](materials.md) | * <br/> [Material](Material.md) | Material definitions associated with this entity | [VirtualEntity](VirtualEntity.md) |
-| [id](id.md) | 1 <br/> [String](String.md) | Unique local identifier | [Entity](Entity.md) |
-| [name](name.md) | 1 <br/> [String](String.md) | Default display name | [Entity](Entity.md) |
-| [localized_names](localized_names.md) | * <br/> [LocalizedText](LocalizedText.md) | Localized variants of name | [Entity](Entity.md) |
-| [description](description.md) | 0..1 <br/> [String](String.md) | Default description text | [Entity](Entity.md) |
-| [meaning_uri](meaning_uri.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | Optional semantic URI for linking the entity instance to an external ontology... | [Entity](Entity.md) |
-| [localized_descriptions](localized_descriptions.md) | * <br/> [LocalizedText](LocalizedText.md) | Localized variants of description | [Entity](Entity.md) |
-| [ifc_global_id](ifc_global_id.md) | 0..1 <br/> [String](String.md) | IFC GlobalId of the mapped entity | [Entity](Entity.md) |
-| [classifications](classifications.md) | * <br/> [Classification](Classification.md) | Classification entries from IFC and other schemes | [Entity](Entity.md) |
-| [geometry_representations](geometry_representations.md) | * <br/> [GeometryRepresentation](GeometryRepresentation.md) | Geometry references associated with the entity | [Entity](Entity.md) |
-| [quantity_values](quantity_values.md) | * <br/> [QuantityValue](QuantityValue.md) | Quantities associated with the entity | [Entity](Entity.md) |
-| [documents](documents.md) | * <br/> [Document](Document.md) | Linked documents associated with this entity | [Entity](Entity.md) |
-| [metadata](metadata.md) | * <br/> [MetadataEntry](MetadataEntry.md) | Generic metadata container for IFC attributes/properties and project-specific... | [Entity](Entity.md) |
-| [performance_properties](performance_properties.md) | * <br/> [PerformanceProperty](PerformanceProperty.md) | Normalized, strongly typed domain properties (fire/acoustic/thermal/structura... | [Entity](Entity.md) |
-| [decisions](decisions.md) | * <br/> [Decision](Decision.md) | Decision records associated with this entity | [Entity](Entity.md) |
-| [tasks](tasks.md) | * <br/> [Task](Task.md) | Tasks associated with this entity | [Entity](Entity.md) |
-| [messages](messages.md) | * <br/> [Message](Message.md) | Messages associated with this entity | [Entity](Entity.md) |
-| [created_at](created_at.md) | 0..1 <br/> [Datetime](Datetime.md) | Creation timestamp for this entity record | [Entity](Entity.md) |
-| [modified_at](modified_at.md) | 0..1 <br/> [Datetime](Datetime.md) | Last modification timestamp for this entity record | [Entity](Entity.md) |
-| [revision](revision.md) | 0..1 <br/> [Integer](Integer.md) | Integer revision counter for change tracking | [Entity](Entity.md) |
-| [status](status.md) | 0..1 <br/> [StatusType](StatusType.md) | Lifecycle or QA status | [Entity](Entity.md) |
-
-
-
-
-
-## Usages
-
-| used by | used in | type | used |
-| ---  | --- | --- | --- |
-| [Equipment](Equipment.md) | [parent_system](parent_system.md) | range | [System](System.md) |
-
-
-
-
-
-
-
-
-
-
-
-
-## Identifier and Mapping Information
-
-
-
-
-
-### Schema Source
-
-
-* from schema: https://schema.pragmaticbim.ch
-
-
-
-
-## Mappings
-
-| Mapping Type | Mapped Value |
-| ---  | ---  |
-| self | pbs:System |
-| native | pbs:System |
-| exact | ifcowl:IfcSystem |
-
-
-
-
-
-
-## LinkML Source
-
+<h2 id="inheritance">Inheritance</h2>
+<ul>
+<li><a href="Entity.html">Entity</a><ul>
+<li><a href="VirtualEntity.html">VirtualEntity</a><ul>
+<li><strong>System</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="class-properties">Class Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Class URI</td>
+<td><a href="https://schema.pragmaticbim.ch/System">pbs:System</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="slots">Slots</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Cardinality and Range</th>
+<th>Description</th>
+<th>Inheritance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="system_type.html">system_type</a></td>
+<td>1 <br/> <a href="SystemType.html">SystemType</a></td>
+<td>Classification of system role (unit, network, terminal)</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="system_discipline.html">system_discipline</a></td>
+<td>1 <br/> <a href="SystemDiscipline.html">SystemDiscipline</a></td>
+<td>Classification of system discipline (electrical, sanitary, ventilation, heati...</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="parent_project.html">parent_project</a></td>
+<td>0..1 <br/> <a href="ProjectContext.html">ProjectContext</a></td>
+<td>Parent project context reference</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="parent_building.html">parent_building</a></td>
+<td>0..1 <br/> <a href="BuiltAssetContext.html">BuiltAssetContext</a></td>
+<td>Parent building context reference</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="serves_spaces.html">serves_spaces</a></td>
+<td>* <br/> <a href="Space.html">Space</a></td>
+<td>Spaces served by this system</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="serves_zones.html">serves_zones</a></td>
+<td>* <br/> <a href="ZoneContext.html">ZoneContext</a></td>
+<td>Zone context nodes served by this system</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="contained_entities.html">contained_entities</a></td>
+<td>* <br/> <a href="Entity.html">Entity</a></td>
+<td>Generic containment for associated entities</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="cost_items.html">cost_items</a></td>
+<td>* <br/> <a href="CostItem.html">CostItem</a></td>
+<td>Cost items associated with this entity</td>
+<td><a href="VirtualEntity.html">VirtualEntity</a></td>
+</tr>
+<tr>
+<td><a href="cost_assemblies.html">cost_assemblies</a></td>
+<td>* <br/> <a href="CostAssembly.html">CostAssembly</a></td>
+<td>Aggregated unit prices associated with this entity</td>
+<td><a href="VirtualEntity.html">VirtualEntity</a></td>
+</tr>
+<tr>
+<td><a href="time_items.html">time_items</a></td>
+<td>* <br/> <a href="TimeItem.html">TimeItem</a></td>
+<td>Time items associated with this entity</td>
+<td><a href="VirtualEntity.html">VirtualEntity</a></td>
+</tr>
+<tr>
+<td><a href="time_plans.html">time_plans</a></td>
+<td>* <br/> <a href="TimePlan.html">TimePlan</a></td>
+<td>Grouped time plans associated with this entity</td>
+<td><a href="VirtualEntity.html">VirtualEntity</a></td>
+</tr>
+<tr>
+<td><a href="materials.html">materials</a></td>
+<td>* <br/> <a href="Material.html">Material</a></td>
+<td>Material definitions associated with this entity</td>
+<td><a href="VirtualEntity.html">VirtualEntity</a></td>
+</tr>
+<tr>
+<td><a href="id.html">id</a></td>
+<td>1 <br/> <a href="String.html">String</a></td>
+<td>Unique local identifier</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="name.html">name</a></td>
+<td>1 <br/> <a href="String.html">String</a></td>
+<td>Default display name</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="localized_names.html">localized_names</a></td>
+<td>* <br/> <a href="LocalizedText.html">LocalizedText</a></td>
+<td>Localized variants of name</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="description.html">description</a></td>
+<td>0..1 <br/> <a href="String.html">String</a></td>
+<td>Default description text</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="meaning_uri.html">meaning_uri</a></td>
+<td>0..1 <br/> <a href="Uriorcurie.html">Uriorcurie</a></td>
+<td>Optional semantic URI for linking the entity instance to an external ontology...</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="localized_descriptions.html">localized_descriptions</a></td>
+<td>* <br/> <a href="LocalizedText.html">LocalizedText</a></td>
+<td>Localized variants of description</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="ifc_global_id.html">ifc_global_id</a></td>
+<td>0..1 <br/> <a href="String.html">String</a></td>
+<td>IFC GlobalId of the mapped entity</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="classifications.html">classifications</a></td>
+<td>* <br/> <a href="Classification.html">Classification</a></td>
+<td>Classification entries from IFC and other schemes</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="geometry_representations.html">geometry_representations</a></td>
+<td>* <br/> <a href="GeometryRepresentation.html">GeometryRepresentation</a></td>
+<td>Geometry references associated with the entity</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="quantity_values.html">quantity_values</a></td>
+<td>* <br/> <a href="QuantityValue.html">QuantityValue</a></td>
+<td>Quantities associated with the entity</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="documents.html">documents</a></td>
+<td>* <br/> <a href="Document.html">Document</a></td>
+<td>Linked documents associated with this entity</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="metadata.html">metadata</a></td>
+<td>* <br/> <a href="MetadataEntry.html">MetadataEntry</a></td>
+<td>Generic metadata container for IFC attributes/properties and project-specific...</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="performance_properties.html">performance_properties</a></td>
+<td>* <br/> <a href="PerformanceProperty.html">PerformanceProperty</a></td>
+<td>Normalized, strongly typed domain properties (fire/acoustic/thermal/structura...</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="decisions.html">decisions</a></td>
+<td>* <br/> <a href="Decision.html">Decision</a></td>
+<td>Decision records associated with this entity</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="tasks.html">tasks</a></td>
+<td>* <br/> <a href="Task.html">Task</a></td>
+<td>Tasks associated with this entity</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="messages.html">messages</a></td>
+<td>* <br/> <a href="Message.html">Message</a></td>
+<td>Messages associated with this entity</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="created_at.html">created_at</a></td>
+<td>0..1 <br/> <a href="Datetime.html">Datetime</a></td>
+<td>Creation timestamp for this entity record</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="modified_at.html">modified_at</a></td>
+<td>0..1 <br/> <a href="Datetime.html">Datetime</a></td>
+<td>Last modification timestamp for this entity record</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="revision.html">revision</a></td>
+<td>0..1 <br/> <a href="Integer.html">Integer</a></td>
+<td>Integer revision counter for change tracking</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="status.html">status</a></td>
+<td>0..1 <br/> <a href="StatusType.html">StatusType</a></td>
+<td>Lifecycle or QA status</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="usages">Usages</h2>
+<table>
+<thead>
+<tr>
+<th>used by</th>
+<th>used in</th>
+<th>type</th>
+<th>used</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Equipment.html">Equipment</a></td>
+<td><a href="parent_system.html">parent_system</a></td>
+<td>range</td>
+<td><a href="System.html">System</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
+<h3 id="schema-source">Schema Source</h3>
+<ul>
+<li>from schema: https://schema.pragmaticbim.ch</li>
+</ul>
+<h2 id="mappings">Mappings</h2>
+<table>
+<thead>
+<tr>
+<th>Mapping Type</th>
+<th>Mapped Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>self</td>
+<td>pbs:System</td>
+</tr>
+<tr>
+<td>native</td>
+<td>pbs:System</td>
+</tr>
+<tr>
+<td>exact</td>
+<td>ifcowl:IfcSystem</td>
+</tr>
+</tbody>
+</table>
+<h2 id="linkml-source">LinkML Source</h2>
 <!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
-
-### Direct
-
+<h3 id="direct">Direct</h3>
 <details>
 
 <pre><code class="language-yaml">name: System
@@ -276,9 +437,7 @@ class_uri: pbs:System
 </code></pre>
 
 </details>
-
-### Induced
-
+<h3 id="induced">Induced</h3>
 <details>
 
 <pre><code class="language-yaml">name: System
@@ -654,7 +813,8 @@ class_uri: pbs:System
 
 </code></pre>
 
-</details></div>
+</details>
+</div>
     <div id="diagram-modal" hidden>
       <div class="diagram-modal-panel">
         <div class="diagram-modal-header">

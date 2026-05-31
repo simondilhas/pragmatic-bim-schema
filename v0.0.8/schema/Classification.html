@@ -39,17 +39,8 @@ a:hover { text-decoration: underline; }
 <hr>
 <h1 id="class-classification">Class: Classification</h1>
 <p><em>Generic classification entry from any scheme (for example IFC, Uniclass, OmniClass, custom).</em></p>
-<div data-search-exclude markdown="1">
-
-
-
-URI: [pbs:Classification](https://schema.pragmaticbim.ch/Classification)
-
-
-
-
-
-
+<div data-search-exclude>
+<p>URI: <a href="https://schema.pragmaticbim.ch/Classification">pbs:Classification</a></p>
 <div class="mermaid">
  classDiagram
     class Classification
@@ -62,118 +53,321 @@ URI: [pbs:Classification](https://schema.pragmaticbim.ch/Classification)
       Classification : classification_version
 
 </div>
-
-
-
-
-
 <!-- no inheritance hierarchy -->
-
-## Class Properties
-
-| Property | Value |
-| --- | --- |
-| Class URI | [pbs:Classification](https://schema.pragmaticbim.ch/Classification) |
-
-
-## Slots
-
-| Name | Cardinality and Range | Description | Inheritance |
-| ---  | --- | --- | --- |
-| [classification_scheme](classification_scheme.md) | 1 <br/> [String](String.md) | Name of the classification scheme (for example ifc, uniclass, omniclass, cust... | direct |
-| [classification_code](classification_code.md) | 1 <br/> [String](String.md) | Classification code inside the scheme | direct |
-| [classification_label](classification_label.md) | 0..1 <br/> [String](String.md) | Optional human-readable classification label | direct |
-| [classification_uri](classification_uri.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | Optional URI/CURIE that identifies the classification concept in an external ... | direct |
-| [classification_version](classification_version.md) | 0..1 <br/> [String](String.md) | Optional scheme/version identifier | direct |
-| [classification_source](classification_source.md) | 0..1 <br/> [String](String.md) | Source authority or dataset for this classification | direct |
-
-
-
-
-
-## Usages
-
-| used by | used in | type | used |
-| ---  | --- | --- | --- |
-| [Entity](Entity.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
-| [Agent](Agent.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
-| [Person](Person.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
-| [Company](Company.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
-| [Message](Message.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
-| [Document](Document.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
-| [PhysicalElement](PhysicalElement.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
-| [Separator](Separator.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
-| [SeparatorWall](SeparatorWall.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
-| [SeparatorSlab](SeparatorSlab.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
-| [ConnectionPhysical](ConnectionPhysical.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
-| [Boundary](Boundary.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
-| [Equipment](Equipment.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
-| [VirtualEntity](VirtualEntity.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
-| [SpatialContext](SpatialContext.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
-| [ProjectContext](ProjectContext.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
-| [PerimeterContext](PerimeterContext.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
-| [LegalSiteContext](LegalSiteContext.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
-| [BuiltAssetContext](BuiltAssetContext.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
-| [BuildingContext](BuildingContext.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
-| [CivilStructureContext](CivilStructureContext.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
-| [LevelContext](LevelContext.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
-| [ZoneContext](ZoneContext.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
-| [Space](Space.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
-| [System](System.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
-| [ConnectionVirtual](ConnectionVirtual.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
-| [AbstractTimeRecord](AbstractTimeRecord.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
-| [TimeItem](TimeItem.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
-| [Milestone](Milestone.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
-| [TimePlan](TimePlan.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
-| [TimeDependency](TimeDependency.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
-| [AbstractCostRecord](AbstractCostRecord.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
-| [CostItem](CostItem.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
-| [CostAssembly](CostAssembly.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
-| [Material](Material.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
-
-
-
-
-
-
-
-
-
-
-
-
-## Identifier and Mapping Information
-
-
-
-
-
-### Schema Source
-
-
-* from schema: https://schema.pragmaticbim.ch
-
-
-
-
-## Mappings
-
-| Mapping Type | Mapped Value |
-| ---  | ---  |
-| self | pbs:Classification |
-| native | pbs:Classification |
-
-
-
-
-
-
-## LinkML Source
-
+<h2 id="class-properties">Class Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Class URI</td>
+<td><a href="https://schema.pragmaticbim.ch/Classification">pbs:Classification</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="slots">Slots</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Cardinality and Range</th>
+<th>Description</th>
+<th>Inheritance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="classification_scheme.html">classification_scheme</a></td>
+<td>1 <br/> <a href="String.html">String</a></td>
+<td>Name of the classification scheme (for example ifc, uniclass, omniclass, cust...</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="classification_code.html">classification_code</a></td>
+<td>1 <br/> <a href="String.html">String</a></td>
+<td>Classification code inside the scheme</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="classification_label.html">classification_label</a></td>
+<td>0..1 <br/> <a href="String.html">String</a></td>
+<td>Optional human-readable classification label</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="classification_uri.html">classification_uri</a></td>
+<td>0..1 <br/> <a href="Uriorcurie.html">Uriorcurie</a></td>
+<td>Optional URI/CURIE that identifies the classification concept in an external ...</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="classification_version.html">classification_version</a></td>
+<td>0..1 <br/> <a href="String.html">String</a></td>
+<td>Optional scheme/version identifier</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="classification_source.html">classification_source</a></td>
+<td>0..1 <br/> <a href="String.html">String</a></td>
+<td>Source authority or dataset for this classification</td>
+<td>direct</td>
+</tr>
+</tbody>
+</table>
+<h2 id="usages">Usages</h2>
+<table>
+<thead>
+<tr>
+<th>used by</th>
+<th>used in</th>
+<th>type</th>
+<th>used</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Entity.html">Entity</a></td>
+<td><a href="classifications.html">classifications</a></td>
+<td>range</td>
+<td><a href="Classification.html">Classification</a></td>
+</tr>
+<tr>
+<td><a href="Agent.html">Agent</a></td>
+<td><a href="classifications.html">classifications</a></td>
+<td>range</td>
+<td><a href="Classification.html">Classification</a></td>
+</tr>
+<tr>
+<td><a href="Person.html">Person</a></td>
+<td><a href="classifications.html">classifications</a></td>
+<td>range</td>
+<td><a href="Classification.html">Classification</a></td>
+</tr>
+<tr>
+<td><a href="Company.html">Company</a></td>
+<td><a href="classifications.html">classifications</a></td>
+<td>range</td>
+<td><a href="Classification.html">Classification</a></td>
+</tr>
+<tr>
+<td><a href="Message.html">Message</a></td>
+<td><a href="classifications.html">classifications</a></td>
+<td>range</td>
+<td><a href="Classification.html">Classification</a></td>
+</tr>
+<tr>
+<td><a href="Document.html">Document</a></td>
+<td><a href="classifications.html">classifications</a></td>
+<td>range</td>
+<td><a href="Classification.html">Classification</a></td>
+</tr>
+<tr>
+<td><a href="PhysicalElement.html">PhysicalElement</a></td>
+<td><a href="classifications.html">classifications</a></td>
+<td>range</td>
+<td><a href="Classification.html">Classification</a></td>
+</tr>
+<tr>
+<td><a href="Separator.html">Separator</a></td>
+<td><a href="classifications.html">classifications</a></td>
+<td>range</td>
+<td><a href="Classification.html">Classification</a></td>
+</tr>
+<tr>
+<td><a href="SeparatorWall.html">SeparatorWall</a></td>
+<td><a href="classifications.html">classifications</a></td>
+<td>range</td>
+<td><a href="Classification.html">Classification</a></td>
+</tr>
+<tr>
+<td><a href="SeparatorSlab.html">SeparatorSlab</a></td>
+<td><a href="classifications.html">classifications</a></td>
+<td>range</td>
+<td><a href="Classification.html">Classification</a></td>
+</tr>
+<tr>
+<td><a href="ConnectionPhysical.html">ConnectionPhysical</a></td>
+<td><a href="classifications.html">classifications</a></td>
+<td>range</td>
+<td><a href="Classification.html">Classification</a></td>
+</tr>
+<tr>
+<td><a href="Boundary.html">Boundary</a></td>
+<td><a href="classifications.html">classifications</a></td>
+<td>range</td>
+<td><a href="Classification.html">Classification</a></td>
+</tr>
+<tr>
+<td><a href="Equipment.html">Equipment</a></td>
+<td><a href="classifications.html">classifications</a></td>
+<td>range</td>
+<td><a href="Classification.html">Classification</a></td>
+</tr>
+<tr>
+<td><a href="VirtualEntity.html">VirtualEntity</a></td>
+<td><a href="classifications.html">classifications</a></td>
+<td>range</td>
+<td><a href="Classification.html">Classification</a></td>
+</tr>
+<tr>
+<td><a href="SpatialContext.html">SpatialContext</a></td>
+<td><a href="classifications.html">classifications</a></td>
+<td>range</td>
+<td><a href="Classification.html">Classification</a></td>
+</tr>
+<tr>
+<td><a href="ProjectContext.html">ProjectContext</a></td>
+<td><a href="classifications.html">classifications</a></td>
+<td>range</td>
+<td><a href="Classification.html">Classification</a></td>
+</tr>
+<tr>
+<td><a href="PerimeterContext.html">PerimeterContext</a></td>
+<td><a href="classifications.html">classifications</a></td>
+<td>range</td>
+<td><a href="Classification.html">Classification</a></td>
+</tr>
+<tr>
+<td><a href="LegalSiteContext.html">LegalSiteContext</a></td>
+<td><a href="classifications.html">classifications</a></td>
+<td>range</td>
+<td><a href="Classification.html">Classification</a></td>
+</tr>
+<tr>
+<td><a href="BuiltAssetContext.html">BuiltAssetContext</a></td>
+<td><a href="classifications.html">classifications</a></td>
+<td>range</td>
+<td><a href="Classification.html">Classification</a></td>
+</tr>
+<tr>
+<td><a href="BuildingContext.html">BuildingContext</a></td>
+<td><a href="classifications.html">classifications</a></td>
+<td>range</td>
+<td><a href="Classification.html">Classification</a></td>
+</tr>
+<tr>
+<td><a href="CivilStructureContext.html">CivilStructureContext</a></td>
+<td><a href="classifications.html">classifications</a></td>
+<td>range</td>
+<td><a href="Classification.html">Classification</a></td>
+</tr>
+<tr>
+<td><a href="LevelContext.html">LevelContext</a></td>
+<td><a href="classifications.html">classifications</a></td>
+<td>range</td>
+<td><a href="Classification.html">Classification</a></td>
+</tr>
+<tr>
+<td><a href="ZoneContext.html">ZoneContext</a></td>
+<td><a href="classifications.html">classifications</a></td>
+<td>range</td>
+<td><a href="Classification.html">Classification</a></td>
+</tr>
+<tr>
+<td><a href="Space.html">Space</a></td>
+<td><a href="classifications.html">classifications</a></td>
+<td>range</td>
+<td><a href="Classification.html">Classification</a></td>
+</tr>
+<tr>
+<td><a href="System.html">System</a></td>
+<td><a href="classifications.html">classifications</a></td>
+<td>range</td>
+<td><a href="Classification.html">Classification</a></td>
+</tr>
+<tr>
+<td><a href="ConnectionVirtual.html">ConnectionVirtual</a></td>
+<td><a href="classifications.html">classifications</a></td>
+<td>range</td>
+<td><a href="Classification.html">Classification</a></td>
+</tr>
+<tr>
+<td><a href="AbstractTimeRecord.html">AbstractTimeRecord</a></td>
+<td><a href="classifications.html">classifications</a></td>
+<td>range</td>
+<td><a href="Classification.html">Classification</a></td>
+</tr>
+<tr>
+<td><a href="TimeItem.html">TimeItem</a></td>
+<td><a href="classifications.html">classifications</a></td>
+<td>range</td>
+<td><a href="Classification.html">Classification</a></td>
+</tr>
+<tr>
+<td><a href="Milestone.html">Milestone</a></td>
+<td><a href="classifications.html">classifications</a></td>
+<td>range</td>
+<td><a href="Classification.html">Classification</a></td>
+</tr>
+<tr>
+<td><a href="TimePlan.html">TimePlan</a></td>
+<td><a href="classifications.html">classifications</a></td>
+<td>range</td>
+<td><a href="Classification.html">Classification</a></td>
+</tr>
+<tr>
+<td><a href="TimeDependency.html">TimeDependency</a></td>
+<td><a href="classifications.html">classifications</a></td>
+<td>range</td>
+<td><a href="Classification.html">Classification</a></td>
+</tr>
+<tr>
+<td><a href="AbstractCostRecord.html">AbstractCostRecord</a></td>
+<td><a href="classifications.html">classifications</a></td>
+<td>range</td>
+<td><a href="Classification.html">Classification</a></td>
+</tr>
+<tr>
+<td><a href="CostItem.html">CostItem</a></td>
+<td><a href="classifications.html">classifications</a></td>
+<td>range</td>
+<td><a href="Classification.html">Classification</a></td>
+</tr>
+<tr>
+<td><a href="CostAssembly.html">CostAssembly</a></td>
+<td><a href="classifications.html">classifications</a></td>
+<td>range</td>
+<td><a href="Classification.html">Classification</a></td>
+</tr>
+<tr>
+<td><a href="Material.html">Material</a></td>
+<td><a href="classifications.html">classifications</a></td>
+<td>range</td>
+<td><a href="Classification.html">Classification</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
+<h3 id="schema-source">Schema Source</h3>
+<ul>
+<li>from schema: https://schema.pragmaticbim.ch</li>
+</ul>
+<h2 id="mappings">Mappings</h2>
+<table>
+<thead>
+<tr>
+<th>Mapping Type</th>
+<th>Mapped Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>self</td>
+<td>pbs:Classification</td>
+</tr>
+<tr>
+<td>native</td>
+<td>pbs:Classification</td>
+</tr>
+</tbody>
+</table>
+<h2 id="linkml-source">LinkML Source</h2>
 <!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
-
-### Direct
-
+<h3 id="direct">Direct</h3>
 <details>
 
 <pre><code class="language-yaml">name: Classification
@@ -192,9 +386,7 @@ class_uri: pbs:Classification
 </code></pre>
 
 </details>
-
-### Induced
-
+<h3 id="induced">Induced</h3>
 <details>
 
 <pre><code class="language-yaml">name: Classification
@@ -264,7 +456,8 @@ class_uri: pbs:Classification
 
 </code></pre>
 
-</details></div>
+</details>
+</div>
     <div id="diagram-modal" hidden>
       <div class="diagram-modal-panel">
         <div class="diagram-modal-header">

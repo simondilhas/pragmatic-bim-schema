@@ -39,92 +39,139 @@ a:hover { text-decoration: underline; }
 <hr>
 <h1 id="slot-from_revision">Slot: from_revision</h1>
 <p><em>Source revision number for this change.</em></p>
-<div data-search-exclude markdown="1">
-
-
-
-URI: [pbs:from_revision](https://schema.pragmaticbim.ch/from_revision)
+<div data-search-exclude>
+<p>URI: <a href="https://schema.pragmaticbim.ch/from_revision">pbs:from_revision</a></p>
 <!-- no inheritance hierarchy -->
-
-
-
-
-
-## Applicable Classes
-
-| Name | Description | Modifies Slot |
-| --- | --- | --- |
-| [Change](Change.md) | Detected difference for one subject between two revisions (content_kind chang... |  no  |
-| [ChangeSet](ChangeSet.md) | Batch of Change records produced by comparing two model or document revisions |  no  |
-| [PropertyChange](PropertyChange.md) | Attribute, PropertySet, schema slot, or document field change |  no  |
-| [GeometryChange](GeometryChange.md) | Geometry or representation change for a subject |  no  |
-| [RequirementChange](RequirementChange.md) | Change to a requirement record or its fields |  no  |
-| [MatchChange](MatchChange.md) | Entity match status against a requirement changed (previously met / no longer... |  no  |
-| [AdditionChange](AdditionChange.md) | New entity or requirement introduced in to_revision |  no  |
-| [DeletionChange](DeletionChange.md) | Entity or requirement removed in to_revision |  no  |
-
-
-
-
-
-
-## Properties
-
-### Type and Range
-
-| Property | Value |
-| --- | --- |
-| Range | [Integer](Integer.md) |
-| Domain Of | [Change](Change.md), [ChangeSet](ChangeSet.md) |
-
-### Cardinality and Requirements
-
-| Property | Value |
-| --- | --- |
-| Required | Yes |
-### Value Constraints
-
-| Property | Value |
-| --- | --- |
-| Minimum Value | 0 |
-
-
-
-
-
-
-
-
-
-
-
-
-## Identifier and Mapping Information
-
-
-
-
-
-### Schema Source
-
-
-* from schema: https://schema.pragmaticbim.ch
-
-
-
-
-## Mappings
-
-| Mapping Type | Mapped Value |
-| ---  | ---  |
-| self | pbs:from_revision |
-| native | pbs:from_revision |
-
-
-
-
-## LinkML Source
-
+<h2 id="applicable-classes">Applicable Classes</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Modifies Slot</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Change.html">Change</a></td>
+<td>Detected difference for one subject between two revisions (content_kind chang...</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="ChangeSet.html">ChangeSet</a></td>
+<td>Batch of Change records produced by comparing two model or document revisions</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="PropertyChange.html">PropertyChange</a></td>
+<td>Attribute, PropertySet, schema slot, or document field change</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="GeometryChange.html">GeometryChange</a></td>
+<td>Geometry or representation change for a subject</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="RequirementChange.html">RequirementChange</a></td>
+<td>Change to a requirement record or its fields</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="MatchChange.html">MatchChange</a></td>
+<td>Entity match status against a requirement changed (previously met / no longer...</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="AdditionChange.html">AdditionChange</a></td>
+<td>New entity or requirement introduced in to_revision</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="DeletionChange.html">DeletionChange</a></td>
+<td>Entity or requirement removed in to_revision</td>
+<td>no</td>
+</tr>
+</tbody>
+</table>
+<h2 id="properties">Properties</h2>
+<h3 id="type-and-range">Type and Range</h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Range</td>
+<td><a href="Integer.html">Integer</a></td>
+</tr>
+<tr>
+<td>Domain Of</td>
+<td><a href="Change.html">Change</a>, <a href="ChangeSet.html">ChangeSet</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="cardinality-and-requirements">Cardinality and Requirements</h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Required</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>### Value Constraints</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Minimum Value</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
+<h3 id="schema-source">Schema Source</h3>
+<ul>
+<li>from schema: https://schema.pragmaticbim.ch</li>
+</ul>
+<h2 id="mappings">Mappings</h2>
+<table>
+<thead>
+<tr>
+<th>Mapping Type</th>
+<th>Mapped Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>self</td>
+<td>pbs:from_revision</td>
+</tr>
+<tr>
+<td>native</td>
+<td>pbs:from_revision</td>
+</tr>
+</tbody>
+</table>
+<h2 id="linkml-source">LinkML Source</h2>
 <details>
 
 <pre><code class="language-yaml">name: from_revision
@@ -140,7 +187,8 @@ minimum_value: 0
 
 </code></pre>
 
-</details></div>
+</details>
+</div>
     <div id="diagram-modal" hidden>
       <div class="diagram-modal-panel">
         <div class="diagram-modal-header">

@@ -39,17 +39,8 @@ a:hover { text-decoration: underline; }
 <hr>
 <h1 id="class-performancerequirement">Class: PerformanceRequirement</h1>
 <p><em>Performance target requirement (U-value, fire rating, airflow, acoustic, etc.).</em></p>
-<div data-search-exclude markdown="1">
-
-
-
-URI: [pbs:PerformanceRequirement](https://schema.pragmaticbim.ch/PerformanceRequirement)
-
-
-
-
-
-
+<div data-search-exclude>
+<p>URI: <a href="https://schema.pragmaticbim.ch/PerformanceRequirement">pbs:PerformanceRequirement</a></p>
 <div class="mermaid">
  classDiagram
     class PerformanceRequirement
@@ -78,89 +69,152 @@ URI: [pbs:PerformanceRequirement](https://schema.pragmaticbim.ch/PerformanceRequ
       PerformanceRequirement : target_value_string
 
 </div>
-
-
-
-
-
-
-## Inheritance
-* [Requirement](Requirement.md)
-    * **PerformanceRequirement**
-
-
-## Class Properties
-
-| Property | Value |
-| --- | --- |
-| Class URI | [pbs:PerformanceRequirement](https://schema.pragmaticbim.ch/PerformanceRequirement) |
-
-
-## Slots
-
-| Name | Cardinality and Range | Description | Inheritance |
-| ---  | --- | --- | --- |
-| [requirement_property_key](requirement_property_key.md) | 1 <br/> [String](String.md) | Canonical performance key for the target (for example u_value, resistance_rat... | direct |
-| [target_operator](target_operator.md) | 0..1 <br/> [RequirementTargetOperator](RequirementTargetOperator.md) | Comparison operator for the requirement target | direct |
-| [target_value_string](target_value_string.md) | 0..1 <br/> [String](String.md) | Textual target value when applicable | direct |
-| [target_value_number](target_value_number.md) | 0..1 <br/> [Double](Double.md) | Numeric target value when applicable | direct |
-| [target_value_boolean](target_value_boolean.md) | 0..1 <br/> [Boolean](Boolean.md) | Boolean target value when applicable | direct |
-| [target_unit](target_unit.md) | 0..1 <br/> [String](String.md) | Unit for numeric targets (for example W/m2K, min, dB) | direct |
-| [target_unit_uri](target_unit_uri.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | Optional URI identifying the target unit (for example QUDT) | direct |
-| [id](id.md) | 1 <br/> [String](String.md) | Unique local identifier | [Requirement](Requirement.md) |
-| [name](name.md) | 1 <br/> [String](String.md) | Default display name | [Requirement](Requirement.md) |
-| [description](description.md) | 0..1 <br/> [String](String.md) | Default description text | [Requirement](Requirement.md) |
-| [requirement_domain](requirement_domain.md) | 1 <br/> [String](String.md) | Domain of this requirement record (performance, spatial, regulatory, brief) | [Requirement](Requirement.md) |
-| [applies_to_entities](applies_to_entities.md) | * <br/> [Entity](Entity.md) | Model entities this record applies to (requirements, cost items, schedule ite... | [Requirement](Requirement.md) |
-| [source_document](source_document.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | Optional URI to norm, brief, or source document backing this requirement | [Requirement](Requirement.md) |
-| [status](status.md) | 0..1 <br/> [StatusType](StatusType.md) | Lifecycle or QA status | [Requirement](Requirement.md) |
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Identifier and Mapping Information
-
-
-
-
-
-### Schema Source
-
-
-* from schema: https://schema.pragmaticbim.ch
-
-
-
-
-## Mappings
-
-| Mapping Type | Mapped Value |
-| ---  | ---  |
-| self | pbs:PerformanceRequirement |
-| native | pbs:PerformanceRequirement |
-
-
-
-
-
-
-## LinkML Source
-
+<h2 id="inheritance">Inheritance</h2>
+<ul>
+<li><a href="Requirement.html">Requirement</a><ul>
+<li><strong>PerformanceRequirement</strong></li>
+</ul>
+</li>
+</ul>
+<h2 id="class-properties">Class Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Class URI</td>
+<td><a href="https://schema.pragmaticbim.ch/PerformanceRequirement">pbs:PerformanceRequirement</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="slots">Slots</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Cardinality and Range</th>
+<th>Description</th>
+<th>Inheritance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="requirement_property_key.html">requirement_property_key</a></td>
+<td>1 <br/> <a href="String.html">String</a></td>
+<td>Canonical performance key for the target (for example u_value, resistance_rat...</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="target_operator.html">target_operator</a></td>
+<td>0..1 <br/> <a href="RequirementTargetOperator.html">RequirementTargetOperator</a></td>
+<td>Comparison operator for the requirement target</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="target_value_string.html">target_value_string</a></td>
+<td>0..1 <br/> <a href="String.html">String</a></td>
+<td>Textual target value when applicable</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="target_value_number.html">target_value_number</a></td>
+<td>0..1 <br/> <a href="Double.html">Double</a></td>
+<td>Numeric target value when applicable</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="target_value_boolean.html">target_value_boolean</a></td>
+<td>0..1 <br/> <a href="Boolean.html">Boolean</a></td>
+<td>Boolean target value when applicable</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="target_unit.html">target_unit</a></td>
+<td>0..1 <br/> <a href="String.html">String</a></td>
+<td>Unit for numeric targets (for example W/m2K, min, dB)</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="target_unit_uri.html">target_unit_uri</a></td>
+<td>0..1 <br/> <a href="Uriorcurie.html">Uriorcurie</a></td>
+<td>Optional URI identifying the target unit (for example QUDT)</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="id.html">id</a></td>
+<td>1 <br/> <a href="String.html">String</a></td>
+<td>Unique local identifier</td>
+<td><a href="Requirement.html">Requirement</a></td>
+</tr>
+<tr>
+<td><a href="name.html">name</a></td>
+<td>1 <br/> <a href="String.html">String</a></td>
+<td>Default display name</td>
+<td><a href="Requirement.html">Requirement</a></td>
+</tr>
+<tr>
+<td><a href="description.html">description</a></td>
+<td>0..1 <br/> <a href="String.html">String</a></td>
+<td>Default description text</td>
+<td><a href="Requirement.html">Requirement</a></td>
+</tr>
+<tr>
+<td><a href="requirement_domain.html">requirement_domain</a></td>
+<td>1 <br/> <a href="String.html">String</a></td>
+<td>Domain of this requirement record (performance, spatial, regulatory, brief)</td>
+<td><a href="Requirement.html">Requirement</a></td>
+</tr>
+<tr>
+<td><a href="applies_to_entities.html">applies_to_entities</a></td>
+<td>* <br/> <a href="Entity.html">Entity</a></td>
+<td>Model entities this record applies to (requirements, cost items, schedule ite...</td>
+<td><a href="Requirement.html">Requirement</a></td>
+</tr>
+<tr>
+<td><a href="source_document.html">source_document</a></td>
+<td>0..1 <br/> <a href="Uriorcurie.html">Uriorcurie</a></td>
+<td>Optional URI to norm, brief, or source document backing this requirement</td>
+<td><a href="Requirement.html">Requirement</a></td>
+</tr>
+<tr>
+<td><a href="status.html">status</a></td>
+<td>0..1 <br/> <a href="StatusType.html">StatusType</a></td>
+<td>Lifecycle or QA status</td>
+<td><a href="Requirement.html">Requirement</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
+<h3 id="schema-source">Schema Source</h3>
+<ul>
+<li>from schema: https://schema.pragmaticbim.ch</li>
+</ul>
+<h2 id="mappings">Mappings</h2>
+<table>
+<thead>
+<tr>
+<th>Mapping Type</th>
+<th>Mapped Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>self</td>
+<td>pbs:PerformanceRequirement</td>
+</tr>
+<tr>
+<td>native</td>
+<td>pbs:PerformanceRequirement</td>
+</tr>
+</tbody>
+</table>
+<h2 id="linkml-source">LinkML Source</h2>
 <!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
-
-### Direct
-
+<h3 id="direct">Direct</h3>
 <details>
 
 <pre><code class="language-yaml">name: PerformanceRequirement
@@ -186,9 +240,7 @@ class_uri: pbs:PerformanceRequirement
 </code></pre>
 
 </details>
-
-### Induced
-
+<h3 id="induced">Induced</h3>
 <details>
 
 <pre><code class="language-yaml">name: PerformanceRequirement
@@ -355,7 +407,8 @@ class_uri: pbs:PerformanceRequirement
 
 </code></pre>
 
-</details></div>
+</details>
+</div>
     <div id="diagram-modal" hidden>
       <div class="diagram-modal-panel">
         <div class="diagram-modal-header">

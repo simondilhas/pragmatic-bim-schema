@@ -40,19 +40,11 @@ a:hover { text-decoration: underline; }
 <h1 id="class-change">Class: Change</h1>
 <p><em>Detected difference for one subject between two revisions (content_kind change). Supports IFC model diffs, document/text diffs, and schema-entity field changes.</em></p>
 <p>__</p>
-<div data-search-exclude markdown="1">
-
-
-* __NOTE__: this is an abstract class and should not be instantiated directly
-
-
-URI: [pbs:Change](https://schema.pragmaticbim.ch/Change)
-
-
-
-
-
-
+<div data-search-exclude>
+<ul>
+<li><strong>NOTE</strong>: this is an abstract class and should not be instantiated directly</li>
+</ul>
+<p>URI: <a href="https://schema.pragmaticbim.ch/Change">pbs:Change</a></p>
 <div class="mermaid">
  classDiagram
     class Change
@@ -98,104 +90,194 @@ URI: [pbs:Change](https://schema.pragmaticbim.ch/Change)
       Change : triggered_task
 
 </div>
-
-
-
-
-
-
-## Inheritance
-* **Change**
-    * [PropertyChange](PropertyChange.md)
-    * [GeometryChange](GeometryChange.md)
-    * [RequirementChange](RequirementChange.md)
-    * [MatchChange](MatchChange.md)
-    * [AdditionChange](AdditionChange.md)
-    * [DeletionChange](DeletionChange.md)
-
-
-## Class Properties
-
-| Property | Value |
-| --- | --- |
-| Class URI | [pbs:Change](https://schema.pragmaticbim.ch/Change) |
-
-
-## Slots
-
-| Name | Cardinality and Range | Description | Inheritance |
-| ---  | --- | --- | --- |
-| [id](id.md) | 1 <br/> [String](String.md) | Unique local identifier | direct |
-| [change_type](change_type.md) | 1 <br/> [ChangeType](ChangeType.md) | Category of change detected between two revisions | direct |
-| [change_severity](change_severity.md) | 0..1 <br/> [ChangeSeverity](ChangeSeverity.md) | Optional severity independent of change type | direct |
-| [intent_verdict](intent_verdict.md) | 0..1 <br/> [ChangeIntentVerdict](ChangeIntentVerdict.md) | Intent stability verdict from an automated judge (for example iterthink STABL... | direct |
-| [affected_subject_id](affected_subject_id.md) | 1 <br/> [String](String.md) | Identifier of the changed subject (entity id, document id, or external key) | direct |
-| [affected_subject_type](affected_subject_type.md) | 1 <br/> [String](String.md) | LinkML class name of the changed subject (for example Space, SeparatorWall, D... | direct |
-| [affected_subject_path](affected_subject_path.md) | 0..1 <br/> [String](String.md) | Optional JSON-pointer-style path for nested targets (for example documents[2]... | direct |
-| [ifc_global_id](ifc_global_id.md) | 0..1 <br/> [String](String.md) | IFC GlobalId of the mapped entity | direct |
-| [document_storage_link](document_storage_link.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | Document location when the subject is or embeds a Document | direct |
-| [from_revision](from_revision.md) | 1 <br/> [Integer](Integer.md) | Source revision number for this change | direct |
-| [to_revision](to_revision.md) | 1 <br/> [Integer](Integer.md) | Target revision number for this change | direct |
-| [from_state_ref](from_state_ref.md) | 0..1 <br/> [StateRef](StateRef.md) | Content state pointer at the source revision | direct |
-| [to_state_ref](to_state_ref.md) | 0..1 <br/> [StateRef](StateRef.md) | Content state pointer at the target revision | direct |
-| [triggered_task](triggered_task.md) | 0..1 <br/> [String](String.md) | Id of a Task record that this change triggered or should trigger | direct |
-| [triggered_process](triggered_process.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | External workflow process URI (for example yourcompanyos process instance) | direct |
-| [detected_at](detected_at.md) | 0..1 <br/> [Datetime](Datetime.md) | Timestamp when this change was detected | direct |
-| [change_source](change_source.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | URI identifying the tool or pipeline that produced this change record | direct |
-
-
-
-
-
-## Usages
-
-| used by | used in | type | used |
-| ---  | --- | --- | --- |
-| [ChangeSet](ChangeSet.md) | [changes](changes.md) | range | [Change](Change.md) |
-
-
-
-
-
-
-
-
-
-
-
-
-## Identifier and Mapping Information
-
-
-
-
-
-### Schema Source
-
-
-* from schema: https://schema.pragmaticbim.ch
-
-
-
-
-## Mappings
-
-| Mapping Type | Mapped Value |
-| ---  | ---  |
-| self | pbs:Change |
-| native | pbs:Change |
-
-
-
-
-
-
-## LinkML Source
-
+<h2 id="inheritance">Inheritance</h2>
+<ul>
+<li><strong>Change</strong><ul>
+<li><a href="PropertyChange.html">PropertyChange</a></li>
+<li><a href="GeometryChange.html">GeometryChange</a></li>
+<li><a href="RequirementChange.html">RequirementChange</a></li>
+<li><a href="MatchChange.html">MatchChange</a></li>
+<li><a href="AdditionChange.html">AdditionChange</a></li>
+<li><a href="DeletionChange.html">DeletionChange</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="class-properties">Class Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Class URI</td>
+<td><a href="https://schema.pragmaticbim.ch/Change">pbs:Change</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="slots">Slots</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Cardinality and Range</th>
+<th>Description</th>
+<th>Inheritance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="id.html">id</a></td>
+<td>1 <br/> <a href="String.html">String</a></td>
+<td>Unique local identifier</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="change_type.html">change_type</a></td>
+<td>1 <br/> <a href="ChangeType.html">ChangeType</a></td>
+<td>Category of change detected between two revisions</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="change_severity.html">change_severity</a></td>
+<td>0..1 <br/> <a href="ChangeSeverity.html">ChangeSeverity</a></td>
+<td>Optional severity independent of change type</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="intent_verdict.html">intent_verdict</a></td>
+<td>0..1 <br/> <a href="ChangeIntentVerdict.html">ChangeIntentVerdict</a></td>
+<td>Intent stability verdict from an automated judge (for example iterthink STABL...</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="affected_subject_id.html">affected_subject_id</a></td>
+<td>1 <br/> <a href="String.html">String</a></td>
+<td>Identifier of the changed subject (entity id, document id, or external key)</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="affected_subject_type.html">affected_subject_type</a></td>
+<td>1 <br/> <a href="String.html">String</a></td>
+<td>LinkML class name of the changed subject (for example Space, SeparatorWall, D...</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="affected_subject_path.html">affected_subject_path</a></td>
+<td>0..1 <br/> <a href="String.html">String</a></td>
+<td>Optional JSON-pointer-style path for nested targets (for example documents[2]...</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="ifc_global_id.html">ifc_global_id</a></td>
+<td>0..1 <br/> <a href="String.html">String</a></td>
+<td>IFC GlobalId of the mapped entity</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="document_storage_link.html">document_storage_link</a></td>
+<td>0..1 <br/> <a href="Uriorcurie.html">Uriorcurie</a></td>
+<td>Document location when the subject is or embeds a Document</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="from_revision.html">from_revision</a></td>
+<td>1 <br/> <a href="Integer.html">Integer</a></td>
+<td>Source revision number for this change</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="to_revision.html">to_revision</a></td>
+<td>1 <br/> <a href="Integer.html">Integer</a></td>
+<td>Target revision number for this change</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="from_state_ref.html">from_state_ref</a></td>
+<td>0..1 <br/> <a href="StateRef.html">StateRef</a></td>
+<td>Content state pointer at the source revision</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="to_state_ref.html">to_state_ref</a></td>
+<td>0..1 <br/> <a href="StateRef.html">StateRef</a></td>
+<td>Content state pointer at the target revision</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="triggered_task.html">triggered_task</a></td>
+<td>0..1 <br/> <a href="String.html">String</a></td>
+<td>Id of a Task record that this change triggered or should trigger</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="triggered_process.html">triggered_process</a></td>
+<td>0..1 <br/> <a href="Uriorcurie.html">Uriorcurie</a></td>
+<td>External workflow process URI (for example yourcompanyos process instance)</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="detected_at.html">detected_at</a></td>
+<td>0..1 <br/> <a href="Datetime.html">Datetime</a></td>
+<td>Timestamp when this change was detected</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="change_source.html">change_source</a></td>
+<td>0..1 <br/> <a href="Uriorcurie.html">Uriorcurie</a></td>
+<td>URI identifying the tool or pipeline that produced this change record</td>
+<td>direct</td>
+</tr>
+</tbody>
+</table>
+<h2 id="usages">Usages</h2>
+<table>
+<thead>
+<tr>
+<th>used by</th>
+<th>used in</th>
+<th>type</th>
+<th>used</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="ChangeSet.html">ChangeSet</a></td>
+<td><a href="changes.html">changes</a></td>
+<td>range</td>
+<td><a href="Change.html">Change</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
+<h3 id="schema-source">Schema Source</h3>
+<ul>
+<li>from schema: https://schema.pragmaticbim.ch</li>
+</ul>
+<h2 id="mappings">Mappings</h2>
+<table>
+<thead>
+<tr>
+<th>Mapping Type</th>
+<th>Mapped Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>self</td>
+<td>pbs:Change</td>
+</tr>
+<tr>
+<td>native</td>
+<td>pbs:Change</td>
+</tr>
+</tbody>
+</table>
+<h2 id="linkml-source">LinkML Source</h2>
 <!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
-
-### Direct
-
+<h3 id="direct">Direct</h3>
 <details>
 
 <pre><code class="language-yaml">name: Change
@@ -237,9 +319,7 @@ class_uri: pbs:Change
 </code></pre>
 
 </details>
-
-### Induced
-
+<h3 id="induced">Induced</h3>
 <details>
 
 <pre><code class="language-yaml">name: Change
@@ -446,7 +526,8 @@ class_uri: pbs:Change
 
 </code></pre>
 
-</details></div>
+</details>
+</div>
     <div id="diagram-modal" hidden>
       <div class="diagram-modal-panel">
         <div class="diagram-modal-header">
