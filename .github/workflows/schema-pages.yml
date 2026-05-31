@@ -140,6 +140,7 @@ jobs:
                   print(slug)
           PY
           ); do
+            mkdir -p "$(dirname "site/latest/$slug")" "$(dirname "site/$RELEASE_VERSION/$slug")"
             cp -R "site/$slug" "site/latest/$slug"
             cp -R "site/$slug" "site/$RELEASE_VERSION/$slug"
             mkdir -p "$(dirname "site/latest/$slug.html")" "$(dirname "site/$RELEASE_VERSION/$slug.html")"
