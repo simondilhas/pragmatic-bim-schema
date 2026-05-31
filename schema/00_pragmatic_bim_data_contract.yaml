@@ -1,35 +1,32 @@
 id: https://schema.pragmaticbim.ch
 name: pragmatic_bim_data_contract
 title: Pragmatic BIM Data Contract
-description: >
-  To provide a simple, implementation-ready BIM data model for integration,
-  querying, costing, and analysis workflows, this schema defines a pragmatic,
-  graph-first LinkML structure that is IFC-aware and extensible across
-  classification schemes.
+description: 'To provide a simple, implementation-ready BIM data model for integration, querying, costing, and analysis workflows,
+  this schema defines a pragmatic, graph-first LinkML structure that is IFC-aware and extensible across classification schemes.
+
+  '
 license: MIT
-
 see_also:
-  - https://schema.pragmaticbim.ch
-  - https://schema.pragmaticbim.ch/schema/pragmatic-bim.docs.html
-
+- https://schema.pragmaticbim.ch
+- https://schema.pragmaticbim.ch/schema/pragmatic-bim.docs.html
 prefixes:
   linkml: https://w3id.org/linkml/
   pbs: https://schema.pragmaticbim.ch/
   ifc: https://standards.buildingsmart.org/IFC/DEV/IFC4_3/FINAL/HTML/
   ifcowl: https://w3id.org/ifc/IFC4_ADD2#
   bot: https://w3id.org/bot#
-
 default_prefix: pbs
 default_range: string
-
 imports:
-  - linkml:types
-  - core_schema
-  - performance_enums_schema
-  - requirements_enums_schema
-  - performance_schema
-  - requirements_schema
-  - elements_physical_schema
-  - elements_virtual_schema
-  - enums_schema
-  - changes_schema
+- linkml:types
+- shared_schema_enums
+- entity_core_schema
+- entity_schema_enums
+- entity_performance_schema_enums
+- entity_performance_schema
+- entity_physical_schema
+- entity_virtual_schema
+- requirements_schema_enums
+- requirements_schema
+- changes_schema_enums
+- changes_schema

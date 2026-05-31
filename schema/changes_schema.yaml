@@ -1,14 +1,13 @@
 id: https://schema.pragmaticbim.ch/changes
 name: pragmatic_bim_changes_schema
 title: Pragmatic BIM Data Contract - Changes
-description: >
-  Change detection and revision diff records for IFC models, documents, and schema entity fields.
+description: 'Change detection and revision diff records for IFC models, documents, and schema entity fields.
+
+  '
 license: MIT
-
 see_also:
-  - https://schema.pragmaticbim.ch/changes
-  - https://schema.pragmaticbim.ch/schema/pragmatic-bim.docs.html
-
+- https://schema.pragmaticbim.ch/changes
+- https://schema.pragmaticbim.ch/schema/pragmatic-bim.docs.html
 prefixes:
   linkml: https://w3id.org/linkml/
   pbs: https://schema.pragmaticbim.ch/
@@ -17,332 +16,242 @@ prefixes:
   bot: https://w3id.org/bot#
   prov: http://www.w3.org/ns/prov#
   dcterms: http://purl.org/dc/terms/
-
 default_prefix: pbs
 default_range: string
-
 imports:
-  - linkml:types
-  - enums_schema
-  - core_schema
-
+- linkml:types
+- changes_schema_enums
+- entity_schema_enums
+- entity_core_schema
 classes:
-  StateRef:
-    class_uri: pbs:StateRef
-    description: >
-      Pointer to a content state at a specific revision.
-      Covers IFC models, geometry payloads, documents, and extracted text.
-    slots:
-      - state_ref
-      - state_ref_kind
-      - state_ref_format
-      - state_ref_label
-
-  PropertyDelta:
-    class_uri: pbs:PropertyDelta
-    description: >
-      Field-level difference between two revision states.
-      Supports IFC attributes, PropertySets, schema slots, document fields, and text spans.
-    slots:
-      - property_path
-      - property_path_kind
-      - from_value
-      - to_value
-      - source_pset
-      - source_property
-      - ifc_attribute_name
-
   Change:
     abstract: true
     class_uri: pbs:Change
-    description: >
-      Detected difference for one subject between two revisions (content_kind change).
-      Supports IFC model diffs, document/text diffs, and schema-entity field changes.
+    description: 'Detected difference for one subject between two revisions (content_kind change). Supports IFC model diffs,
+      document/text diffs, and schema-entity field changes. Use change_type together with the concrete subclass for interpretation.
+
+      '
     slots:
-      - id
-      - change_type
-      - change_severity
-      - intent_verdict
-      - affected_subject_id
-      - affected_subject_type
-      - affected_subject_path
-      - ifc_global_id
-      - document_storage_link
-      - from_revision
-      - to_revision
-      - from_state_ref
-      - to_state_ref
-      - triggered_task
-      - triggered_process
-      - detected_at
-      - change_source
+    - id
+    - change_type
+    - change_severity
+    - intent_verdict
+    - affected_subject_id
+    - affected_subject_type
+    - affected_subject_path
+    - ifc_global_id
+    - document_storage_link
+    - from_revision
+    - to_revision
+    - triggered_task
+    - triggered_process
+    - detected_at
+    - change_source
     slot_usage:
       id:
         required: true
         identifier: true
       change_type:
         required: true
-
+      affected_subject_id:
+        required: true
+      affected_subject_type:
+        required: true
+      from_revision:
+        required: true
+      to_revision:
+        required: true
   PropertyChange:
     is_a: Change
     class_uri: pbs:PropertyChange
     exact_mappings:
-      - prov:Activity
+    - prov:Activity
     description: Attribute, PropertySet, schema slot, or document field change.
     slots:
-      - property_delta
+    - property_path
+    - property_path_kind
+    - from_value
+    - to_value
+    - source_pset
+    - source_property
+    - ifc_attribute_name
     slot_usage:
-      change_type:
-        range: string
-        equals_string: property_change
-
+      property_path:
+        required: true
+      property_path_kind:
+        required: true
   GeometryChange:
     is_a: Change
     class_uri: pbs:GeometryChange
     exact_mappings:
-      - prov:Activity
+    - prov:Activity
     description: Geometry or representation change for a subject.
     slots:
-      - affected_geometry_role
-    slot_usage:
-      change_type:
-        range: string
-        equals_string: geometry_change
-
+    - affected_geometry_role
   RequirementChange:
     is_a: Change
     class_uri: pbs:RequirementChange
     exact_mappings:
-      - prov:Activity
+    - prov:Activity
     description: Change to a requirement record or its fields.
     slots:
-      - affected_requirement_id
-      - property_delta
-    slot_usage:
-      change_type:
-        range: string
-        equals_string: requirement_change
-
+    - affected_requirement_id
+    - property_path
+    - property_path_kind
+    - from_value
+    - to_value
   MatchChange:
     is_a: Change
     class_uri: pbs:MatchChange
     exact_mappings:
-      - prov:Activity
-    description: >
-      Entity match status against a requirement changed (previously met / no longer meets).
-    slots:
-      - related_requirement_id
-      - match_status
-    slot_usage:
-      change_type:
-        range: string
-        equals_string: match_change
+    - prov:Activity
+    description: 'Entity match status against a requirement changed (previously met / no longer meets).
 
+      '
+    slots:
+    - related_requirement_id
+    - match_status
   AdditionChange:
     is_a: Change
     class_uri: pbs:AdditionChange
     exact_mappings:
-      - prov:Activity
+    - prov:Activity
     description: New entity or requirement introduced in to_revision.
-    slot_usage:
-      change_type:
-        range: string
-        equals_string: addition
-
   DeletionChange:
     is_a: Change
     class_uri: pbs:DeletionChange
     exact_mappings:
-      - prov:Activity
+    - prov:Activity
     description: Entity or requirement removed in to_revision.
-    slot_usage:
-      change_type:
-        range: string
-        equals_string: deletion
-
   ChangeSet:
     class_uri: pbs:ChangeSet
     exact_mappings:
-      - prov:Entity
-    description: >
-      Batch of Change records produced by comparing two model or document revisions.
+    - prov:Entity
+    description: 'Batch of Change records produced by comparing two model or document revisions.
+
+      '
     slots:
-      - id
-      - from_revision
-      - to_revision
-      - changes
-      - ifc_state_ref
-      - document_state_refs
-      - produced_at
-      - produced_by
+    - id
+    - from_revision
+    - to_revision
+    - changes
+    - ifc_state_uri
+    - document_state_uris
+    - produced_at
+    - produced_by
     slot_usage:
       id:
         required: true
         identifier: true
-
 slots:
-  state_ref:
-    range: uriorcurie
-    required: true
-    description: URI, path, or content hash identifying the stored content state.
-
-  state_ref_kind:
-    range: StateRefKind
-    required: true
-    description: Kind of content referenced (for example ifc_model, document, text_extract).
-
-  state_ref_format:
-    range: string
-    description: >
-      Optional serialization format (for example ifc, gltf, pdf, docx, markdown, plain_text, json).
-
-  state_ref_label:
-    range: string
-    description: Optional human-readable label (for example LOD300 export, Spec v3 draft).
-
   property_path:
     range: string
     required: true
-    description: >
-      Canonical path to the changed field. Examples: Pset_WallCommon.FireRating, IfcWall.Name,
-      description, section.4.2.requirement_3, body:char_offset:1204-1389.
+    description: 'Canonical path to the changed field. Examples: Pset_WallCommon.FireRating, IfcWall.Name, description, section.4.2.requirement_3,
+      body:char_offset:1204-1389.
 
+      '
   property_path_kind:
     range: PropertyPathKind
     required: true
     description: Classification of the property path for downstream diff interpretation.
-
   from_value:
     range: string
     description: Prior value serialized as text. Absent or null for new subjects or fields.
-
   to_value:
     range: string
     description: New value serialized as text. Absent or null for deleted subjects or fields.
-
   ifc_attribute_name:
     range: string
     description: IFC attribute name when property_path_kind is ifc_attribute (for example Name, GlobalId).
-
   change_type:
     range: ChangeType
     required: true
     description: Category of change detected between two revisions.
-
   change_severity:
     range: ChangeSeverity
     description: Optional severity independent of change type.
-
   intent_verdict:
     range: ChangeIntentVerdict
     description: Intent stability verdict from an automated judge (for example iterthink STABLE/NEW).
-
   affected_subject_id:
     range: string
     required: true
     description: Identifier of the changed subject (entity id, document id, or external key).
-
   affected_subject_type:
     range: string
     required: true
-    description: >
-      LinkML class name of the changed subject (for example Space, SeparatorWall, Document).
+    description: 'LinkML class name of the changed subject (for example Space, SeparatorWall, Document).
 
+      '
   affected_subject_path:
     range: string
-    description: >
-      Optional JSON-pointer-style path for nested targets (for example documents[2],
-      localized_descriptions[de], section.4.2.paragraph_1).
+    description: 'Optional JSON-pointer-style path for nested targets (for example documents[2], localized_descriptions[de],
+      section.4.2.paragraph_1).
 
+      '
   document_storage_link:
     range: uriorcurie
     description: Document location when the subject is or embeds a Document.
-
   from_revision:
     range: integer
     minimum_value: 0
     required: true
     description: Source revision number for this change.
-
   to_revision:
     range: integer
     minimum_value: 0
     required: true
     description: Target revision number for this change.
-
-  from_state_ref:
-    range: StateRef
-    inlined: true
-    description: Content state pointer at the source revision.
-
-  to_state_ref:
-    range: StateRef
-    inlined: true
-    description: Content state pointer at the target revision.
-
-  property_delta:
-    multivalued: true
-    range: PropertyDelta
-    inlined: true
-    description: Field-level differences detected between the two revision states.
-
+  source_pset:
+    range: string
+    description: IFC PropertySet name when property_path_kind is ifc_pset.
+  source_property:
+    range: string
+    description: IFC property name within the PropertySet when property_path_kind is ifc_pset.
   affected_geometry_role:
     range: GeometryRepresentationType
-    description: Geometry role affected when change_type is geometry_change.
-
+    description: Geometry role affected for GeometryChange records.
   affected_requirement_id:
     range: string
     description: Identifier of the requirement record affected by this change.
-
   related_requirement_id:
     range: string
     required: true
     description: Requirement identifier for match_change records.
-
   match_status:
     range: MatchStatus
     required: true
     description: Whether the subject met the requirement at the target revision.
-
   triggered_task:
     range: string
     description: Id of a Task record that this change triggered or should trigger.
-
   triggered_process:
     range: uriorcurie
     description: External workflow process URI (for example yourcompanyos process instance).
-
   detected_at:
     range: datetime
     slot_uri: dcterms:created
     description: Timestamp when this change was detected.
-
   change_source:
     range: uriorcurie
     description: URI identifying the tool or pipeline that produced this change record.
-
   changes:
     multivalued: true
     range: Change
     inlined: true
     description: Change records included in this batch.
-
-  ifc_state_ref:
-    range: StateRef
-    inlined: true
-    description: Optional baseline IFC model state for the comparison that produced this changeset.
-
-  document_state_refs:
+  ifc_state_uri:
+    range: uriorcurie
+    description: Optional URI, path, or content hash for the baseline IFC model state used in this comparison.
+  document_state_uris:
     multivalued: true
-    range: StateRef
-    inlined: true
-    description: Optional baseline document states for the comparison that produced this changeset.
-
+    range: uriorcurie
+    description: Optional URIs or content hashes for baseline document states used in this comparison.
   produced_at:
     range: datetime
     slot_uri: dcterms:created
     description: Timestamp when this changeset was produced.
-
   produced_by:
     range: Agent
     slot_uri: prov:wasAttributedTo

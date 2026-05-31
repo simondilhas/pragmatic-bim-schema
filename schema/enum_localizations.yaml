@@ -291,17 +291,17 @@ enum_localizations:
       en: Cladding
       de: Verkleidung
 
-  TimeDependencyType:
-    finish_to_start:
+  DependencyType:
+    FS:
       en: Finish to Start
       de: Ende zu Start
-    start_to_start:
+    SS:
       en: Start to Start
       de: Start zu Start
-    finish_to_finish:
+    FF:
       en: Finish to Finish
       de: Ende zu Ende
-    start_to_finish:
+    SF:
       en: Start to Finish
       de: Start zu Ende
 
@@ -321,20 +321,6 @@ enum_localizations:
     change:
       en: Change
       de: Aenderung
-
-  RequirementDomain:
-    performance:
-      en: Performance
-      de: Leistung
-    spatial:
-      en: Spatial
-      de: Raumlich
-    regulatory:
-      en: Regulatory
-      de: Regulatorisch
-    brief:
-      en: Brief
-      de: Briefing
 
   ChangeType:
     geometry_change:
@@ -388,26 +374,6 @@ enum_localizations:
     new_intent:
       en: New Intent
       de: Neue Absicht
-
-  StateRefKind:
-    ifc_model:
-      en: IFC Model
-      de: IFC Modell
-    geometry:
-      en: Geometry
-      de: Geometrie
-    document:
-      en: Document
-      de: Dokument
-    text_extract:
-      en: Text Extract
-      de: Textextrakt
-    entity_record:
-      en: Entity Record
-      de: Entitaetsdatensatz
-    other:
-      en: Other
-      de: Sonstiges
 
   PropertyPathKind:
     ifc_attribute:

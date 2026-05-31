@@ -1,0 +1,103 @@
+---
+search:
+  boost: 5.0
+---
+
+# Slot: change_type 
+
+
+_Category of change detected between two revisions._
+
+
+
+<div data-search-exclude markdown="1">
+
+
+
+URI: [pbs:change_type](https://schema.pragmaticbim.ch/change_type)
+<!-- no inheritance hierarchy -->
+
+
+
+
+
+## Applicable Classes
+
+| Name | Description | Modifies Slot |
+| --- | --- | --- |
+| [Change](Change.md) | Detected difference for one subject between two revisions (content_kind change). Supports IFC model diffs, document/text diffs, and schema-entity field changes. |  yes  |
+| [PropertyChange](PropertyChange.md) | Attribute, PropertySet, schema slot, or document field change. |  yes  |
+| [GeometryChange](GeometryChange.md) | Geometry or representation change for a subject. |  yes  |
+| [RequirementChange](RequirementChange.md) | Change to a requirement record or its fields. |  yes  |
+| [MatchChange](MatchChange.md) | Entity match status against a requirement changed (previously met / no longer meets). |  yes  |
+| [AdditionChange](AdditionChange.md) | New entity or requirement introduced in to_revision. |  yes  |
+| [DeletionChange](DeletionChange.md) | Entity or requirement removed in to_revision. |  yes  |
+
+
+
+
+
+
+## Properties
+
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [ChangeType](ChangeType.md) |
+| Domain Of | [Change](Change.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+| Required | Yes |
+
+
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://schema.pragmaticbim.ch
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | pbs:change_type |
+| native | pbs:change_type |
+
+
+
+
+## LinkML Source
+
+<details>
+```yaml
+name: change_type
+description: Category of change detected between two revisions.
+from_schema: https://schema.pragmaticbim.ch
+rank: 1000
+domain_of:
+- Change
+range: ChangeType
+required: true
+
+```
+</details></div>

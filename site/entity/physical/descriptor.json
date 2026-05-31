@@ -1,0 +1,15 @@
+{
+  "id": "https://schema.pragmaticbim.ch/entity/physical",
+  "title": "Pragmatic BIM Data Contract - Entity Physical",
+  "description": "Physical element hierarchy and element-related slots.",
+  "source_file": "entity_physical_schema.yaml",
+  "docs_index": "https://schema.pragmaticbim.ch/schema/pragmatic-bim.docs.html",
+  "json_schema": "https://schema.pragmaticbim.ch/schema/pragmatic-bim.schema.json",
+  "shacl": "https://schema.pragmaticbim.ch/schema/pragmatic-bim.shacl.ttl",
+  "csv": "https://schema.pragmaticbim.ch/schema/pragmatic-bim.csv",
+  "pydantic": "https://schema.pragmaticbim.ch/schema/pragmatic-bim.pydantic.py",
+  "docs_md": "https://schema.pragmaticbim.ch/schema/pragmatic-bim.docs.md",
+  "landing_page": "https://schema.pragmaticbim.ch/entity/physical",
+  "html": "https://schema.pragmaticbim.ch/schema/PhysicalElement.html",
+  "primary_doc": "PhysicalElement"
+}

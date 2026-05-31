@@ -1,0 +1,99 @@
+id: https://schema.pragmaticbim.ch/changes/enums
+name: pragmatic_bim_changes_schema_enums
+title: Pragmatic BIM Data Contract - Changes Enums
+description: Controlled vocabularies for change detection and diff records.
+license: MIT
+see_also:
+- https://schema.pragmaticbim.ch/changes/enums
+- https://schema.pragmaticbim.ch/schema/pragmatic-bim.docs.html
+prefixes:
+  linkml: https://w3id.org/linkml/
+  pbs: https://schema.pragmaticbim.ch/
+  ifc: https://standards.buildingsmart.org/IFC/DEV/IFC4_3/FINAL/HTML/
+  ifcowl: https://w3id.org/ifc/IFC4_ADD2#
+  bot: https://w3id.org/bot#
+default_prefix: pbs
+default_range: string
+imports:
+- linkml:types
+enums:
+  ChangeIntentVerdict:
+    enum_uri: pbs:ChangeIntentVerdict
+    description: Intent stability verdict from an automated judge (for example iterthink STABLE/NEW).
+    permissible_values:
+      stable:
+        description: Change preserves design intent; downstream rules may treat as cosmetic.
+        meaning: pbs:change_intent_verdict_stable
+      new_intent:
+        description: Change alters design intent; may require re-evaluation or new tasks.
+        meaning: pbs:change_intent_verdict_new_intent
+  ChangeSeverity:
+    enum_uri: pbs:ChangeSeverity
+    description: Optional severity of a change independent of change type.
+    permissible_values:
+      unchanged:
+        description: No material difference (typically omitted from persisted Change records).
+        meaning: pbs:change_severity_unchanged
+      minor:
+        description: Small attribute, metadata, or wording adjustment.
+        meaning: pbs:change_severity_minor
+      major:
+        description: Significant attribute, geometry, relationship, or structural content change.
+        meaning: pbs:change_severity_major
+      rewritten:
+        description: Subject substantially replaced while retaining the same identity.
+        meaning: pbs:change_severity_rewritten
+  ChangeType:
+    enum_uri: pbs:ChangeType
+    description: Category of change detected between two revisions.
+    permissible_values:
+      geometry_change:
+        description: Geometry or representation changed.
+        meaning: pbs:change_type_geometry_change
+      property_change:
+        description: Attribute, PropertySet, or schema slot changed.
+        meaning: pbs:change_type_property_change
+      requirement_change:
+        description: Requirement record or field changed.
+        meaning: pbs:change_type_requirement_change
+      match_change:
+        description: Entity match status against a requirement changed (met / unmet).
+        meaning: pbs:change_type_match_change
+      addition:
+        description: New entity or requirement introduced.
+        meaning: pbs:change_type_addition
+      deletion:
+        description: Entity or requirement removed.
+        meaning: pbs:change_type_deletion
+  MatchStatus:
+    enum_uri: pbs:MatchStatus
+    description: Whether an entity satisfies a related requirement at the target revision.
+    permissible_values:
+      met:
+        description: Subject satisfies the requirement.
+        meaning: pbs:match_status_met
+      unmet:
+        description: Subject no longer satisfies the requirement.
+        meaning: pbs:match_status_unmet
+      unknown:
+        description: Match could not be determined.
+        meaning: pbs:match_status_unknown
+  PropertyPathKind:
+    enum_uri: pbs:PropertyPathKind
+    description: Classification of a property path for diff interpretation across IFC and text sources.
+    permissible_values:
+      ifc_attribute:
+        description: Direct IFC entity attribute (for example IfcWall.Name).
+        meaning: pbs:property_path_kind_ifc_attribute
+      ifc_pset:
+        description: IFC PropertySet property (for example Pset_WallCommon.FireRating).
+        meaning: pbs:property_path_kind_ifc_pset
+      schema_slot:
+        description: Field on a schema entity (for example description, space_type).
+        meaning: pbs:property_path_kind_schema_slot
+      document_field:
+        description: Structured field in an extracted document (for example section.4.2.title).
+        meaning: pbs:property_path_kind_document_field
+      text_span:
+        description: Free-text span anchor (for example body:char_offset:1204-1389).
+        meaning: pbs:property_path_kind_text_span

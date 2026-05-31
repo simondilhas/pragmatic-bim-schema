@@ -1,0 +1,61 @@
+.pillars-acc {
+  margin: 1.25rem 0 2rem;
+}
+
+.pillars-overview .mermaid {
+  border: 1px solid var(--md-default-fg-color--lightest, #d0d7de);
+  border-radius: 8px;
+  padding: 0.6rem;
+  background: var(--md-default-bg-color, #fff);
+  overflow: auto;
+}
+
+.pillar-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0.75rem 0;
+}
+
+.pillar-btn {
+  border: 1px solid var(--md-default-fg-color--lightest, #d0d7de);
+  background: var(--md-code-bg-color, #f6f8fa);
+  border-radius: 6px;
+  padding: 0.35rem 0.75rem;
+  cursor: pointer;
+  font: inherit;
+}
+
+.pillar-btn:hover {
+  border-color: var(--md-primary-fg-color, #0969da);
+}
+
+.pillar-btn.is-active {
+  border-color: var(--md-primary-fg-color, #0969da);
+  background: color-mix(in srgb, var(--md-primary-fg-color, #0969da) 12%, transparent);
+  font-weight: 600;
+}
+
+.pillar-panel {
+  margin-top: 0.75rem;
+}
+
+.pillar-panel[hidden] {
+  display: none;
+}
+
+.pillar-panel .mermaid {
+  border: 1px solid var(--md-default-fg-color--lightest, #d0d7de);
+  border-radius: 8px;
+  padding: 0.6rem;
+  background: var(--md-default-bg-color, #fff);
+  overflow: auto;
+}
+
+.pillars-overview svg .pillar-clickable {
+  cursor: pointer;
+}
+
+.pillars-overview svg .pillar-clickable:hover {
+  opacity: 0.85;
+}

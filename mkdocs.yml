@@ -1,0 +1,42 @@
+site_name: Pragmatic BIM Schema
+site_url: https://schema.pragmaticbim.ch/schema/
+use_directory_urls: false
+
+docs_dir: site/schema/.md-src
+site_dir: site/schema/.html-build
+
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: blue
+      accent: blue
+  features:
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - navigation.top
+
+nav:
+  - Schema Index: pragmatic-bim.docs.md
+
+plugins:
+  - search
+
+markdown_extensions:
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - attr_list
+  - md_in_html
+
+extra_css:
+  - assets/pillars.css
+
+extra_javascript:
+  - assets/pillars.js

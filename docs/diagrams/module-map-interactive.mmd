@@ -1,20 +1,24 @@
 flowchart TB
   Root["Pragmatic BIM Data Contract"]
-  Root --> core["Core"]
-  click core href "./core.html" _blank
-  Root --> performance_enums["Performance Enums"]
-  click performance_enums href "./performance-enums.html" _blank
+  Root --> shared_enums["Shared Enums"]
+  click shared_enums href "./shared/enums/" _blank
+  Root --> entity_core["Entity Core"]
+  click entity_core href "./entity/core/" _blank
+  Root --> entity_enums["Entity Enums"]
+  click entity_enums href "./entity/enums/" _blank
+  Root --> entity_performance_enums["Entity Performance Enums"]
+  click entity_performance_enums href "./entity/performance-enums/" _blank
+  Root --> entity_performance["Entity Performance"]
+  click entity_performance href "./entity/performance/" _blank
+  Root --> entity_physical["Entity Physical"]
+  click entity_physical href "./entity/physical/" _blank
+  Root --> entity_virtual["Entity Virtual"]
+  click entity_virtual href "./entity/virtual/" _blank
   Root --> requirements_enums["Requirements Enums"]
-  click requirements_enums href "./requirements-enums.html" _blank
-  Root --> performance["Entity Performance Properties"]
-  click performance href "./performance.html" _blank
+  click requirements_enums href "./requirements/enums/" _blank
   Root --> requirements["Requirements"]
-  click requirements href "./requirements.html" _blank
-  Root --> elements_physical["Elements Physical"]
-  click elements_physical href "./elements-physical.html" _blank
-  Root --> elements_virtual["Elements Virtual"]
-  click elements_virtual href "./elements-virtual.html" _blank
-  Root --> enums["Enums"]
-  click enums href "./enums.html" _blank
+  click requirements href "./requirements/" _blank
+  Root --> changes_enums["Changes Enums"]
+  click changes_enums href "./changes/enums/" _blank
   Root --> changes["Changes"]
-  click changes href "./changes.html" _blank
+  click changes href "./changes/" _blank

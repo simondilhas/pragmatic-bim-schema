@@ -19,7 +19,6 @@ from generate_module_pages import load_modules, slug_from_id  # noqa: E402
 ROOT_SCHEMA = "00_pragmatic_bim_data_contract.yaml"
 BASE_URL = "https://schema.pragmaticbim.ch"
 README_MARKERS = {
-    "module-map": "module-map",
     "pillars-overview": "pillars-overview",
     "entity-detail": "entity-detail",
     "requirements-overview": "requirements-overview",
@@ -106,12 +105,12 @@ def render_module_map(modules_in_root: list[dict], *, interactive: bool = False)
     lines = ["flowchart TB", "  Root[\"Pragmatic BIM Data Contract\"]"]
     for module in modules_in_root:
         slug = module["slug"]
-        node_id = slug.replace("-", "_")
+        node_id = slug.replace("/", "_").replace("-", "_")
         title = str(module.get("title") or slug)
         short = title.split(" - ")[-1] if " - " in title else title
         lines.append(f"  Root --> {node_id}{mermaid_label(short)}")
         if interactive:
-            lines.append(f'  click {node_id} href "./{slug}.html" _blank')
+            lines.append(f'  click {node_id} href "./{slug}/" _blank')
     return "\n".join(lines) + "\n"
 
 
@@ -267,8 +266,11 @@ def import_name_for_slug(schema_dir: Path, slug: str) -> str | None:
     return None
 
 
-def render_docs_preamble(
-    module_map: str,
+def mermaid_pre(body: str) -> str:
+    return f'<pre class="mermaid">\n{body.strip()}\n</pre>'
+
+
+def render_pillars_accordion(
     pillars_overview: str,
     entity_detail: str,
     requirements_branch: str,
@@ -278,18 +280,28 @@ def render_docs_preamble(
         f"{PREAMBLE_MARKER}\n\n"
         "## Schema diagrams\n\n"
         "Generated from `schema/*.yaml`. "
-        "See the [schema documentation](https://schema.pragmaticbim.ch/schema/pragmatic-bim.docs.html) "
-        "for interactive class pages.\n\n"
-        "### Module map\n\n"
-        f"```mermaid\n{module_map.strip()}\n```\n\n"
-        "### Three pillars (overview)\n\n"
-        f"```mermaid\n{pillars_overview.strip()}\n```\n\n"
-        "### Entities (detail)\n\n"
-        f"```mermaid\n{entity_detail.strip()}\n```\n\n"
-        "### Requirements (detail)\n\n"
-        f"```mermaid\n{requirements_branch.strip()}\n```\n\n"
-        "### Changes (detail)\n\n"
-        f"```mermaid\n{changes_branch.strip()}\n```\n\n"
+        "Click a pillar in the overview or use the buttons below to explore each branch.\n\n"
+        '<div id="pillars-acc" class="pillars-acc">\n\n'
+        '<div class="pillars-overview">\n'
+        f"{mermaid_pre(pillars_overview)}\n"
+        "</div>\n\n"
+        '<div class="pillar-controls">\n'
+        '  <button type="button" class="pillar-btn" data-pillar="entity">Entities</button>\n'
+        '  <button type="button" class="pillar-btn" data-pillar="requirement">Requirements</button>\n'
+        '  <button type="button" class="pillar-btn" data-pillar="change">Changes</button>\n'
+        "</div>\n\n"
+        '<div class="pillar-panels">\n'
+        '  <div id="pillar-entity" class="pillar-panel" hidden>\n'
+        f"{mermaid_pre(entity_detail)}\n"
+        "  </div>\n"
+        '  <div id="pillar-requirement" class="pillar-panel" hidden>\n'
+        f"{mermaid_pre(requirements_branch)}\n"
+        "  </div>\n"
+        '  <div id="pillar-change" class="pillar-panel" hidden>\n'
+        f"{mermaid_pre(changes_branch)}\n"
+        "  </div>\n"
+        "</div>\n\n"
+        "</div>\n"
     )
 
 
@@ -360,8 +372,7 @@ def collect_outputs(schema_dir: Path) -> dict[str, str]:
         "entity-overview-performance.mmd": performance_branch,
         "entity-overview-requirements.mmd": requirements_branch,
         "entity-overview-changes.mmd": changes_branch,
-        "docs-preamble.md": render_docs_preamble(
-            module_map,
+        "pillars-accordion.md": render_pillars_accordion(
             pillars_overview,
             entity_detail,
             requirements_branch,
@@ -430,7 +441,6 @@ def generate(
                 patch_readme(
                     tmp_readme,
                     {
-                        "module-map": outputs["module-map.mmd"],
                         "pillars-overview": outputs["pillars-overview.mmd"],
                         "entity-detail": outputs["entity-detail.mmd"],
                         "requirements-overview": outputs["entity-overview-requirements.mmd"],
@@ -466,7 +476,6 @@ def generate(
         patch_readme(
             readme_path,
             {
-                "module-map": outputs["module-map.mmd"],
                 "pillars-overview": outputs["pillars-overview.mmd"],
                 "entity-detail": outputs["entity-detail.mmd"],
                 "requirements-overview": outputs["entity-overview-requirements.mmd"],

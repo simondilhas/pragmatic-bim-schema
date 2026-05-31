@@ -1,0 +1,345 @@
+id: https://schema.pragmaticbim.ch/entity/virtual
+name: pragmatic_bim_entity_virtual_schema
+title: Pragmatic BIM Data Contract - Entity Virtual
+description: 'Virtual entities such as context, space, system, time, cost, and material information.
+
+  '
+license: MIT
+see_also:
+- https://schema.pragmaticbim.ch/entity/virtual
+- https://schema.pragmaticbim.ch/schema/pragmatic-bim.docs.html
+prefixes:
+  linkml: https://w3id.org/linkml/
+  pbs: https://schema.pragmaticbim.ch/
+  ifc: https://standards.buildingsmart.org/IFC/DEV/IFC4_3/FINAL/HTML/
+  ifcowl: https://w3id.org/ifc/IFC4_ADD2#
+  bot: https://w3id.org/bot#
+default_prefix: pbs
+default_range: string
+imports:
+- linkml:types
+- requirements_schema
+classes:
+  VirtualEntity:
+    is_a: Entity
+    abstract: true
+    class_uri: pbs:VirtualEntity
+    description: Abstract base class for non-physical, conceptual, or informational entities.
+    slots:
+    - cost_records
+    - time_records
+    - materials
+  SpatialContext:
+    is_a: VirtualEntity
+    class_uri: pbs:SpatialContext
+    exact_mappings:
+    - ifcowl:IfcSpatialStructureElement
+    description: Context node used to represent project, perimeter, legal site, built asset, level, or zone.
+    tree_root: true
+    slots:
+    - context_type
+    - zone_type
+    - parent_project
+    - parent_perimeter
+    - parent_legal_site
+    - parent_building
+    - parent_level
+    - parent_zone
+    - group_members
+    slot_usage:
+      parent_project:
+        range: ProjectContext
+      parent_perimeter:
+        range: PerimeterContext
+      parent_legal_site:
+        range: LegalSiteContext
+      parent_building:
+        range: BuiltAssetContext
+      parent_level:
+        range: LevelContext
+      parent_zone:
+        range: ZoneContext
+  ProjectContext:
+    is_a: SpatialContext
+    class_uri: pbs:ProjectContext
+    description: Spatial context node constrained to project semantics.
+  PerimeterContext:
+    is_a: SpatialContext
+    class_uri: pbs:PerimeterContext
+    description: Spatial context node constrained to perimeter semantics.
+  LegalSiteContext:
+    is_a: SpatialContext
+    class_uri: pbs:LegalSiteContext
+    description: Spatial context node constrained to legal site semantics.
+  BuiltAssetContext:
+    is_a: SpatialContext
+    abstract: true
+    class_uri: pbs:BuiltAssetContext
+    description: Abstract spatial context for built assets such as buildings and civil structures.
+  BuildingContext:
+    is_a: BuiltAssetContext
+    class_uri: pbs:BuildingContext
+    description: Spatial context node constrained to building semantics.
+  CivilStructureContext:
+    is_a: BuiltAssetContext
+    class_uri: pbs:CivilStructureContext
+    description: Spatial context node constrained to civil structure semantics.
+  LevelContext:
+    is_a: SpatialContext
+    class_uri: pbs:LevelContext
+    description: Spatial context node constrained to level/storey semantics.
+  ZoneContext:
+    is_a: SpatialContext
+    class_uri: pbs:ZoneContext
+    description: Spatial context node constrained to zone semantics.
+  Space:
+    is_a: VirtualEntity
+    class_uri: pbs:Space
+    exact_mappings:
+    - bot:Space
+    - ifcowl:IfcSpace
+    description: Spatial container used for occupancy, circulation, service, or analysis.
+    slots:
+    - space_type
+    - parent_building
+    - parent_level
+    - parent_zone
+    - bounded_by
+    - contained_entities
+    slot_usage:
+      parent_building:
+        range: BuiltAssetContext
+      parent_level:
+        range: LevelContext
+  System:
+    is_a: VirtualEntity
+    class_uri: pbs:System
+    exact_mappings:
+    - ifcowl:IfcSystem
+    description: Building service system grouping that serves spaces or zones.
+    slots:
+    - system_type
+    - system_discipline
+    - parent_project
+    - parent_building
+    - serves_spaces
+    - serves_zones
+    - contained_entities
+    slot_usage:
+      parent_project:
+        range: ProjectContext
+      parent_building:
+        range: BuiltAssetContext
+  ConnectionVirtual:
+    is_a: VirtualEntity
+    class_uri: pbs:ConnectionVirtual
+    description: Logical or topological connection between spaces and/or physical elements.
+    slots:
+    - connection_virtual_type
+    - connects_physical_elements
+    - connects_spaces
+    - connection_virtual_requirement_drivers
+  TimeLink:
+    class_uri: pbs:TimeLink
+    description: >-
+      Inline typed precedence link from a TimeRecord to one successor.
+      Not a VirtualEntity — no id, no mixin. Owned by the predecessor record.
+    attributes:
+      target_item:
+        range: TimeRecord
+        required: true
+        description: The successor TimeRecord.
+      dependency_type:
+        range: DependencyType
+        ifabsent: FS
+        description: FS | SS | FF | SF
+      lag_days:
+        range: integer
+        ifabsent: '0'
+  TimeRecord:
+    is_a: VirtualEntity
+    class_uri: pbs:TimeRecord
+    description: >-
+      Planned work record with baseline and actual dates, optionally linked
+      to model entities and a time plan.
+      — Set milestone_at to mark as a zero-duration checkpoint.
+      — Populate component_time_items to act as a plan container.
+    slots:
+    - time_plan
+    - planned_start_at
+    - planned_finish_at
+    - actual_start_at
+    - actual_finish_at
+    - milestone_at
+    - applies_to_entities
+    - component_time_items
+    attributes:
+      successors:
+        range: TimeLink
+        multivalued: true
+        inlined: true
+        description: >-
+          Forward precedence links to successor records.
+          Reverse lookup (find all predecessors of X) requires scanning
+          all TimeRecord.successors — acceptable for document exchange,
+          not for live graph queries.
+  CostRecord:
+    is_a: VirtualEntity
+    class_uri: pbs:CostRecord
+    description: >-
+      Cost record for estimation and calculation, optionally linked to entities.
+      Populate component_cost_items to act as an assembly (aggregated unit price).
+    slots:
+    - cost_category
+    - unit_cost
+    - currency
+    - cost_quantity_type
+    - cost_quantity_value
+    - cost_quantity_unit
+    - applies_to_entities
+    - component_cost_items
+  Material:
+    is_a: VirtualEntity
+    class_uri: pbs:Material
+    description: Material definition that can be associated with one or more entities.
+    slots:
+    - material_category
+    - material_specification
+slots:
+  context_type:
+    range: ContextType
+    required: true
+    description: Classification of context entity (project, perimeter, legal_site, building, civil_structure, level, zone).
+  zone_type:
+    range: ZoneType
+    description: Optional zone classification; intended for SpatialContext nodes where context_type is zone.
+  parent_project:
+    range: ProjectContext
+    description: Parent project context reference.
+  parent_perimeter:
+    range: PerimeterContext
+    description: Parent perimeter context reference.
+  parent_legal_site:
+    range: LegalSiteContext
+    description: Parent legal site context reference.
+  parent_zone:
+    range: ZoneContext
+    description: Parent zone context reference.
+  group_members:
+    multivalued: true
+    range: Entity
+    description: Zone members; may include spaces, separations, systems, etc.
+  space_type:
+    range: SpaceType
+    required: true
+    description: Classification of space (void, circulation, usable, service).
+  system_type:
+    range: SystemType
+    required: true
+    description: Classification of system role (unit, network, terminal).
+  system_discipline:
+    range: SystemDiscipline
+    required: true
+    description: Classification of system discipline (electrical, sanitary, ventilation, heating).
+  bounded_by:
+    multivalued: true
+    range: PhysicalElement
+    inverse: bounded_space
+    description: Physical elements that bound a space.
+  contained_entities:
+    multivalued: true
+    range: Entity
+    description: Generic containment for associated entities.
+  serves_spaces:
+    multivalued: true
+    range: Space
+    description: Spaces served by this system.
+  serves_zones:
+    multivalued: true
+    range: ZoneContext
+    description: Zone context nodes served by this system.
+  connection_virtual_type:
+    range: ConnectionVirtualType
+    required: true
+    description: Classification of virtual connection semantics (for example structural_joint, adjacency, access).
+  connects_physical_elements:
+    multivalued: true
+    range: PhysicalElement
+    description: Physical elements connected by this virtual connection (for example wall-wall, wall-slab).
+  connects_spaces:
+    multivalued: true
+    range: Space
+    description: Spaces connected by this virtual connection.
+  time_records:
+    multivalued: true
+    range: TimeRecord
+    inlined: false
+    description: Time records associated with this entity.
+  time_plan:
+    range: TimeRecord
+    inlined: false
+    description: Parent time plan this record belongs to.
+  component_time_items:
+    multivalued: true
+    range: TimeRecord
+    inlined: false
+    description: Time records contained in this plan; set milestone_at on a record to mark it as a checkpoint.
+  planned_start_at:
+    range: datetime
+    description: Planned start timestamp for the time record.
+  planned_finish_at:
+    range: datetime
+    description: Planned finish timestamp for the time record.
+  actual_start_at:
+    range: datetime
+    description: Actual start timestamp for the time record where known.
+  actual_finish_at:
+    range: datetime
+    description: Actual finish timestamp for the time record where known.
+  milestone_at:
+    range: datetime
+    description: Target timestamp for a zero-duration milestone checkpoint.
+  cost_records:
+    multivalued: true
+    range: CostRecord
+    inlined: false
+    description: Cost records associated with this entity.
+  materials:
+    multivalued: true
+    range: Material
+    inlined: false
+    description: Material definitions associated with this entity.
+  cost_category:
+    range: string
+    description: Cost category label kept intentionally open pending classification-backed modeling.
+  unit_cost:
+    range: double
+    required: true
+    minimum_value: 0
+    description: Unit cost for this cost item.
+  currency:
+    range: string
+    required: true
+    pattern: ^[A-Z]{3}$
+    description: ISO 4217 currency code (for example EUR, USD).
+  cost_quantity_type:
+    range: QuantityType
+    description: Quantity type used as basis for this cost calculation.
+  cost_quantity_value:
+    range: double
+    minimum_value: 0
+    description: Quantity magnitude used as basis for this cost calculation.
+  cost_quantity_unit:
+    range: string
+    description: Unit of the cost quantity value.
+  component_cost_items:
+    multivalued: true
+    range: CostRecord
+    inlined: false
+    description: Cost records aggregated into this assembly record.
+  material_category:
+    range: string
+    description: Material category label kept intentionally open pending classification-backed modeling.
+  material_specification:
+    range: string
+    description: Material grade, specification, or product description.

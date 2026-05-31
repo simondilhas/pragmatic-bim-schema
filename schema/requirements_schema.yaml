@@ -1,209 +1,161 @@
 id: https://schema.pragmaticbim.ch/requirements
 name: pragmatic_bim_requirements_schema
 title: Pragmatic BIM Data Contract - Requirements
-description: >
-  Prescriptive requirement records and element-level requirement-driver slots.
+description: 'Prescriptive requirement records and element-level requirement-driver slots.
+
+  '
 license: MIT
-
 see_also:
-  - https://schema.pragmaticbim.ch/requirements
-  - https://schema.pragmaticbim.ch/schema/pragmatic-bim.docs.html
-
+- https://schema.pragmaticbim.ch/requirements
+- https://schema.pragmaticbim.ch/schema/pragmatic-bim.docs.html
 prefixes:
   linkml: https://w3id.org/linkml/
   pbs: https://schema.pragmaticbim.ch/
   ifc: https://standards.buildingsmart.org/IFC/DEV/IFC4_3/FINAL/HTML/
   ifcowl: https://w3id.org/ifc/IFC4_ADD2#
   bot: https://w3id.org/bot#
-
 default_prefix: pbs
 default_range: string
-
 imports:
-  - linkml:types
-  - core_schema
-  - enums_schema
-  - requirements_enums_schema
-  - performance_enums_schema
-
+- linkml:types
+- entity_core_schema
+- requirements_schema_enums
+- entity_performance_schema_enums
 classes:
   Requirement:
     abstract: true
     class_uri: pbs:Requirement
-    description: >
-      Prescriptive requirement record (content_kind requirement).
-      Not an Entity; may apply to one or more model entities.
+    description: 'Prescriptive requirement record (content_kind requirement). Not an Entity; may apply to one or more model
+      entities. Domain is discriminated by concrete subclass (PerformanceRequirement, SpatialRequirement, etc.), not a separate
+      slot.
+
+      '
     slots:
-      - id
-      - name
-      - description
-      - requirement_domain
-      - applies_to_entities
-      - source_document
-      - status
+    - id
+    - name
+    - description
+    - applies_to_entities
+    - source_document
+    - status
     slot_usage:
       id:
         required: true
         identifier: true
-
   PerformanceRequirement:
     is_a: Requirement
     class_uri: pbs:PerformanceRequirement
     description: Performance target requirement (U-value, fire rating, airflow, acoustic, etc.).
     slots:
-      - requirement_property_key
-      - target_operator
-      - target_value_string
-      - target_value_number
-      - target_value_boolean
-      - target_unit
-      - target_unit_uri
-    slot_usage:
-      requirement_domain:
-        range: string
-        equals_string: performance
-
+    - requirement_property_key
+    - target_operator
+    - target_value_string
+    - target_value_number
+    - target_value_boolean
+    - target_unit
+    - target_unit_uri
   SpatialRequirement:
     is_a: Requirement
     class_uri: pbs:SpatialRequirement
     description: Spatial constraint requirement (min area, min height, adjacency, etc.).
     slots:
-      - min_area
-      - min_height
-      - adjacency_kind
-      - related_entity
-      - min_clear_distance
-    slot_usage:
-      requirement_domain:
-        range: string
-        equals_string: spatial
-
+    - min_area
+    - min_height
+    - adjacency_kind
+    - related_entity
+    - min_clear_distance
   RegulatoryRequirement:
     is_a: Requirement
     class_uri: pbs:RegulatoryRequirement
     description: Regulatory reference requirement (building code, norm, standard).
     slots:
-      - norm_uri
-      - clause_ref
-      - jurisdiction
-    slot_usage:
-      requirement_domain:
-        range: string
-        equals_string: regulatory
-
+    - norm_uri
+    - clause_ref
+    - jurisdiction
   BriefRequirement:
     is_a: Requirement
     class_uri: pbs:BriefRequirement
     description: Client or programme requirement, including free-standing brief items.
     slots:
-      - programme_ref
-      - statement
-    slot_usage:
-      requirement_domain:
-        range: string
-        equals_string: brief
-
+    - programme_ref
+    - statement
 slots:
   separator_requirement_drivers:
     multivalued: true
     range: SeparatorRequirementDriver
-    description: >
-      Performance requirement drivers for this separator. Multiple values are
-      allowed because one separator may need to satisfy several requirements.
+    description: 'Performance requirement drivers for this separator. Multiple values are allowed because one separator may
+      need to satisfy several requirements.
 
+      '
   connection_physical_requirement_drivers:
     multivalued: true
     range: ConnectionRequirementDriver
-    description: >
-      Performance requirement drivers for this physical connection element.
-      Multiple values are allowed because one connection may need to satisfy
-      several requirements.
+    description: 'Performance requirement drivers for this physical connection element. Multiple values are allowed because
+      one connection may need to satisfy several requirements.
 
+      '
   connection_virtual_requirement_drivers:
     multivalued: true
     range: ConnectionRequirementDriver
     description: Main requirement drivers for this virtual connection.
-
-  requirement_domain:
-    range: RequirementDomain
-    required: true
-    description: Domain of this requirement record (performance, spatial, regulatory, brief).
-
   source_document:
     range: uriorcurie
     description: Optional URI to norm, brief, or source document backing this requirement.
-
   requirement_property_key:
     range: string
     required: true
-    description: >
-      Canonical performance key for the target (for example u_value, resistance_rating).
-      Aligns with performance property keys where applicable.
+    description: 'Canonical performance key for the target (for example u_value, resistance_rating). Aligns with performance
+      property keys where applicable.
 
+      '
   target_operator:
     range: RequirementTargetOperator
     description: Comparison operator for the requirement target.
-
   target_value_string:
     range: string
     description: Textual target value when applicable.
-
   target_value_number:
     range: double
     description: Numeric target value when applicable.
-
   target_value_boolean:
     range: boolean
     description: Boolean target value when applicable.
-
   target_unit:
     range: string
     description: Unit for numeric targets (for example W/m2K, min, dB).
-
   target_unit_uri:
     range: uriorcurie
     description: Optional URI identifying the target unit (for example QUDT).
-
   min_area:
     range: double
     minimum_value: 0
     description: Minimum required area in square metres.
-
   min_height:
     range: double
     minimum_value: 0
     description: Minimum required height or clear height in metres.
-
   adjacency_kind:
     range: SpatialAdjacencyKind
     description: Adjacency semantics when this spatial requirement involves another subject.
-
   related_entity:
     range: Entity
     inlined: false
     description: Entity or space subject for adjacency or distance constraints.
-
   min_clear_distance:
     range: double
     minimum_value: 0
     description: Minimum clear distance in metres when adjacency_kind is min_clear_distance.
-
   norm_uri:
     range: uriorcurie
     description: URI identifying the norm, standard, or building code.
-
   clause_ref:
     range: string
     description: Clause, article, or section reference within the norm.
-
   jurisdiction:
     range: string
     description: Jurisdiction or authority scope for the regulatory requirement.
-
   programme_ref:
     range: uriorcurie
     description: URI or identifier for a programme or brief document.
-
   statement:
     range: string
     description: Free-text requirement statement from client or programme.

@@ -1,0 +1,4 @@
+linkml
+mkdocs
+mkdocs-material
+pyyaml

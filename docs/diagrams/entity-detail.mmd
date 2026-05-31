@@ -12,14 +12,8 @@ classDiagram
   Separator <|-- SeparatorSlab
   Separator <|-- SeparatorWall
   Entity <|-- VirtualEntity
-  VirtualEntity <|-- AbstractCostRecord
-  AbstractCostRecord <|-- CostAssembly
-  AbstractCostRecord <|-- CostItem
-  VirtualEntity <|-- AbstractTimeRecord
-  AbstractTimeRecord <|-- TimeItem
-  TimeItem <|-- Milestone
-  AbstractTimeRecord <|-- TimePlan
   VirtualEntity <|-- ConnectionVirtual
+  VirtualEntity <|-- CostRecord
   VirtualEntity <|-- Material
   VirtualEntity <|-- Space
   VirtualEntity <|-- SpatialContext
@@ -32,7 +26,7 @@ classDiagram
   SpatialContext <|-- ProjectContext
   SpatialContext <|-- ZoneContext
   VirtualEntity <|-- System
-  VirtualEntity <|-- TimeDependency
+  VirtualEntity <|-- TimeRecord
   PerformanceProperty <|-- AcousticProperty
   PerformanceProperty <|-- FireProperty
   PerformanceProperty <|-- MaterialProperty

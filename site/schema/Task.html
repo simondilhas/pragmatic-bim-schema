@@ -1,0 +1,926 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://schema.pragmaticbim.ch/schema/Task.html">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Class: Task - Pragmatic BIM Schema</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="assets/pillars.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#class-task" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="." title="Pragmatic BIM Schema" class="md-header__button md-logo" aria-label="Pragmatic BIM Schema" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Pragmatic BIM Schema
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Class: Task
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="." title="Pragmatic BIM Schema" class="md-nav__button md-logo" aria-label="Pragmatic BIM Schema" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Pragmatic BIM Schema
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="pragmatic-bim.docs.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Schema Index
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#class-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Class Properties
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#slots" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Slots
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Usages
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#identifier-and-mapping-information" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Identifier and Mapping Information
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Identifier and Mapping Information">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#schema-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Schema Source
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mappings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mappings
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linkml-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LinkML Source
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="LinkML Source">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#direct" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Direct
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#induced" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Induced
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="class-task">Class: Task<a class="headerlink" href="#class-task" title="Permanent link">&para;</a></h1>
+<p><em>Action/task record linked to an entity for implementation and follow-up workflows.</em></p>
+<div>
+<p>URI: <a href="https://schema.pragmaticbim.ch/Task">pbs:Task</a></p>
+<pre class="mermaid"><code> classDiagram
+    class Task
+    click Task href "./Task.html"
+      Task : assignee
+        Task --&gt; "0..1" Agent : assignee
+        click Agent href "./Agent.html"
+      Task : due_at
+      Task : id
+      Task : related_decision
+        Task --&gt; "0..1" Decision : related_decision
+        click Decision href "./Decision.html"
+      Task : task_notes
+      Task : task_status
+      Task : task_type</code></pre>
+<!-- no inheritance hierarchy -->
+<h2 id="class-properties">Class Properties<a class="headerlink" href="#class-properties" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Class URI</td>
+<td><a href="https://schema.pragmaticbim.ch/Task">pbs:Task</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="slots">Slots<a class="headerlink" href="#slots" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Cardinality and Range</th>
+<th>Description</th>
+<th>Inheritance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="id.html">id</a></td>
+<td>0..1 <br/> <a href="String.html">String</a></td>
+<td>Optional stable identifier when referenced externally (for example from Change.triggered_task).</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="task_type.html">task_type</a></td>
+<td>0..1 <br/> <a href="Uriorcurie.html">Uriorcurie</a></td>
+<td>Task type expressed as a URI/CURIE from a controlled vocabulary.</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="task_status.html">task_status</a></td>
+<td>0..1 <br/> <a href="Uriorcurie.html">Uriorcurie</a></td>
+<td>Task status URI/CURIE aligned with action status vocabularies.</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="assignee.html">assignee</a></td>
+<td>0..1 <br/> <a href="Agent.html">Agent</a></td>
+<td>Responsible agent.</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="due_at.html">due_at</a></td>
+<td>0..1 <br/> <a href="Datetime.html">Datetime</a></td>
+<td>Due timestamp for task completion.</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="related_decision.html">related_decision</a></td>
+<td>0..1 <br/> <a href="Decision.html">Decision</a></td>
+<td>Optional reference to a decision that informs or drives this task.</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="task_notes.html">task_notes</a></td>
+<td>0..1 <br/> <a href="String.html">String</a></td>
+<td>Additional notes or implementation details for the task.</td>
+<td>direct</td>
+</tr>
+</tbody>
+</table>
+<h2 id="usages">Usages<a class="headerlink" href="#usages" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>used by</th>
+<th>used in</th>
+<th>type</th>
+<th>used</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Entity.html">Entity</a></td>
+<td><a href="tasks.html">tasks</a></td>
+<td>range</td>
+<td><a href="Task.html">Task</a></td>
+</tr>
+<tr>
+<td><a href="Agent.html">Agent</a></td>
+<td><a href="tasks.html">tasks</a></td>
+<td>range</td>
+<td><a href="Task.html">Task</a></td>
+</tr>
+<tr>
+<td><a href="Person.html">Person</a></td>
+<td><a href="tasks.html">tasks</a></td>
+<td>range</td>
+<td><a href="Task.html">Task</a></td>
+</tr>
+<tr>
+<td><a href="Company.html">Company</a></td>
+<td><a href="tasks.html">tasks</a></td>
+<td>range</td>
+<td><a href="Task.html">Task</a></td>
+</tr>
+<tr>
+<td><a href="Message.html">Message</a></td>
+<td><a href="tasks.html">tasks</a></td>
+<td>range</td>
+<td><a href="Task.html">Task</a></td>
+</tr>
+<tr>
+<td><a href="PhysicalElement.html">PhysicalElement</a></td>
+<td><a href="tasks.html">tasks</a></td>
+<td>range</td>
+<td><a href="Task.html">Task</a></td>
+</tr>
+<tr>
+<td><a href="Separator.html">Separator</a></td>
+<td><a href="tasks.html">tasks</a></td>
+<td>range</td>
+<td><a href="Task.html">Task</a></td>
+</tr>
+<tr>
+<td><a href="SeparatorWall.html">SeparatorWall</a></td>
+<td><a href="tasks.html">tasks</a></td>
+<td>range</td>
+<td><a href="Task.html">Task</a></td>
+</tr>
+<tr>
+<td><a href="SeparatorSlab.html">SeparatorSlab</a></td>
+<td><a href="tasks.html">tasks</a></td>
+<td>range</td>
+<td><a href="Task.html">Task</a></td>
+</tr>
+<tr>
+<td><a href="ConnectionPhysical.html">ConnectionPhysical</a></td>
+<td><a href="tasks.html">tasks</a></td>
+<td>range</td>
+<td><a href="Task.html">Task</a></td>
+</tr>
+<tr>
+<td><a href="Boundary.html">Boundary</a></td>
+<td><a href="tasks.html">tasks</a></td>
+<td>range</td>
+<td><a href="Task.html">Task</a></td>
+</tr>
+<tr>
+<td><a href="Equipment.html">Equipment</a></td>
+<td><a href="tasks.html">tasks</a></td>
+<td>range</td>
+<td><a href="Task.html">Task</a></td>
+</tr>
+<tr>
+<td><a href="VirtualEntity.html">VirtualEntity</a></td>
+<td><a href="tasks.html">tasks</a></td>
+<td>range</td>
+<td><a href="Task.html">Task</a></td>
+</tr>
+<tr>
+<td><a href="SpatialContext.html">SpatialContext</a></td>
+<td><a href="tasks.html">tasks</a></td>
+<td>range</td>
+<td><a href="Task.html">Task</a></td>
+</tr>
+<tr>
+<td><a href="ProjectContext.html">ProjectContext</a></td>
+<td><a href="tasks.html">tasks</a></td>
+<td>range</td>
+<td><a href="Task.html">Task</a></td>
+</tr>
+<tr>
+<td><a href="PerimeterContext.html">PerimeterContext</a></td>
+<td><a href="tasks.html">tasks</a></td>
+<td>range</td>
+<td><a href="Task.html">Task</a></td>
+</tr>
+<tr>
+<td><a href="LegalSiteContext.html">LegalSiteContext</a></td>
+<td><a href="tasks.html">tasks</a></td>
+<td>range</td>
+<td><a href="Task.html">Task</a></td>
+</tr>
+<tr>
+<td><a href="BuiltAssetContext.html">BuiltAssetContext</a></td>
+<td><a href="tasks.html">tasks</a></td>
+<td>range</td>
+<td><a href="Task.html">Task</a></td>
+</tr>
+<tr>
+<td><a href="BuildingContext.html">BuildingContext</a></td>
+<td><a href="tasks.html">tasks</a></td>
+<td>range</td>
+<td><a href="Task.html">Task</a></td>
+</tr>
+<tr>
+<td><a href="CivilStructureContext.html">CivilStructureContext</a></td>
+<td><a href="tasks.html">tasks</a></td>
+<td>range</td>
+<td><a href="Task.html">Task</a></td>
+</tr>
+<tr>
+<td><a href="LevelContext.html">LevelContext</a></td>
+<td><a href="tasks.html">tasks</a></td>
+<td>range</td>
+<td><a href="Task.html">Task</a></td>
+</tr>
+<tr>
+<td><a href="ZoneContext.html">ZoneContext</a></td>
+<td><a href="tasks.html">tasks</a></td>
+<td>range</td>
+<td><a href="Task.html">Task</a></td>
+</tr>
+<tr>
+<td><a href="Space.html">Space</a></td>
+<td><a href="tasks.html">tasks</a></td>
+<td>range</td>
+<td><a href="Task.html">Task</a></td>
+</tr>
+<tr>
+<td><a href="System.html">System</a></td>
+<td><a href="tasks.html">tasks</a></td>
+<td>range</td>
+<td><a href="Task.html">Task</a></td>
+</tr>
+<tr>
+<td><a href="ConnectionVirtual.html">ConnectionVirtual</a></td>
+<td><a href="tasks.html">tasks</a></td>
+<td>range</td>
+<td><a href="Task.html">Task</a></td>
+</tr>
+<tr>
+<td><a href="AbstractTimeRecord.html">AbstractTimeRecord</a></td>
+<td><a href="tasks.html">tasks</a></td>
+<td>range</td>
+<td><a href="Task.html">Task</a></td>
+</tr>
+<tr>
+<td><a href="TimeItem.html">TimeItem</a></td>
+<td><a href="tasks.html">tasks</a></td>
+<td>range</td>
+<td><a href="Task.html">Task</a></td>
+</tr>
+<tr>
+<td><a href="Milestone.html">Milestone</a></td>
+<td><a href="tasks.html">tasks</a></td>
+<td>range</td>
+<td><a href="Task.html">Task</a></td>
+</tr>
+<tr>
+<td><a href="TimePlan.html">TimePlan</a></td>
+<td><a href="tasks.html">tasks</a></td>
+<td>range</td>
+<td><a href="Task.html">Task</a></td>
+</tr>
+<tr>
+<td><a href="TimeDependency.html">TimeDependency</a></td>
+<td><a href="tasks.html">tasks</a></td>
+<td>range</td>
+<td><a href="Task.html">Task</a></td>
+</tr>
+<tr>
+<td><a href="AbstractCostRecord.html">AbstractCostRecord</a></td>
+<td><a href="tasks.html">tasks</a></td>
+<td>range</td>
+<td><a href="Task.html">Task</a></td>
+</tr>
+<tr>
+<td><a href="CostItem.html">CostItem</a></td>
+<td><a href="tasks.html">tasks</a></td>
+<td>range</td>
+<td><a href="Task.html">Task</a></td>
+</tr>
+<tr>
+<td><a href="CostAssembly.html">CostAssembly</a></td>
+<td><a href="tasks.html">tasks</a></td>
+<td>range</td>
+<td><a href="Task.html">Task</a></td>
+</tr>
+<tr>
+<td><a href="Material.html">Material</a></td>
+<td><a href="tasks.html">tasks</a></td>
+<td>range</td>
+<td><a href="Task.html">Task</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="identifier-and-mapping-information">Identifier and Mapping Information<a class="headerlink" href="#identifier-and-mapping-information" title="Permanent link">&para;</a></h2>
+<h3 id="schema-source">Schema Source<a class="headerlink" href="#schema-source" title="Permanent link">&para;</a></h3>
+<ul>
+<li>from schema: https://schema.pragmaticbim.ch</li>
+</ul>
+<h2 id="mappings">Mappings<a class="headerlink" href="#mappings" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Mapping Type</th>
+<th>Mapped Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>self</td>
+<td>pbs:Task</td>
+</tr>
+<tr>
+<td>native</td>
+<td>pbs:Task</td>
+</tr>
+<tr>
+<td>exact</td>
+<td>schema:Action, prov:Activity</td>
+</tr>
+</tbody>
+</table>
+<h2 id="linkml-source">LinkML Source<a class="headerlink" href="#linkml-source" title="Permanent link">&para;</a></h2>
+<!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
+<h3 id="direct">Direct<a class="headerlink" href="#direct" title="Permanent link">&para;</a></h3>
+<details>
+<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Task</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Action/task record linked to an entity for implementation and follow-up</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">workflows.</span>
+<span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
+<span class="nt">exact_mappings</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">schema:Action</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">prov:Activity</span>
+<span class="nt">slots</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">id</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">task_type</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">task_status</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">assignee</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">due_at</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">related_decision</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">task_notes</span>
+<span class="nt">slot_usage</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">id</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">id</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Optional stable identifier when referenced externally (for example</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">from Change.triggered_task).</span>
+<span class="w">    </span><span class="nt">identifier</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pbs:Task</span>
+</code></pre></div>
+</details>
+<h3 id="induced">Induced<a class="headerlink" href="#induced" title="Permanent link">&para;</a></h3>
+<details>
+<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Task</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Action/task record linked to an entity for implementation and follow-up</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">workflows.</span>
+<span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
+<span class="nt">exact_mappings</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">schema:Action</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">prov:Activity</span>
+<span class="nt">slot_usage</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">id</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">id</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Optional stable identifier when referenced externally (for example</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">from Change.triggered_task).</span>
+<span class="w">    </span><span class="nt">identifier</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="nt">attributes</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">id</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">id</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Optional stable identifier when referenced externally (for example</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">from Change.triggered_task).</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
+<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">    </span><span class="nt">identifier</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Task</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Entity</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Task</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Document</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Requirement</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Change</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ChangeSet</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
+<span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">  </span><span class="nt">task_type</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">task_type</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Task type expressed as a URI/CURIE from a controlled vocabulary.</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
+<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dcterms:type</span>
+<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Task</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Task</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">uriorcurie</span>
+<span class="w">  </span><span class="nt">task_status</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">task_status</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Task status URI/CURIE aligned with action status vocabularies.</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
+<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">schema:actionStatus</span>
+<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Task</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Task</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">uriorcurie</span>
+<span class="w">  </span><span class="nt">assignee</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">assignee</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Responsible agent.</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
+<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">schema:agent</span>
+<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Task</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Task</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Agent</span>
+<span class="w">    </span><span class="nt">inlined</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">  </span><span class="nt">due_at</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">due_at</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Due timestamp for task completion.</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
+<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">schema:deadline</span>
+<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Task</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Task</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">datetime</span>
+<span class="w">  </span><span class="nt">related_decision</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">related_decision</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Optional reference to a decision that informs or drives this task.</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
+<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">prov:used</span>
+<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Task</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Task</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Decision</span>
+<span class="w">  </span><span class="nt">task_notes</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">task_notes</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Additional notes or implementation details for the task.</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
+<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rdfs:comment</span>
+<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Task</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Task</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
+<span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pbs:Task</span>
+</code></pre></div>
+</details>
+</div>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["search.suggest", "search.highlight", "content.code.copy", "navigation.top"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="assets/pillars.js"></script>
+      
+    
+  </body>
+</html>

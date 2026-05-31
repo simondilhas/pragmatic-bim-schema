@@ -1,0 +1,100 @@
+---
+search:
+  boost: 5.0
+---
+
+# Slot: contact_points 
+
+
+_Structured communication channels and profiles associated with this agent._
+
+
+
+<div data-search-exclude markdown="1">
+
+
+
+URI: [pbs:contact_points](https://schema.pragmaticbim.ch/contact_points)
+<!-- no inheritance hierarchy -->
+
+
+
+
+
+## Applicable Classes
+
+| Name | Description | Modifies Slot |
+| --- | --- | --- |
+| [Agent](Agent.md) | Abstract base class for people or organizations acting in workflow and communication roles. |  no  |
+| [Person](Person.md) | Individual stakeholder, contributor, assignee, or responsible party represented in the schema. |  no  |
+| [Company](Company.md) | Organization, company, or legal entity participating in the project or asset lifecycle. |  no  |
+
+
+
+
+
+
+## Properties
+
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [ContactPoint](ContactPoint.md) |
+| Domain Of | [Agent](Agent.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+| Multivalued | Yes |
+
+
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://schema.pragmaticbim.ch
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | pbs:contact_points |
+| native | pbs:contact_points |
+
+
+
+
+## LinkML Source
+
+<details>
+```yaml
+name: contact_points
+description: Structured communication channels and profiles associated with this agent.
+from_schema: https://schema.pragmaticbim.ch
+rank: 1000
+domain_of:
+- Agent
+range: ContactPoint
+multivalued: true
+inlined: true
+
+```
+</details></div>

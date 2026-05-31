@@ -1,0 +1,15 @@
+{
+  "id": "https://schema.pragmaticbim.ch/entity/virtual",
+  "title": "Pragmatic BIM Data Contract - Entity Virtual",
+  "description": "Virtual entities such as context, space, system, time, cost, and material information.",
+  "source_file": "entity_virtual_schema.yaml",
+  "docs_index": "https://schema.pragmaticbim.ch/schema/pragmatic-bim.docs.html",
+  "json_schema": "https://schema.pragmaticbim.ch/schema/pragmatic-bim.schema.json",
+  "shacl": "https://schema.pragmaticbim.ch/schema/pragmatic-bim.shacl.ttl",
+  "csv": "https://schema.pragmaticbim.ch/schema/pragmatic-bim.csv",
+  "pydantic": "https://schema.pragmaticbim.ch/schema/pragmatic-bim.pydantic.py",
+  "docs_md": "https://schema.pragmaticbim.ch/schema/pragmatic-bim.docs.md",
+  "landing_page": "https://schema.pragmaticbim.ch/entity/virtual",
+  "html": "https://schema.pragmaticbim.ch/schema/VirtualEntity.html",
+  "primary_doc": "VirtualEntity"
+}

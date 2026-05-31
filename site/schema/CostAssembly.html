@@ -1,0 +1,1355 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://schema.pragmaticbim.ch/schema/CostAssembly.html">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Class: CostAssembly - Pragmatic BIM Schema</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="assets/pillars.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#class-costassembly" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="." title="Pragmatic BIM Schema" class="md-header__button md-logo" aria-label="Pragmatic BIM Schema" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Pragmatic BIM Schema
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Class: CostAssembly
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="." title="Pragmatic BIM Schema" class="md-nav__button md-logo" aria-label="Pragmatic BIM Schema" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Pragmatic BIM Schema
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="pragmatic-bim.docs.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Schema Index
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#inheritance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inheritance
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#class-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Class Properties
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#slots" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Slots
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Usages
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#identifier-and-mapping-information" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Identifier and Mapping Information
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Identifier and Mapping Information">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#schema-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Schema Source
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mappings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mappings
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linkml-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LinkML Source
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="LinkML Source">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#direct" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Direct
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#induced" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Induced
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="class-costassembly">Class: CostAssembly<a class="headerlink" href="#class-costassembly" title="Permanent link">&para;</a></h1>
+<p><em>Aggregated unit price assembled from multiple cost items.</em></p>
+<div>
+<p>URI: <a href="https://schema.pragmaticbim.ch/CostAssembly">pbs:CostAssembly</a></p>
+<pre class="mermaid"><code> classDiagram
+    class CostAssembly
+    click CostAssembly href "./CostAssembly.html"
+      AbstractCostRecord &lt;|-- CostAssembly
+        click AbstractCostRecord href "./AbstractCostRecord.html"
+      CostAssembly : applies_to_entities
+        CostAssembly --&gt; "*" Entity : applies_to_entities
+        click Entity href "./Entity.html"
+      CostAssembly : classifications
+        CostAssembly --&gt; "*" Classification : classifications
+        click Classification href "./Classification.html"
+      CostAssembly : component_cost_items
+        CostAssembly --&gt; "*" CostItem : component_cost_items
+        click CostItem href "./CostItem.html"
+      CostAssembly : cost_assemblies
+        CostAssembly --&gt; "*" CostAssembly : cost_assemblies
+        click CostAssembly href "./CostAssembly.html"
+      CostAssembly : cost_category
+      CostAssembly : cost_items
+        CostAssembly --&gt; "*" CostItem : cost_items
+        click CostItem href "./CostItem.html"
+      CostAssembly : cost_quantity_type
+        CostAssembly --&gt; "0..1" QuantityType : cost_quantity_type
+        click QuantityType href "./QuantityType.html"
+      CostAssembly : cost_quantity_unit
+      CostAssembly : cost_quantity_value
+      CostAssembly : created_at
+      CostAssembly : currency
+      CostAssembly : decisions
+        CostAssembly --&gt; "*" Decision : decisions
+        click Decision href "./Decision.html"
+      CostAssembly : description
+      CostAssembly : documents
+        CostAssembly --&gt; "*" Document : documents
+        click Document href "./Document.html"
+      CostAssembly : geometry_representations
+        CostAssembly --&gt; "*" GeometryRepresentation : geometry_representations
+        click GeometryRepresentation href "./GeometryRepresentation.html"
+      CostAssembly : id
+      CostAssembly : ifc_global_id
+      CostAssembly : localized_descriptions
+        CostAssembly --&gt; "*" LocalizedText : localized_descriptions
+        click LocalizedText href "./LocalizedText.html"
+      CostAssembly : localized_names
+        CostAssembly --&gt; "*" LocalizedText : localized_names
+        click LocalizedText href "./LocalizedText.html"
+      CostAssembly : materials
+        CostAssembly --&gt; "*" Material : materials
+        click Material href "./Material.html"
+      CostAssembly : meaning_uri
+      CostAssembly : messages
+        CostAssembly --&gt; "*" Message : messages
+        click Message href "./Message.html"
+      CostAssembly : metadata
+        CostAssembly --&gt; "*" MetadataEntry : metadata
+        click MetadataEntry href "./MetadataEntry.html"
+      CostAssembly : modified_at
+      CostAssembly : name
+      CostAssembly : performance_properties
+        CostAssembly --&gt; "*" PerformanceProperty : performance_properties
+        click PerformanceProperty href "./PerformanceProperty.html"
+      CostAssembly : quantity_values
+        CostAssembly --&gt; "*" QuantityValue : quantity_values
+        click QuantityValue href "./QuantityValue.html"
+      CostAssembly : revision
+      CostAssembly : status
+        CostAssembly --&gt; "0..1" StatusType : status
+        click StatusType href "./StatusType.html"
+      CostAssembly : tasks
+        CostAssembly --&gt; "*" Task : tasks
+        click Task href "./Task.html"
+      CostAssembly : time_items
+        CostAssembly --&gt; "*" TimeItem : time_items
+        click TimeItem href "./TimeItem.html"
+      CostAssembly : time_plans
+        CostAssembly --&gt; "*" TimePlan : time_plans
+        click TimePlan href "./TimePlan.html"
+      CostAssembly : unit_cost</code></pre>
+<h2 id="inheritance">Inheritance<a class="headerlink" href="#inheritance" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="Entity.html">Entity</a><ul>
+<li><a href="VirtualEntity.html">VirtualEntity</a><ul>
+<li><a href="AbstractCostRecord.html">AbstractCostRecord</a><ul>
+<li><strong>CostAssembly</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="class-properties">Class Properties<a class="headerlink" href="#class-properties" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Class URI</td>
+<td><a href="https://schema.pragmaticbim.ch/CostAssembly">pbs:CostAssembly</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="slots">Slots<a class="headerlink" href="#slots" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Cardinality and Range</th>
+<th>Description</th>
+<th>Inheritance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="component_cost_items.html">component_cost_items</a></td>
+<td>* <br/> <a href="CostItem.html">CostItem</a></td>
+<td>Atomic cost items that are aggregated into this cost assembly.</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="cost_category.html">cost_category</a></td>
+<td>0..1 <br/> <a href="String.html">String</a></td>
+<td>Cost category label kept intentionally open pending classification-backed modeling.</td>
+<td><a href="AbstractCostRecord.html">AbstractCostRecord</a></td>
+</tr>
+<tr>
+<td><a href="unit_cost.html">unit_cost</a></td>
+<td>1 <br/> <a href="Double.html">Double</a></td>
+<td>Unit cost for this cost item.</td>
+<td><a href="AbstractCostRecord.html">AbstractCostRecord</a></td>
+</tr>
+<tr>
+<td><a href="currency.html">currency</a></td>
+<td>1 <br/> <a href="String.html">String</a></td>
+<td>ISO 4217 currency code (for example EUR, USD).</td>
+<td><a href="AbstractCostRecord.html">AbstractCostRecord</a></td>
+</tr>
+<tr>
+<td><a href="cost_quantity_type.html">cost_quantity_type</a></td>
+<td>0..1 <br/> <a href="QuantityType.html">QuantityType</a></td>
+<td>Quantity type used as basis for this cost calculation.</td>
+<td><a href="AbstractCostRecord.html">AbstractCostRecord</a></td>
+</tr>
+<tr>
+<td><a href="cost_quantity_value.html">cost_quantity_value</a></td>
+<td>0..1 <br/> <a href="Double.html">Double</a></td>
+<td>Quantity magnitude used as basis for this cost calculation.</td>
+<td><a href="AbstractCostRecord.html">AbstractCostRecord</a></td>
+</tr>
+<tr>
+<td><a href="cost_quantity_unit.html">cost_quantity_unit</a></td>
+<td>0..1 <br/> <a href="String.html">String</a></td>
+<td>Unit of the cost quantity value.</td>
+<td><a href="AbstractCostRecord.html">AbstractCostRecord</a></td>
+</tr>
+<tr>
+<td><a href="applies_to_entities.html">applies_to_entities</a></td>
+<td>* <br/> <a href="Entity.html">Entity</a></td>
+<td>Model entities this record applies to (requirements, cost items, schedule items, etc.).</td>
+<td><a href="AbstractCostRecord.html">AbstractCostRecord</a></td>
+</tr>
+<tr>
+<td><a href="cost_items.html">cost_items</a></td>
+<td>* <br/> <a href="CostItem.html">CostItem</a></td>
+<td>Cost items associated with this entity.</td>
+<td><a href="VirtualEntity.html">VirtualEntity</a></td>
+</tr>
+<tr>
+<td><a href="cost_assemblies.html">cost_assemblies</a></td>
+<td>* <br/> <a href="CostAssembly.html">CostAssembly</a></td>
+<td>Aggregated unit prices associated with this entity.</td>
+<td><a href="VirtualEntity.html">VirtualEntity</a></td>
+</tr>
+<tr>
+<td><a href="time_items.html">time_items</a></td>
+<td>* <br/> <a href="TimeItem.html">TimeItem</a></td>
+<td>Time items associated with this entity.</td>
+<td><a href="VirtualEntity.html">VirtualEntity</a></td>
+</tr>
+<tr>
+<td><a href="time_plans.html">time_plans</a></td>
+<td>* <br/> <a href="TimePlan.html">TimePlan</a></td>
+<td>Grouped time plans associated with this entity.</td>
+<td><a href="VirtualEntity.html">VirtualEntity</a></td>
+</tr>
+<tr>
+<td><a href="materials.html">materials</a></td>
+<td>* <br/> <a href="Material.html">Material</a></td>
+<td>Material definitions associated with this entity.</td>
+<td><a href="VirtualEntity.html">VirtualEntity</a></td>
+</tr>
+<tr>
+<td><a href="id.html">id</a></td>
+<td>1 <br/> <a href="String.html">String</a></td>
+<td>Unique local identifier.</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="name.html">name</a></td>
+<td>1 <br/> <a href="String.html">String</a></td>
+<td>Default display name.</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="localized_names.html">localized_names</a></td>
+<td>* <br/> <a href="LocalizedText.html">LocalizedText</a></td>
+<td>Localized variants of name.</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="description.html">description</a></td>
+<td>0..1 <br/> <a href="String.html">String</a></td>
+<td>Default description text.</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="meaning_uri.html">meaning_uri</a></td>
+<td>0..1 <br/> <a href="Uriorcurie.html">Uriorcurie</a></td>
+<td>Optional semantic URI for linking the entity instance to an external ontology concept.</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="localized_descriptions.html">localized_descriptions</a></td>
+<td>* <br/> <a href="LocalizedText.html">LocalizedText</a></td>
+<td>Localized variants of description.</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="ifc_global_id.html">ifc_global_id</a></td>
+<td>0..1 <br/> <a href="String.html">String</a></td>
+<td>IFC GlobalId of the mapped entity.</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="classifications.html">classifications</a></td>
+<td>* <br/> <a href="Classification.html">Classification</a></td>
+<td>Classification entries from IFC and other schemes.</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="geometry_representations.html">geometry_representations</a></td>
+<td>* <br/> <a href="GeometryRepresentation.html">GeometryRepresentation</a></td>
+<td>Geometry references associated with the entity. A single element may link to multiple geometry representations to serve different intents (authoring, coordination, analysis, visualization) without duplicating the element itself.</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="quantity_values.html">quantity_values</a></td>
+<td>* <br/> <a href="QuantityValue.html">QuantityValue</a></td>
+<td>Quantities associated with the entity.</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="documents.html">documents</a></td>
+<td>* <br/> <a href="Document.html">Document</a></td>
+<td>Linked documents associated with this entity.</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="metadata.html">metadata</a></td>
+<td>* <br/> <a href="MetadataEntry.html">MetadataEntry</a></td>
+<td>Generic metadata container for IFC attributes/properties and project-specific extensions.</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="performance_properties.html">performance_properties</a></td>
+<td>* <br/> <a href="PerformanceProperty.html">PerformanceProperty</a></td>
+<td>Normalized, strongly typed domain properties (fire/acoustic/thermal/structural/ security/material) extracted from raw IFC PropertySet values.</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="decisions.html">decisions</a></td>
+<td>* <br/> <a href="Decision.html">Decision</a></td>
+<td>Decision records associated with this entity.</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="tasks.html">tasks</a></td>
+<td>* <br/> <a href="Task.html">Task</a></td>
+<td>Tasks associated with this entity.</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="messages.html">messages</a></td>
+<td>* <br/> <a href="Message.html">Message</a></td>
+<td>Messages associated with this entity.</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="created_at.html">created_at</a></td>
+<td>0..1 <br/> <a href="Datetime.html">Datetime</a></td>
+<td>Creation timestamp for this entity record.</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="modified_at.html">modified_at</a></td>
+<td>0..1 <br/> <a href="Datetime.html">Datetime</a></td>
+<td>Last modification timestamp for this entity record.</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="revision.html">revision</a></td>
+<td>0..1 <br/> <a href="Integer.html">Integer</a></td>
+<td>Integer revision counter for change tracking.</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="status.html">status</a></td>
+<td>0..1 <br/> <a href="StatusType.html">StatusType</a></td>
+<td>Lifecycle or QA status.</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="usages">Usages<a class="headerlink" href="#usages" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>used by</th>
+<th>used in</th>
+<th>type</th>
+<th>used</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="VirtualEntity.html">VirtualEntity</a></td>
+<td><a href="cost_assemblies.html">cost_assemblies</a></td>
+<td>range</td>
+<td><a href="CostAssembly.html">CostAssembly</a></td>
+</tr>
+<tr>
+<td><a href="SpatialContext.html">SpatialContext</a></td>
+<td><a href="cost_assemblies.html">cost_assemblies</a></td>
+<td>range</td>
+<td><a href="CostAssembly.html">CostAssembly</a></td>
+</tr>
+<tr>
+<td><a href="ProjectContext.html">ProjectContext</a></td>
+<td><a href="cost_assemblies.html">cost_assemblies</a></td>
+<td>range</td>
+<td><a href="CostAssembly.html">CostAssembly</a></td>
+</tr>
+<tr>
+<td><a href="PerimeterContext.html">PerimeterContext</a></td>
+<td><a href="cost_assemblies.html">cost_assemblies</a></td>
+<td>range</td>
+<td><a href="CostAssembly.html">CostAssembly</a></td>
+</tr>
+<tr>
+<td><a href="LegalSiteContext.html">LegalSiteContext</a></td>
+<td><a href="cost_assemblies.html">cost_assemblies</a></td>
+<td>range</td>
+<td><a href="CostAssembly.html">CostAssembly</a></td>
+</tr>
+<tr>
+<td><a href="BuiltAssetContext.html">BuiltAssetContext</a></td>
+<td><a href="cost_assemblies.html">cost_assemblies</a></td>
+<td>range</td>
+<td><a href="CostAssembly.html">CostAssembly</a></td>
+</tr>
+<tr>
+<td><a href="BuildingContext.html">BuildingContext</a></td>
+<td><a href="cost_assemblies.html">cost_assemblies</a></td>
+<td>range</td>
+<td><a href="CostAssembly.html">CostAssembly</a></td>
+</tr>
+<tr>
+<td><a href="CivilStructureContext.html">CivilStructureContext</a></td>
+<td><a href="cost_assemblies.html">cost_assemblies</a></td>
+<td>range</td>
+<td><a href="CostAssembly.html">CostAssembly</a></td>
+</tr>
+<tr>
+<td><a href="LevelContext.html">LevelContext</a></td>
+<td><a href="cost_assemblies.html">cost_assemblies</a></td>
+<td>range</td>
+<td><a href="CostAssembly.html">CostAssembly</a></td>
+</tr>
+<tr>
+<td><a href="ZoneContext.html">ZoneContext</a></td>
+<td><a href="cost_assemblies.html">cost_assemblies</a></td>
+<td>range</td>
+<td><a href="CostAssembly.html">CostAssembly</a></td>
+</tr>
+<tr>
+<td><a href="Space.html">Space</a></td>
+<td><a href="cost_assemblies.html">cost_assemblies</a></td>
+<td>range</td>
+<td><a href="CostAssembly.html">CostAssembly</a></td>
+</tr>
+<tr>
+<td><a href="System.html">System</a></td>
+<td><a href="cost_assemblies.html">cost_assemblies</a></td>
+<td>range</td>
+<td><a href="CostAssembly.html">CostAssembly</a></td>
+</tr>
+<tr>
+<td><a href="ConnectionVirtual.html">ConnectionVirtual</a></td>
+<td><a href="cost_assemblies.html">cost_assemblies</a></td>
+<td>range</td>
+<td><a href="CostAssembly.html">CostAssembly</a></td>
+</tr>
+<tr>
+<td><a href="AbstractTimeRecord.html">AbstractTimeRecord</a></td>
+<td><a href="cost_assemblies.html">cost_assemblies</a></td>
+<td>range</td>
+<td><a href="CostAssembly.html">CostAssembly</a></td>
+</tr>
+<tr>
+<td><a href="TimeItem.html">TimeItem</a></td>
+<td><a href="cost_assemblies.html">cost_assemblies</a></td>
+<td>range</td>
+<td><a href="CostAssembly.html">CostAssembly</a></td>
+</tr>
+<tr>
+<td><a href="Milestone.html">Milestone</a></td>
+<td><a href="cost_assemblies.html">cost_assemblies</a></td>
+<td>range</td>
+<td><a href="CostAssembly.html">CostAssembly</a></td>
+</tr>
+<tr>
+<td><a href="TimePlan.html">TimePlan</a></td>
+<td><a href="cost_assemblies.html">cost_assemblies</a></td>
+<td>range</td>
+<td><a href="CostAssembly.html">CostAssembly</a></td>
+</tr>
+<tr>
+<td><a href="TimeDependency.html">TimeDependency</a></td>
+<td><a href="cost_assemblies.html">cost_assemblies</a></td>
+<td>range</td>
+<td><a href="CostAssembly.html">CostAssembly</a></td>
+</tr>
+<tr>
+<td><a href="AbstractCostRecord.html">AbstractCostRecord</a></td>
+<td><a href="cost_assemblies.html">cost_assemblies</a></td>
+<td>range</td>
+<td><a href="CostAssembly.html">CostAssembly</a></td>
+</tr>
+<tr>
+<td><a href="CostItem.html">CostItem</a></td>
+<td><a href="cost_assemblies.html">cost_assemblies</a></td>
+<td>range</td>
+<td><a href="CostAssembly.html">CostAssembly</a></td>
+</tr>
+<tr>
+<td><a href="CostAssembly.html">CostAssembly</a></td>
+<td><a href="cost_assemblies.html">cost_assemblies</a></td>
+<td>range</td>
+<td><a href="CostAssembly.html">CostAssembly</a></td>
+</tr>
+<tr>
+<td><a href="Material.html">Material</a></td>
+<td><a href="cost_assemblies.html">cost_assemblies</a></td>
+<td>range</td>
+<td><a href="CostAssembly.html">CostAssembly</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="identifier-and-mapping-information">Identifier and Mapping Information<a class="headerlink" href="#identifier-and-mapping-information" title="Permanent link">&para;</a></h2>
+<h3 id="schema-source">Schema Source<a class="headerlink" href="#schema-source" title="Permanent link">&para;</a></h3>
+<ul>
+<li>from schema: https://schema.pragmaticbim.ch</li>
+</ul>
+<h2 id="mappings">Mappings<a class="headerlink" href="#mappings" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Mapping Type</th>
+<th>Mapped Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>self</td>
+<td>pbs:CostAssembly</td>
+</tr>
+<tr>
+<td>native</td>
+<td>pbs:CostAssembly</td>
+</tr>
+</tbody>
+</table>
+<h2 id="linkml-source">LinkML Source<a class="headerlink" href="#linkml-source" title="Permanent link">&para;</a></h2>
+<!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
+<h3 id="direct">Direct<a class="headerlink" href="#direct" title="Permanent link">&para;</a></h3>
+<details>
+<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CostAssembly</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Aggregated unit price assembled from multiple cost items.</span>
+<span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
+<span class="nt">is_a</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AbstractCostRecord</span>
+<span class="nt">slots</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">component_cost_items</span>
+<span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pbs:CostAssembly</span>
+</code></pre></div>
+</details>
+<h3 id="induced">Induced<a class="headerlink" href="#induced" title="Permanent link">&para;</a></h3>
+<details>
+<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CostAssembly</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Aggregated unit price assembled from multiple cost items.</span>
+<span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
+<span class="nt">is_a</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AbstractCostRecord</span>
+<span class="nt">attributes</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">component_cost_items</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">component_cost_items</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Atomic cost items that are aggregated into this cost assembly.</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
+<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CostAssembly</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CostAssembly</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CostItem</span>
+<span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">inlined</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">  </span><span class="nt">cost_category</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cost_category</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Cost category label kept intentionally open pending classification-backed</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">modeling.</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
+<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CostAssembly</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AbstractCostRecord</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
+<span class="w">  </span><span class="nt">unit_cost</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">unit_cost</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Unit cost for this cost item.</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
+<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CostAssembly</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AbstractCostRecord</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">double</span>
+<span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">minimum_value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
+<span class="w">  </span><span class="nt">currency</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">currency</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ISO 4217 currency code (for example EUR, USD).</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
+<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CostAssembly</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AbstractCostRecord</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
+<span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">pattern</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">^[A-Z]{3}$</span>
+<span class="w">  </span><span class="nt">cost_quantity_type</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cost_quantity_type</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Quantity type used as basis for this cost calculation.</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
+<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CostAssembly</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AbstractCostRecord</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">QuantityType</span>
+<span class="w">  </span><span class="nt">cost_quantity_value</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cost_quantity_value</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Quantity magnitude used as basis for this cost calculation.</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
+<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CostAssembly</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AbstractCostRecord</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">double</span>
+<span class="w">    </span><span class="nt">minimum_value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
+<span class="w">  </span><span class="nt">cost_quantity_unit</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cost_quantity_unit</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Unit of the cost quantity value.</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
+<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CostAssembly</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AbstractCostRecord</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
+<span class="w">  </span><span class="nt">applies_to_entities</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">applies_to_entities</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Model entities this record applies to (requirements, cost items,</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">schedule items, etc.).</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
+<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CostAssembly</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Requirement</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AbstractTimeRecord</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AbstractCostRecord</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Entity</span>
+<span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">inlined</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">  </span><span class="nt">cost_items</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cost_items</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Cost items associated with this entity.</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
+<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CostAssembly</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">VirtualEntity</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CostItem</span>
+<span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">inlined</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">  </span><span class="nt">cost_assemblies</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cost_assemblies</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Aggregated unit prices associated with this entity.</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
+<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CostAssembly</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">VirtualEntity</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CostAssembly</span>
+<span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">inlined</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">  </span><span class="nt">time_items</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">time_items</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Time items associated with this entity.</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
+<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CostAssembly</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">VirtualEntity</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TimeItem</span>
+<span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">inlined</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">  </span><span class="nt">time_plans</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">time_plans</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Grouped time plans associated with this entity.</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
+<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CostAssembly</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">VirtualEntity</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TimePlan</span>
+<span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">inlined</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">  </span><span class="nt">materials</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">materials</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Material definitions associated with this entity.</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
+<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CostAssembly</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">VirtualEntity</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Material</span>
+<span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">inlined</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">  </span><span class="nt">id</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">id</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Unique local identifier.</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
+<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">    </span><span class="nt">identifier</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CostAssembly</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Entity</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Task</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Document</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Requirement</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Change</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ChangeSet</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
+<span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">name</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Default display name.</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
+<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CostAssembly</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Entity</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Requirement</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
+<span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="nt">localized_names</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">localized_names</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Localized variants of name.</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
+<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CostAssembly</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Entity</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">LocalizedText</span>
+<span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">inlined</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="nt">description</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">description</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Default description text.</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
+<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CostAssembly</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Entity</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Requirement</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
+<span class="w">  </span><span class="nt">meaning_uri</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">meaning_uri</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Optional semantic URI for linking the entity instance to an external</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">ontology concept.</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
+<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CostAssembly</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Entity</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">uriorcurie</span>
+<span class="w">  </span><span class="nt">localized_descriptions</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">localized_descriptions</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Localized variants of description.</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
+<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CostAssembly</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Entity</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">LocalizedText</span>
+<span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">inlined</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="nt">ifc_global_id</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ifc_global_id</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">IFC GlobalId of the mapped entity.</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
+<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CostAssembly</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Entity</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Change</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
+<span class="w">    </span><span class="nt">pattern</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">^[0-3][0-9A-Za-z_$]{21}$</span>
+<span class="w">  </span><span class="nt">classifications</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">classifications</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Classification entries from IFC and other schemes.</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
+<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CostAssembly</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Entity</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Document</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Classification</span>
+<span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">inlined</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="nt">geometry_representations</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">geometry_representations</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;Geometry</span><span class="nv"> </span><span class="s">references</span><span class="nv"> </span><span class="s">associated</span><span class="nv"> </span><span class="s">with</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">entity.</span><span class="nv"> </span><span class="s">A</span><span class="nv"> </span><span class="s">single</span><span class="nv"> </span><span class="s">element</span>
+<span class="w">      </span><span class="s">may</span><span class="nv"> </span><span class="s">link</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">multiple</span><span class="nv"> </span><span class="s">geometry</span><span class="nv"> </span><span class="s">representations</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">serve</span><span class="nv"> </span><span class="s">different</span><span class="nv"> </span><span class="s">intents</span><span class="nv"> </span><span class="s">(authoring,</span>
+<span class="w">      </span><span class="s">coordination,</span><span class="nv"> </span><span class="s">analysis,</span><span class="nv"> </span><span class="s">visualization)</span><span class="nv"> </span><span class="s">without</span><span class="nv"> </span><span class="s">duplicating</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">element</span><span class="nv"> </span><span class="s">itself.</span>
+
+<span class="w">      </span><span class="s">&#39;</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
+<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CostAssembly</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Entity</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GeometryRepresentation</span>
+<span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">inlined</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="nt">quantity_values</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">quantity_values</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Quantities associated with the entity.</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
+<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CostAssembly</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Entity</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">QuantityValue</span>
+<span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">inlined</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="nt">documents</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">documents</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Linked documents associated with this entity.</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
+<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CostAssembly</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Entity</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Document</span>
+<span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">inlined</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="nt">metadata</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">metadata</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Generic metadata container for IFC attributes/properties and project-specific</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">extensions.</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
+<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CostAssembly</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Entity</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MetadataEntry</span>
+<span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">inlined</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="nt">performance_properties</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">performance_properties</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;Normalized,</span><span class="nv"> </span><span class="s">strongly</span><span class="nv"> </span><span class="s">typed</span><span class="nv"> </span><span class="s">domain</span><span class="nv"> </span><span class="s">properties</span><span class="nv"> </span><span class="s">(fire/acoustic/thermal/structural/</span>
+<span class="w">      </span><span class="s">security/material)</span><span class="nv"> </span><span class="s">extracted</span><span class="nv"> </span><span class="s">from</span><span class="nv"> </span><span class="s">raw</span><span class="nv"> </span><span class="s">IFC</span><span class="nv"> </span><span class="s">PropertySet</span><span class="nv"> </span><span class="s">values.</span>
+
+<span class="w">      </span><span class="s">&#39;</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
+<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CostAssembly</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Entity</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PerformanceProperty</span>
+<span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">inlined</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="nt">decisions</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">decisions</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Decision records associated with this entity.</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
+<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CostAssembly</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Entity</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Decision</span>
+<span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">inlined</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="nt">tasks</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tasks</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Tasks associated with this entity.</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
+<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CostAssembly</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Entity</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Task</span>
+<span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">inlined</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="nt">messages</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">messages</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Messages associated with this entity.</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
+<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CostAssembly</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Entity</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Message</span>
+<span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">inlined</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="nt">created_at</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">created_at</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Creation timestamp for this entity record.</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
+<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CostAssembly</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Entity</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">datetime</span>
+<span class="w">  </span><span class="nt">modified_at</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">modified_at</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Last modification timestamp for this entity record.</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
+<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CostAssembly</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Entity</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">datetime</span>
+<span class="w">  </span><span class="nt">revision</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">revision</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Integer revision counter for change tracking.</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
+<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CostAssembly</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Entity</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">integer</span>
+<span class="w">    </span><span class="nt">minimum_value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
+<span class="w">  </span><span class="nt">status</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">status</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Lifecycle or QA status.</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
+<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CostAssembly</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Entity</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Requirement</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">StatusType</span>
+<span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pbs:CostAssembly</span>
+</code></pre></div>
+</details>
+</div>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["search.suggest", "search.highlight", "content.code.copy", "navigation.top"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="assets/pillars.js"></script>
+      
+    
+  </body>
+</html>

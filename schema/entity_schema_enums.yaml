@@ -1,0 +1,268 @@
+id: https://schema.pragmaticbim.ch/entity/enums
+name: pragmatic_bim_entity_schema_enums
+title: Pragmatic BIM Data Contract - Entity Enums
+description: Controlled vocabularies for entity, element, context, and scheduling types.
+license: MIT
+see_also:
+- https://schema.pragmaticbim.ch/entity/enums
+- https://schema.pragmaticbim.ch/schema/pragmatic-bim.docs.html
+prefixes:
+  linkml: https://w3id.org/linkml/
+  pbs: https://schema.pragmaticbim.ch/
+  ifc: https://standards.buildingsmart.org/IFC/DEV/IFC4_3/FINAL/HTML/
+  ifcowl: https://w3id.org/ifc/IFC4_ADD2#
+  bot: https://w3id.org/bot#
+default_prefix: pbs
+default_range: string
+imports:
+- linkml:types
+enums:
+  BoundaryType:
+    enum_uri: pbs:BoundaryType
+    permissible_values:
+      flooring:
+        meaning: ifcowl:IfcCoveringTypeEnum.FLOORING
+      ceiling:
+        meaning: ifcowl:IfcCoveringTypeEnum.CEILING
+      cladding:
+        meaning: ifcowl:IfcCoveringTypeEnum.CLADDING
+  ConnectionPhysicalType:
+    enum_uri: pbs:ConnectionPhysicalType
+    description: Classification of physical connector elements that connect spaces.
+    permissible_values:
+      door:
+        description: Human access connector via a door element.
+        meaning: ifcowl:IfcDoor
+      window:
+        description: Visual/daylight connector via a window element.
+        meaning: ifcowl:IfcWindow
+      duct:
+        description: Air distribution connector segment.
+        meaning: ifcowl:IfcDuctSegment
+      pipe:
+        description: Fluid/gas distribution connector segment.
+        meaning: ifcowl:IfcPipeSegment
+      cable:
+        description: Electrical/data cable connector segment.
+        meaning: ifcowl:IfcCableSegment
+      conduit:
+        description: Electrical/data conduit connector segment.
+        meaning: ifcowl:IfcConduitSegment
+      opening_other:
+        description: Other opening-style connector not covered by door/window.
+        meaning: ifcowl:IfcOpeningElement
+      network_other:
+        description: Other network connector segment not covered by controlled values.
+        meaning: ifcowl:IfcFlowSegment
+  ConnectionVirtualType:
+    enum_uri: pbs:ConnectionVirtualType
+    description: Classification of virtual connection semantics using schema-internal meanings because no stable 1:1 IFC mapping
+      exists for these concepts.
+    permissible_values:
+      structural_joint:
+        description: Logical structural continuity or structural joint relation.
+        meaning: pbs:connection_virtual_type_structural_joint
+      adjacency:
+        description: Topological adjacency relation without implying a physical opening.
+        meaning: pbs:connection_virtual_type_adjacency
+      access:
+        description: Access relation indicating passability or navigational linkage.
+        meaning: pbs:connection_virtual_type_access
+      other:
+        description: Other virtual connection semantics not covered by the controlled values.
+        meaning: pbs:connection_virtual_type_other
+  ContextType:
+    enum_uri: pbs:ContextType
+    permissible_values:
+      project:
+        meaning: ifcowl:IfcProject
+      perimeter:
+        meaning: ifcowl:IfcSite
+        exact_mappings:
+        - bot:Site
+      legal_site:
+        meaning: pbs:LegalSiteContext
+      building:
+        meaning: bot:Building
+      civil_structure:
+        meaning: ifcowl:IfcCivilElement
+      level:
+        meaning: bot:Storey
+      zone:
+        meaning: bot:Zone
+  EquipmentType:
+    enum_uri: pbs:EquipmentType
+    permissible_values:
+      hvac:
+        description: HVAC endpoint/device such as terminal units or packaged devices.
+        meaning: ifcowl:IfcDistributionElement
+      electrical:
+        description: Electrical endpoint/device such as appliances, outlets, or fixtures.
+        meaning: ifcowl:IfcElectricalElement
+      plumbing:
+        description: Plumbing endpoint/device such as sanitary terminals and fixtures.
+        meaning: ifcowl:IfcFlowTerminal
+      fire_safety:
+        description: Fire safety endpoint/device such as suppression terminals and alarms.
+        meaning: ifcowl:IfcFireSuppressionTerminal
+      controls:
+        description: Monitoring/control device such as sensors, actuators, and controllers.
+        meaning: ifcowl:IfcDistributionControlElement
+      furniture:
+        description: Furniture/device objects treated as endpoint assets.
+        meaning: ifcowl:IfcFurniture
+      other:
+        description: Other endpoint/device element not covered by controlled values.
+        meaning: ifcowl:IfcElement
+  GeometryRepresentationType:
+    enum_uri: pbs:GeometryRepresentationType
+    description: Classification of geometric representation dimension/style.
+    permissible_values:
+      axis:
+        description: Linear axis/centerline representation.
+      body_3d:
+        description: 3D volumetric/body representation.
+      footprint_2d:
+        description: 2D surface/footprint representation.
+      point:
+        description: Point/dot representation.
+  SeparatorSlabType:
+    enum_uri: pbs:SeparatorSlabType
+    description: Classification of slab-based separator elements.
+    permissible_values:
+      floor:
+        meaning: ifcowl:IfcSlabTypeEnum.FLOOR
+      roof:
+        meaning: ifcowl:IfcSlabTypeEnum.ROOF
+      baseslab:
+        meaning: ifcowl:IfcSlabTypeEnum.BASESLAB
+      balcony:
+        description: Balcony slab; mapped to FLOOR as the closest IFC slab type.
+        meaning: ifcowl:IfcSlabTypeEnum.FLOOR
+  SeparatorWallType:
+    enum_uri: pbs:SeparatorWallType
+    description: Classification of wall-based separator elements.
+    permissible_values:
+      unit_boundary:
+        description: Wall separator that defines boundaries between occupancy units.
+        meaning: ifcowl:IfcWall
+      vertical_circulation_boundary:
+        description: Wall separator that bounds or encloses vertical circulation areas.
+        meaning: ifcowl:IfcWall
+      horizontal_circulation_boundary:
+        description: Wall separator that bounds or structures horizontal circulation areas.
+        meaning: ifcowl:IfcWall
+  SpaceType:
+    enum_uri: pbs:SpaceType
+    description: Classification of space semantics used by modeling and downstream conversion.
+    permissible_values:
+      void:
+        description: Non-occupiable or intentionally empty space in the model.
+        meaning: ifcowl:IfcSpace
+      circulation:
+        description: Space primarily intended for movement and access.
+        meaning: ifcowl:IfcSpace
+      usable:
+        description: Space intended for regular occupancy or primary use.
+        meaning: ifcowl:IfcSpace
+      service:
+        description: Space primarily intended for technical/service functions.
+        meaning: ifcowl:IfcSpace
+      modeled_gross_floor_area:
+        description: Space classification used when representing gross floor area as modeled space.
+        meaning: ifcowl:IfcSpace
+      modeled_gross_volume:
+        description: Space classification used when representing gross volume as modeled space.
+        meaning: ifcowl:IfcSpace
+  SystemDiscipline:
+    enum_uri: pbs:SystemDiscipline
+    description: Discipline of a building service system.
+    permissible_values:
+      electrical:
+        description: Electrical power, lighting, and related electrical services.
+        meaning: ifcowl:IfcDistributionSystemEnum.ELECTRICAL
+      sanitary:
+        description: Water supply, drainage, and sanitary plumbing services.
+        meaning: ifcowl:IfcDistributionSystemEnum.PLUMBING
+      ventilation:
+        description: Air movement and ventilation services.
+        meaning: ifcowl:IfcDistributionSystemEnum.VENTILATION
+      heating:
+        description: Heat generation and heat distribution services.
+        meaning: ifcowl:IfcDistributionSystemEnum.HEATING
+  SystemType:
+    enum_uri: pbs:SystemType
+    description: Role of an MEP-related element or grouping in the service chain.
+    permissible_values:
+      unit:
+        description: Generating or converting unit (for example AHU, chiller, heat pump).
+        meaning: ifcowl:IfcUnitaryEquipment
+      network:
+        description: Distribution network element carrying flow (for example ducts, pipes, cable carriers).
+        meaning: ifcowl:IfcDistributionFlowElement
+      terminal:
+        description: End/terminal element located in served spaces.
+        meaning: ifcowl:IfcFlowTerminal
+  DependencyType:
+    enum_uri: pbs:DependencyType
+    description: Precedence logic between two time records (FS finish-to-start, SS start-to-start, FF finish-to-finish, SF start-to-finish).
+    permissible_values:
+      FS:
+        description: Successor starts when the predecessor finishes.
+        meaning: pbs:dependency_type_finish_to_start
+      SS:
+        description: Successor starts when the predecessor starts.
+        meaning: pbs:dependency_type_start_to_start
+      FF:
+        description: Successor finishes when the predecessor finishes.
+        meaning: pbs:dependency_type_finish_to_finish
+      SF:
+        description: Successor finishes when the predecessor starts.
+        meaning: pbs:dependency_type_start_to_finish
+  TransportMedium:
+    enum_uri: pbs:TransportMedium
+    description: Primary medium transported through or enabled by a physical connector.
+    permissible_values:
+      human_access:
+        description: Human movement/access medium.
+        meaning: pbs:transport_medium_human_access
+      daylight_view:
+        description: Daylight/view medium.
+        meaning: pbs:transport_medium_daylight_view
+      air:
+        description: Air medium.
+        meaning: pbs:transport_medium_air
+      liquid:
+        description: Liquid medium.
+        meaning: pbs:transport_medium_liquid
+      gas:
+        description: Gas medium.
+        meaning: pbs:transport_medium_gas
+      electricity:
+        description: Electrical energy medium.
+        meaning: pbs:transport_medium_electricity
+      data:
+        description: Data/signal medium.
+        meaning: pbs:transport_medium_data
+  ZoneType:
+    enum_uri: pbs:ZoneType
+    description: Classification of zone purpose and organizational intent.
+    permissible_values:
+      occupancy_unit:
+        description: Occupancy unit zone (for example apartment, office suite, or retail unit).
+        meaning: ifcowl:IfcSpatialZone
+      tenant:
+        description: Tenant area zone used for leasing and occupancy boundaries.
+        meaning: ifcowl:IfcSpatialZone
+      functional:
+        description: Functional grouping zone (for example clinical, retail, office support).
+        meaning: ifcowl:IfcSpatialZone
+      cost:
+        description: Cost grouping zone for estimation and controlling.
+        meaning: ifcowl:IfcGroup
+      fire:
+        description: Fire compartment or fire strategy grouping zone.
+        meaning: ifcowl:IfcSpatialZone
+      security:
+        description: Security management zone for access control and surveillance planning.
+        meaning: ifcowl:IfcSpatialZone

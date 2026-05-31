@@ -125,7 +125,7 @@ Defined in `ifc_mapping.yaml` under `conventions.ifc_contract_link`.
 
 | Column | Source |
 |--------|--------|
-| `geometry_role` | `body_3d`, `footprint_2d`, `axis`, or `point` ([`GeometryRepresentationType`](../schema/enums_schema.yaml)) |
+| `geometry_role` | `body_3d`, `footprint_2d`, `axis`, or `point` ([`GeometryRepresentationType`](../schema/entity_schema_enums.yaml)) |
 | `geometry_space` | IFC representation context or storey GlobalId |
 | `geom` | Geometry payload (adapter-specific) |
 
@@ -135,13 +135,13 @@ Defined in `ifc_mapping.yaml` under `conventions.ifc_contract_link`.
 
 | `content_kind` | PBS module | Examples |
 |----------------|------------|----------|
-| `physical` | [`elements_physical_schema.yaml`](../schema/elements_physical_schema.yaml) | `SeparatorWall`, `ConnectionPhysical`, `Equipment`, `PhysicalElement` |
-| `virtual` | [`elements_virtual_schema.yaml`](../schema/elements_virtual_schema.yaml) | `Space`, `System`, `ConnectionVirtual`, `TimeItem`, `CostItem` |
+| `physical` | [`entity_physical_schema.yaml`](../schema/entity_physical_schema.yaml) | `SeparatorWall`, `ConnectionPhysical`, `Equipment`, `PhysicalElement` |
+| `virtual` | [`entity_virtual_schema.yaml`](../schema/entity_virtual_schema.yaml) | `Space`, `System`, `ConnectionVirtual`, `TimeRecord`, `CostRecord`, `Material` |
 | `context` | Spatial context subclasses | `BuildingContext`, `LevelContext`, `ZoneContext`, `PerimeterContext` |
 | `requirement` | [`requirements_schema.yaml`](../schema/requirements_schema.yaml) | `PerformanceRequirement`, `SpatialRequirement`, `RegulatoryRequirement`, `BriefRequirement` |
 | `change` | [`changes_schema.yaml`](../schema/changes_schema.yaml) | `PropertyChange`, `GeometryChange`, `MatchChange`, `AdditionChange`, `DeletionChange` |
 
-`requirement` and `change` rows are **not** produced from IFC entity mapping blocks today. Adapters or validation pipelines create them directly. Use `requirement_domain` or `change_type` as the second-level discriminator alongside `canonical_type`.
+`requirement` and `change` rows are **not** produced from IFC entity mapping blocks today. Adapters or validation pipelines create them directly. Use the concrete requirement or change class (for example `PerformanceRequirement`, `PropertyChange`) together with `change_type` where applicable, alongside `canonical_type`.
 
 **Variant suffixes** disambiguate IFC `PredefinedType` or transport role without inventing new PBS classes:
 
@@ -312,7 +312,7 @@ Global rules live under `relationships` in `ifc_mapping.yaml`. Each entity lists
 
 ## Geometry roles
 
-Uses [`GeometryRepresentationType`](../schema/enums_schema.yaml) values:
+Uses [`GeometryRepresentationType`](../schema/entity_schema_enums.yaml) values:
 
 | Entity group | Primary | Secondary |
 |--------------|---------|-----------|
@@ -440,7 +440,7 @@ source_system_overrides:
 
 ## Adding a new IFC class
 
-1. Identify the nearest PBS class in [`elements_physical_schema.yaml`](../schema/elements_physical_schema.yaml) or [`elements_virtual_schema.yaml`](../schema/elements_virtual_schema.yaml).
+1. Identify the nearest PBS class in [`entity_physical_schema.yaml`](../schema/entity_physical_schema.yaml) or [`entity_virtual_schema.yaml`](../schema/entity_virtual_schema.yaml).
 2. Add an `entities.IfcNewClass` block with `content_kind`, `canonical_type`, required type slots, and geometry.
 3. Copy `fields` and `attributes` patterns from a similar entity; only use slot names that exist on the target PBS class (plus `Entity` base slots).
 4. List applicable IFC relationships under `relations`.

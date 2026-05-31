@@ -1,0 +1,41 @@
+{
+  "base_url": "https://schema.pragmaticbim.ch",
+  "modules": [
+    {
+      "slug": "changes",
+      "id": "https://schema.pragmaticbim.ch/changes",
+      "title": "Pragmatic BIM Data Contract - Changes",
+      "landing_page": "https://schema.pragmaticbim.ch/changes"
+    },
+    {
+      "slug": "entity/core",
+      "id": "https://schema.pragmaticbim.ch/entity/core",
+      "title": "Pragmatic BIM Data Contract - Entity Core",
+      "landing_page": "https://schema.pragmaticbim.ch/entity/core"
+    },
+    {
+      "slug": "entity/performance",
+      "id": "https://schema.pragmaticbim.ch/entity/performance",
+      "title": "Pragmatic BIM Data Contract - Entity Performance",
+      "landing_page": "https://schema.pragmaticbim.ch/entity/performance"
+    },
+    {
+      "slug": "entity/physical",
+      "id": "https://schema.pragmaticbim.ch/entity/physical",
+      "title": "Pragmatic BIM Data Contract - Entity Physical",
+      "landing_page": "https://schema.pragmaticbim.ch/entity/physical"
+    },
+    {
+      "slug": "entity/virtual",
+      "id": "https://schema.pragmaticbim.ch/entity/virtual",
+      "title": "Pragmatic BIM Data Contract - Entity Virtual",
+      "landing_page": "https://schema.pragmaticbim.ch/entity/virtual"
+    },
+    {
+      "slug": "requirements",
+      "id": "https://schema.pragmaticbim.ch/requirements",
+      "title": "Pragmatic BIM Data Contract - Requirements",
+      "landing_page": "https://schema.pragmaticbim.ch/requirements"
+    }
+  ]
+}

@@ -1,0 +1,93 @@
+id: https://schema.pragmaticbim.ch/entity/performance-enums
+name: pragmatic_bim_entity_performance_schema_enums
+title: Pragmatic BIM Data Contract - Entity Performance Enums
+description: 'Controlled vocabularies for normalized performance properties.
+
+  '
+license: MIT
+see_also:
+- https://schema.pragmaticbim.ch/entity/performance-enums
+- https://schema.pragmaticbim.ch/schema/pragmatic-bim.docs.html
+prefixes:
+  linkml: https://w3id.org/linkml/
+  pbs: https://schema.pragmaticbim.ch/
+  ifc: https://standards.buildingsmart.org/IFC/DEV/IFC4_3/FINAL/HTML/
+  ifcowl: https://w3id.org/ifc/IFC4_ADD2#
+  bot: https://w3id.org/bot#
+default_prefix: pbs
+default_range: string
+imports:
+- linkml:types
+enums:
+  PerformancePropertyValueType:
+    enum_uri: pbs:PerformancePropertyValueType
+    description: Type discriminator for normalized performance property values.
+    permissible_values:
+      string:
+        meaning: pbs:performance_property_value_type_string
+      number:
+        meaning: pbs:performance_property_value_type_number
+      boolean:
+        meaning: pbs:performance_property_value_type_boolean
+  FirePropertyKey:
+    enum_uri: pbs:FirePropertyKey
+    description: Canonical fire-related keys derived from IFC PropertySets.
+    permissible_values:
+      resistance_rating:
+        meaning: pbs:fire_property_resistance_rating
+      smoke_rating:
+        meaning: pbs:fire_property_smoke_rating
+      reaction_to_fire:
+        meaning: pbs:fire_property_reaction_to_fire
+  AcousticPropertyKey:
+    enum_uri: pbs:AcousticPropertyKey
+    description: Canonical acoustic-related keys derived from IFC PropertySets.
+    permissible_values:
+      rating_db:
+        meaning: pbs:acoustic_property_rating_db
+      impact_sound_rating_db:
+        meaning: pbs:acoustic_property_impact_sound_rating_db
+      airborne_sound_rating_db:
+        meaning: pbs:acoustic_property_airborne_sound_rating_db
+  ThermalPropertyKey:
+    enum_uri: pbs:ThermalPropertyKey
+    description: Canonical thermal-related keys derived from IFC PropertySets.
+    permissible_values:
+      u_value:
+        meaning: pbs:thermal_property_u_value
+      r_value:
+        meaning: pbs:thermal_property_r_value
+      thermal_transmittance:
+        meaning: pbs:thermal_property_thermal_transmittance
+  StructuralPropertyKey:
+    enum_uri: pbs:StructuralPropertyKey
+    description: Canonical structural-related keys derived from IFC PropertySets.
+    permissible_values:
+      load_bearing:
+        meaning: pbs:structural_property_load_bearing
+      stiffness_class:
+        meaning: pbs:structural_property_stiffness_class
+      strength_class:
+        meaning: pbs:structural_property_strength_class
+  SecurityPropertyKey:
+    enum_uri: pbs:SecurityPropertyKey
+    description: Canonical security-related keys derived from IFC PropertySets.
+    permissible_values:
+      access_control_class:
+        meaning: pbs:security_property_access_control_class
+      intrusion_resistance_class:
+        meaning: pbs:security_property_intrusion_resistance_class
+      surveillance_coverage:
+        meaning: pbs:security_property_surveillance_coverage
+  MaterialPropertyKey:
+    enum_uri: pbs:MaterialPropertyKey
+    description: Canonical material-related keys derived from IFC PropertySets and material metadata.
+    permissible_values:
+      material_name:
+        meaning: pbs:material_property_name
+      material_class:
+        meaning: pbs:material_property_class
+      density:
+        meaning: pbs:material_property_density
+      thermal_conductivity:
+        meaning: pbs:material_property_thermal_conductivity

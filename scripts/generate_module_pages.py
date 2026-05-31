@@ -30,13 +30,18 @@ ul { padding-left: 1.2rem; }
 .mermaid { border: 1px solid #d0d7de; border-radius: 8px; padding: 0.6rem; background: #fff; margin: 1rem 0; overflow: auto; }
 """
 
-MERMAID_SCRIPT = """
-<script type="module">
-  import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
-  mermaid.initialize({ startOnLoad: false, securityLevel: "loose" });
-  await mermaid.run({ querySelector: ".mermaid" });
-</script>
-"""
+MERMAID_SCRIPT_PATH = "assets/mermaid-init.js"
+
+
+def mermaid_script(schema_prefix: str) -> str:
+    src = f"{schema_prefix.rstrip('/')}/{MERMAID_SCRIPT_PATH}"
+    return f'<script type="module" src="{html.escape(src)}"></script>\n'
+
+
+def mermaid_tail(has_diagram: bool, schema_prefix: str) -> str:
+    if not has_diagram:
+        return ""
+    return mermaid_script(schema_prefix)
 
 
 def read_mermaid_diagram(diagrams_dir: Path, filename: str) -> str | None:
@@ -54,12 +59,6 @@ def render_mermaid_section(title: str, body: str) -> str:
 """
 
 
-def mermaid_tail(has_diagram: bool) -> str:
-    if not has_diagram:
-        return ""
-    return MERMAID_SCRIPT
-
-
 def normalize_description(value: object) -> str:
     if not isinstance(value, str):
         return ""
@@ -74,7 +73,7 @@ def slug_from_id(module_id: str, base_url: str) -> str | None:
     path = parsed.path.strip("/")
     if not path:
         return None
-    return path.split("/")[-1]
+    return path
 
 
 def pick_primary_doc(doc: dict) -> str | None:
@@ -224,7 +223,7 @@ def render_landing_html(
     <ul>
 {artifact_items}
     </ul>
-{mermaid_tail(has_module_diagram)}
+{mermaid_tail(has_module_diagram, schema_prefix)}
   </body>
 </html>
 """
@@ -239,7 +238,7 @@ def render_root_index(
 ) -> str:
     docs_index = f"{base_url.rstrip('/')}/schema/pragmatic-bim.docs.html"
     module_items = "\n".join(
-        f'      <li><a href="./{html.escape(module["slug"])}">{html.escape(str(module["title"]))}</a> '
+        f'      <li><a href="./{html.escape(module["slug"])}/">{html.escape(str(module["title"]))}</a> '
         f'(<code>{html.escape(module["id"])}</code>)</li>'
         for module in modules
     )
@@ -251,12 +250,12 @@ def render_root_index(
     if release_label == "Stable":
         latest_item = '      <li><a href="./latest/index.html">Latest stable alias</a></li>\n'
 
-    module_map_block = ""
-    has_module_map = False
-    module_map = read_mermaid_diagram(diagrams_dir, "module-map-interactive.mmd")
-    if module_map:
-        has_module_map = True
-        module_map_block = render_mermaid_section("Module map", module_map)
+    overview_block = ""
+    has_overview = False
+    pillars_overview = read_mermaid_diagram(diagrams_dir, "pillars-overview.mmd")
+    if pillars_overview:
+        has_overview = True
+        overview_block = render_mermaid_section("Three pillars", pillars_overview)
 
     return f"""<!doctype html>
 <html lang="en">
@@ -277,16 +276,21 @@ def render_root_index(
     <ul>
 {module_items}
     </ul>
-{module_map_block}
+{overview_block}
     <h2>Artifacts</h2>
     <ul>
 {artifact_items}
       <li><a href="./schema/pragmatic-bim.docs.html">Docs (HTML)</a></li>
 {latest_item}    </ul>
-{mermaid_tail(has_module_map)}
+{mermaid_tail(has_overview, "./schema")}
   </body>
 </html>
 """
+
+
+def upward_prefix(slug: str) -> str:
+    """Relative prefix from a module directory page back to the site root."""
+    return "../" * (slug.count("/") + 1)
 
 
 def write_module_pages(
@@ -312,8 +316,8 @@ def write_module_pages(
             descriptor,
             base_url=base_url,
             descriptor_href="./descriptor.json",
-            schema_prefix="../schema",
-            home_href="../index.html",
+            schema_prefix=f"{upward_prefix(slug)}schema",
+            home_href=f"{upward_prefix(slug)}index.html",
             diagrams_dir=diagrams_dir,
         )
         html_root_page = render_landing_html(
@@ -326,7 +330,9 @@ def write_module_pages(
             diagrams_dir=diagrams_dir,
         )
         (slug_dir / "index.html").write_text(html_dir_page, encoding="utf-8")
-        (site_dir / f"{slug}.html").write_text(html_root_page, encoding="utf-8")
+        html_alias = site_dir / f"{slug}.html"
+        html_alias.parent.mkdir(parents=True, exist_ok=True)
+        html_alias.write_text(html_root_page, encoding="utf-8")
 
 
 def main() -> None:

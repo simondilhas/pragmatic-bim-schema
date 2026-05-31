@@ -74,14 +74,16 @@ linkml_meta = LinkMLMeta({'default_prefix': 'pbs',
                     'is IFC-aware and extensible across classification schemes.\n',
      'id': 'https://schema.pragmaticbim.ch',
      'imports': ['linkml:types',
-                 'core_schema',
-                 'performance_enums_schema',
+                 'shared_enums_schema',
+                 'entity_core_schema',
+                 'entity_enums_schema',
+                 'entity_performance_enums_schema',
+                 'entity_performance_schema',
+                 'entity_physical_schema',
+                 'entity_virtual_schema',
                  'requirements_enums_schema',
-                 'performance_schema',
                  'requirements_schema',
-                 'elements_physical_schema',
-                 'elements_virtual_schema',
-                 'enums_schema',
+                 'changes_enums_schema',
                  'changes_schema'],
      'license': 'MIT',
      'name': 'pragmatic_bim_data_contract',
@@ -99,6 +101,421 @@ linkml_meta = LinkMLMeta({'default_prefix': 'pbs',
                   'https://schema.pragmaticbim.ch/schema/pragmatic-bim.docs.html'],
      'source_file': 'schema/00_pragmatic_bim_data_contract.yaml',
      'title': 'Pragmatic BIM Data Contract'} )
+
+class ContentKind(str, Enum):
+    """
+    Top-level content category for adapter projection and schema routing.
+    """
+    physical = "physical"
+    """
+    Tangible BIM element from the physical elements module.
+    """
+    virtual = "virtual"
+    """
+    Non-physical conceptual entity (space, system, time/cost record, etc.).
+    """
+    context = "context"
+    """
+    Spatial context node (project, site, building, level, zone).
+    """
+    requirement = "requirement"
+    """
+    Prescriptive requirement record.
+    """
+    change = "change"
+    """
+    Revision diff or audit record.
+    """
+
+
+class QuantityType(str, Enum):
+    area_net_horizontal = "area_net_horizontal"
+    """
+    Net horizontal area, typically usable floor area excluding non-net parts.
+    """
+    area_gross_horizontal = "area_gross_horizontal"
+    """
+    Gross horizontal area, typically measured to outer boundaries.
+    """
+    area_net_vertical = "area_net_vertical"
+    """
+    Net vertical area, typically wall or facade area excluding deductions.
+    """
+    area_gross_vertical = "area_gross_vertical"
+    """
+    Gross vertical area, typically full wall or facade area including non-net portions.
+    """
+    volume_net = "volume_net"
+    """
+    Net enclosed volume after subtracting non-counted voids or deductions.
+    """
+    volume_gross = "volume_gross"
+    """
+    Gross enclosed volume measured to external or gross boundaries.
+    """
+    length = "length"
+    """
+    Linear extent of an element or feature.
+    """
+    width = "width"
+    """
+    Width dimension of an element, opening, or space proxy.
+    """
+    height = "height"
+    """
+    Height dimension of an element, opening, or space proxy.
+    """
+    perimeter = "perimeter"
+    """
+    Boundary length around a 2D shape or footprint.
+    """
+
+
+class StatusType(str, Enum):
+    """
+    Lifecycle or QA gate status used for model progression and approvals.
+    """
+    draft = "draft"
+    """
+    Work-in-progress state before formal review.
+    """
+    submitted = "submitted"
+    """
+    Submitted state for review or approval.
+    """
+    reviewed = "reviewed"
+    """
+    Reviewed state pending final approval decision.
+    """
+    approved = "approved"
+    """
+    Approved state accepted for downstream use.
+    """
+    rejected = "rejected"
+    """
+    Rejected state not accepted for downstream use.
+    """
+    archived = "archived"
+    """
+    Archived state no longer in use.
+    """
+
+
+class BoundaryType(str, Enum):
+    flooring = "flooring"
+    ceiling = "ceiling"
+    cladding = "cladding"
+
+
+class ConnectionPhysicalType(str, Enum):
+    """
+    Classification of physical connector elements that connect spaces.
+    """
+    door = "door"
+    """
+    Human access connector via a door element.
+    """
+    window = "window"
+    """
+    Visual/daylight connector via a window element.
+    """
+    duct = "duct"
+    """
+    Air distribution connector segment.
+    """
+    pipe = "pipe"
+    """
+    Fluid/gas distribution connector segment.
+    """
+    cable = "cable"
+    """
+    Electrical/data cable connector segment.
+    """
+    conduit = "conduit"
+    """
+    Electrical/data conduit connector segment.
+    """
+    opening_other = "opening_other"
+    """
+    Other opening-style connector not covered by door/window.
+    """
+    network_other = "network_other"
+    """
+    Other network connector segment not covered by controlled values.
+    """
+
+
+class ConnectionVirtualType(str, Enum):
+    """
+    Classification of virtual connection semantics using schema-internal meanings because no stable 1:1 IFC mapping exists for these concepts.
+    """
+    structural_joint = "structural_joint"
+    """
+    Logical structural continuity or structural joint relation.
+    """
+    adjacency = "adjacency"
+    """
+    Topological adjacency relation without implying a physical opening.
+    """
+    access = "access"
+    """
+    Access relation indicating passability or navigational linkage.
+    """
+    other = "other"
+    """
+    Other virtual connection semantics not covered by the controlled values.
+    """
+
+
+class ContextType(str, Enum):
+    project = "project"
+    perimeter = "perimeter"
+    legal_site = "legal_site"
+    building = "building"
+    civil_structure = "civil_structure"
+    level = "level"
+    zone = "zone"
+
+
+class EquipmentType(str, Enum):
+    hvac = "hvac"
+    """
+    HVAC endpoint/device such as terminal units or packaged devices.
+    """
+    electrical = "electrical"
+    """
+    Electrical endpoint/device such as appliances, outlets, or fixtures.
+    """
+    plumbing = "plumbing"
+    """
+    Plumbing endpoint/device such as sanitary terminals and fixtures.
+    """
+    fire_safety = "fire_safety"
+    """
+    Fire safety endpoint/device such as suppression terminals and alarms.
+    """
+    controls = "controls"
+    """
+    Monitoring/control device such as sensors, actuators, and controllers.
+    """
+    furniture = "furniture"
+    """
+    Furniture/device objects treated as endpoint assets.
+    """
+    other = "other"
+    """
+    Other endpoint/device element not covered by controlled values.
+    """
+
+
+class GeometryRepresentationType(str, Enum):
+    """
+    Classification of geometric representation dimension/style.
+    """
+    axis = "axis"
+    """
+    Linear axis/centerline representation.
+    """
+    body_3d = "body_3d"
+    """
+    3D volumetric/body representation.
+    """
+    footprint_2d = "footprint_2d"
+    """
+    2D surface/footprint representation.
+    """
+    point = "point"
+    """
+    Point/dot representation.
+    """
+
+
+class SeparatorSlabType(str, Enum):
+    """
+    Classification of slab-based separator elements.
+    """
+    floor = "floor"
+    roof = "roof"
+    baseslab = "baseslab"
+    balcony = "balcony"
+    """
+    Balcony slab; mapped to FLOOR as the closest IFC slab type.
+    """
+
+
+class SeparatorWallType(str, Enum):
+    """
+    Classification of wall-based separator elements.
+    """
+    unit_boundary = "unit_boundary"
+    """
+    Wall separator that defines boundaries between occupancy units.
+    """
+    vertical_circulation_boundary = "vertical_circulation_boundary"
+    """
+    Wall separator that bounds or encloses vertical circulation areas.
+    """
+    horizontal_circulation_boundary = "horizontal_circulation_boundary"
+    """
+    Wall separator that bounds or structures horizontal circulation areas.
+    """
+
+
+class SpaceType(str, Enum):
+    """
+    Classification of space semantics used by modeling and downstream conversion.
+    """
+    void = "void"
+    """
+    Non-occupiable or intentionally empty space in the model.
+    """
+    circulation = "circulation"
+    """
+    Space primarily intended for movement and access.
+    """
+    usable = "usable"
+    """
+    Space intended for regular occupancy or primary use.
+    """
+    service = "service"
+    """
+    Space primarily intended for technical/service functions.
+    """
+    modeled_gross_floor_area = "modeled_gross_floor_area"
+    """
+    Space classification used when representing gross floor area as modeled space.
+    """
+    modeled_gross_volume = "modeled_gross_volume"
+    """
+    Space classification used when representing gross volume as modeled space.
+    """
+
+
+class SystemDiscipline(str, Enum):
+    """
+    Discipline of a building service system.
+    """
+    electrical = "electrical"
+    """
+    Electrical power, lighting, and related electrical services.
+    """
+    sanitary = "sanitary"
+    """
+    Water supply, drainage, and sanitary plumbing services.
+    """
+    ventilation = "ventilation"
+    """
+    Air movement and ventilation services.
+    """
+    heating = "heating"
+    """
+    Heat generation and heat distribution services.
+    """
+
+
+class SystemType(str, Enum):
+    """
+    Role of an MEP-related element or grouping in the service chain.
+    """
+    unit = "unit"
+    """
+    Generating or converting unit (for example AHU, chiller, heat pump).
+    """
+    network = "network"
+    """
+    Distribution network element carrying flow (for example ducts, pipes, cable carriers).
+    """
+    terminal = "terminal"
+    """
+    End/terminal element located in served spaces.
+    """
+
+
+class TimeDependencyType(str, Enum):
+    """
+    Precedence logic between two time items.
+    """
+    finish_to_start = "finish_to_start"
+    """
+    Successor starts when the predecessor finishes.
+    """
+    start_to_start = "start_to_start"
+    """
+    Successor starts when the predecessor starts.
+    """
+    finish_to_finish = "finish_to_finish"
+    """
+    Successor finishes when the predecessor finishes.
+    """
+    start_to_finish = "start_to_finish"
+    """
+    Successor finishes when the predecessor starts.
+    """
+
+
+class TransportMedium(str, Enum):
+    """
+    Primary medium transported through or enabled by a physical connector.
+    """
+    human_access = "human_access"
+    """
+    Human movement/access medium.
+    """
+    daylight_view = "daylight_view"
+    """
+    Daylight/view medium.
+    """
+    air = "air"
+    """
+    Air medium.
+    """
+    liquid = "liquid"
+    """
+    Liquid medium.
+    """
+    gas = "gas"
+    """
+    Gas medium.
+    """
+    electricity = "electricity"
+    """
+    Electrical energy medium.
+    """
+    data = "data"
+    """
+    Data/signal medium.
+    """
+
+
+class ZoneType(str, Enum):
+    """
+    Classification of zone purpose and organizational intent.
+    """
+    occupancy_unit = "occupancy_unit"
+    """
+    Occupancy unit zone (for example apartment, office suite, or retail unit).
+    """
+    tenant = "tenant"
+    """
+    Tenant area zone used for leasing and occupancy boundaries.
+    """
+    functional = "functional"
+    """
+    Functional grouping zone (for example clinical, retail, office support).
+    """
+    cost = "cost"
+    """
+    Cost grouping zone for estimation and controlling.
+    """
+    fire = "fire"
+    """
+    Fire compartment or fire strategy grouping zone.
+    """
+    security = "security"
+    """
+    Security management zone for access control and surveillance planning.
+    """
+
 
 class PerformancePropertyValueType(str, Enum):
     """
@@ -217,391 +634,6 @@ class RequirementTargetOperator(str, Enum):
     range = "range"
 
 
-class GeometryRepresentationType(str, Enum):
-    """
-    Classification of geometric representation dimension/style.
-    """
-    axis = "axis"
-    """
-    Linear axis/centerline representation.
-    """
-    body_3d = "body_3d"
-    """
-    3D volumetric/body representation.
-    """
-    footprint_2d = "footprint_2d"
-    """
-    2D surface/footprint representation.
-    """
-    point = "point"
-    """
-    Point/dot representation.
-    """
-
-
-class ContextType(str, Enum):
-    project = "project"
-    perimeter = "perimeter"
-    legal_site = "legal_site"
-    building = "building"
-    civil_structure = "civil_structure"
-    level = "level"
-    zone = "zone"
-
-
-class ZoneType(str, Enum):
-    """
-    Classification of zone purpose and organizational intent.
-    """
-    occupancy_unit = "occupancy_unit"
-    """
-    Occupancy unit zone (for example apartment, office suite, or retail unit).
-    """
-    tenant = "tenant"
-    """
-    Tenant area zone used for leasing and occupancy boundaries.
-    """
-    functional = "functional"
-    """
-    Functional grouping zone (for example clinical, retail, office support).
-    """
-    cost = "cost"
-    """
-    Cost grouping zone for estimation and controlling.
-    """
-    fire = "fire"
-    """
-    Fire compartment or fire strategy grouping zone.
-    """
-    security = "security"
-    """
-    Security management zone for access control and surveillance planning.
-    """
-
-
-class SpaceType(str, Enum):
-    """
-    Classification of space semantics used by modeling and downstream conversion.
-    """
-    void = "void"
-    """
-    Non-occupiable or intentionally empty space in the model.
-    """
-    circulation = "circulation"
-    """
-    Space primarily intended for movement and access.
-    """
-    usable = "usable"
-    """
-    Space intended for regular occupancy or primary use.
-    """
-    service = "service"
-    """
-    Space primarily intended for technical/service functions.
-    """
-    modeled_gross_floor_area = "modeled_gross_floor_area"
-    """
-    Space classification used when representing gross floor area as modeled space.
-    """
-    modeled_gross_volume = "modeled_gross_volume"
-    """
-    Space classification used when representing gross volume as modeled space.
-    """
-
-
-class SystemType(str, Enum):
-    """
-    Role of an MEP-related element or grouping in the service chain.
-    """
-    unit = "unit"
-    """
-    Generating or converting unit (for example AHU, chiller, heat pump).
-    """
-    network = "network"
-    """
-    Distribution network element carrying flow (for example ducts, pipes, cable carriers).
-    """
-    terminal = "terminal"
-    """
-    End/terminal element located in served spaces.
-    """
-
-
-class SystemDiscipline(str, Enum):
-    """
-    Discipline of a building service system.
-    """
-    electrical = "electrical"
-    """
-    Electrical power, lighting, and related electrical services.
-    """
-    sanitary = "sanitary"
-    """
-    Water supply, drainage, and sanitary plumbing services.
-    """
-    ventilation = "ventilation"
-    """
-    Air movement and ventilation services.
-    """
-    heating = "heating"
-    """
-    Heat generation and heat distribution services.
-    """
-
-
-class EquipmentType(str, Enum):
-    hvac = "hvac"
-    """
-    HVAC endpoint/device such as terminal units or packaged devices.
-    """
-    electrical = "electrical"
-    """
-    Electrical endpoint/device such as appliances, outlets, or fixtures.
-    """
-    plumbing = "plumbing"
-    """
-    Plumbing endpoint/device such as sanitary terminals and fixtures.
-    """
-    fire_safety = "fire_safety"
-    """
-    Fire safety endpoint/device such as suppression terminals and alarms.
-    """
-    controls = "controls"
-    """
-    Monitoring/control device such as sensors, actuators, and controllers.
-    """
-    furniture = "furniture"
-    """
-    Furniture/device objects treated as endpoint assets.
-    """
-    other = "other"
-    """
-    Other endpoint/device element not covered by controlled values.
-    """
-
-
-class ConnectionPhysicalType(str, Enum):
-    """
-    Classification of physical connector elements that connect spaces.
-    """
-    door = "door"
-    """
-    Human access connector via a door element.
-    """
-    window = "window"
-    """
-    Visual/daylight connector via a window element.
-    """
-    duct = "duct"
-    """
-    Air distribution connector segment.
-    """
-    pipe = "pipe"
-    """
-    Fluid/gas distribution connector segment.
-    """
-    cable = "cable"
-    """
-    Electrical/data cable connector segment.
-    """
-    conduit = "conduit"
-    """
-    Electrical/data conduit connector segment.
-    """
-    opening_other = "opening_other"
-    """
-    Other opening-style connector not covered by door/window.
-    """
-    network_other = "network_other"
-    """
-    Other network connector segment not covered by controlled values.
-    """
-
-
-class TransportMedium(str, Enum):
-    """
-    Primary medium transported through or enabled by a physical connector.
-    """
-    human_access = "human_access"
-    """
-    Human movement/access medium.
-    """
-    daylight_view = "daylight_view"
-    """
-    Daylight/view medium.
-    """
-    air = "air"
-    """
-    Air medium.
-    """
-    liquid = "liquid"
-    """
-    Liquid medium.
-    """
-    gas = "gas"
-    """
-    Gas medium.
-    """
-    electricity = "electricity"
-    """
-    Electrical energy medium.
-    """
-    data = "data"
-    """
-    Data/signal medium.
-    """
-
-
-class ConnectionVirtualType(str, Enum):
-    """
-    Classification of virtual connection semantics using schema-internal meanings because no stable 1:1 IFC mapping exists for these concepts.
-    """
-    structural_joint = "structural_joint"
-    """
-    Logical structural continuity or structural joint relation.
-    """
-    adjacency = "adjacency"
-    """
-    Topological adjacency relation without implying a physical opening.
-    """
-    access = "access"
-    """
-    Access relation indicating passability or navigational linkage.
-    """
-    other = "other"
-    """
-    Other virtual connection semantics not covered by the controlled values.
-    """
-
-
-class SeparatorWallType(str, Enum):
-    """
-    Classification of wall-based separator elements.
-    """
-    unit_boundary = "unit_boundary"
-    """
-    Wall separator that defines boundaries between occupancy units.
-    """
-    vertical_circulation_boundary = "vertical_circulation_boundary"
-    """
-    Wall separator that bounds or encloses vertical circulation areas.
-    """
-    horizontal_circulation_boundary = "horizontal_circulation_boundary"
-    """
-    Wall separator that bounds or structures horizontal circulation areas.
-    """
-
-
-class SeparatorSlabType(str, Enum):
-    """
-    Classification of slab-based separator elements.
-    """
-    floor = "floor"
-    roof = "roof"
-    baseslab = "baseslab"
-    balcony = "balcony"
-    """
-    Balcony slab; mapped to FLOOR as the closest IFC slab type.
-    """
-
-
-class BoundaryType(str, Enum):
-    flooring = "flooring"
-    ceiling = "ceiling"
-    cladding = "cladding"
-
-
-class TimeDependencyType(str, Enum):
-    """
-    Precedence logic between two time items.
-    """
-    finish_to_start = "finish_to_start"
-    """
-    Successor starts when the predecessor finishes.
-    """
-    start_to_start = "start_to_start"
-    """
-    Successor starts when the predecessor starts.
-    """
-    finish_to_finish = "finish_to_finish"
-    """
-    Successor finishes when the predecessor finishes.
-    """
-    start_to_finish = "start_to_finish"
-    """
-    Successor finishes when the predecessor starts.
-    """
-
-
-class QuantityType(str, Enum):
-    area_net_horizontal = "area_net_horizontal"
-    """
-    Net horizontal area, typically usable floor area excluding non-net parts.
-    """
-    area_gross_horizontal = "area_gross_horizontal"
-    """
-    Gross horizontal area, typically measured to outer boundaries.
-    """
-    area_net_vertical = "area_net_vertical"
-    """
-    Net vertical area, typically wall or facade area excluding deductions.
-    """
-    area_gross_vertical = "area_gross_vertical"
-    """
-    Gross vertical area, typically full wall or facade area including non-net portions.
-    """
-    volume_net = "volume_net"
-    """
-    Net enclosed volume after subtracting non-counted voids or deductions.
-    """
-    volume_gross = "volume_gross"
-    """
-    Gross enclosed volume measured to external or gross boundaries.
-    """
-    length = "length"
-    """
-    Linear extent of an element or feature.
-    """
-    width = "width"
-    """
-    Width dimension of an element, opening, or space proxy.
-    """
-    height = "height"
-    """
-    Height dimension of an element, opening, or space proxy.
-    """
-    perimeter = "perimeter"
-    """
-    Boundary length around a 2D shape or footprint.
-    """
-
-
-class ContentKind(str, Enum):
-    """
-    Top-level content category for adapter projection and schema routing.
-    """
-    physical = "physical"
-    """
-    Tangible BIM element from the physical elements module.
-    """
-    virtual = "virtual"
-    """
-    Non-physical conceptual entity (space, system, time/cost record, etc.).
-    """
-    context = "context"
-    """
-    Spatial context node (project, site, building, level, zone).
-    """
-    requirement = "requirement"
-    """
-    Prescriptive requirement record.
-    """
-    change = "change"
-    """
-    Revision diff or audit record.
-    """
-
-
 class RequirementDomain(str, Enum):
     """
     Domain of a prescriptive requirement record.
@@ -621,6 +653,42 @@ class RequirementDomain(str, Enum):
     brief = "brief"
     """
     Client or programme requirement, including free-standing brief items.
+    """
+
+
+class ChangeIntentVerdict(str, Enum):
+    """
+    Intent stability verdict from an automated judge (for example iterthink STABLE/NEW).
+    """
+    stable = "stable"
+    """
+    Change preserves design intent; downstream rules may treat as cosmetic.
+    """
+    new_intent = "new_intent"
+    """
+    Change alters design intent; may require re-evaluation or new tasks.
+    """
+
+
+class ChangeSeverity(str, Enum):
+    """
+    Optional severity of a change independent of change type.
+    """
+    unchanged = "unchanged"
+    """
+    No material difference (typically omitted from persisted Change records).
+    """
+    minor = "minor"
+    """
+    Small attribute, metadata, or wording adjustment.
+    """
+    major = "major"
+    """
+    Significant attribute, geometry, relationship, or structural content change.
+    """
+    rewritten = "rewritten"
+    """
+    Subject substantially replaced while retaining the same identity.
     """
 
 
@@ -654,28 +722,6 @@ class ChangeType(str, Enum):
     """
 
 
-class ChangeSeverity(str, Enum):
-    """
-    Optional severity of a change independent of change type.
-    """
-    unchanged = "unchanged"
-    """
-    No material difference (typically omitted from persisted Change records).
-    """
-    minor = "minor"
-    """
-    Small attribute, metadata, or wording adjustment.
-    """
-    major = "major"
-    """
-    Significant attribute, geometry, relationship, or structural content change.
-    """
-    rewritten = "rewritten"
-    """
-    Subject substantially replaced while retaining the same identity.
-    """
-
-
 class MatchStatus(str, Enum):
     """
     Whether an entity satisfies a related requirement at the target revision.
@@ -694,17 +740,29 @@ class MatchStatus(str, Enum):
     """
 
 
-class ChangeIntentVerdict(str, Enum):
+class PropertyPathKind(str, Enum):
     """
-    Intent stability verdict from an automated judge (for example iterthink STABLE/NEW).
+    Classification of a property path for diff interpretation across IFC and text sources.
     """
-    stable = "stable"
+    ifc_attribute = "ifc_attribute"
     """
-    Change preserves design intent; downstream rules may treat as cosmetic.
+    Direct IFC entity attribute (for example IfcWall.Name).
     """
-    new_intent = "new_intent"
+    ifc_pset = "ifc_pset"
     """
-    Change alters design intent; may require re-evaluation or new tasks.
+    IFC PropertySet property (for example Pset_WallCommon.FireRating).
+    """
+    schema_slot = "schema_slot"
+    """
+    Field on a schema entity (for example description, space_type).
+    """
+    document_field = "document_field"
+    """
+    Structured field in an extracted document (for example section.4.2.title).
+    """
+    text_span = "text_span"
+    """
+    Free-text span anchor (for example body:char_offset:1204-1389).
     """
 
 
@@ -738,62 +796,6 @@ class StateRefKind(str, Enum):
     """
 
 
-class PropertyPathKind(str, Enum):
-    """
-    Classification of a property path for diff interpretation across IFC and text sources.
-    """
-    ifc_attribute = "ifc_attribute"
-    """
-    Direct IFC entity attribute (for example IfcWall.Name).
-    """
-    ifc_pset = "ifc_pset"
-    """
-    IFC PropertySet property (for example Pset_WallCommon.FireRating).
-    """
-    schema_slot = "schema_slot"
-    """
-    Field on a schema entity (for example description, space_type).
-    """
-    document_field = "document_field"
-    """
-    Structured field in an extracted document (for example section.4.2.title).
-    """
-    text_span = "text_span"
-    """
-    Free-text span anchor (for example body:char_offset:1204-1389).
-    """
-
-
-class StatusType(str, Enum):
-    """
-    Lifecycle or QA gate status used for model progression and approvals.
-    """
-    draft = "draft"
-    """
-    Work-in-progress state before formal review.
-    """
-    submitted = "submitted"
-    """
-    Submitted state for review or approval.
-    """
-    reviewed = "reviewed"
-    """
-    Reviewed state pending final approval decision.
-    """
-    approved = "approved"
-    """
-    Approved state accepted for downstream use.
-    """
-    rejected = "rejected"
-    """
-    Rejected state not accepted for downstream use.
-    """
-    archived = "archived"
-    """
-    Archived state no longer in use.
-    """
-
-
 
 class Entity(ConfiguredBaseModel):
     """
@@ -801,7 +803,7 @@ class Entity(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'abstract': True,
          'class_uri': 'pbs:Entity',
-         'from_schema': 'https://schema.pragmaticbim.ch/core'})
+         'from_schema': 'https://schema.pragmaticbim.ch/entity/core'})
 
     id: str = Field(default=..., description="""Unique local identifier.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity',
                        'Task',
@@ -852,7 +854,7 @@ class Agent(Entity):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'abstract': True,
          'class_uri': 'pbs:Agent',
          'exact_mappings': ['prov:Agent'],
-         'from_schema': 'https://schema.pragmaticbim.ch/core'})
+         'from_schema': 'https://schema.pragmaticbim.ch/entity/core'})
 
     postal_addresses: Optional[list[PostalAddress]] = Field(default=None, description="""Structured postal or physical addresses associated with this agent.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Agent']} })
     contact_points: Optional[list[ContactPoint]] = Field(default=None, description="""Structured communication channels and profiles associated with this agent.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Agent']} })
@@ -904,7 +906,7 @@ class Person(Agent):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'pbs:Person',
          'exact_mappings': ['schema:Person', 'prov:Agent'],
-         'from_schema': 'https://schema.pragmaticbim.ch/core'})
+         'from_schema': 'https://schema.pragmaticbim.ch/entity/core'})
 
     belongs_to_company: Optional[str] = Field(default=None, description="""Optional company that the person belongs to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Person']} })
     postal_addresses: Optional[list[PostalAddress]] = Field(default=None, description="""Structured postal or physical addresses associated with this agent.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Agent']} })
@@ -957,7 +959,7 @@ class Company(Agent):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'pbs:Company',
          'exact_mappings': ['schema:Organization', 'prov:Agent'],
-         'from_schema': 'https://schema.pragmaticbim.ch/core'})
+         'from_schema': 'https://schema.pragmaticbim.ch/entity/core'})
 
     postal_addresses: Optional[list[PostalAddress]] = Field(default=None, description="""Structured postal or physical addresses associated with this agent.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Agent']} })
     contact_points: Optional[list[ContactPoint]] = Field(default=None, description="""Structured communication channels and profiles associated with this agent.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Agent']} })
@@ -1008,7 +1010,7 @@ class Classification(ConfiguredBaseModel):
     Generic classification entry from any scheme (for example IFC, Uniclass, OmniClass, custom).
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'pbs:Classification',
-         'from_schema': 'https://schema.pragmaticbim.ch/core'})
+         'from_schema': 'https://schema.pragmaticbim.ch/entity/core'})
 
     classification_scheme: str = Field(default=..., description="""Name of the classification scheme (for example ifc, uniclass, omniclass, custom).""", json_schema_extra = { "linkml_meta": {'domain_of': ['Classification']} })
     classification_code: str = Field(default=..., description="""Classification code inside the scheme.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Classification']} })
@@ -1023,7 +1025,7 @@ class GeometryRepresentation(ConfiguredBaseModel):
     Minimal geometry reference for an entity, separating representation from encoding format.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'pbs:GeometryRepresentation',
-         'from_schema': 'https://schema.pragmaticbim.ch/core'})
+         'from_schema': 'https://schema.pragmaticbim.ch/entity/core'})
 
     geometry_reference: str = Field(default=..., description="""URI/path/hash/pointer to geometry payload.""", json_schema_extra = { "linkml_meta": {'domain_of': ['GeometryRepresentation']} })
     geometry_representation: GeometryRepresentationType = Field(default=..., description="""Representation kind/dimension (for example body_3d, footprint_2d, point), independent of file format.""", json_schema_extra = { "linkml_meta": {'domain_of': ['GeometryRepresentation']} })
@@ -1035,7 +1037,7 @@ class QuantityValue(ConfiguredBaseModel):
     Minimal quantity record for costing and analysis.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'pbs:QuantityValue',
-         'from_schema': 'https://schema.pragmaticbim.ch/core'})
+         'from_schema': 'https://schema.pragmaticbim.ch/entity/core'})
 
     quantity_type: QuantityType = Field(default=..., description="""Controlled quantity type.""", json_schema_extra = { "linkml_meta": {'domain_of': ['QuantityValue']} })
     quantity_value: float = Field(default=..., description="""Numeric quantity value.""", ge=0, json_schema_extra = { "linkml_meta": {'domain_of': ['QuantityValue']} })
@@ -1048,7 +1050,7 @@ class MetadataEntry(ConfiguredBaseModel):
     Generic metadata entry for storing IFC attributes, PropertySet fields, or project-specific key-value data.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'pbs:MetadataEntry',
-         'from_schema': 'https://schema.pragmaticbim.ch/core'})
+         'from_schema': 'https://schema.pragmaticbim.ch/entity/core'})
 
     metadata_key: str = Field(default=..., description="""Metadata key, for example IfcWall.FireRating or Pset_WallCommon.Reference.""", json_schema_extra = { "linkml_meta": {'domain_of': ['MetadataEntry']} })
     metadata_value: Optional[str] = Field(default=None, description="""Metadata value serialized as text.""", json_schema_extra = { "linkml_meta": {'domain_of': ['MetadataEntry']} })
@@ -1061,7 +1063,7 @@ class PerformanceProperty(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'abstract': True,
          'class_uri': 'pbs:PerformanceProperty',
-         'from_schema': 'https://schema.pragmaticbim.ch/core'})
+         'from_schema': 'https://schema.pragmaticbim.ch/entity/core'})
 
     property_key: str = Field(default=..., description="""Canonical key inside the domain; constrained via subclass slot_usage to a domain-specific enum.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PerformanceProperty']} })
     property_value_type: PerformancePropertyValueType = Field(default=..., description="""Value type discriminator for normalized storage (for example string, number, boolean).""", json_schema_extra = { "linkml_meta": {'domain_of': ['PerformanceProperty']} })
@@ -1082,7 +1084,7 @@ class Decision(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'pbs:Decision',
          'exact_mappings': ['prov:Entity'],
-         'from_schema': 'https://schema.pragmaticbim.ch/core'})
+         'from_schema': 'https://schema.pragmaticbim.ch/entity/core'})
 
     decision_type: Optional[str] = Field(default=None, description="""Decision type expressed as a URI/CURIE from a controlled vocabulary.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Decision'], 'slot_uri': 'dcterms:type'} })
     decision_status: Optional[str] = Field(default=None, description="""Decision status expressed as a URI/CURIE (for example proposed, accepted, rejected, superseded).""", json_schema_extra = { "linkml_meta": {'domain_of': ['Decision'], 'slot_uri': 'adms:status'} })
@@ -1097,7 +1099,7 @@ class Task(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'pbs:Task',
          'exact_mappings': ['schema:Action', 'prov:Activity'],
-         'from_schema': 'https://schema.pragmaticbim.ch/core',
+         'from_schema': 'https://schema.pragmaticbim.ch/entity/core',
          'slot_usage': {'id': {'description': 'Optional stable identifier when '
                                               'referenced externally (for example from '
                                               'Change.triggered_task).',
@@ -1125,7 +1127,7 @@ class Message(Entity):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'pbs:Message',
          'exact_mappings': ['schema:Message', 'prov:Entity'],
-         'from_schema': 'https://schema.pragmaticbim.ch/core'})
+         'from_schema': 'https://schema.pragmaticbim.ch/entity/core'})
 
     message_type: Optional[str] = Field(default=None, description="""Message type expressed as a URI/CURIE from a controlled vocabulary.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Message'], 'slot_uri': 'dcterms:type'} })
     sender: Optional[str] = Field(default=None, description="""Agent that sent the message.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Message'], 'slot_uri': 'schema:sender'} })
@@ -1180,7 +1182,7 @@ class Document(ConfiguredBaseModel):
     Reference to an external document stored in a file system, DMS, object storage, or URL.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'pbs:Document',
-         'from_schema': 'https://schema.pragmaticbim.ch/core',
+         'from_schema': 'https://schema.pragmaticbim.ch/entity/core',
          'slot_usage': {'id': {'description': 'Optional stable identifier when '
                                               'referenced externally (for example from '
                                               'Change records).',
@@ -1204,7 +1206,7 @@ class PostalAddress(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'pbs:PostalAddress',
          'exact_mappings': ['schema:PostalAddress'],
-         'from_schema': 'https://schema.pragmaticbim.ch/core'})
+         'from_schema': 'https://schema.pragmaticbim.ch/entity/core'})
 
     street_address: Optional[str] = Field(default=None, description="""Street name and house number or equivalent address line.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PostalAddress'], 'slot_uri': 'schema:streetAddress'} })
     post_office_box_number: Optional[str] = Field(default=None, description="""Post office box number where applicable.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PostalAddress'], 'slot_uri': 'schema:postOfficeBoxNumber'} })
@@ -1221,7 +1223,7 @@ class ContactPoint(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'pbs:ContactPoint',
          'exact_mappings': ['schema:ContactPoint'],
-         'from_schema': 'https://schema.pragmaticbim.ch/core'})
+         'from_schema': 'https://schema.pragmaticbim.ch/entity/core'})
 
     contact_channel_type: Optional[str] = Field(default=None, description="""Communication channel type such as email, phone, website, linkedin, whatsapp, signal, slack, teams, or telegram.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ContactPoint']} })
     contact_value: Optional[str] = Field(default=None, description="""Human-readable contact value such as an email address, phone number, handle, or username.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ContactPoint']} })
@@ -1236,7 +1238,7 @@ class LocalizedText(ConfiguredBaseModel):
     Localized text value for a specific language tag.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'pbs:LocalizedText',
-         'from_schema': 'https://schema.pragmaticbim.ch/core'})
+         'from_schema': 'https://schema.pragmaticbim.ch/entity/core'})
 
     language_tag: str = Field(default=..., description="""IETF BCP 47 language tag (for example en, de, pt-BR).""", json_schema_extra = { "linkml_meta": {'domain_of': ['LocalizedText']} })
     text_value: str = Field(default=..., description="""Localized text value.""", json_schema_extra = { "linkml_meta": {'domain_of': ['LocalizedText']} })
@@ -1247,7 +1249,7 @@ class FireProperty(PerformanceProperty):
     Normalized fire-related property.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'pbs:FireProperty',
-         'from_schema': 'https://schema.pragmaticbim.ch/performance',
+         'from_schema': 'https://schema.pragmaticbim.ch/entity/performance',
          'slot_usage': {'property_key': {'name': 'property_key',
                                          'range': 'FirePropertyKey'}}})
 
@@ -1269,7 +1271,7 @@ class AcousticProperty(PerformanceProperty):
     Normalized acoustic-related property.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'pbs:AcousticProperty',
-         'from_schema': 'https://schema.pragmaticbim.ch/performance',
+         'from_schema': 'https://schema.pragmaticbim.ch/entity/performance',
          'slot_usage': {'property_key': {'name': 'property_key',
                                          'range': 'AcousticPropertyKey'}}})
 
@@ -1291,7 +1293,7 @@ class ThermalProperty(PerformanceProperty):
     Normalized thermal-related property.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'pbs:ThermalProperty',
-         'from_schema': 'https://schema.pragmaticbim.ch/performance',
+         'from_schema': 'https://schema.pragmaticbim.ch/entity/performance',
          'slot_usage': {'property_key': {'name': 'property_key',
                                          'range': 'ThermalPropertyKey'}}})
 
@@ -1313,7 +1315,7 @@ class StructuralProperty(PerformanceProperty):
     Normalized structural-related property.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'pbs:StructuralProperty',
-         'from_schema': 'https://schema.pragmaticbim.ch/performance',
+         'from_schema': 'https://schema.pragmaticbim.ch/entity/performance',
          'slot_usage': {'property_key': {'name': 'property_key',
                                          'range': 'StructuralPropertyKey'}}})
 
@@ -1335,7 +1337,7 @@ class SecurityProperty(PerformanceProperty):
     Normalized security-related property.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'pbs:SecurityProperty',
-         'from_schema': 'https://schema.pragmaticbim.ch/performance',
+         'from_schema': 'https://schema.pragmaticbim.ch/entity/performance',
          'slot_usage': {'property_key': {'name': 'property_key',
                                          'range': 'SecurityPropertyKey'}}})
 
@@ -1357,7 +1359,7 @@ class MaterialProperty(PerformanceProperty):
     Normalized material-related property.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'pbs:MaterialProperty',
-         'from_schema': 'https://schema.pragmaticbim.ch/performance',
+         'from_schema': 'https://schema.pragmaticbim.ch/entity/performance',
          'slot_usage': {'property_key': {'name': 'property_key',
                                          'range': 'MaterialPropertyKey'}}})
 
@@ -1519,7 +1521,7 @@ class PhysicalElement(Entity):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'abstract': True,
          'class_uri': 'pbs:PhysicalElement',
          'exact_mappings': ['bot:Element', 'ifcowl:IfcElement'],
-         'from_schema': 'https://schema.pragmaticbim.ch/elements-physical',
+         'from_schema': 'https://schema.pragmaticbim.ch/entity/physical',
          'slot_usage': {'parent_building': {'name': 'parent_building',
                                             'range': 'BuiltAssetContext'},
                         'parent_level': {'name': 'parent_level',
@@ -1576,7 +1578,7 @@ class Separator(PhysicalElement):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'abstract': True,
          'class_uri': 'pbs:Separator',
          'exact_mappings': ['ifcowl:IfcBuildingElement'],
-         'from_schema': 'https://schema.pragmaticbim.ch/elements-physical'})
+         'from_schema': 'https://schema.pragmaticbim.ch/entity/physical'})
 
     separator_requirement_drivers: Optional[list[SeparatorRequirementDriver]] = Field(default=None, description="""Performance requirement drivers for this separator. Multiple values are allowed because one separator may need to satisfy several requirements.
 """, json_schema_extra = { "linkml_meta": {'domain_of': ['Separator']} })
@@ -1630,7 +1632,7 @@ class SeparatorWall(Separator):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'pbs:SeparatorWall',
          'exact_mappings': ['ifcowl:IfcWall'],
-         'from_schema': 'https://schema.pragmaticbim.ch/elements-physical'})
+         'from_schema': 'https://schema.pragmaticbim.ch/entity/physical'})
 
     separator_wall_type: SeparatorWallType = Field(default=..., description="""Classification of wall-based separator element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['SeparatorWall']} })
     separates_spaces: Optional[list[str]] = Field(default=None, description="""Spaces separated by this separator element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['SeparatorWall']} })
@@ -1686,7 +1688,7 @@ class SeparatorSlab(Separator):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'pbs:SeparatorSlab',
          'exact_mappings': ['ifcowl:IfcSlab'],
-         'from_schema': 'https://schema.pragmaticbim.ch/elements-physical'})
+         'from_schema': 'https://schema.pragmaticbim.ch/entity/physical'})
 
     separator_slab_type: SeparatorSlabType = Field(default=..., description="""Classification of slab-based separator element (for example floor/roof/base slab).""", json_schema_extra = { "linkml_meta": {'domain_of': ['SeparatorSlab']} })
     separates_levels: Optional[list[str]] = Field(default=None, description="""Level context nodes separated by this slab separator.""", json_schema_extra = { "linkml_meta": {'domain_of': ['SeparatorSlab']} })
@@ -1745,7 +1747,7 @@ class ConnectionPhysical(PhysicalElement):
                             'ifcowl:IfcWindow',
                             'ifcowl:IfcFlowSegment',
                             'ifcowl:IfcCableCarrierSegment'],
-         'from_schema': 'https://schema.pragmaticbim.ch/elements-physical'})
+         'from_schema': 'https://schema.pragmaticbim.ch/entity/physical'})
 
     connection_physical_type: ConnectionPhysicalType = Field(default=..., description="""Classification of physical connector type (for example door, window, duct, pipe, cable).""", json_schema_extra = { "linkml_meta": {'domain_of': ['ConnectionPhysical']} })
     transport_medium: TransportMedium = Field(default=..., description="""Primary transport medium carried or enabled by the connector (for example human_access, air, liquid, electricity).""", json_schema_extra = { "linkml_meta": {'domain_of': ['ConnectionPhysical']} })
@@ -1801,7 +1803,7 @@ class Boundary(PhysicalElement):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'pbs:Boundary',
          'exact_mappings': ['ifcowl:IfcCovering'],
-         'from_schema': 'https://schema.pragmaticbim.ch/elements-physical'})
+         'from_schema': 'https://schema.pragmaticbim.ch/entity/physical'})
 
     boundary_type: BoundaryType = Field(default=..., description="""Classification of boundary element (e.g., covering).""", json_schema_extra = { "linkml_meta": {'domain_of': ['Boundary']} })
     bounded_space: Optional[str] = Field(default=None, description="""Space bounded by this boundary element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Boundary'], 'inverse': 'bounded_by'} })
@@ -1855,7 +1857,7 @@ class Equipment(PhysicalElement):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'pbs:Equipment',
          'exact_mappings': ['bot:Element', 'ifcowl:IfcDistributionElement'],
-         'from_schema': 'https://schema.pragmaticbim.ch/elements-physical'})
+         'from_schema': 'https://schema.pragmaticbim.ch/entity/physical'})
 
     equipment_type: EquipmentType = Field(default=..., description="""Classification of equipment (for example HVAC, electrical, plumbing).""", json_schema_extra = { "linkml_meta": {'domain_of': ['Equipment']} })
     parent_space: Optional[str] = Field(default=None, description="""Parent space where the equipment is located.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Equipment'], 'inverse': 'contained_entities'} })
@@ -1910,7 +1912,7 @@ class VirtualEntity(Entity):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'abstract': True,
          'class_uri': 'pbs:VirtualEntity',
-         'from_schema': 'https://schema.pragmaticbim.ch/elements-virtual'})
+         'from_schema': 'https://schema.pragmaticbim.ch/entity/virtual'})
 
     cost_items: Optional[list[str]] = Field(default=None, description="""Cost items associated with this entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VirtualEntity']} })
     cost_assemblies: Optional[list[str]] = Field(default=None, description="""Aggregated unit prices associated with this entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VirtualEntity']} })
@@ -1965,7 +1967,7 @@ class SpatialContext(VirtualEntity):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'pbs:SpatialContext',
          'exact_mappings': ['ifcowl:IfcSpatialStructureElement'],
-         'from_schema': 'https://schema.pragmaticbim.ch/elements-virtual',
+         'from_schema': 'https://schema.pragmaticbim.ch/entity/virtual',
          'slot_usage': {'parent_building': {'name': 'parent_building',
                                             'range': 'BuiltAssetContext'},
                         'parent_legal_site': {'name': 'parent_legal_site',
@@ -2040,7 +2042,7 @@ class ProjectContext(SpatialContext):
     Spatial context node constrained to project semantics.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'pbs:ProjectContext',
-         'from_schema': 'https://schema.pragmaticbim.ch/elements-virtual'})
+         'from_schema': 'https://schema.pragmaticbim.ch/entity/virtual'})
 
     context_type: ContextType = Field(default=..., description="""Classification of context entity (project, perimeter, legal_site, building, civil_structure, level, zone).""", json_schema_extra = { "linkml_meta": {'domain_of': ['SpatialContext']} })
     zone_type: Optional[ZoneType] = Field(default=None, description="""Optional zone classification; intended for SpatialContext nodes where context_type is zone.""", json_schema_extra = { "linkml_meta": {'domain_of': ['SpatialContext']} })
@@ -2103,7 +2105,7 @@ class PerimeterContext(SpatialContext):
     Spatial context node constrained to perimeter semantics.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'pbs:PerimeterContext',
-         'from_schema': 'https://schema.pragmaticbim.ch/elements-virtual'})
+         'from_schema': 'https://schema.pragmaticbim.ch/entity/virtual'})
 
     context_type: ContextType = Field(default=..., description="""Classification of context entity (project, perimeter, legal_site, building, civil_structure, level, zone).""", json_schema_extra = { "linkml_meta": {'domain_of': ['SpatialContext']} })
     zone_type: Optional[ZoneType] = Field(default=None, description="""Optional zone classification; intended for SpatialContext nodes where context_type is zone.""", json_schema_extra = { "linkml_meta": {'domain_of': ['SpatialContext']} })
@@ -2166,7 +2168,7 @@ class LegalSiteContext(SpatialContext):
     Spatial context node constrained to legal site semantics.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'pbs:LegalSiteContext',
-         'from_schema': 'https://schema.pragmaticbim.ch/elements-virtual'})
+         'from_schema': 'https://schema.pragmaticbim.ch/entity/virtual'})
 
     context_type: ContextType = Field(default=..., description="""Classification of context entity (project, perimeter, legal_site, building, civil_structure, level, zone).""", json_schema_extra = { "linkml_meta": {'domain_of': ['SpatialContext']} })
     zone_type: Optional[ZoneType] = Field(default=None, description="""Optional zone classification; intended for SpatialContext nodes where context_type is zone.""", json_schema_extra = { "linkml_meta": {'domain_of': ['SpatialContext']} })
@@ -2230,7 +2232,7 @@ class BuiltAssetContext(SpatialContext):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'abstract': True,
          'class_uri': 'pbs:BuiltAssetContext',
-         'from_schema': 'https://schema.pragmaticbim.ch/elements-virtual'})
+         'from_schema': 'https://schema.pragmaticbim.ch/entity/virtual'})
 
     context_type: ContextType = Field(default=..., description="""Classification of context entity (project, perimeter, legal_site, building, civil_structure, level, zone).""", json_schema_extra = { "linkml_meta": {'domain_of': ['SpatialContext']} })
     zone_type: Optional[ZoneType] = Field(default=None, description="""Optional zone classification; intended for SpatialContext nodes where context_type is zone.""", json_schema_extra = { "linkml_meta": {'domain_of': ['SpatialContext']} })
@@ -2293,7 +2295,7 @@ class BuildingContext(BuiltAssetContext):
     Spatial context node constrained to building semantics.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'pbs:BuildingContext',
-         'from_schema': 'https://schema.pragmaticbim.ch/elements-virtual'})
+         'from_schema': 'https://schema.pragmaticbim.ch/entity/virtual'})
 
     context_type: ContextType = Field(default=..., description="""Classification of context entity (project, perimeter, legal_site, building, civil_structure, level, zone).""", json_schema_extra = { "linkml_meta": {'domain_of': ['SpatialContext']} })
     zone_type: Optional[ZoneType] = Field(default=None, description="""Optional zone classification; intended for SpatialContext nodes where context_type is zone.""", json_schema_extra = { "linkml_meta": {'domain_of': ['SpatialContext']} })
@@ -2356,7 +2358,7 @@ class CivilStructureContext(BuiltAssetContext):
     Spatial context node constrained to civil structure semantics.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'pbs:CivilStructureContext',
-         'from_schema': 'https://schema.pragmaticbim.ch/elements-virtual'})
+         'from_schema': 'https://schema.pragmaticbim.ch/entity/virtual'})
 
     context_type: ContextType = Field(default=..., description="""Classification of context entity (project, perimeter, legal_site, building, civil_structure, level, zone).""", json_schema_extra = { "linkml_meta": {'domain_of': ['SpatialContext']} })
     zone_type: Optional[ZoneType] = Field(default=None, description="""Optional zone classification; intended for SpatialContext nodes where context_type is zone.""", json_schema_extra = { "linkml_meta": {'domain_of': ['SpatialContext']} })
@@ -2419,7 +2421,7 @@ class LevelContext(SpatialContext):
     Spatial context node constrained to level/storey semantics.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'pbs:LevelContext',
-         'from_schema': 'https://schema.pragmaticbim.ch/elements-virtual'})
+         'from_schema': 'https://schema.pragmaticbim.ch/entity/virtual'})
 
     context_type: ContextType = Field(default=..., description="""Classification of context entity (project, perimeter, legal_site, building, civil_structure, level, zone).""", json_schema_extra = { "linkml_meta": {'domain_of': ['SpatialContext']} })
     zone_type: Optional[ZoneType] = Field(default=None, description="""Optional zone classification; intended for SpatialContext nodes where context_type is zone.""", json_schema_extra = { "linkml_meta": {'domain_of': ['SpatialContext']} })
@@ -2482,7 +2484,7 @@ class ZoneContext(SpatialContext):
     Spatial context node constrained to zone semantics.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'pbs:ZoneContext',
-         'from_schema': 'https://schema.pragmaticbim.ch/elements-virtual'})
+         'from_schema': 'https://schema.pragmaticbim.ch/entity/virtual'})
 
     context_type: ContextType = Field(default=..., description="""Classification of context entity (project, perimeter, legal_site, building, civil_structure, level, zone).""", json_schema_extra = { "linkml_meta": {'domain_of': ['SpatialContext']} })
     zone_type: Optional[ZoneType] = Field(default=None, description="""Optional zone classification; intended for SpatialContext nodes where context_type is zone.""", json_schema_extra = { "linkml_meta": {'domain_of': ['SpatialContext']} })
@@ -2546,7 +2548,7 @@ class Space(VirtualEntity):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'pbs:Space',
          'exact_mappings': ['bot:Space', 'ifcowl:IfcSpace'],
-         'from_schema': 'https://schema.pragmaticbim.ch/elements-virtual',
+         'from_schema': 'https://schema.pragmaticbim.ch/entity/virtual',
          'slot_usage': {'parent_building': {'name': 'parent_building',
                                             'range': 'BuiltAssetContext'},
                         'parent_level': {'name': 'parent_level',
@@ -2611,7 +2613,7 @@ class System(VirtualEntity):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'pbs:System',
          'exact_mappings': ['ifcowl:IfcSystem'],
-         'from_schema': 'https://schema.pragmaticbim.ch/elements-virtual',
+         'from_schema': 'https://schema.pragmaticbim.ch/entity/virtual',
          'slot_usage': {'parent_building': {'name': 'parent_building',
                                             'range': 'BuiltAssetContext'},
                         'parent_project': {'name': 'parent_project',
@@ -2676,7 +2678,7 @@ class ConnectionVirtual(VirtualEntity):
     Logical or topological connection between spaces and/or physical elements.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'pbs:ConnectionVirtual',
-         'from_schema': 'https://schema.pragmaticbim.ch/elements-virtual'})
+         'from_schema': 'https://schema.pragmaticbim.ch/entity/virtual'})
 
     connection_virtual_type: ConnectionVirtualType = Field(default=..., description="""Classification of virtual connection semantics (for example structural_joint, adjacency, access).""", json_schema_extra = { "linkml_meta": {'domain_of': ['ConnectionVirtual']} })
     connects_physical_elements: Optional[list[str]] = Field(default=None, description="""Physical elements connected by this virtual connection (for example wall-wall, wall-slab).""", json_schema_extra = { "linkml_meta": {'domain_of': ['ConnectionVirtual']} })
@@ -2735,7 +2737,7 @@ class AbstractTimeRecord(VirtualEntity):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'abstract': True,
          'class_uri': 'pbs:AbstractTimeRecord',
-         'from_schema': 'https://schema.pragmaticbim.ch/elements-virtual'})
+         'from_schema': 'https://schema.pragmaticbim.ch/entity/virtual'})
 
     applies_to_entities: Optional[list[str]] = Field(default=None, description="""Model entities this record applies to (requirements, cost items, schedule items, etc.).""", json_schema_extra = { "linkml_meta": {'domain_of': ['Requirement', 'AbstractTimeRecord', 'AbstractCostRecord']} })
     cost_items: Optional[list[str]] = Field(default=None, description="""Cost items associated with this entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VirtualEntity']} })
@@ -2790,7 +2792,7 @@ class TimeItem(AbstractTimeRecord):
     Planned work item with baseline and actual dates, optionally linked to model entities and a time plan.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'pbs:TimeItem',
-         'from_schema': 'https://schema.pragmaticbim.ch/elements-virtual'})
+         'from_schema': 'https://schema.pragmaticbim.ch/entity/virtual'})
 
     time_plan: Optional[str] = Field(default=None, description="""Parent time plan this item or dependency belongs to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['TimeItem', 'TimeDependency']} })
     planned_start_at: Optional[datetime ] = Field(default=None, description="""Planned start timestamp for the time item.""", json_schema_extra = { "linkml_meta": {'domain_of': ['TimeItem']} })
@@ -2850,7 +2852,7 @@ class Milestone(TimeItem):
     Zero-duration checkpoint or delivery target within a time plan.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'pbs:Milestone',
-         'from_schema': 'https://schema.pragmaticbim.ch/elements-virtual'})
+         'from_schema': 'https://schema.pragmaticbim.ch/entity/virtual'})
 
     milestone_at: Optional[datetime ] = Field(default=None, description="""Target timestamp for the milestone checkpoint.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Milestone']} })
     time_plan: Optional[str] = Field(default=None, description="""Parent time plan this item or dependency belongs to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['TimeItem', 'TimeDependency']} })
@@ -2911,7 +2913,7 @@ class TimePlan(AbstractTimeRecord):
     Grouped schedule container defining component items, milestones, and dependencies for a scoped plan.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'pbs:TimePlan',
-         'from_schema': 'https://schema.pragmaticbim.ch/elements-virtual'})
+         'from_schema': 'https://schema.pragmaticbim.ch/entity/virtual'})
 
     component_time_items: Optional[list[str]] = Field(default=None, description="""Time items contained in this plan; milestone instances may also appear through the TimeItem subtype.""", json_schema_extra = { "linkml_meta": {'domain_of': ['TimePlan']} })
     time_dependencies: Optional[list[str]] = Field(default=None, description="""Dependency relationships used within this time plan.""", json_schema_extra = { "linkml_meta": {'domain_of': ['TimePlan']} })
@@ -2968,7 +2970,7 @@ class TimeDependency(VirtualEntity):
     Precedence relationship between two time items within a plan, optionally with lag.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'pbs:TimeDependency',
-         'from_schema': 'https://schema.pragmaticbim.ch/elements-virtual'})
+         'from_schema': 'https://schema.pragmaticbim.ch/entity/virtual'})
 
     time_plan: Optional[str] = Field(default=None, description="""Parent time plan this item or dependency belongs to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['TimeItem', 'TimeDependency']} })
     predecessor_item: Optional[str] = Field(default=None, description="""Time item that must occur before the successor item.""", json_schema_extra = { "linkml_meta": {'domain_of': ['TimeDependency']} })
@@ -3028,7 +3030,7 @@ class AbstractCostRecord(VirtualEntity):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'abstract': True,
          'class_uri': 'pbs:AbstractCostRecord',
-         'from_schema': 'https://schema.pragmaticbim.ch/elements-virtual'})
+         'from_schema': 'https://schema.pragmaticbim.ch/entity/virtual'})
 
     cost_category: Optional[str] = Field(default=None, description="""Cost category label kept intentionally open pending classification-backed modeling.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AbstractCostRecord']} })
     unit_cost: float = Field(default=..., description="""Unit cost for this cost item.""", ge=0, json_schema_extra = { "linkml_meta": {'domain_of': ['AbstractCostRecord']} })
@@ -3102,7 +3104,7 @@ class CostItem(AbstractCostRecord):
     Cost record used for estimation and calculation, optionally linked to quantities.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'pbs:CostItem',
-         'from_schema': 'https://schema.pragmaticbim.ch/elements-virtual'})
+         'from_schema': 'https://schema.pragmaticbim.ch/entity/virtual'})
 
     cost_category: Optional[str] = Field(default=None, description="""Cost category label kept intentionally open pending classification-backed modeling.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AbstractCostRecord']} })
     unit_cost: float = Field(default=..., description="""Unit cost for this cost item.""", ge=0, json_schema_extra = { "linkml_meta": {'domain_of': ['AbstractCostRecord']} })
@@ -3176,7 +3178,7 @@ class CostAssembly(AbstractCostRecord):
     Aggregated unit price assembled from multiple cost items.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'pbs:CostAssembly',
-         'from_schema': 'https://schema.pragmaticbim.ch/elements-virtual'})
+         'from_schema': 'https://schema.pragmaticbim.ch/entity/virtual'})
 
     component_cost_items: Optional[list[str]] = Field(default=None, description="""Atomic cost items that are aggregated into this cost assembly.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CostAssembly']} })
     cost_category: Optional[str] = Field(default=None, description="""Cost category label kept intentionally open pending classification-backed modeling.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AbstractCostRecord']} })
@@ -3251,7 +3253,7 @@ class Material(VirtualEntity):
     Material definition that can be associated with one or more entities.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'pbs:Material',
-         'from_schema': 'https://schema.pragmaticbim.ch/elements-virtual'})
+         'from_schema': 'https://schema.pragmaticbim.ch/entity/virtual'})
 
     material_category: Optional[str] = Field(default=None, description="""Material category label kept intentionally open pending classification-backed modeling.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Material']} })
     material_specification: Optional[str] = Field(default=None, description="""Material grade, specification, or product description.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Material']} })
