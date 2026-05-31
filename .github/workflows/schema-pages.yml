@@ -347,7 +347,7 @@ jobs:
             text = normalize_mermaid_blocks(text)
             html_body = md.markdown(
               text,
-              extensions=["tables", "fenced_code", "toc"],
+              extensions=["extra", "toc"],
               output_format="html5",
             )
             html_body = re.sub(r'href="([^"]+)\.md"', r'href="\1.html"', html_body)

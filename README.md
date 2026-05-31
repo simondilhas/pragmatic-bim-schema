@@ -151,7 +151,27 @@ flowchart TB
 
 ## Schema overview
 
-<!-- diagram:entity-overview begin -->
+The contract groups data into three top-level concerns (see [`ContentKind`](schema/enums_schema.yaml) for adapter projection):
+
+1. **Entities** — BIM and project graph (`Entity` subclasses: physical, virtual, context). Normalized IFC performance values stay on `Entity.performance_properties` (not requirements).
+2. **Requirements** — prescriptive records (`Requirement` subclasses) with `requirement_domain`: `performance`, `spatial`, `regulatory`, `brief`.
+3. **Changes** — revision diff records (`Change` subclasses) with `change_type`: `geometry_change`, `property_change`, `requirement_change`, `match_change`, `addition`, `deletion`; optional `change_severity` for magnitude.
+
+Supporting modules: **core**, **performance** (entity property facets), **enums**, **enum localizations**, **elements physical/virtual**, **changes** helpers (`StateRef`, `PropertyDelta`).
+
+<!-- diagram:pillars-overview begin -->
+```mermaid
+flowchart TB
+  Root["Pragmatic BIM Data Contract"]
+  Root --> Entity["Entities"]
+  Root --> Requirement["Requirements"]
+  Root --> Change["Changes"]
+```
+<!-- diagram:pillars-overview end -->
+
+Interactive full class hierarchy: [schema documentation](https://schema.pragmaticbim.ch/schema/pragmatic-bim.docs.html).
+
+<!-- diagram:entity-detail begin -->
 ```mermaid
 classDiagram
   direction TB
@@ -164,13 +184,28 @@ classDiagram
   PhysicalElement <|-- ConnectionPhysical
   PhysicalElement <|-- Equipment
   PhysicalElement <|-- Separator
+  Separator <|-- SeparatorSlab
+  Separator <|-- SeparatorWall
   Entity <|-- VirtualEntity
   VirtualEntity <|-- AbstractCostRecord
+  AbstractCostRecord <|-- CostAssembly
+  AbstractCostRecord <|-- CostItem
   VirtualEntity <|-- AbstractTimeRecord
+  AbstractTimeRecord <|-- TimeItem
+  TimeItem <|-- Milestone
+  AbstractTimeRecord <|-- TimePlan
   VirtualEntity <|-- ConnectionVirtual
   VirtualEntity <|-- Material
   VirtualEntity <|-- Space
   VirtualEntity <|-- SpatialContext
+  SpatialContext <|-- BuiltAssetContext
+  BuiltAssetContext <|-- BuildingContext
+  BuiltAssetContext <|-- CivilStructureContext
+  SpatialContext <|-- LegalSiteContext
+  SpatialContext <|-- LevelContext
+  SpatialContext <|-- PerimeterContext
+  SpatialContext <|-- ProjectContext
+  SpatialContext <|-- ZoneContext
   VirtualEntity <|-- System
   VirtualEntity <|-- TimeDependency
   PerformanceProperty <|-- AcousticProperty
@@ -179,20 +214,9 @@ classDiagram
   PerformanceProperty <|-- SecurityProperty
   PerformanceProperty <|-- StructuralProperty
   PerformanceProperty <|-- ThermalProperty
+  Entity *-- PerformanceProperty
 ```
-<!-- diagram:entity-overview end -->
-
-Interactive full class hierarchy: [schema documentation](https://schema.pragmaticbim.ch/schema/pragmatic-bim.docs.html).
-
-### Three pillars
-
-The contract groups data into three top-level concerns (see [`ContentKind`](schema/enums_schema.yaml) for adapter projection):
-
-1. **Entities** — BIM and project graph (`Entity` subclasses: physical, virtual, context). Normalized IFC performance values stay on `Entity.performance_properties` (not requirements).
-2. **Requirements** — prescriptive records (`Requirement` subclasses) with `requirement_domain`: `performance`, `spatial`, `regulatory`, `brief`.
-3. **Changes** — revision diff records (`Change` subclasses) with `change_type`: `geometry_change`, `property_change`, `requirement_change`, `match_change`, `addition`, `deletion`; optional `change_severity` for magnitude.
-
-Supporting modules: **core**, **performance** (entity property facets), **enums**, **enum localizations**, **elements physical/virtual**, **changes** helpers (`StateRef`, `PropertyDelta`).
+<!-- diagram:entity-detail end -->
 
 <!-- diagram:requirements-overview begin -->
 ```mermaid

@@ -20,7 +20,8 @@ ROOT_SCHEMA = "00_pragmatic_bim_data_contract.yaml"
 BASE_URL = "https://schema.pragmaticbim.ch"
 README_MARKERS = {
     "module-map": "module-map",
-    "entity-overview": "entity-overview",
+    "pillars-overview": "pillars-overview",
+    "entity-detail": "entity-detail",
     "requirements-overview": "requirements-overview",
     "changes-overview": "changes-overview",
 }
@@ -88,6 +89,17 @@ def module_for_import(schema_dir: Path, import_name: str, modules: list[dict]) -
 def mermaid_label(text: str) -> str:
     escaped = text.replace('"', "'")
     return f'["{escaped}"]'
+
+
+def render_pillars_overview() -> str:
+    lines = [
+        "flowchart TB",
+        '  Root["Pragmatic BIM Data Contract"]',
+        '  Root --> Entity["Entities"]',
+        '  Root --> Requirement["Requirements"]',
+        '  Root --> Change["Changes"]',
+    ]
+    return "\n".join(lines) + "\n"
 
 
 def render_module_map(modules_in_root: list[dict], *, interactive: bool = False) -> str:
@@ -159,19 +171,6 @@ def render_class_diagram_mixed(
     return "\n".join(lines) + "\n"
 
 
-def nodes_in_subtrees(parents: dict[str, str], roots: list[str]) -> set[str]:
-    nodes: set[str] = set(roots)
-    for root in roots:
-        nodes |= {child for child, parent in subtree_edges(parents, root)}
-    return nodes
-
-
-def filter_inheritance_edges(
-    edges: set[tuple[str, str]], allowed: set[str]
-) -> set[tuple[str, str]]:
-    return {(child, parent) for child, parent in edges if child in allowed and parent in allowed}
-
-
 def load_schema_doc(schema_dir: Path, import_name: str) -> dict:
     schema_file = schema_dir / f"{import_name}.yaml"
     return yaml.safe_load(schema_file.read_text(encoding="utf-8")) or {}
@@ -238,55 +237,6 @@ def subtree_edges(parents: dict[str, str], root: str) -> set[tuple[str, str]]:
     return edges
 
 
-def all_is_a_edges(parents: dict[str, str]) -> set[tuple[str, str]]:
-    known = set(parents.keys())
-    for parent in parents.values():
-        known.add(parent)
-    edges: set[tuple[str, str]] = set()
-    for child, parent in parents.items():
-        if parent in known or parent in parents.values():
-            edges.add((child, parent))
-    return edges
-
-
-def shallow_is_a_edges(parents: dict[str, str], max_depth: int = 2) -> set[tuple[str, str]]:
-    known = set(parents.keys())
-    for parent in parents.values():
-        known.add(parent)
-
-    children: dict[str, list[str]] = {}
-    for child, parent in parents.items():
-        children.setdefault(parent, []).append(child)
-
-    roots = sorted(
-        name
-        for name in known
-        if parents.get(name) not in known
-    )
-
-    included: set[str] = set()
-    depth_by_node: dict[str, int] = {}
-
-    def visit(name: str, depth: int) -> None:
-        if name in depth_by_node and depth_by_node[name] <= depth:
-            return
-        depth_by_node[name] = depth
-        included.add(name)
-        if depth >= max_depth:
-            return
-        for child in sorted(children.get(name, [])):
-            visit(child, depth + 1)
-
-    for root in roots:
-        visit(root, 0)
-
-    edges: set[tuple[str, str]] = set()
-    for child, parent in parents.items():
-        if child in included and parent in included:
-            edges.add((child, parent))
-    return edges
-
-
 def module_class_edges(schema_dir: Path, import_name: str, parents: dict[str, str]) -> set[tuple[str, str]]:
     schema_file = schema_dir / f"{import_name}.yaml"
     if not schema_file.exists():
@@ -319,9 +269,8 @@ def import_name_for_slug(schema_dir: Path, slug: str) -> str | None:
 
 def render_docs_preamble(
     module_map: str,
-    entity_shallow: str,
-    entity_branch: str,
-    performance_branch: str,
+    pillars_overview: str,
+    entity_detail: str,
     requirements_branch: str,
     changes_branch: str,
 ) -> str:
@@ -333,15 +282,13 @@ def render_docs_preamble(
         "for interactive class pages.\n\n"
         "### Module map\n\n"
         f"```mermaid\n{module_map.strip()}\n```\n\n"
-        "### Entity hierarchy (overview)\n\n"
-        f"```mermaid\n{entity_shallow.strip()}\n```\n\n"
-        "### Entity model\n\n"
-        f"```mermaid\n{entity_branch.strip()}\n```\n\n"
-        "### Entity performance properties\n\n"
-        f"```mermaid\n{performance_branch.strip()}\n```\n\n"
-        "### Requirements\n\n"
+        "### Three pillars (overview)\n\n"
+        f"```mermaid\n{pillars_overview.strip()}\n```\n\n"
+        "### Entities (detail)\n\n"
+        f"```mermaid\n{entity_detail.strip()}\n```\n\n"
+        "### Requirements (detail)\n\n"
         f"```mermaid\n{requirements_branch.strip()}\n```\n\n"
-        "### Changes\n\n"
+        "### Changes (detail)\n\n"
         f"```mermaid\n{changes_branch.strip()}\n```\n\n"
     )
 
@@ -389,13 +336,16 @@ def collect_outputs(schema_dir: Path) -> dict[str, str]:
 
     module_map = render_module_map(modules_in_root, interactive=False)
     module_map_interactive = render_module_map(modules_in_root, interactive=True)
-    all_inheritance = all_is_a_edges(parents)
-    entity_nodes = nodes_in_subtrees(parents, [ENTITY_ROOT, PERFORMANCE_ROOT])
-    entity_full = render_class_diagram(filter_inheritance_edges(all_inheritance, entity_nodes))
-    entity_readme = render_class_diagram(
-        filter_inheritance_edges(shallow_is_a_edges(parents, max_depth=2), entity_nodes)
+    pillars_overview = render_pillars_overview()
+    entity_inheritance = subtree_edges(parents, ENTITY_ROOT)
+    performance_inheritance = subtree_edges(parents, PERFORMANCE_ROOT)
+    entity_composition = {
+        (PERFORMANCE_ROOT, ENTITY_ROOT),
+    }
+    entity_detail = render_class_diagram_mixed(
+        entity_inheritance | performance_inheritance,
+        entity_composition,
     )
-    entity_branch = render_class_diagram(subtree_edges(parents, ENTITY_ROOT))
     performance_branch = render_class_diagram(subtree_edges(parents, PERFORMANCE_ROOT))
     requirements_branch = render_class_diagram(subtree_edges(parents, REQUIREMENT_ROOT))
     change_inheritance = subtree_edges(parents, CHANGE_ROOT)
@@ -405,17 +355,15 @@ def collect_outputs(schema_dir: Path) -> dict[str, str]:
     outputs: dict[str, str] = {
         "module-map.mmd": module_map,
         "module-map-interactive.mmd": module_map_interactive,
-        "entity-overview-full.mmd": entity_full,
-        "entity-overview-readme.mmd": entity_readme,
-        "entity-overview-entity.mmd": entity_branch,
+        "pillars-overview.mmd": pillars_overview,
+        "entity-detail.mmd": entity_detail,
         "entity-overview-performance.mmd": performance_branch,
         "entity-overview-requirements.mmd": requirements_branch,
         "entity-overview-changes.mmd": changes_branch,
         "docs-preamble.md": render_docs_preamble(
             module_map,
-            entity_readme,
-            entity_branch,
-            performance_branch,
+            pillars_overview,
+            entity_detail,
             requirements_branch,
             changes_branch,
         ),
@@ -483,7 +431,8 @@ def generate(
                     tmp_readme,
                     {
                         "module-map": outputs["module-map.mmd"],
-                        "entity-overview": outputs["entity-overview-readme.mmd"],
+                        "pillars-overview": outputs["pillars-overview.mmd"],
+                        "entity-detail": outputs["entity-detail.mmd"],
                         "requirements-overview": outputs["entity-overview-requirements.mmd"],
                         "changes-overview": outputs["entity-overview-changes.mmd"],
                     },
@@ -518,7 +467,8 @@ def generate(
             readme_path,
             {
                 "module-map": outputs["module-map.mmd"],
-                "entity-overview": outputs["entity-overview-readme.mmd"],
+                "pillars-overview": outputs["pillars-overview.mmd"],
+                "entity-detail": outputs["entity-detail.mmd"],
                 "requirements-overview": outputs["entity-overview-requirements.mmd"],
                 "changes-overview": outputs["entity-overview-changes.mmd"],
             },
