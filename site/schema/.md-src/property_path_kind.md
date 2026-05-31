@@ -25,7 +25,8 @@ URI: [pbs:property_path_kind](https://schema.pragmaticbim.ch/property_path_kind)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [PropertyDelta](PropertyDelta.md) | Field-level difference between two revision states. Supports IFC attributes, PropertySets, schema slots, document fields, and text spans. |  no  |
+| [PropertyChange](PropertyChange.md) | Attribute, PropertySet, schema slot, or document field change. |  yes  |
+| [RequirementChange](RequirementChange.md) | Change to a requirement record or its fields. |  no  |
 
 
 
@@ -39,7 +40,7 @@ URI: [pbs:property_path_kind](https://schema.pragmaticbim.ch/property_path_kind)
 | Property | Value |
 | --- | --- |
 | Range | [PropertyPathKind](PropertyPathKind.md) |
-| Domain Of | [PropertyDelta](PropertyDelta.md) |
+| Domain Of | [PropertyChange](PropertyChange.md), [RequirementChange](RequirementChange.md) |
 
 ### Cardinality and Requirements
 
@@ -89,7 +90,8 @@ description: Classification of the property path for downstream diff interpretat
 from_schema: https://schema.pragmaticbim.ch
 rank: 1000
 domain_of:
-- PropertyDelta
+- PropertyChange
+- RequirementChange
 range: PropertyPathKind
 required: true
 

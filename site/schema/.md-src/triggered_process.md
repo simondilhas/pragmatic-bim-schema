@@ -25,7 +25,7 @@ URI: [pbs:triggered_process](https://schema.pragmaticbim.ch/triggered_process)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Change](Change.md) | Detected difference for one subject between two revisions (content_kind change). Supports IFC model diffs, document/text diffs, and schema-entity field changes. |  no  |
+| [Change](Change.md) | Detected difference for one subject between two revisions (content_kind change). Supports IFC model diffs, document/text diffs, and schema-entity field changes. Use change_type together with the concrete subclass for interpretation. |  no  |
 | [PropertyChange](PropertyChange.md) | Attribute, PropertySet, schema slot, or document field change. |  no  |
 | [GeometryChange](GeometryChange.md) | Geometry or representation change for a subject. |  no  |
 | [RequirementChange](RequirementChange.md) | Change to a requirement record or its fields. |  no  |

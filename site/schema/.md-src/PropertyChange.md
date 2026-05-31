@@ -34,24 +34,26 @@ URI: [pbs:PropertyChange](https://schema.pragmaticbim.ch/PropertyChange)
         click ChangeSeverity href "./ChangeSeverity.html"
       PropertyChange : change_source
       PropertyChange : change_type
+        PropertyChange --> "1" ChangeType : change_type
+        click ChangeType href "./ChangeType.html"
       PropertyChange : detected_at
       PropertyChange : document_storage_link
       PropertyChange : from_revision
-      PropertyChange : from_state_ref
-        PropertyChange --> "0..1" StateRef : from_state_ref
-        click StateRef href "./StateRef.html"
+      PropertyChange : from_value
       PropertyChange : id
+      PropertyChange : ifc_attribute_name
       PropertyChange : ifc_global_id
       PropertyChange : intent_verdict
         PropertyChange --> "0..1" ChangeIntentVerdict : intent_verdict
         click ChangeIntentVerdict href "./ChangeIntentVerdict.html"
-      PropertyChange : property_delta
-        PropertyChange --> "*" PropertyDelta : property_delta
-        click PropertyDelta href "./PropertyDelta.html"
+      PropertyChange : property_path
+      PropertyChange : property_path_kind
+        PropertyChange --> "1" PropertyPathKind : property_path_kind
+        click PropertyPathKind href "./PropertyPathKind.html"
+      PropertyChange : source_property
+      PropertyChange : source_pset
       PropertyChange : to_revision
-      PropertyChange : to_state_ref
-        PropertyChange --> "0..1" StateRef : to_state_ref
-        click StateRef href "./StateRef.html"
+      PropertyChange : to_value
       PropertyChange : triggered_process
       PropertyChange : triggered_task
 ```
@@ -76,9 +78,15 @@ URI: [pbs:PropertyChange](https://schema.pragmaticbim.ch/PropertyChange)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [property_delta](property_delta.md) | * <br/> [PropertyDelta](PropertyDelta.md) | Field-level differences detected between the two revision states. | direct |
+| [property_path](property_path.md) | 1 <br/> [String](String.md) | Canonical path to the changed field. Examples: Pset_WallCommon.FireRating, IfcWall.Name, description, section.4.2.requirement_3, body:char_offset:1204-1389. | direct |
+| [property_path_kind](property_path_kind.md) | 1 <br/> [PropertyPathKind](PropertyPathKind.md) | Classification of the property path for downstream diff interpretation. | direct |
+| [from_value](from_value.md) | 0..1 <br/> [String](String.md) | Prior value serialized as text. Absent or null for new subjects or fields. | direct |
+| [to_value](to_value.md) | 0..1 <br/> [String](String.md) | New value serialized as text. Absent or null for deleted subjects or fields. | direct |
+| [source_pset](source_pset.md) | 0..1 <br/> [String](String.md) | IFC PropertySet name when property_path_kind is ifc_pset. | direct |
+| [source_property](source_property.md) | 0..1 <br/> [String](String.md) | IFC property name within the PropertySet when property_path_kind is ifc_pset. | direct |
+| [ifc_attribute_name](ifc_attribute_name.md) | 0..1 <br/> [String](String.md) | IFC attribute name when property_path_kind is ifc_attribute (for example Name, GlobalId). | direct |
 | [id](id.md) | 1 <br/> [String](String.md) | Unique local identifier. | [Change](Change.md) |
-| [change_type](change_type.md) | 1 <br/> [String](String.md) | Category of change detected between two revisions. | [Change](Change.md) |
+| [change_type](change_type.md) | 1 <br/> [ChangeType](ChangeType.md) | Category of change detected between two revisions. | [Change](Change.md) |
 | [change_severity](change_severity.md) | 0..1 <br/> [ChangeSeverity](ChangeSeverity.md) | Optional severity independent of change type. | [Change](Change.md) |
 | [intent_verdict](intent_verdict.md) | 0..1 <br/> [ChangeIntentVerdict](ChangeIntentVerdict.md) | Intent stability verdict from an automated judge (for example iterthink STABLE/NEW). | [Change](Change.md) |
 | [affected_subject_id](affected_subject_id.md) | 1 <br/> [String](String.md) | Identifier of the changed subject (entity id, document id, or external key). | [Change](Change.md) |
@@ -88,8 +96,6 @@ URI: [pbs:PropertyChange](https://schema.pragmaticbim.ch/PropertyChange)
 | [document_storage_link](document_storage_link.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | Document location when the subject is or embeds a Document. | [Change](Change.md) |
 | [from_revision](from_revision.md) | 1 <br/> [Integer](Integer.md) | Source revision number for this change. | [Change](Change.md) |
 | [to_revision](to_revision.md) | 1 <br/> [Integer](Integer.md) | Target revision number for this change. | [Change](Change.md) |
-| [from_state_ref](from_state_ref.md) | 0..1 <br/> [StateRef](StateRef.md) | Content state pointer at the source revision. | [Change](Change.md) |
-| [to_state_ref](to_state_ref.md) | 0..1 <br/> [StateRef](StateRef.md) | Content state pointer at the target revision. | [Change](Change.md) |
 | [triggered_task](triggered_task.md) | 0..1 <br/> [String](String.md) | Id of a Task record that this change triggered or should trigger. | [Change](Change.md) |
 | [triggered_process](triggered_process.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | External workflow process URI (for example yourcompanyos process instance). | [Change](Change.md) |
 | [detected_at](detected_at.md) | 0..1 <br/> [Datetime](Datetime.md) | Timestamp when this change was detected. | [Change](Change.md) |
@@ -151,12 +157,27 @@ exact_mappings:
 - prov:Activity
 is_a: Change
 slots:
-- property_delta
+- property_path
+- property_path_kind
+- from_value
+- to_value
+- source_pset
+- source_property
+- ifc_attribute_name
 slot_usage:
-  change_type:
-    name: change_type
-    range: string
-    equals_string: property_change
+  property_path:
+    name: property_path
+    required: true
+  property_path_kind:
+    name: property_path_kind
+    required: true
+  source_pset:
+    name: source_pset
+    description: IFC PropertySet name when property_path_kind is ifc_pset.
+  source_property:
+    name: source_property
+    description: IFC property name within the PropertySet when property_path_kind
+      is ifc_pset.
 class_uri: pbs:PropertyChange
 
 ```
@@ -173,23 +194,98 @@ exact_mappings:
 - prov:Activity
 is_a: Change
 slot_usage:
-  change_type:
-    name: change_type
-    range: string
-    equals_string: property_change
+  property_path:
+    name: property_path
+    required: true
+  property_path_kind:
+    name: property_path_kind
+    required: true
+  source_pset:
+    name: source_pset
+    description: IFC PropertySet name when property_path_kind is ifc_pset.
+  source_property:
+    name: source_property
+    description: IFC property name within the PropertySet when property_path_kind
+      is ifc_pset.
 attributes:
-  property_delta:
-    name: property_delta
-    description: Field-level differences detected between the two revision states.
+  property_path:
+    name: property_path
+    description: 'Canonical path to the changed field. Examples: Pset_WallCommon.FireRating,
+      IfcWall.Name, description, section.4.2.requirement_3, body:char_offset:1204-1389.
+
+      '
     from_schema: https://schema.pragmaticbim.ch
     rank: 1000
     owner: PropertyChange
     domain_of:
     - PropertyChange
     - RequirementChange
-    range: PropertyDelta
-    multivalued: true
-    inlined: true
+    range: string
+    required: true
+  property_path_kind:
+    name: property_path_kind
+    description: Classification of the property path for downstream diff interpretation.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: PropertyChange
+    domain_of:
+    - PropertyChange
+    - RequirementChange
+    range: PropertyPathKind
+    required: true
+  from_value:
+    name: from_value
+    description: Prior value serialized as text. Absent or null for new subjects or
+      fields.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: PropertyChange
+    domain_of:
+    - PropertyChange
+    - RequirementChange
+    range: string
+  to_value:
+    name: to_value
+    description: New value serialized as text. Absent or null for deleted subjects
+      or fields.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: PropertyChange
+    domain_of:
+    - PropertyChange
+    - RequirementChange
+    range: string
+  source_pset:
+    name: source_pset
+    description: IFC PropertySet name when property_path_kind is ifc_pset.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: PropertyChange
+    domain_of:
+    - PerformanceProperty
+    - PropertyChange
+    range: string
+  source_property:
+    name: source_property
+    description: IFC property name within the PropertySet when property_path_kind
+      is ifc_pset.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: PropertyChange
+    domain_of:
+    - PerformanceProperty
+    - PropertyChange
+    range: string
+  ifc_attribute_name:
+    name: ifc_attribute_name
+    description: IFC attribute name when property_path_kind is ifc_attribute (for
+      example Name, GlobalId).
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: PropertyChange
+    domain_of:
+    - PropertyChange
+    range: string
   id:
     name: id
     description: Unique local identifier.
@@ -214,9 +310,8 @@ attributes:
     owner: PropertyChange
     domain_of:
     - Change
-    range: string
+    range: ChangeType
     required: true
-    equals_string: property_change
   change_severity:
     name: change_severity
     description: Optional severity independent of change type.
@@ -316,26 +411,6 @@ attributes:
     range: integer
     required: true
     minimum_value: 0
-  from_state_ref:
-    name: from_state_ref
-    description: Content state pointer at the source revision.
-    from_schema: https://schema.pragmaticbim.ch
-    rank: 1000
-    owner: PropertyChange
-    domain_of:
-    - Change
-    range: StateRef
-    inlined: true
-  to_state_ref:
-    name: to_state_ref
-    description: Content state pointer at the target revision.
-    from_schema: https://schema.pragmaticbim.ch
-    rank: 1000
-    owner: PropertyChange
-    domain_of:
-    - Change
-    range: StateRef
-    inlined: true
   triggered_task:
     name: triggered_task
     description: Id of a Task record that this change triggered or should trigger.

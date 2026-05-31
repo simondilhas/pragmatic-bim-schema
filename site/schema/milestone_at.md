@@ -6,7 +6,7 @@ search:
 # Slot: milestone_at 
 
 
-_Target timestamp for the milestone checkpoint._
+_Target timestamp for a zero-duration milestone checkpoint._
 
 
 
@@ -25,7 +25,7 @@ URI: [pbs:milestone_at](https://schema.pragmaticbim.ch/milestone_at)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Milestone](Milestone.md) | Zero-duration checkpoint or delivery target within a time plan. |  no  |
+| [TimeRecord](TimeRecord.md) | Planned work record with baseline and actual dates, optionally linked to model entities and a time plan. — Set milestone_at to mark as a zero-duration checkpoint. — Populate component_time_items to act as a plan container. |  no  |
 
 
 
@@ -39,7 +39,7 @@ URI: [pbs:milestone_at](https://schema.pragmaticbim.ch/milestone_at)
 | Property | Value |
 | --- | --- |
 | Range | [Datetime](Datetime.md) |
-| Domain Of | [Milestone](Milestone.md) |
+| Domain Of | [TimeRecord](TimeRecord.md) |
 
 ### Cardinality and Requirements
 
@@ -84,11 +84,11 @@ URI: [pbs:milestone_at](https://schema.pragmaticbim.ch/milestone_at)
 <details>
 ```yaml
 name: milestone_at
-description: Target timestamp for the milestone checkpoint.
+description: Target timestamp for a zero-duration milestone checkpoint.
 from_schema: https://schema.pragmaticbim.ch
 rank: 1000
 domain_of:
-- Milestone
+- TimeRecord
 range: datetime
 
 ```

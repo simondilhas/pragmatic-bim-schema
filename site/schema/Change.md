@@ -6,7 +6,7 @@ search:
 # Class: Change 
 
 
-_Detected difference for one subject between two revisions (content_kind change). Supports IFC model diffs, document/text diffs, and schema-entity field changes._
+_Detected difference for one subject between two revisions (content_kind change). Supports IFC model diffs, document/text diffs, and schema-entity field changes. Use change_type together with the concrete subclass for interpretation._
 
 __
 
@@ -53,18 +53,12 @@ URI: [pbs:Change](https://schema.pragmaticbim.ch/Change)
       Change : detected_at
       Change : document_storage_link
       Change : from_revision
-      Change : from_state_ref
-        Change --> "0..1" StateRef : from_state_ref
-        click StateRef href "./StateRef.html"
       Change : id
       Change : ifc_global_id
       Change : intent_verdict
         Change --> "0..1" ChangeIntentVerdict : intent_verdict
         click ChangeIntentVerdict href "./ChangeIntentVerdict.html"
       Change : to_revision
-      Change : to_state_ref
-        Change --> "0..1" StateRef : to_state_ref
-        click StateRef href "./StateRef.html"
       Change : triggered_process
       Change : triggered_task
 ```
@@ -105,8 +99,6 @@ URI: [pbs:Change](https://schema.pragmaticbim.ch/Change)
 | [document_storage_link](document_storage_link.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | Document location when the subject is or embeds a Document. | direct |
 | [from_revision](from_revision.md) | 1 <br/> [Integer](Integer.md) | Source revision number for this change. | direct |
 | [to_revision](to_revision.md) | 1 <br/> [Integer](Integer.md) | Target revision number for this change. | direct |
-| [from_state_ref](from_state_ref.md) | 0..1 <br/> [StateRef](StateRef.md) | Content state pointer at the source revision. | direct |
-| [to_state_ref](to_state_ref.md) | 0..1 <br/> [StateRef](StateRef.md) | Content state pointer at the target revision. | direct |
 | [triggered_task](triggered_task.md) | 0..1 <br/> [String](String.md) | Id of a Task record that this change triggered or should trigger. | direct |
 | [triggered_process](triggered_process.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | External workflow process URI (for example yourcompanyos process instance). | direct |
 | [detected_at](detected_at.md) | 0..1 <br/> [Datetime](Datetime.md) | Timestamp when this change was detected. | direct |
@@ -170,7 +162,7 @@ URI: [pbs:Change](https://schema.pragmaticbim.ch/Change)
 name: Change
 description: 'Detected difference for one subject between two revisions (content_kind
   change). Supports IFC model diffs, document/text diffs, and schema-entity field
-  changes.
+  changes. Use change_type together with the concrete subclass for interpretation.
 
   '
 from_schema: https://schema.pragmaticbim.ch
@@ -187,8 +179,6 @@ slots:
 - document_storage_link
 - from_revision
 - to_revision
-- from_state_ref
-- to_state_ref
 - triggered_task
 - triggered_process
 - detected_at
@@ -200,6 +190,18 @@ slot_usage:
     required: true
   change_type:
     name: change_type
+    required: true
+  affected_subject_id:
+    name: affected_subject_id
+    required: true
+  affected_subject_type:
+    name: affected_subject_type
+    required: true
+  from_revision:
+    name: from_revision
+    required: true
+  to_revision:
+    name: to_revision
     required: true
 class_uri: pbs:Change
 
@@ -213,7 +215,7 @@ class_uri: pbs:Change
 name: Change
 description: 'Detected difference for one subject between two revisions (content_kind
   change). Supports IFC model diffs, document/text diffs, and schema-entity field
-  changes.
+  changes. Use change_type together with the concrete subclass for interpretation.
 
   '
 from_schema: https://schema.pragmaticbim.ch
@@ -225,6 +227,18 @@ slot_usage:
     required: true
   change_type:
     name: change_type
+    required: true
+  affected_subject_id:
+    name: affected_subject_id
+    required: true
+  affected_subject_type:
+    name: affected_subject_type
+    required: true
+  from_revision:
+    name: from_revision
+    required: true
+  to_revision:
+    name: to_revision
     required: true
 attributes:
   id:
@@ -352,26 +366,6 @@ attributes:
     range: integer
     required: true
     minimum_value: 0
-  from_state_ref:
-    name: from_state_ref
-    description: Content state pointer at the source revision.
-    from_schema: https://schema.pragmaticbim.ch
-    rank: 1000
-    owner: Change
-    domain_of:
-    - Change
-    range: StateRef
-    inlined: true
-  to_state_ref:
-    name: to_state_ref
-    description: Content state pointer at the target revision.
-    from_schema: https://schema.pragmaticbim.ch
-    rank: 1000
-    owner: Change
-    domain_of:
-    - Change
-    range: StateRef
-    inlined: true
   triggered_task:
     name: triggered_task
     description: Id of a Task record that this change triggered or should trigger.

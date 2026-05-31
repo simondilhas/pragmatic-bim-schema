@@ -41,12 +41,9 @@ URI: [pbs:ConnectionVirtual](https://schema.pragmaticbim.ch/ConnectionVirtual)
       ConnectionVirtual : connects_spaces
         ConnectionVirtual --> "*" Space : connects_spaces
         click Space href "./Space.html"
-      ConnectionVirtual : cost_assemblies
-        ConnectionVirtual --> "*" CostAssembly : cost_assemblies
-        click CostAssembly href "./CostAssembly.html"
-      ConnectionVirtual : cost_items
-        ConnectionVirtual --> "*" CostItem : cost_items
-        click CostItem href "./CostItem.html"
+      ConnectionVirtual : cost_records
+        ConnectionVirtual --> "*" CostRecord : cost_records
+        click CostRecord href "./CostRecord.html"
       ConnectionVirtual : created_at
       ConnectionVirtual : decisions
         ConnectionVirtual --> "*" Decision : decisions
@@ -91,12 +88,9 @@ URI: [pbs:ConnectionVirtual](https://schema.pragmaticbim.ch/ConnectionVirtual)
       ConnectionVirtual : tasks
         ConnectionVirtual --> "*" Task : tasks
         click Task href "./Task.html"
-      ConnectionVirtual : time_items
-        ConnectionVirtual --> "*" TimeItem : time_items
-        click TimeItem href "./TimeItem.html"
-      ConnectionVirtual : time_plans
-        ConnectionVirtual --> "*" TimePlan : time_plans
-        click TimePlan href "./TimePlan.html"
+      ConnectionVirtual : time_records
+        ConnectionVirtual --> "*" TimeRecord : time_records
+        click TimeRecord href "./TimeRecord.html"
 ```
 
 
@@ -124,10 +118,8 @@ URI: [pbs:ConnectionVirtual](https://schema.pragmaticbim.ch/ConnectionVirtual)
 | [connects_physical_elements](connects_physical_elements.md) | * <br/> [PhysicalElement](PhysicalElement.md) | Physical elements connected by this virtual connection (for example wall-wall, wall-slab). | direct |
 | [connects_spaces](connects_spaces.md) | * <br/> [Space](Space.md) | Spaces connected by this virtual connection. | direct |
 | [connection_virtual_requirement_drivers](connection_virtual_requirement_drivers.md) | * <br/> [ConnectionRequirementDriver](ConnectionRequirementDriver.md) | Main requirement drivers for this virtual connection. | direct |
-| [cost_items](cost_items.md) | * <br/> [CostItem](CostItem.md) | Cost items associated with this entity. | [VirtualEntity](VirtualEntity.md) |
-| [cost_assemblies](cost_assemblies.md) | * <br/> [CostAssembly](CostAssembly.md) | Aggregated unit prices associated with this entity. | [VirtualEntity](VirtualEntity.md) |
-| [time_items](time_items.md) | * <br/> [TimeItem](TimeItem.md) | Time items associated with this entity. | [VirtualEntity](VirtualEntity.md) |
-| [time_plans](time_plans.md) | * <br/> [TimePlan](TimePlan.md) | Grouped time plans associated with this entity. | [VirtualEntity](VirtualEntity.md) |
+| [cost_records](cost_records.md) | * <br/> [CostRecord](CostRecord.md) | Cost records associated with this entity. | [VirtualEntity](VirtualEntity.md) |
+| [time_records](time_records.md) | * <br/> [TimeRecord](TimeRecord.md) | Time records associated with this entity. | [VirtualEntity](VirtualEntity.md) |
 | [materials](materials.md) | * <br/> [Material](Material.md) | Material definitions associated with this entity. | [VirtualEntity](VirtualEntity.md) |
 | [id](id.md) | 1 <br/> [String](String.md) | Unique local identifier. | [Entity](Entity.md) |
 | [name](name.md) | 1 <br/> [String](String.md) | Default display name. | [Entity](Entity.md) |
@@ -263,48 +255,26 @@ attributes:
     - ConnectionVirtual
     range: ConnectionRequirementDriver
     multivalued: true
-  cost_items:
-    name: cost_items
-    description: Cost items associated with this entity.
+  cost_records:
+    name: cost_records
+    description: Cost records associated with this entity.
     from_schema: https://schema.pragmaticbim.ch
     rank: 1000
     owner: ConnectionVirtual
     domain_of:
     - VirtualEntity
-    range: CostItem
+    range: CostRecord
     multivalued: true
     inlined: false
-  cost_assemblies:
-    name: cost_assemblies
-    description: Aggregated unit prices associated with this entity.
+  time_records:
+    name: time_records
+    description: Time records associated with this entity.
     from_schema: https://schema.pragmaticbim.ch
     rank: 1000
     owner: ConnectionVirtual
     domain_of:
     - VirtualEntity
-    range: CostAssembly
-    multivalued: true
-    inlined: false
-  time_items:
-    name: time_items
-    description: Time items associated with this entity.
-    from_schema: https://schema.pragmaticbim.ch
-    rank: 1000
-    owner: ConnectionVirtual
-    domain_of:
-    - VirtualEntity
-    range: TimeItem
-    multivalued: true
-    inlined: false
-  time_plans:
-    name: time_plans
-    description: Grouped time plans associated with this entity.
-    from_schema: https://schema.pragmaticbim.ch
-    rank: 1000
-    owner: ConnectionVirtual
-    domain_of:
-    - VirtualEntity
-    range: TimePlan
+    range: TimeRecord
     multivalued: true
     inlined: false
   materials:

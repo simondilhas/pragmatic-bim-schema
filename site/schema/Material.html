@@ -417,12 +417,9 @@
       Material : classifications
         Material --&gt; "*" Classification : classifications
         click Classification href "./Classification.html"
-      Material : cost_assemblies
-        Material --&gt; "*" CostAssembly : cost_assemblies
-        click CostAssembly href "./CostAssembly.html"
-      Material : cost_items
-        Material --&gt; "*" CostItem : cost_items
-        click CostItem href "./CostItem.html"
+      Material : cost_records
+        Material --&gt; "*" CostRecord : cost_records
+        click CostRecord href "./CostRecord.html"
       Material : created_at
       Material : decisions
         Material --&gt; "*" Decision : decisions
@@ -469,12 +466,9 @@
       Material : tasks
         Material --&gt; "*" Task : tasks
         click Task href "./Task.html"
-      Material : time_items
-        Material --&gt; "*" TimeItem : time_items
-        click TimeItem href "./TimeItem.html"
-      Material : time_plans
-        Material --&gt; "*" TimePlan : time_plans
-        click TimePlan href "./TimePlan.html"</code></pre>
+      Material : time_records
+        Material --&gt; "*" TimeRecord : time_records
+        click TimeRecord href "./TimeRecord.html"</code></pre>
 <h2 id="inheritance">Inheritance<a class="headerlink" href="#inheritance" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="Entity.html">Entity</a><ul>
@@ -524,27 +518,15 @@
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="cost_items.html">cost_items</a></td>
-<td>* <br/> <a href="CostItem.html">CostItem</a></td>
-<td>Cost items associated with this entity.</td>
+<td><a href="cost_records.html">cost_records</a></td>
+<td>* <br/> <a href="CostRecord.html">CostRecord</a></td>
+<td>Cost records associated with this entity.</td>
 <td><a href="VirtualEntity.html">VirtualEntity</a></td>
 </tr>
 <tr>
-<td><a href="cost_assemblies.html">cost_assemblies</a></td>
-<td>* <br/> <a href="CostAssembly.html">CostAssembly</a></td>
-<td>Aggregated unit prices associated with this entity.</td>
-<td><a href="VirtualEntity.html">VirtualEntity</a></td>
-</tr>
-<tr>
-<td><a href="time_items.html">time_items</a></td>
-<td>* <br/> <a href="TimeItem.html">TimeItem</a></td>
-<td>Time items associated with this entity.</td>
-<td><a href="VirtualEntity.html">VirtualEntity</a></td>
-</tr>
-<tr>
-<td><a href="time_plans.html">time_plans</a></td>
-<td>* <br/> <a href="TimePlan.html">TimePlan</a></td>
-<td>Grouped time plans associated with this entity.</td>
+<td><a href="time_records.html">time_records</a></td>
+<td>* <br/> <a href="TimeRecord.html">TimeRecord</a></td>
+<td>Time records associated with this entity.</td>
 <td><a href="VirtualEntity.html">VirtualEntity</a></td>
 </tr>
 <tr>
@@ -765,49 +747,13 @@
 <td><a href="Material.html">Material</a></td>
 </tr>
 <tr>
-<td><a href="AbstractTimeRecord.html">AbstractTimeRecord</a></td>
+<td><a href="TimeRecord.html">TimeRecord</a></td>
 <td><a href="materials.html">materials</a></td>
 <td>range</td>
 <td><a href="Material.html">Material</a></td>
 </tr>
 <tr>
-<td><a href="TimeItem.html">TimeItem</a></td>
-<td><a href="materials.html">materials</a></td>
-<td>range</td>
-<td><a href="Material.html">Material</a></td>
-</tr>
-<tr>
-<td><a href="Milestone.html">Milestone</a></td>
-<td><a href="materials.html">materials</a></td>
-<td>range</td>
-<td><a href="Material.html">Material</a></td>
-</tr>
-<tr>
-<td><a href="TimePlan.html">TimePlan</a></td>
-<td><a href="materials.html">materials</a></td>
-<td>range</td>
-<td><a href="Material.html">Material</a></td>
-</tr>
-<tr>
-<td><a href="TimeDependency.html">TimeDependency</a></td>
-<td><a href="materials.html">materials</a></td>
-<td>range</td>
-<td><a href="Material.html">Material</a></td>
-</tr>
-<tr>
-<td><a href="AbstractCostRecord.html">AbstractCostRecord</a></td>
-<td><a href="materials.html">materials</a></td>
-<td>range</td>
-<td><a href="Material.html">Material</a></td>
-</tr>
-<tr>
-<td><a href="CostItem.html">CostItem</a></td>
-<td><a href="materials.html">materials</a></td>
-<td>range</td>
-<td><a href="Material.html">Material</a></td>
-</tr>
-<tr>
-<td><a href="CostAssembly.html">CostAssembly</a></td>
+<td><a href="CostRecord.html">CostRecord</a></td>
 <td><a href="materials.html">materials</a></td>
 <td>range</td>
 <td><a href="Material.html">Material</a></td>
@@ -884,48 +830,26 @@
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Material</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
-<span class="w">  </span><span class="nt">cost_items</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cost_items</span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Cost items associated with this entity.</span>
+<span class="w">  </span><span class="nt">cost_records</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cost_records</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Cost records associated with this entity.</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Material</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">VirtualEntity</span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CostItem</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CostRecord</span>
 <span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">    </span><span class="nt">inlined</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
-<span class="w">  </span><span class="nt">cost_assemblies</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cost_assemblies</span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Aggregated unit prices associated with this entity.</span>
+<span class="w">  </span><span class="nt">time_records</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">time_records</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Time records associated with this entity.</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Material</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">VirtualEntity</span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CostAssembly</span>
-<span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">    </span><span class="nt">inlined</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
-<span class="w">  </span><span class="nt">time_items</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">time_items</span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Time items associated with this entity.</span>
-<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
-<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
-<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Material</span>
-<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">VirtualEntity</span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TimeItem</span>
-<span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">    </span><span class="nt">inlined</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
-<span class="w">  </span><span class="nt">time_plans</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">time_plans</span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Grouped time plans associated with this entity.</span>
-<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
-<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
-<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Material</span>
-<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">VirtualEntity</span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TimePlan</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TimeRecord</span>
 <span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">    </span><span class="nt">inlined</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 <span class="w">  </span><span class="nt">materials</span><span class="p">:</span>

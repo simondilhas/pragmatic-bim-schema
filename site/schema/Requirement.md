@@ -6,7 +6,7 @@ search:
 # Class: Requirement 
 
 
-_Prescriptive requirement record (content_kind requirement). Not an Entity; may apply to one or more model entities._
+_Prescriptive requirement record (content_kind requirement). Not an Entity; may apply to one or more model entities. Domain is discriminated by concrete subclass (PerformanceRequirement, SpatialRequirement, etc.), not a separate slot._
 
 __
 
@@ -42,9 +42,6 @@ URI: [pbs:Requirement](https://schema.pragmaticbim.ch/Requirement)
       Requirement : description
       Requirement : id
       Requirement : name
-      Requirement : requirement_domain
-        Requirement --> "1" RequirementDomain : requirement_domain
-        click RequirementDomain href "./RequirementDomain.html"
       Requirement : source_document
       Requirement : status
         Requirement --> "0..1" StatusType : status
@@ -77,7 +74,6 @@ URI: [pbs:Requirement](https://schema.pragmaticbim.ch/Requirement)
 | [id](id.md) | 1 <br/> [String](String.md) | Unique local identifier. | direct |
 | [name](name.md) | 1 <br/> [String](String.md) | Default display name. | direct |
 | [description](description.md) | 0..1 <br/> [String](String.md) | Default description text. | direct |
-| [requirement_domain](requirement_domain.md) | 1 <br/> [RequirementDomain](RequirementDomain.md) | Domain of this requirement record (performance, spatial, regulatory, brief). | direct |
 | [applies_to_entities](applies_to_entities.md) | * <br/> [Entity](Entity.md) | Model entities this record applies to (requirements, cost items, schedule items, etc.). | direct |
 | [source_document](source_document.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | Optional URI to norm, brief, or source document backing this requirement. | direct |
 | [status](status.md) | 0..1 <br/> [StatusType](StatusType.md) | Lifecycle or QA status. | direct |
@@ -132,7 +128,8 @@ URI: [pbs:Requirement](https://schema.pragmaticbim.ch/Requirement)
 ```yaml
 name: Requirement
 description: 'Prescriptive requirement record (content_kind requirement). Not an Entity;
-  may apply to one or more model entities.
+  may apply to one or more model entities. Domain is discriminated by concrete subclass
+  (PerformanceRequirement, SpatialRequirement, etc.), not a separate slot.
 
   '
 from_schema: https://schema.pragmaticbim.ch
@@ -141,7 +138,6 @@ slots:
 - id
 - name
 - description
-- requirement_domain
 - applies_to_entities
 - source_document
 - status
@@ -161,7 +157,8 @@ class_uri: pbs:Requirement
 ```yaml
 name: Requirement
 description: 'Prescriptive requirement record (content_kind requirement). Not an Entity;
-  may apply to one or more model entities.
+  may apply to one or more model entities. Domain is discriminated by concrete subclass
+  (PerformanceRequirement, SpatialRequirement, etc.), not a separate slot.
 
   '
 from_schema: https://schema.pragmaticbim.ch
@@ -209,17 +206,6 @@ attributes:
     - Entity
     - Requirement
     range: string
-  requirement_domain:
-    name: requirement_domain
-    description: Domain of this requirement record (performance, spatial, regulatory,
-      brief).
-    from_schema: https://schema.pragmaticbim.ch
-    rank: 1000
-    owner: Requirement
-    domain_of:
-    - Requirement
-    range: RequirementDomain
-    required: true
   applies_to_entities:
     name: applies_to_entities
     description: Model entities this record applies to (requirements, cost items,
@@ -229,8 +215,8 @@ attributes:
     owner: Requirement
     domain_of:
     - Requirement
-    - AbstractTimeRecord
-    - AbstractCostRecord
+    - TimeRecord
+    - CostRecord
     range: Entity
     multivalued: true
     inlined: false

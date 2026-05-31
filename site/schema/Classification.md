@@ -89,14 +89,8 @@ URI: [pbs:Classification](https://schema.pragmaticbim.ch/Classification)
 | [Space](Space.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
 | [System](System.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
 | [ConnectionVirtual](ConnectionVirtual.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
-| [AbstractTimeRecord](AbstractTimeRecord.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
-| [TimeItem](TimeItem.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
-| [Milestone](Milestone.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
-| [TimePlan](TimePlan.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
-| [TimeDependency](TimeDependency.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
-| [AbstractCostRecord](AbstractCostRecord.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
-| [CostItem](CostItem.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
-| [CostAssembly](CostAssembly.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
+| [TimeRecord](TimeRecord.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
+| [CostRecord](CostRecord.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
 | [Material](Material.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
 
 

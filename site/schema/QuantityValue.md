@@ -86,14 +86,8 @@ URI: [pbs:QuantityValue](https://schema.pragmaticbim.ch/QuantityValue)
 | [Space](Space.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
 | [System](System.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
 | [ConnectionVirtual](ConnectionVirtual.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
-| [AbstractTimeRecord](AbstractTimeRecord.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
-| [TimeItem](TimeItem.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
-| [Milestone](Milestone.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
-| [TimePlan](TimePlan.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
-| [TimeDependency](TimeDependency.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
-| [AbstractCostRecord](AbstractCostRecord.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
-| [CostItem](CostItem.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
-| [CostAssembly](CostAssembly.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
+| [TimeRecord](TimeRecord.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
+| [CostRecord](CostRecord.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
 | [Material](Material.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
 
 

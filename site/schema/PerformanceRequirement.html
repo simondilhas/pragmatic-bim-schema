@@ -409,7 +409,6 @@
       PerformanceRequirement : description
       PerformanceRequirement : id
       PerformanceRequirement : name
-      PerformanceRequirement : requirement_domain
       PerformanceRequirement : requirement_property_key
       PerformanceRequirement : source_document
       PerformanceRequirement : status
@@ -517,12 +516,6 @@
 <td><a href="Requirement.html">Requirement</a></td>
 </tr>
 <tr>
-<td><a href="requirement_domain.html">requirement_domain</a></td>
-<td>1 <br/> <a href="String.html">String</a></td>
-<td>Domain of this requirement record (performance, spatial, regulatory, brief).</td>
-<td><a href="Requirement.html">Requirement</a></td>
-</tr>
-<tr>
 <td><a href="applies_to_entities.html">applies_to_entities</a></td>
 <td>* <br/> <a href="Entity.html">Entity</a></td>
 <td>Model entities this record applies to (requirements, cost items, schedule items, etc.).</td>
@@ -583,11 +576,6 @@
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">target_value_boolean</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">target_unit</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">target_unit_uri</span>
-<span class="nt">slot_usage</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">requirement_domain</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">requirement_domain</span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
-<span class="w">    </span><span class="nt">equals_string</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">performance</span>
 <span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pbs:PerformanceRequirement</span>
 </code></pre></div>
 </details>
@@ -598,11 +586,6 @@
 <span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">etc.).</span>
 <span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
 <span class="nt">is_a</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Requirement</span>
-<span class="nt">slot_usage</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">requirement_domain</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">requirement_domain</span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
-<span class="w">    </span><span class="nt">equals_string</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">performance</span>
 <span class="nt">attributes</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">requirement_property_key</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">requirement_property_key</span>
@@ -708,18 +691,6 @@
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Entity</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Requirement</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
-<span class="w">  </span><span class="nt">requirement_domain</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">requirement_domain</span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Domain of this requirement record (performance, spatial, regulatory,</span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">brief).</span>
-<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
-<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
-<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PerformanceRequirement</span>
-<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Requirement</span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
-<span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">    </span><span class="nt">equals_string</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">performance</span>
 <span class="w">  </span><span class="nt">applies_to_entities</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">applies_to_entities</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Model entities this record applies to (requirements, cost items,</span>
@@ -729,8 +700,8 @@
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PerformanceRequirement</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Requirement</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AbstractTimeRecord</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AbstractCostRecord</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TimeRecord</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CostRecord</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Entity</span>
 <span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">    </span><span class="nt">inlined</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>

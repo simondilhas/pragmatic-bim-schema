@@ -29,12 +29,9 @@ URI: [pbs:Material](https://schema.pragmaticbim.ch/Material)
       Material : classifications
         Material --> "*" Classification : classifications
         click Classification href "./Classification.html"
-      Material : cost_assemblies
-        Material --> "*" CostAssembly : cost_assemblies
-        click CostAssembly href "./CostAssembly.html"
-      Material : cost_items
-        Material --> "*" CostItem : cost_items
-        click CostItem href "./CostItem.html"
+      Material : cost_records
+        Material --> "*" CostRecord : cost_records
+        click CostRecord href "./CostRecord.html"
       Material : created_at
       Material : decisions
         Material --> "*" Decision : decisions
@@ -81,12 +78,9 @@ URI: [pbs:Material](https://schema.pragmaticbim.ch/Material)
       Material : tasks
         Material --> "*" Task : tasks
         click Task href "./Task.html"
-      Material : time_items
-        Material --> "*" TimeItem : time_items
-        click TimeItem href "./TimeItem.html"
-      Material : time_plans
-        Material --> "*" TimePlan : time_plans
-        click TimePlan href "./TimePlan.html"
+      Material : time_records
+        Material --> "*" TimeRecord : time_records
+        click TimeRecord href "./TimeRecord.html"
 ```
 
 
@@ -112,10 +106,8 @@ URI: [pbs:Material](https://schema.pragmaticbim.ch/Material)
 | ---  | --- | --- | --- |
 | [material_category](material_category.md) | 0..1 <br/> [String](String.md) | Material category label kept intentionally open pending classification-backed modeling. | direct |
 | [material_specification](material_specification.md) | 0..1 <br/> [String](String.md) | Material grade, specification, or product description. | direct |
-| [cost_items](cost_items.md) | * <br/> [CostItem](CostItem.md) | Cost items associated with this entity. | [VirtualEntity](VirtualEntity.md) |
-| [cost_assemblies](cost_assemblies.md) | * <br/> [CostAssembly](CostAssembly.md) | Aggregated unit prices associated with this entity. | [VirtualEntity](VirtualEntity.md) |
-| [time_items](time_items.md) | * <br/> [TimeItem](TimeItem.md) | Time items associated with this entity. | [VirtualEntity](VirtualEntity.md) |
-| [time_plans](time_plans.md) | * <br/> [TimePlan](TimePlan.md) | Grouped time plans associated with this entity. | [VirtualEntity](VirtualEntity.md) |
+| [cost_records](cost_records.md) | * <br/> [CostRecord](CostRecord.md) | Cost records associated with this entity. | [VirtualEntity](VirtualEntity.md) |
+| [time_records](time_records.md) | * <br/> [TimeRecord](TimeRecord.md) | Time records associated with this entity. | [VirtualEntity](VirtualEntity.md) |
 | [materials](materials.md) | * <br/> [Material](Material.md) | Material definitions associated with this entity. | [VirtualEntity](VirtualEntity.md) |
 | [id](id.md) | 1 <br/> [String](String.md) | Unique local identifier. | [Entity](Entity.md) |
 | [name](name.md) | 1 <br/> [String](String.md) | Default display name. | [Entity](Entity.md) |
@@ -159,14 +151,8 @@ URI: [pbs:Material](https://schema.pragmaticbim.ch/Material)
 | [Space](Space.md) | [materials](materials.md) | range | [Material](Material.md) |
 | [System](System.md) | [materials](materials.md) | range | [Material](Material.md) |
 | [ConnectionVirtual](ConnectionVirtual.md) | [materials](materials.md) | range | [Material](Material.md) |
-| [AbstractTimeRecord](AbstractTimeRecord.md) | [materials](materials.md) | range | [Material](Material.md) |
-| [TimeItem](TimeItem.md) | [materials](materials.md) | range | [Material](Material.md) |
-| [Milestone](Milestone.md) | [materials](materials.md) | range | [Material](Material.md) |
-| [TimePlan](TimePlan.md) | [materials](materials.md) | range | [Material](Material.md) |
-| [TimeDependency](TimeDependency.md) | [materials](materials.md) | range | [Material](Material.md) |
-| [AbstractCostRecord](AbstractCostRecord.md) | [materials](materials.md) | range | [Material](Material.md) |
-| [CostItem](CostItem.md) | [materials](materials.md) | range | [Material](Material.md) |
-| [CostAssembly](CostAssembly.md) | [materials](materials.md) | range | [Material](Material.md) |
+| [TimeRecord](TimeRecord.md) | [materials](materials.md) | range | [Material](Material.md) |
+| [CostRecord](CostRecord.md) | [materials](materials.md) | range | [Material](Material.md) |
 | [Material](Material.md) | [materials](materials.md) | range | [Material](Material.md) |
 
 
@@ -254,48 +240,26 @@ attributes:
     domain_of:
     - Material
     range: string
-  cost_items:
-    name: cost_items
-    description: Cost items associated with this entity.
+  cost_records:
+    name: cost_records
+    description: Cost records associated with this entity.
     from_schema: https://schema.pragmaticbim.ch
     rank: 1000
     owner: Material
     domain_of:
     - VirtualEntity
-    range: CostItem
+    range: CostRecord
     multivalued: true
     inlined: false
-  cost_assemblies:
-    name: cost_assemblies
-    description: Aggregated unit prices associated with this entity.
+  time_records:
+    name: time_records
+    description: Time records associated with this entity.
     from_schema: https://schema.pragmaticbim.ch
     rank: 1000
     owner: Material
     domain_of:
     - VirtualEntity
-    range: CostAssembly
-    multivalued: true
-    inlined: false
-  time_items:
-    name: time_items
-    description: Time items associated with this entity.
-    from_schema: https://schema.pragmaticbim.ch
-    rank: 1000
-    owner: Material
-    domain_of:
-    - VirtualEntity
-    range: TimeItem
-    multivalued: true
-    inlined: false
-  time_plans:
-    name: time_plans
-    description: Grouped time plans associated with this entity.
-    from_schema: https://schema.pragmaticbim.ch
-    rank: 1000
-    owner: Material
-    domain_of:
-    - VirtualEntity
-    range: TimePlan
+    range: TimeRecord
     multivalued: true
     inlined: false
   materials:

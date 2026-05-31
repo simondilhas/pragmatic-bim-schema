@@ -27,7 +27,8 @@ URI: [pbs:property_path](https://schema.pragmaticbim.ch/property_path)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [PropertyDelta](PropertyDelta.md) | Field-level difference between two revision states. Supports IFC attributes, PropertySets, schema slots, document fields, and text spans. |  no  |
+| [PropertyChange](PropertyChange.md) | Attribute, PropertySet, schema slot, or document field change. |  yes  |
+| [RequirementChange](RequirementChange.md) | Change to a requirement record or its fields. |  no  |
 
 
 
@@ -41,7 +42,7 @@ URI: [pbs:property_path](https://schema.pragmaticbim.ch/property_path)
 | Property | Value |
 | --- | --- |
 | Range | [String](String.md) |
-| Domain Of | [PropertyDelta](PropertyDelta.md) |
+| Domain Of | [PropertyChange](PropertyChange.md), [RequirementChange](RequirementChange.md) |
 
 ### Cardinality and Requirements
 
@@ -94,7 +95,8 @@ description: 'Canonical path to the changed field. Examples: Pset_WallCommon.Fir
 from_schema: https://schema.pragmaticbim.ch
 rank: 1000
 domain_of:
-- PropertyDelta
+- PropertyChange
+- RequirementChange
 range: string
 required: true
 

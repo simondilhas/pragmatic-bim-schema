@@ -384,7 +384,7 @@
 
 
 <h1 id="slot-time_plan">Slot: time_plan<a class="headerlink" href="#slot-time_plan" title="Permanent link">&para;</a></h1>
-<p><em>Parent time plan this item or dependency belongs to.</em></p>
+<p><em>Parent time plan this record belongs to.</em></p>
 <div>
 <p>URI: <a href="https://schema.pragmaticbim.ch/time_plan">pbs:time_plan</a></p>
 <!-- no inheritance hierarchy -->
@@ -399,18 +399,8 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="TimeItem.html">TimeItem</a></td>
-<td>Planned work item with baseline and actual dates, optionally linked to model entities and a time plan.</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="TimeDependency.html">TimeDependency</a></td>
-<td>Precedence relationship between two time items within a plan, optionally with lag.</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="Milestone.html">Milestone</a></td>
-<td>Zero-duration checkpoint or delivery target within a time plan.</td>
+<td><a href="TimeRecord.html">TimeRecord</a></td>
+<td>Planned work record with baseline and actual dates, optionally linked to model entities and a time plan. — Set milestone_at to mark as a zero-duration checkpoint. — Populate component_time_items to act as a plan container.</td>
 <td>no</td>
 </tr>
 </tbody>
@@ -427,11 +417,11 @@
 <tbody>
 <tr>
 <td>Range</td>
-<td><a href="TimePlan.html">TimePlan</a></td>
+<td><a href="TimeRecord.html">TimeRecord</a></td>
 </tr>
 <tr>
 <td>Domain Of</td>
-<td><a href="TimeItem.html">TimeItem</a>, <a href="TimeDependency.html">TimeDependency</a></td>
+<td><a href="TimeRecord.html">TimeRecord</a></td>
 </tr>
 </tbody>
 </table>
@@ -477,13 +467,12 @@
 <h2 id="linkml-source">LinkML Source<a class="headerlink" href="#linkml-source" title="Permanent link">&para;</a></h2>
 <details>
 <div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">time_plan</span>
-<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Parent time plan this item or dependency belongs to.</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Parent time plan this record belongs to.</span>
 <span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="nt">domain_of</span><span class="p">:</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TimeItem</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TimeDependency</span>
-<span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TimePlan</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TimeRecord</span>
+<span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TimeRecord</span>
 <span class="nt">inlined</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 </code></pre></div>
 </details>

@@ -25,7 +25,8 @@ URI: [pbs:to_value](https://schema.pragmaticbim.ch/to_value)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [PropertyDelta](PropertyDelta.md) | Field-level difference between two revision states. Supports IFC attributes, PropertySets, schema slots, document fields, and text spans. |  no  |
+| [PropertyChange](PropertyChange.md) | Attribute, PropertySet, schema slot, or document field change. |  no  |
+| [RequirementChange](RequirementChange.md) | Change to a requirement record or its fields. |  no  |
 
 
 
@@ -39,7 +40,7 @@ URI: [pbs:to_value](https://schema.pragmaticbim.ch/to_value)
 | Property | Value |
 | --- | --- |
 | Range | [String](String.md) |
-| Domain Of | [PropertyDelta](PropertyDelta.md) |
+| Domain Of | [PropertyChange](PropertyChange.md), [RequirementChange](RequirementChange.md) |
 
 ### Cardinality and Requirements
 
@@ -89,7 +90,8 @@ description: New value serialized as text. Absent or null for deleted subjects o
 from_schema: https://schema.pragmaticbim.ch
 rank: 1000
 domain_of:
-- PropertyDelta
+- PropertyChange
+- RequirementChange
 range: string
 
 ```

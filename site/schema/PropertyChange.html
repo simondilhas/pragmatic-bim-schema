@@ -411,24 +411,26 @@
         click ChangeSeverity href "./ChangeSeverity.html"
       PropertyChange : change_source
       PropertyChange : change_type
+        PropertyChange --&gt; "1" ChangeType : change_type
+        click ChangeType href "./ChangeType.html"
       PropertyChange : detected_at
       PropertyChange : document_storage_link
       PropertyChange : from_revision
-      PropertyChange : from_state_ref
-        PropertyChange --&gt; "0..1" StateRef : from_state_ref
-        click StateRef href "./StateRef.html"
+      PropertyChange : from_value
       PropertyChange : id
+      PropertyChange : ifc_attribute_name
       PropertyChange : ifc_global_id
       PropertyChange : intent_verdict
         PropertyChange --&gt; "0..1" ChangeIntentVerdict : intent_verdict
         click ChangeIntentVerdict href "./ChangeIntentVerdict.html"
-      PropertyChange : property_delta
-        PropertyChange --&gt; "*" PropertyDelta : property_delta
-        click PropertyDelta href "./PropertyDelta.html"
+      PropertyChange : property_path
+      PropertyChange : property_path_kind
+        PropertyChange --&gt; "1" PropertyPathKind : property_path_kind
+        click PropertyPathKind href "./PropertyPathKind.html"
+      PropertyChange : source_property
+      PropertyChange : source_pset
       PropertyChange : to_revision
-      PropertyChange : to_state_ref
-        PropertyChange --&gt; "0..1" StateRef : to_state_ref
-        click StateRef href "./StateRef.html"
+      PropertyChange : to_value
       PropertyChange : triggered_process
       PropertyChange : triggered_task</code></pre>
 <h2 id="inheritance">Inheritance<a class="headerlink" href="#inheritance" title="Permanent link">&para;</a></h2>
@@ -465,9 +467,45 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="property_delta.html">property_delta</a></td>
-<td>* <br/> <a href="PropertyDelta.html">PropertyDelta</a></td>
-<td>Field-level differences detected between the two revision states.</td>
+<td><a href="property_path.html">property_path</a></td>
+<td>1 <br/> <a href="String.html">String</a></td>
+<td>Canonical path to the changed field. Examples: Pset_WallCommon.FireRating, IfcWall.Name, description, section.4.2.requirement_3, body:char_offset:1204-1389.</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="property_path_kind.html">property_path_kind</a></td>
+<td>1 <br/> <a href="PropertyPathKind.html">PropertyPathKind</a></td>
+<td>Classification of the property path for downstream diff interpretation.</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="from_value.html">from_value</a></td>
+<td>0..1 <br/> <a href="String.html">String</a></td>
+<td>Prior value serialized as text. Absent or null for new subjects or fields.</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="to_value.html">to_value</a></td>
+<td>0..1 <br/> <a href="String.html">String</a></td>
+<td>New value serialized as text. Absent or null for deleted subjects or fields.</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="source_pset.html">source_pset</a></td>
+<td>0..1 <br/> <a href="String.html">String</a></td>
+<td>IFC PropertySet name when property_path_kind is ifc_pset.</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="source_property.html">source_property</a></td>
+<td>0..1 <br/> <a href="String.html">String</a></td>
+<td>IFC property name within the PropertySet when property_path_kind is ifc_pset.</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="ifc_attribute_name.html">ifc_attribute_name</a></td>
+<td>0..1 <br/> <a href="String.html">String</a></td>
+<td>IFC attribute name when property_path_kind is ifc_attribute (for example Name, GlobalId).</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -478,7 +516,7 @@
 </tr>
 <tr>
 <td><a href="change_type.html">change_type</a></td>
-<td>1 <br/> <a href="String.html">String</a></td>
+<td>1 <br/> <a href="ChangeType.html">ChangeType</a></td>
 <td>Category of change detected between two revisions.</td>
 <td><a href="Change.html">Change</a></td>
 </tr>
@@ -534,18 +572,6 @@
 <td><a href="to_revision.html">to_revision</a></td>
 <td>1 <br/> <a href="Integer.html">Integer</a></td>
 <td>Target revision number for this change.</td>
-<td><a href="Change.html">Change</a></td>
-</tr>
-<tr>
-<td><a href="from_state_ref.html">from_state_ref</a></td>
-<td>0..1 <br/> <a href="StateRef.html">StateRef</a></td>
-<td>Content state pointer at the source revision.</td>
-<td><a href="Change.html">Change</a></td>
-</tr>
-<tr>
-<td><a href="to_state_ref.html">to_state_ref</a></td>
-<td>0..1 <br/> <a href="StateRef.html">StateRef</a></td>
-<td>Content state pointer at the target revision.</td>
 <td><a href="Change.html">Change</a></td>
 </tr>
 <tr>
@@ -613,12 +639,27 @@
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">prov:Activity</span>
 <span class="nt">is_a</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Change</span>
 <span class="nt">slots</span><span class="p">:</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">property_delta</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">property_path</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">property_path_kind</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">from_value</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">to_value</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">source_pset</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">source_property</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ifc_attribute_name</span>
 <span class="nt">slot_usage</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">change_type</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">change_type</span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
-<span class="w">    </span><span class="nt">equals_string</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">property_change</span>
+<span class="w">  </span><span class="nt">property_path</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">property_path</span>
+<span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="nt">property_path_kind</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">property_path_kind</span>
+<span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="nt">source_pset</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">source_pset</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">IFC PropertySet name when property_path_kind is ifc_pset.</span>
+<span class="w">  </span><span class="nt">source_property</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">source_property</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">IFC property name within the PropertySet when property_path_kind</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">is ifc_pset.</span>
 <span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pbs:PropertyChange</span>
 </code></pre></div>
 </details>
@@ -631,23 +672,98 @@
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">prov:Activity</span>
 <span class="nt">is_a</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Change</span>
 <span class="nt">slot_usage</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">change_type</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">change_type</span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
-<span class="w">    </span><span class="nt">equals_string</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">property_change</span>
+<span class="w">  </span><span class="nt">property_path</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">property_path</span>
+<span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="nt">property_path_kind</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">property_path_kind</span>
+<span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="nt">source_pset</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">source_pset</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">IFC PropertySet name when property_path_kind is ifc_pset.</span>
+<span class="w">  </span><span class="nt">source_property</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">source_property</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">IFC property name within the PropertySet when property_path_kind</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">is ifc_pset.</span>
 <span class="nt">attributes</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">property_delta</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">property_delta</span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Field-level differences detected between the two revision states.</span>
+<span class="w">  </span><span class="nt">property_path</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">property_path</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;Canonical</span><span class="nv"> </span><span class="s">path</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">changed</span><span class="nv"> </span><span class="s">field.</span><span class="nv"> </span><span class="s">Examples:</span><span class="nv"> </span><span class="s">Pset_WallCommon.FireRating,</span>
+<span class="w">      </span><span class="s">IfcWall.Name,</span><span class="nv"> </span><span class="s">description,</span><span class="nv"> </span><span class="s">section.4.2.requirement_3,</span><span class="nv"> </span><span class="s">body:char_offset:1204-1389.</span>
+
+<span class="w">      </span><span class="s">&#39;</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PropertyChange</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PropertyChange</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">RequirementChange</span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PropertyDelta</span>
-<span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">    </span><span class="nt">inlined</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
+<span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="nt">property_path_kind</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">property_path_kind</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Classification of the property path for downstream diff interpretation.</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
+<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PropertyChange</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PropertyChange</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">RequirementChange</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PropertyPathKind</span>
+<span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="nt">from_value</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">from_value</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Prior value serialized as text. Absent or null for new subjects or</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">fields.</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
+<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PropertyChange</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PropertyChange</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">RequirementChange</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
+<span class="w">  </span><span class="nt">to_value</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">to_value</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">New value serialized as text. Absent or null for deleted subjects</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">or fields.</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
+<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PropertyChange</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PropertyChange</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">RequirementChange</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
+<span class="w">  </span><span class="nt">source_pset</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">source_pset</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">IFC PropertySet name when property_path_kind is ifc_pset.</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
+<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PropertyChange</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PerformanceProperty</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PropertyChange</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
+<span class="w">  </span><span class="nt">source_property</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">source_property</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">IFC property name within the PropertySet when property_path_kind</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">is ifc_pset.</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
+<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PropertyChange</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PerformanceProperty</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PropertyChange</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
+<span class="w">  </span><span class="nt">ifc_attribute_name</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ifc_attribute_name</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">IFC attribute name when property_path_kind is ifc_attribute (for</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">example Name, GlobalId).</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
+<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PropertyChange</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PropertyChange</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
 <span class="w">  </span><span class="nt">id</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">id</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Unique local identifier.</span>
@@ -672,9 +788,8 @@
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PropertyChange</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Change</span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ChangeType</span>
 <span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">    </span><span class="nt">equals_string</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">property_change</span>
 <span class="w">  </span><span class="nt">change_severity</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">change_severity</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Optional severity independent of change type.</span>
@@ -774,26 +889,6 @@
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">integer</span>
 <span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">    </span><span class="nt">minimum_value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
-<span class="w">  </span><span class="nt">from_state_ref</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">from_state_ref</span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Content state pointer at the source revision.</span>
-<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
-<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
-<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PropertyChange</span>
-<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Change</span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">StateRef</span>
-<span class="w">    </span><span class="nt">inlined</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">  </span><span class="nt">to_state_ref</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">to_state_ref</span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Content state pointer at the target revision.</span>
-<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
-<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
-<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PropertyChange</span>
-<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Change</span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">StateRef</span>
-<span class="w">    </span><span class="nt">inlined</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">  </span><span class="nt">triggered_task</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">triggered_task</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Id of a Task record that this change triggered or should trigger.</span>

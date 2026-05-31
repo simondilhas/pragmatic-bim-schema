@@ -94,14 +94,8 @@ URI: [pbs:Task](https://schema.pragmaticbim.ch/Task)
 | [Space](Space.md) | [tasks](tasks.md) | range | [Task](Task.md) |
 | [System](System.md) | [tasks](tasks.md) | range | [Task](Task.md) |
 | [ConnectionVirtual](ConnectionVirtual.md) | [tasks](tasks.md) | range | [Task](Task.md) |
-| [AbstractTimeRecord](AbstractTimeRecord.md) | [tasks](tasks.md) | range | [Task](Task.md) |
-| [TimeItem](TimeItem.md) | [tasks](tasks.md) | range | [Task](Task.md) |
-| [Milestone](Milestone.md) | [tasks](tasks.md) | range | [Task](Task.md) |
-| [TimePlan](TimePlan.md) | [tasks](tasks.md) | range | [Task](Task.md) |
-| [TimeDependency](TimeDependency.md) | [tasks](tasks.md) | range | [Task](Task.md) |
-| [AbstractCostRecord](AbstractCostRecord.md) | [tasks](tasks.md) | range | [Task](Task.md) |
-| [CostItem](CostItem.md) | [tasks](tasks.md) | range | [Task](Task.md) |
-| [CostAssembly](CostAssembly.md) | [tasks](tasks.md) | range | [Task](Task.md) |
+| [TimeRecord](TimeRecord.md) | [tasks](tasks.md) | range | [Task](Task.md) |
+| [CostRecord](CostRecord.md) | [tasks](tasks.md) | range | [Task](Task.md) |
 | [Material](Material.md) | [tasks](tasks.md) | range | [Task](Task.md) |
 
 

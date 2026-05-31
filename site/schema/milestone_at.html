@@ -384,7 +384,7 @@
 
 
 <h1 id="slot-milestone_at">Slot: milestone_at<a class="headerlink" href="#slot-milestone_at" title="Permanent link">&para;</a></h1>
-<p><em>Target timestamp for the milestone checkpoint.</em></p>
+<p><em>Target timestamp for a zero-duration milestone checkpoint.</em></p>
 <div>
 <p>URI: <a href="https://schema.pragmaticbim.ch/milestone_at">pbs:milestone_at</a></p>
 <!-- no inheritance hierarchy -->
@@ -399,8 +399,8 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="Milestone.html">Milestone</a></td>
-<td>Zero-duration checkpoint or delivery target within a time plan.</td>
+<td><a href="TimeRecord.html">TimeRecord</a></td>
+<td>Planned work record with baseline and actual dates, optionally linked to model entities and a time plan. — Set milestone_at to mark as a zero-duration checkpoint. — Populate component_time_items to act as a plan container.</td>
 <td>no</td>
 </tr>
 </tbody>
@@ -421,7 +421,7 @@
 </tr>
 <tr>
 <td>Domain Of</td>
-<td><a href="Milestone.html">Milestone</a></td>
+<td><a href="TimeRecord.html">TimeRecord</a></td>
 </tr>
 </tbody>
 </table>
@@ -467,11 +467,11 @@
 <h2 id="linkml-source">LinkML Source<a class="headerlink" href="#linkml-source" title="Permanent link">&para;</a></h2>
 <details>
 <div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">milestone_at</span>
-<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Target timestamp for the milestone checkpoint.</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Target timestamp for a zero-duration milestone checkpoint.</span>
 <span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="nt">domain_of</span><span class="p">:</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Milestone</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TimeRecord</span>
 <span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">datetime</span>
 </code></pre></div>
 </details>

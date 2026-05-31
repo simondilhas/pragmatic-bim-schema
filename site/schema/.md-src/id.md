@@ -28,8 +28,8 @@ URI: [pbs:id](https://schema.pragmaticbim.ch/id)
 | [Entity](Entity.md) | Common base class for all schema entities. |  no  |
 | [Task](Task.md) | Action/task record linked to an entity for implementation and follow-up workflows. |  yes  |
 | [Document](Document.md) | Reference to an external document stored in a file system, DMS, object storage, or URL. |  yes  |
-| [Requirement](Requirement.md) | Prescriptive requirement record (content_kind requirement). Not an Entity; may apply to one or more model entities. |  yes  |
-| [Change](Change.md) | Detected difference for one subject between two revisions (content_kind change). Supports IFC model diffs, document/text diffs, and schema-entity field changes. |  yes  |
+| [Requirement](Requirement.md) | Prescriptive requirement record (content_kind requirement). Not an Entity; may apply to one or more model entities. Domain is discriminated by concrete subclass (PerformanceRequirement, SpatialRequirement, etc.), not a separate slot. |  yes  |
+| [Change](Change.md) | Detected difference for one subject between two revisions (content_kind change). Supports IFC model diffs, document/text diffs, and schema-entity field changes. Use change_type together with the concrete subclass for interpretation. |  yes  |
 | [ChangeSet](ChangeSet.md) | Batch of Change records produced by comparing two model or document revisions. |  yes  |
 | [Agent](Agent.md) | Abstract base class for people or organizations acting in workflow and communication roles. |  no  |
 | [Person](Person.md) | Individual stakeholder, contributor, assignee, or responsible party represented in the schema. |  no  |
@@ -59,14 +59,8 @@ URI: [pbs:id](https://schema.pragmaticbim.ch/id)
 | [Space](Space.md) | Spatial container used for occupancy, circulation, service, or analysis. |  no  |
 | [System](System.md) | Building service system grouping that serves spaces or zones. |  no  |
 | [ConnectionVirtual](ConnectionVirtual.md) | Logical or topological connection between spaces and/or physical elements. |  no  |
-| [AbstractTimeRecord](AbstractTimeRecord.md) | Abstract base for reusable time/schedule record fields shared by atomic and grouped time records. |  no  |
-| [TimeItem](TimeItem.md) | Planned work item with baseline and actual dates, optionally linked to model entities and a time plan. |  no  |
-| [Milestone](Milestone.md) | Zero-duration checkpoint or delivery target within a time plan. |  no  |
-| [TimePlan](TimePlan.md) | Grouped schedule container defining component items, milestones, and dependencies for a scoped plan. |  no  |
-| [TimeDependency](TimeDependency.md) | Precedence relationship between two time items within a plan, optionally with lag. |  no  |
-| [AbstractCostRecord](AbstractCostRecord.md) | Abstract base for reusable cost record fields shared by atomic and aggregated cost records. |  no  |
-| [CostItem](CostItem.md) | Cost record used for estimation and calculation, optionally linked to quantities. |  no  |
-| [CostAssembly](CostAssembly.md) | Aggregated unit price assembled from multiple cost items. |  no  |
+| [TimeRecord](TimeRecord.md) | Planned work record with baseline and actual dates, optionally linked to model entities and a time plan. — Set milestone_at to mark as a zero-duration checkpoint. — Populate component_time_items to act as a plan container. |  no  |
+| [CostRecord](CostRecord.md) | Cost record for estimation and calculation, optionally linked to entities. Populate component_cost_items to act as an assembly (aggregated unit price). |  no  |
 | [Material](Material.md) | Material definition that can be associated with one or more entities. |  no  |
 | [PropertyChange](PropertyChange.md) | Attribute, PropertySet, schema slot, or document field change. |  no  |
 | [GeometryChange](GeometryChange.md) | Geometry or representation change for a subject. |  no  |

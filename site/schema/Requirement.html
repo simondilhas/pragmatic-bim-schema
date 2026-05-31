@@ -395,7 +395,7 @@
 
 
 <h1 id="class-requirement">Class: Requirement<a class="headerlink" href="#class-requirement" title="Permanent link">&para;</a></h1>
-<p><em>Prescriptive requirement record (content_kind requirement). Not an Entity; may apply to one or more model entities.</em></p>
+<p><em>Prescriptive requirement record (content_kind requirement). Not an Entity; may apply to one or more model entities. Domain is discriminated by concrete subclass (PerformanceRequirement, SpatialRequirement, etc.), not a separate slot.</em></p>
 <p>__</p>
 <div>
 <ul>
@@ -419,9 +419,6 @@
       Requirement : description
       Requirement : id
       Requirement : name
-      Requirement : requirement_domain
-        Requirement --&gt; "1" RequirementDomain : requirement_domain
-        click RequirementDomain href "./RequirementDomain.html"
       Requirement : source_document
       Requirement : status
         Requirement --&gt; "0..1" StatusType : status
@@ -481,12 +478,6 @@
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="requirement_domain.html">requirement_domain</a></td>
-<td>1 <br/> <a href="RequirementDomain.html">RequirementDomain</a></td>
-<td>Domain of this requirement record (performance, spatial, regulatory, brief).</td>
-<td>direct</td>
-</tr>
-<tr>
 <td><a href="applies_to_entities.html">applies_to_entities</a></td>
 <td>* <br/> <a href="Entity.html">Entity</a></td>
 <td>Model entities this record applies to (requirements, cost items, schedule items, etc.).</td>
@@ -536,7 +527,8 @@
 <details>
 <div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Requirement</span>
 <span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;Prescriptive</span><span class="nv"> </span><span class="s">requirement</span><span class="nv"> </span><span class="s">record</span><span class="nv"> </span><span class="s">(content_kind</span><span class="nv"> </span><span class="s">requirement).</span><span class="nv"> </span><span class="s">Not</span><span class="nv"> </span><span class="s">an</span><span class="nv"> </span><span class="s">Entity;</span>
-<span class="w">  </span><span class="s">may</span><span class="nv"> </span><span class="s">apply</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">one</span><span class="nv"> </span><span class="s">or</span><span class="nv"> </span><span class="s">more</span><span class="nv"> </span><span class="s">model</span><span class="nv"> </span><span class="s">entities.</span>
+<span class="w">  </span><span class="s">may</span><span class="nv"> </span><span class="s">apply</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">one</span><span class="nv"> </span><span class="s">or</span><span class="nv"> </span><span class="s">more</span><span class="nv"> </span><span class="s">model</span><span class="nv"> </span><span class="s">entities.</span><span class="nv"> </span><span class="s">Domain</span><span class="nv"> </span><span class="s">is</span><span class="nv"> </span><span class="s">discriminated</span><span class="nv"> </span><span class="s">by</span><span class="nv"> </span><span class="s">concrete</span><span class="nv"> </span><span class="s">subclass</span>
+<span class="w">  </span><span class="s">(PerformanceRequirement,</span><span class="nv"> </span><span class="s">SpatialRequirement,</span><span class="nv"> </span><span class="s">etc.),</span><span class="nv"> </span><span class="s">not</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">separate</span><span class="nv"> </span><span class="s">slot.</span>
 
 <span class="w">  </span><span class="s">&#39;</span>
 <span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
@@ -545,7 +537,6 @@
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">id</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">name</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">description</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">requirement_domain</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">applies_to_entities</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">source_document</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">status</span>
@@ -561,7 +552,8 @@
 <details>
 <div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Requirement</span>
 <span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;Prescriptive</span><span class="nv"> </span><span class="s">requirement</span><span class="nv"> </span><span class="s">record</span><span class="nv"> </span><span class="s">(content_kind</span><span class="nv"> </span><span class="s">requirement).</span><span class="nv"> </span><span class="s">Not</span><span class="nv"> </span><span class="s">an</span><span class="nv"> </span><span class="s">Entity;</span>
-<span class="w">  </span><span class="s">may</span><span class="nv"> </span><span class="s">apply</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">one</span><span class="nv"> </span><span class="s">or</span><span class="nv"> </span><span class="s">more</span><span class="nv"> </span><span class="s">model</span><span class="nv"> </span><span class="s">entities.</span>
+<span class="w">  </span><span class="s">may</span><span class="nv"> </span><span class="s">apply</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">one</span><span class="nv"> </span><span class="s">or</span><span class="nv"> </span><span class="s">more</span><span class="nv"> </span><span class="s">model</span><span class="nv"> </span><span class="s">entities.</span><span class="nv"> </span><span class="s">Domain</span><span class="nv"> </span><span class="s">is</span><span class="nv"> </span><span class="s">discriminated</span><span class="nv"> </span><span class="s">by</span><span class="nv"> </span><span class="s">concrete</span><span class="nv"> </span><span class="s">subclass</span>
+<span class="w">  </span><span class="s">(PerformanceRequirement,</span><span class="nv"> </span><span class="s">SpatialRequirement,</span><span class="nv"> </span><span class="s">etc.),</span><span class="nv"> </span><span class="s">not</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">separate</span><span class="nv"> </span><span class="s">slot.</span>
 
 <span class="w">  </span><span class="s">&#39;</span>
 <span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
@@ -609,17 +601,6 @@
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Entity</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Requirement</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
-<span class="w">  </span><span class="nt">requirement_domain</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">requirement_domain</span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Domain of this requirement record (performance, spatial, regulatory,</span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">brief).</span>
-<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
-<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
-<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Requirement</span>
-<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Requirement</span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">RequirementDomain</span>
-<span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">  </span><span class="nt">applies_to_entities</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">applies_to_entities</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Model entities this record applies to (requirements, cost items,</span>
@@ -629,8 +610,8 @@
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Requirement</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Requirement</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AbstractTimeRecord</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AbstractCostRecord</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TimeRecord</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CostRecord</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Entity</span>
 <span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">    </span><span class="nt">inlined</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>

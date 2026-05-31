@@ -384,7 +384,7 @@
 
 
 <h1 id="slot-component_cost_items">Slot: component_cost_items<a class="headerlink" href="#slot-component_cost_items" title="Permanent link">&para;</a></h1>
-<p><em>Atomic cost items that are aggregated into this cost assembly.</em></p>
+<p><em>Cost records aggregated into this assembly record.</em></p>
 <div>
 <p>URI: <a href="https://schema.pragmaticbim.ch/component_cost_items">pbs:component_cost_items</a></p>
 <!-- no inheritance hierarchy -->
@@ -399,8 +399,8 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="CostAssembly.html">CostAssembly</a></td>
-<td>Aggregated unit price assembled from multiple cost items.</td>
+<td><a href="CostRecord.html">CostRecord</a></td>
+<td>Cost record for estimation and calculation, optionally linked to entities. Populate component_cost_items to act as an assembly (aggregated unit price).</td>
 <td>no</td>
 </tr>
 </tbody>
@@ -417,11 +417,11 @@
 <tbody>
 <tr>
 <td>Range</td>
-<td><a href="CostItem.html">CostItem</a></td>
+<td><a href="CostRecord.html">CostRecord</a></td>
 </tr>
 <tr>
 <td>Domain Of</td>
-<td><a href="CostAssembly.html">CostAssembly</a></td>
+<td><a href="CostRecord.html">CostRecord</a></td>
 </tr>
 </tbody>
 </table>
@@ -467,12 +467,12 @@
 <h2 id="linkml-source">LinkML Source<a class="headerlink" href="#linkml-source" title="Permanent link">&para;</a></h2>
 <details>
 <div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">component_cost_items</span>
-<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Atomic cost items that are aggregated into this cost assembly.</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Cost records aggregated into this assembly record.</span>
 <span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="nt">domain_of</span><span class="p">:</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CostAssembly</span>
-<span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CostItem</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CostRecord</span>
+<span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CostRecord</span>
 <span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="nt">inlined</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 </code></pre></div>

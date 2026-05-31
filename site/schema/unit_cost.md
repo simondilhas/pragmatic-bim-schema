@@ -25,9 +25,7 @@ URI: [pbs:unit_cost](https://schema.pragmaticbim.ch/unit_cost)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [AbstractCostRecord](AbstractCostRecord.md) | Abstract base for reusable cost record fields shared by atomic and aggregated cost records. |  no  |
-| [CostItem](CostItem.md) | Cost record used for estimation and calculation, optionally linked to quantities. |  no  |
-| [CostAssembly](CostAssembly.md) | Aggregated unit price assembled from multiple cost items. |  no  |
+| [CostRecord](CostRecord.md) | Cost record for estimation and calculation, optionally linked to entities. Populate component_cost_items to act as an assembly (aggregated unit price). |  no  |
 
 
 
@@ -41,7 +39,7 @@ URI: [pbs:unit_cost](https://schema.pragmaticbim.ch/unit_cost)
 | Property | Value |
 | --- | --- |
 | Range | [Double](Double.md) |
-| Domain Of | [AbstractCostRecord](AbstractCostRecord.md) |
+| Domain Of | [CostRecord](CostRecord.md) |
 
 ### Cardinality and Requirements
 
@@ -98,7 +96,7 @@ description: Unit cost for this cost item.
 from_schema: https://schema.pragmaticbim.ch
 rank: 1000
 domain_of:
-- AbstractCostRecord
+- CostRecord
 range: double
 required: true
 minimum_value: 0

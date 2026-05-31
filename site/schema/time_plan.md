@@ -6,7 +6,7 @@ search:
 # Slot: time_plan 
 
 
-_Parent time plan this item or dependency belongs to._
+_Parent time plan this record belongs to._
 
 
 
@@ -25,9 +25,7 @@ URI: [pbs:time_plan](https://schema.pragmaticbim.ch/time_plan)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [TimeItem](TimeItem.md) | Planned work item with baseline and actual dates, optionally linked to model entities and a time plan. |  no  |
-| [TimeDependency](TimeDependency.md) | Precedence relationship between two time items within a plan, optionally with lag. |  no  |
-| [Milestone](Milestone.md) | Zero-duration checkpoint or delivery target within a time plan. |  no  |
+| [TimeRecord](TimeRecord.md) | Planned work record with baseline and actual dates, optionally linked to model entities and a time plan. — Set milestone_at to mark as a zero-duration checkpoint. — Populate component_time_items to act as a plan container. |  no  |
 
 
 
@@ -40,8 +38,8 @@ URI: [pbs:time_plan](https://schema.pragmaticbim.ch/time_plan)
 
 | Property | Value |
 | --- | --- |
-| Range | [TimePlan](TimePlan.md) |
-| Domain Of | [TimeItem](TimeItem.md), [TimeDependency](TimeDependency.md) |
+| Range | [TimeRecord](TimeRecord.md) |
+| Domain Of | [TimeRecord](TimeRecord.md) |
 
 ### Cardinality and Requirements
 
@@ -86,13 +84,12 @@ URI: [pbs:time_plan](https://schema.pragmaticbim.ch/time_plan)
 <details>
 ```yaml
 name: time_plan
-description: Parent time plan this item or dependency belongs to.
+description: Parent time plan this record belongs to.
 from_schema: https://schema.pragmaticbim.ch
 rank: 1000
 domain_of:
-- TimeItem
-- TimeDependency
-range: TimePlan
+- TimeRecord
+range: TimeRecord
 inlined: false
 
 ```

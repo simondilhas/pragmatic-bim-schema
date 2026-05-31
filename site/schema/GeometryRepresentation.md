@@ -84,14 +84,8 @@ URI: [pbs:GeometryRepresentation](https://schema.pragmaticbim.ch/GeometryReprese
 | [Space](Space.md) | [geometry_representations](geometry_representations.md) | range | [GeometryRepresentation](GeometryRepresentation.md) |
 | [System](System.md) | [geometry_representations](geometry_representations.md) | range | [GeometryRepresentation](GeometryRepresentation.md) |
 | [ConnectionVirtual](ConnectionVirtual.md) | [geometry_representations](geometry_representations.md) | range | [GeometryRepresentation](GeometryRepresentation.md) |
-| [AbstractTimeRecord](AbstractTimeRecord.md) | [geometry_representations](geometry_representations.md) | range | [GeometryRepresentation](GeometryRepresentation.md) |
-| [TimeItem](TimeItem.md) | [geometry_representations](geometry_representations.md) | range | [GeometryRepresentation](GeometryRepresentation.md) |
-| [Milestone](Milestone.md) | [geometry_representations](geometry_representations.md) | range | [GeometryRepresentation](GeometryRepresentation.md) |
-| [TimePlan](TimePlan.md) | [geometry_representations](geometry_representations.md) | range | [GeometryRepresentation](GeometryRepresentation.md) |
-| [TimeDependency](TimeDependency.md) | [geometry_representations](geometry_representations.md) | range | [GeometryRepresentation](GeometryRepresentation.md) |
-| [AbstractCostRecord](AbstractCostRecord.md) | [geometry_representations](geometry_representations.md) | range | [GeometryRepresentation](GeometryRepresentation.md) |
-| [CostItem](CostItem.md) | [geometry_representations](geometry_representations.md) | range | [GeometryRepresentation](GeometryRepresentation.md) |
-| [CostAssembly](CostAssembly.md) | [geometry_representations](geometry_representations.md) | range | [GeometryRepresentation](GeometryRepresentation.md) |
+| [TimeRecord](TimeRecord.md) | [geometry_representations](geometry_representations.md) | range | [GeometryRepresentation](GeometryRepresentation.md) |
+| [CostRecord](CostRecord.md) | [geometry_representations](geometry_representations.md) | range | [GeometryRepresentation](GeometryRepresentation.md) |
 | [Material](Material.md) | [geometry_representations](geometry_representations.md) | range | [GeometryRepresentation](GeometryRepresentation.md) |
 
 

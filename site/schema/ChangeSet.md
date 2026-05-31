@@ -29,14 +29,10 @@ URI: [pbs:ChangeSet](https://schema.pragmaticbim.ch/ChangeSet)
       ChangeSet : changes
         ChangeSet --> "*" Change : changes
         click Change href "./Change.html"
-      ChangeSet : document_state_refs
-        ChangeSet --> "*" StateRef : document_state_refs
-        click StateRef href "./StateRef.html"
+      ChangeSet : document_state_uris
       ChangeSet : from_revision
       ChangeSet : id
-      ChangeSet : ifc_state_ref
-        ChangeSet --> "0..1" StateRef : ifc_state_ref
-        click StateRef href "./StateRef.html"
+      ChangeSet : ifc_state_uri
       ChangeSet : produced_at
       ChangeSet : produced_by
         ChangeSet --> "0..1" Agent : produced_by
@@ -64,8 +60,8 @@ URI: [pbs:ChangeSet](https://schema.pragmaticbim.ch/ChangeSet)
 | [from_revision](from_revision.md) | 1 <br/> [Integer](Integer.md) | Source revision number for this change. | direct |
 | [to_revision](to_revision.md) | 1 <br/> [Integer](Integer.md) | Target revision number for this change. | direct |
 | [changes](changes.md) | * <br/> [Change](Change.md) | Change records included in this batch. | direct |
-| [ifc_state_ref](ifc_state_ref.md) | 0..1 <br/> [StateRef](StateRef.md) | Optional baseline IFC model state for the comparison that produced this changeset. | direct |
-| [document_state_refs](document_state_refs.md) | * <br/> [StateRef](StateRef.md) | Optional baseline document states for the comparison that produced this changeset. | direct |
+| [ifc_state_uri](ifc_state_uri.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | Optional URI, path, or content hash for the baseline IFC model state used in this comparison. | direct |
+| [document_state_uris](document_state_uris.md) | * <br/> [Uriorcurie](Uriorcurie.md) | Optional URIs or content hashes for baseline document states used in this comparison. | direct |
 | [produced_at](produced_at.md) | 0..1 <br/> [Datetime](Datetime.md) | Timestamp when this changeset was produced. | direct |
 | [produced_by](produced_by.md) | 0..1 <br/> [Agent](Agent.md) | Agent or system that produced this changeset. | direct |
 
@@ -131,8 +127,8 @@ slots:
 - from_revision
 - to_revision
 - changes
-- ifc_state_ref
-- document_state_refs
+- ifc_state_uri
+- document_state_uris
 - produced_at
 - produced_by
 slot_usage:
@@ -214,29 +210,27 @@ attributes:
     range: Change
     multivalued: true
     inlined: true
-  ifc_state_ref:
-    name: ifc_state_ref
-    description: Optional baseline IFC model state for the comparison that produced
-      this changeset.
+  ifc_state_uri:
+    name: ifc_state_uri
+    description: Optional URI, path, or content hash for the baseline IFC model state
+      used in this comparison.
     from_schema: https://schema.pragmaticbim.ch
     rank: 1000
     owner: ChangeSet
     domain_of:
     - ChangeSet
-    range: StateRef
-    inlined: true
-  document_state_refs:
-    name: document_state_refs
-    description: Optional baseline document states for the comparison that produced
-      this changeset.
+    range: uriorcurie
+  document_state_uris:
+    name: document_state_uris
+    description: Optional URIs or content hashes for baseline document states used
+      in this comparison.
     from_schema: https://schema.pragmaticbim.ch
     rank: 1000
     owner: ChangeSet
     domain_of:
     - ChangeSet
-    range: StateRef
+    range: uriorcurie
     multivalued: true
-    inlined: true
   produced_at:
     name: produced_at
     description: Timestamp when this changeset was produced.

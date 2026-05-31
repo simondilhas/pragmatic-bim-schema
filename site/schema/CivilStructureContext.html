@@ -409,12 +409,9 @@
       CivilStructureContext : context_type
         CivilStructureContext --&gt; "1" ContextType : context_type
         click ContextType href "./ContextType.html"
-      CivilStructureContext : cost_assemblies
-        CivilStructureContext --&gt; "*" CostAssembly : cost_assemblies
-        click CostAssembly href "./CostAssembly.html"
-      CivilStructureContext : cost_items
-        CivilStructureContext --&gt; "*" CostItem : cost_items
-        click CostItem href "./CostItem.html"
+      CivilStructureContext : cost_records
+        CivilStructureContext --&gt; "*" CostRecord : cost_records
+        click CostRecord href "./CostRecord.html"
       CivilStructureContext : created_at
       CivilStructureContext : decisions
         CivilStructureContext --&gt; "*" Decision : decisions
@@ -480,12 +477,9 @@
       CivilStructureContext : tasks
         CivilStructureContext --&gt; "*" Task : tasks
         click Task href "./Task.html"
-      CivilStructureContext : time_items
-        CivilStructureContext --&gt; "*" TimeItem : time_items
-        click TimeItem href "./TimeItem.html"
-      CivilStructureContext : time_plans
-        CivilStructureContext --&gt; "*" TimePlan : time_plans
-        click TimePlan href "./TimePlan.html"
+      CivilStructureContext : time_records
+        CivilStructureContext --&gt; "*" TimeRecord : time_records
+        click TimeRecord href "./TimeRecord.html"
       CivilStructureContext : zone_type
         CivilStructureContext --&gt; "0..1" ZoneType : zone_type
         click ZoneType href "./ZoneType.html"</code></pre>
@@ -586,27 +580,15 @@
 <td><a href="SpatialContext.html">SpatialContext</a></td>
 </tr>
 <tr>
-<td><a href="cost_items.html">cost_items</a></td>
-<td>* <br/> <a href="CostItem.html">CostItem</a></td>
-<td>Cost items associated with this entity.</td>
+<td><a href="cost_records.html">cost_records</a></td>
+<td>* <br/> <a href="CostRecord.html">CostRecord</a></td>
+<td>Cost records associated with this entity.</td>
 <td><a href="VirtualEntity.html">VirtualEntity</a></td>
 </tr>
 <tr>
-<td><a href="cost_assemblies.html">cost_assemblies</a></td>
-<td>* <br/> <a href="CostAssembly.html">CostAssembly</a></td>
-<td>Aggregated unit prices associated with this entity.</td>
-<td><a href="VirtualEntity.html">VirtualEntity</a></td>
-</tr>
-<tr>
-<td><a href="time_items.html">time_items</a></td>
-<td>* <br/> <a href="TimeItem.html">TimeItem</a></td>
-<td>Time items associated with this entity.</td>
-<td><a href="VirtualEntity.html">VirtualEntity</a></td>
-</tr>
-<tr>
-<td><a href="time_plans.html">time_plans</a></td>
-<td>* <br/> <a href="TimePlan.html">TimePlan</a></td>
-<td>Grouped time plans associated with this entity.</td>
+<td><a href="time_records.html">time_records</a></td>
+<td>* <br/> <a href="TimeRecord.html">TimeRecord</a></td>
+<td>Time records associated with this entity.</td>
 <td><a href="VirtualEntity.html">VirtualEntity</a></td>
 </tr>
 <tr>
@@ -871,48 +853,26 @@
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SpatialContext</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Entity</span>
 <span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">  </span><span class="nt">cost_items</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cost_items</span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Cost items associated with this entity.</span>
+<span class="w">  </span><span class="nt">cost_records</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cost_records</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Cost records associated with this entity.</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CivilStructureContext</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">VirtualEntity</span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CostItem</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CostRecord</span>
 <span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">    </span><span class="nt">inlined</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
-<span class="w">  </span><span class="nt">cost_assemblies</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cost_assemblies</span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Aggregated unit prices associated with this entity.</span>
+<span class="w">  </span><span class="nt">time_records</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">time_records</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Time records associated with this entity.</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CivilStructureContext</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">VirtualEntity</span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CostAssembly</span>
-<span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">    </span><span class="nt">inlined</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
-<span class="w">  </span><span class="nt">time_items</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">time_items</span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Time items associated with this entity.</span>
-<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
-<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
-<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CivilStructureContext</span>
-<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">VirtualEntity</span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TimeItem</span>
-<span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">    </span><span class="nt">inlined</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
-<span class="w">  </span><span class="nt">time_plans</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">time_plans</span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Grouped time plans associated with this entity.</span>
-<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
-<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
-<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CivilStructureContext</span>
-<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">VirtualEntity</span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TimePlan</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TimeRecord</span>
 <span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">    </span><span class="nt">inlined</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 <span class="w">  </span><span class="nt">materials</span><span class="p">:</span>

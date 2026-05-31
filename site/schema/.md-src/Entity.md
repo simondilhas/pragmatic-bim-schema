@@ -149,13 +149,8 @@ URI: [pbs:Entity](https://schema.pragmaticbim.ch/Entity)
 | [ZoneContext](ZoneContext.md) | [group_members](group_members.md) | range | [Entity](Entity.md) |
 | [Space](Space.md) | [contained_entities](contained_entities.md) | range | [Entity](Entity.md) |
 | [System](System.md) | [contained_entities](contained_entities.md) | range | [Entity](Entity.md) |
-| [AbstractTimeRecord](AbstractTimeRecord.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
-| [TimeItem](TimeItem.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
-| [Milestone](Milestone.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
-| [TimePlan](TimePlan.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
-| [AbstractCostRecord](AbstractCostRecord.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
-| [CostItem](CostItem.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
-| [CostAssembly](CostAssembly.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
+| [TimeRecord](TimeRecord.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
+| [CostRecord](CostRecord.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
 
 
 

@@ -162,14 +162,8 @@ URI: [pbs:Message](https://schema.pragmaticbim.ch/Message)
 | [Space](Space.md) | [messages](messages.md) | range | [Message](Message.md) |
 | [System](System.md) | [messages](messages.md) | range | [Message](Message.md) |
 | [ConnectionVirtual](ConnectionVirtual.md) | [messages](messages.md) | range | [Message](Message.md) |
-| [AbstractTimeRecord](AbstractTimeRecord.md) | [messages](messages.md) | range | [Message](Message.md) |
-| [TimeItem](TimeItem.md) | [messages](messages.md) | range | [Message](Message.md) |
-| [Milestone](Milestone.md) | [messages](messages.md) | range | [Message](Message.md) |
-| [TimePlan](TimePlan.md) | [messages](messages.md) | range | [Message](Message.md) |
-| [TimeDependency](TimeDependency.md) | [messages](messages.md) | range | [Message](Message.md) |
-| [AbstractCostRecord](AbstractCostRecord.md) | [messages](messages.md) | range | [Message](Message.md) |
-| [CostItem](CostItem.md) | [messages](messages.md) | range | [Message](Message.md) |
-| [CostAssembly](CostAssembly.md) | [messages](messages.md) | range | [Message](Message.md) |
+| [TimeRecord](TimeRecord.md) | [messages](messages.md) | range | [Message](Message.md) |
+| [CostRecord](CostRecord.md) | [messages](messages.md) | range | [Message](Message.md) |
 | [Material](Material.md) | [messages](messages.md) | range | [Message](Message.md) |
 
 

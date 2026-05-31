@@ -384,7 +384,7 @@
 
 
 <h1 id="slot-dependency_type">Slot: dependency_type<a class="headerlink" href="#slot-dependency_type" title="Permanent link">&para;</a></h1>
-<p><em>Precedence logic used between the predecessor and successor items.</em></p>
+<p><em>FS | SS | FF | SF</em></p>
 <div>
 <p>URI: <a href="https://schema.pragmaticbim.ch/dependency_type">pbs:dependency_type</a></p>
 <!-- no inheritance hierarchy -->
@@ -399,8 +399,8 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="TimeDependency.html">TimeDependency</a></td>
-<td>Precedence relationship between two time items within a plan, optionally with lag.</td>
+<td><a href="TimeLink.html">TimeLink</a></td>
+<td>Inline typed precedence link from a TimeRecord to one successor. Not a VirtualEntity — no id, no mixin. Owned by the predecessor record.</td>
 <td>no</td>
 </tr>
 </tbody>
@@ -417,11 +417,11 @@
 <tbody>
 <tr>
 <td>Range</td>
-<td><a href="TimeDependencyType.html">TimeDependencyType</a></td>
+<td><a href="DependencyType.html">DependencyType</a></td>
 </tr>
 <tr>
 <td>Domain Of</td>
-<td><a href="TimeDependency.html">TimeDependency</a></td>
+<td><a href="TimeLink.html">TimeLink</a></td>
 </tr>
 </tbody>
 </table>
@@ -435,8 +435,26 @@
 </thead>
 <tbody>
 <tr>
-<td>Required</td>
-<td>Yes</td>
+<td>### Slot Characteristics</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>If Absent</td>
+<td><code>FS</code></td>
+</tr>
+<tr>
+<td>Owner</td>
+<td><a href="TimeLink.html">TimeLink</a></td>
 </tr>
 </tbody>
 </table>
@@ -467,13 +485,14 @@
 <h2 id="linkml-source">LinkML Source<a class="headerlink" href="#linkml-source" title="Permanent link">&para;</a></h2>
 <details>
 <div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dependency_type</span>
-<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Precedence logic used between the predecessor and successor items.</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">FS | SS | FF | SF</span>
 <span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="nt">ifabsent</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">FS</span>
+<span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TimeLink</span>
 <span class="nt">domain_of</span><span class="p">:</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TimeDependency</span>
-<span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TimeDependencyType</span>
-<span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TimeLink</span>
+<span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DependencyType</span>
 </code></pre></div>
 </details>
 </div>

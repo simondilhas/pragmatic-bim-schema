@@ -25,7 +25,7 @@ URI: [pbs:ifc_attribute_name](https://schema.pragmaticbim.ch/ifc_attribute_name)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [PropertyDelta](PropertyDelta.md) | Field-level difference between two revision states. Supports IFC attributes, PropertySets, schema slots, document fields, and text spans. |  no  |
+| [PropertyChange](PropertyChange.md) | Attribute, PropertySet, schema slot, or document field change. |  no  |
 
 
 
@@ -39,7 +39,7 @@ URI: [pbs:ifc_attribute_name](https://schema.pragmaticbim.ch/ifc_attribute_name)
 | Property | Value |
 | --- | --- |
 | Range | [String](String.md) |
-| Domain Of | [PropertyDelta](PropertyDelta.md) |
+| Domain Of | [PropertyChange](PropertyChange.md) |
 
 ### Cardinality and Requirements
 
@@ -89,7 +89,7 @@ description: IFC attribute name when property_path_kind is ifc_attribute (for ex
 from_schema: https://schema.pragmaticbim.ch
 rank: 1000
 domain_of:
-- PropertyDelta
+- PropertyChange
 range: string
 
 ```

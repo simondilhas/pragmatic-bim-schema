@@ -41,7 +41,6 @@ URI: [pbs:SpatialRequirement](https://schema.pragmaticbim.ch/SpatialRequirement)
       SpatialRequirement : related_entity
         SpatialRequirement --> "0..1" Entity : related_entity
         click Entity href "./Entity.html"
-      SpatialRequirement : requirement_domain
       SpatialRequirement : source_document
       SpatialRequirement : status
         SpatialRequirement --> "0..1" StatusType : status
@@ -76,7 +75,6 @@ URI: [pbs:SpatialRequirement](https://schema.pragmaticbim.ch/SpatialRequirement)
 | [id](id.md) | 1 <br/> [String](String.md) | Unique local identifier. | [Requirement](Requirement.md) |
 | [name](name.md) | 1 <br/> [String](String.md) | Default display name. | [Requirement](Requirement.md) |
 | [description](description.md) | 0..1 <br/> [String](String.md) | Default description text. | [Requirement](Requirement.md) |
-| [requirement_domain](requirement_domain.md) | 1 <br/> [String](String.md) | Domain of this requirement record (performance, spatial, regulatory, brief). | [Requirement](Requirement.md) |
 | [applies_to_entities](applies_to_entities.md) | * <br/> [Entity](Entity.md) | Model entities this record applies to (requirements, cost items, schedule items, etc.). | [Requirement](Requirement.md) |
 | [source_document](source_document.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | Optional URI to norm, brief, or source document backing this requirement. | [Requirement](Requirement.md) |
 | [status](status.md) | 0..1 <br/> [StatusType](StatusType.md) | Lifecycle or QA status. | [Requirement](Requirement.md) |
@@ -139,11 +137,6 @@ slots:
 - adjacency_kind
 - related_entity
 - min_clear_distance
-slot_usage:
-  requirement_domain:
-    name: requirement_domain
-    range: string
-    equals_string: spatial
 class_uri: pbs:SpatialRequirement
 
 ```
@@ -157,11 +150,6 @@ name: SpatialRequirement
 description: Spatial constraint requirement (min area, min height, adjacency, etc.).
 from_schema: https://schema.pragmaticbim.ch
 is_a: Requirement
-slot_usage:
-  requirement_domain:
-    name: requirement_domain
-    range: string
-    equals_string: spatial
 attributes:
   min_area:
     name: min_area
@@ -250,18 +238,6 @@ attributes:
     - Entity
     - Requirement
     range: string
-  requirement_domain:
-    name: requirement_domain
-    description: Domain of this requirement record (performance, spatial, regulatory,
-      brief).
-    from_schema: https://schema.pragmaticbim.ch
-    rank: 1000
-    owner: SpatialRequirement
-    domain_of:
-    - Requirement
-    range: string
-    required: true
-    equals_string: spatial
   applies_to_entities:
     name: applies_to_entities
     description: Model entities this record applies to (requirements, cost items,
@@ -271,8 +247,8 @@ attributes:
     owner: SpatialRequirement
     domain_of:
     - Requirement
-    - AbstractTimeRecord
-    - AbstractCostRecord
+    - TimeRecord
+    - CostRecord
     range: Entity
     multivalued: true
     inlined: false

@@ -35,12 +35,9 @@ URI: [pbs:Space](https://schema.pragmaticbim.ch/Space)
       Space : contained_entities
         Space --> "*" Entity : contained_entities
         click Entity href "./Entity.html"
-      Space : cost_assemblies
-        Space --> "*" CostAssembly : cost_assemblies
-        click CostAssembly href "./CostAssembly.html"
-      Space : cost_items
-        Space --> "*" CostItem : cost_items
-        click CostItem href "./CostItem.html"
+      Space : cost_records
+        Space --> "*" CostRecord : cost_records
+        click CostRecord href "./CostRecord.html"
       Space : created_at
       Space : decisions
         Space --> "*" Decision : decisions
@@ -97,12 +94,9 @@ URI: [pbs:Space](https://schema.pragmaticbim.ch/Space)
       Space : tasks
         Space --> "*" Task : tasks
         click Task href "./Task.html"
-      Space : time_items
-        Space --> "*" TimeItem : time_items
-        click TimeItem href "./TimeItem.html"
-      Space : time_plans
-        Space --> "*" TimePlan : time_plans
-        click TimePlan href "./TimePlan.html"
+      Space : time_records
+        Space --> "*" TimeRecord : time_records
+        click TimeRecord href "./TimeRecord.html"
 ```
 
 
@@ -132,10 +126,8 @@ URI: [pbs:Space](https://schema.pragmaticbim.ch/Space)
 | [parent_zone](parent_zone.md) | 0..1 <br/> [ZoneContext](ZoneContext.md) | Parent zone context reference. | direct |
 | [bounded_by](bounded_by.md) | * <br/> [PhysicalElement](PhysicalElement.md) | Physical elements that bound a space. | direct |
 | [contained_entities](contained_entities.md) | * <br/> [Entity](Entity.md) | Generic containment for associated entities. | direct |
-| [cost_items](cost_items.md) | * <br/> [CostItem](CostItem.md) | Cost items associated with this entity. | [VirtualEntity](VirtualEntity.md) |
-| [cost_assemblies](cost_assemblies.md) | * <br/> [CostAssembly](CostAssembly.md) | Aggregated unit prices associated with this entity. | [VirtualEntity](VirtualEntity.md) |
-| [time_items](time_items.md) | * <br/> [TimeItem](TimeItem.md) | Time items associated with this entity. | [VirtualEntity](VirtualEntity.md) |
-| [time_plans](time_plans.md) | * <br/> [TimePlan](TimePlan.md) | Grouped time plans associated with this entity. | [VirtualEntity](VirtualEntity.md) |
+| [cost_records](cost_records.md) | * <br/> [CostRecord](CostRecord.md) | Cost records associated with this entity. | [VirtualEntity](VirtualEntity.md) |
+| [time_records](time_records.md) | * <br/> [TimeRecord](TimeRecord.md) | Time records associated with this entity. | [VirtualEntity](VirtualEntity.md) |
 | [materials](materials.md) | * <br/> [Material](Material.md) | Material definitions associated with this entity. | [VirtualEntity](VirtualEntity.md) |
 | [id](id.md) | 1 <br/> [String](String.md) | Unique local identifier. | [Entity](Entity.md) |
 | [name](name.md) | 1 <br/> [String](String.md) | Default display name. | [Entity](Entity.md) |
@@ -328,48 +320,26 @@ attributes:
     - System
     range: Entity
     multivalued: true
-  cost_items:
-    name: cost_items
-    description: Cost items associated with this entity.
+  cost_records:
+    name: cost_records
+    description: Cost records associated with this entity.
     from_schema: https://schema.pragmaticbim.ch
     rank: 1000
     owner: Space
     domain_of:
     - VirtualEntity
-    range: CostItem
+    range: CostRecord
     multivalued: true
     inlined: false
-  cost_assemblies:
-    name: cost_assemblies
-    description: Aggregated unit prices associated with this entity.
+  time_records:
+    name: time_records
+    description: Time records associated with this entity.
     from_schema: https://schema.pragmaticbim.ch
     rank: 1000
     owner: Space
     domain_of:
     - VirtualEntity
-    range: CostAssembly
-    multivalued: true
-    inlined: false
-  time_items:
-    name: time_items
-    description: Time items associated with this entity.
-    from_schema: https://schema.pragmaticbim.ch
-    rank: 1000
-    owner: Space
-    domain_of:
-    - VirtualEntity
-    range: TimeItem
-    multivalued: true
-    inlined: false
-  time_plans:
-    name: time_plans
-    description: Grouped time plans associated with this entity.
-    from_schema: https://schema.pragmaticbim.ch
-    rank: 1000
-    owner: Space
-    domain_of:
-    - VirtualEntity
-    range: TimePlan
+    range: TimeRecord
     multivalued: true
     inlined: false
   materials:

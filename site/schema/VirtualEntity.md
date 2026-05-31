@@ -36,23 +36,18 @@ URI: [pbs:VirtualEntity](https://schema.pragmaticbim.ch/VirtualEntity)
         click System href "./System.html"
       VirtualEntity <|-- ConnectionVirtual
         click ConnectionVirtual href "./ConnectionVirtual.html"
-      VirtualEntity <|-- AbstractTimeRecord
-        click AbstractTimeRecord href "./AbstractTimeRecord.html"
-      VirtualEntity <|-- TimeDependency
-        click TimeDependency href "./TimeDependency.html"
-      VirtualEntity <|-- AbstractCostRecord
-        click AbstractCostRecord href "./AbstractCostRecord.html"
+      VirtualEntity <|-- TimeRecord
+        click TimeRecord href "./TimeRecord.html"
+      VirtualEntity <|-- CostRecord
+        click CostRecord href "./CostRecord.html"
       VirtualEntity <|-- Material
         click Material href "./Material.html"
       VirtualEntity : classifications
         VirtualEntity --> "*" Classification : classifications
         click Classification href "./Classification.html"
-      VirtualEntity : cost_assemblies
-        VirtualEntity --> "*" CostAssembly : cost_assemblies
-        click CostAssembly href "./CostAssembly.html"
-      VirtualEntity : cost_items
-        VirtualEntity --> "*" CostItem : cost_items
-        click CostItem href "./CostItem.html"
+      VirtualEntity : cost_records
+        VirtualEntity --> "*" CostRecord : cost_records
+        click CostRecord href "./CostRecord.html"
       VirtualEntity : created_at
       VirtualEntity : decisions
         VirtualEntity --> "*" Decision : decisions
@@ -97,12 +92,9 @@ URI: [pbs:VirtualEntity](https://schema.pragmaticbim.ch/VirtualEntity)
       VirtualEntity : tasks
         VirtualEntity --> "*" Task : tasks
         click Task href "./Task.html"
-      VirtualEntity : time_items
-        VirtualEntity --> "*" TimeItem : time_items
-        click TimeItem href "./TimeItem.html"
-      VirtualEntity : time_plans
-        VirtualEntity --> "*" TimePlan : time_plans
-        click TimePlan href "./TimePlan.html"
+      VirtualEntity : time_records
+        VirtualEntity --> "*" TimeRecord : time_records
+        click TimeRecord href "./TimeRecord.html"
 ```
 
 
@@ -116,9 +108,8 @@ URI: [pbs:VirtualEntity](https://schema.pragmaticbim.ch/VirtualEntity)
         * [Space](Space.md)
         * [System](System.md)
         * [ConnectionVirtual](ConnectionVirtual.md)
-        * [AbstractTimeRecord](AbstractTimeRecord.md)
-        * [TimeDependency](TimeDependency.md)
-        * [AbstractCostRecord](AbstractCostRecord.md)
+        * [TimeRecord](TimeRecord.md)
+        * [CostRecord](CostRecord.md)
         * [Material](Material.md)
 
 
@@ -133,10 +124,8 @@ URI: [pbs:VirtualEntity](https://schema.pragmaticbim.ch/VirtualEntity)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [cost_items](cost_items.md) | * <br/> [CostItem](CostItem.md) | Cost items associated with this entity. | direct |
-| [cost_assemblies](cost_assemblies.md) | * <br/> [CostAssembly](CostAssembly.md) | Aggregated unit prices associated with this entity. | direct |
-| [time_items](time_items.md) | * <br/> [TimeItem](TimeItem.md) | Time items associated with this entity. | direct |
-| [time_plans](time_plans.md) | * <br/> [TimePlan](TimePlan.md) | Grouped time plans associated with this entity. | direct |
+| [cost_records](cost_records.md) | * <br/> [CostRecord](CostRecord.md) | Cost records associated with this entity. | direct |
+| [time_records](time_records.md) | * <br/> [TimeRecord](TimeRecord.md) | Time records associated with this entity. | direct |
 | [materials](materials.md) | * <br/> [Material](Material.md) | Material definitions associated with this entity. | direct |
 | [id](id.md) | 1 <br/> [String](String.md) | Unique local identifier. | [Entity](Entity.md) |
 | [name](name.md) | 1 <br/> [String](String.md) | Default display name. | [Entity](Entity.md) |
@@ -213,10 +202,8 @@ from_schema: https://schema.pragmaticbim.ch
 is_a: Entity
 abstract: true
 slots:
-- cost_items
-- cost_assemblies
-- time_items
-- time_plans
+- cost_records
+- time_records
 - materials
 class_uri: pbs:VirtualEntity
 
@@ -233,48 +220,26 @@ from_schema: https://schema.pragmaticbim.ch
 is_a: Entity
 abstract: true
 attributes:
-  cost_items:
-    name: cost_items
-    description: Cost items associated with this entity.
+  cost_records:
+    name: cost_records
+    description: Cost records associated with this entity.
     from_schema: https://schema.pragmaticbim.ch
     rank: 1000
     owner: VirtualEntity
     domain_of:
     - VirtualEntity
-    range: CostItem
+    range: CostRecord
     multivalued: true
     inlined: false
-  cost_assemblies:
-    name: cost_assemblies
-    description: Aggregated unit prices associated with this entity.
+  time_records:
+    name: time_records
+    description: Time records associated with this entity.
     from_schema: https://schema.pragmaticbim.ch
     rank: 1000
     owner: VirtualEntity
     domain_of:
     - VirtualEntity
-    range: CostAssembly
-    multivalued: true
-    inlined: false
-  time_items:
-    name: time_items
-    description: Time items associated with this entity.
-    from_schema: https://schema.pragmaticbim.ch
-    rank: 1000
-    owner: VirtualEntity
-    domain_of:
-    - VirtualEntity
-    range: TimeItem
-    multivalued: true
-    inlined: false
-  time_plans:
-    name: time_plans
-    description: Grouped time plans associated with this entity.
-    from_schema: https://schema.pragmaticbim.ch
-    rank: 1000
-    owner: VirtualEntity
-    domain_of:
-    - VirtualEntity
-    range: TimePlan
+    range: TimeRecord
     multivalued: true
     inlined: false
   materials:

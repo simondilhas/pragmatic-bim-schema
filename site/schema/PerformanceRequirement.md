@@ -32,7 +32,6 @@ URI: [pbs:PerformanceRequirement](https://schema.pragmaticbim.ch/PerformanceRequ
       PerformanceRequirement : description
       PerformanceRequirement : id
       PerformanceRequirement : name
-      PerformanceRequirement : requirement_domain
       PerformanceRequirement : requirement_property_key
       PerformanceRequirement : source_document
       PerformanceRequirement : status
@@ -78,7 +77,6 @@ URI: [pbs:PerformanceRequirement](https://schema.pragmaticbim.ch/PerformanceRequ
 | [id](id.md) | 1 <br/> [String](String.md) | Unique local identifier. | [Requirement](Requirement.md) |
 | [name](name.md) | 1 <br/> [String](String.md) | Default display name. | [Requirement](Requirement.md) |
 | [description](description.md) | 0..1 <br/> [String](String.md) | Default description text. | [Requirement](Requirement.md) |
-| [requirement_domain](requirement_domain.md) | 1 <br/> [String](String.md) | Domain of this requirement record (performance, spatial, regulatory, brief). | [Requirement](Requirement.md) |
 | [applies_to_entities](applies_to_entities.md) | * <br/> [Entity](Entity.md) | Model entities this record applies to (requirements, cost items, schedule items, etc.). | [Requirement](Requirement.md) |
 | [source_document](source_document.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | Optional URI to norm, brief, or source document backing this requirement. | [Requirement](Requirement.md) |
 | [status](status.md) | 0..1 <br/> [StatusType](StatusType.md) | Lifecycle or QA status. | [Requirement](Requirement.md) |
@@ -144,11 +142,6 @@ slots:
 - target_value_boolean
 - target_unit
 - target_unit_uri
-slot_usage:
-  requirement_domain:
-    name: requirement_domain
-    range: string
-    equals_string: performance
 class_uri: pbs:PerformanceRequirement
 
 ```
@@ -163,11 +156,6 @@ description: Performance target requirement (U-value, fire rating, airflow, acou
   etc.).
 from_schema: https://schema.pragmaticbim.ch
 is_a: Requirement
-slot_usage:
-  requirement_domain:
-    name: requirement_domain
-    range: string
-    equals_string: performance
 attributes:
   requirement_property_key:
     name: requirement_property_key
@@ -273,18 +261,6 @@ attributes:
     - Entity
     - Requirement
     range: string
-  requirement_domain:
-    name: requirement_domain
-    description: Domain of this requirement record (performance, spatial, regulatory,
-      brief).
-    from_schema: https://schema.pragmaticbim.ch
-    rank: 1000
-    owner: PerformanceRequirement
-    domain_of:
-    - Requirement
-    range: string
-    required: true
-    equals_string: performance
   applies_to_entities:
     name: applies_to_entities
     description: Model entities this record applies to (requirements, cost items,
@@ -294,8 +270,8 @@ attributes:
     owner: PerformanceRequirement
     domain_of:
     - Requirement
-    - AbstractTimeRecord
-    - AbstractCostRecord
+    - TimeRecord
+    - CostRecord
     range: Entity
     multivalued: true
     inlined: false

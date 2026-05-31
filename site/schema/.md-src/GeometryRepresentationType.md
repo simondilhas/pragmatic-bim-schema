@@ -36,7 +36,7 @@ URI: [pbs:GeometryRepresentationType](https://schema.pragmaticbim.ch/GeometryRep
 | Name | Description |
 | ---  | --- |
 | [geometry_representation](geometry_representation.md) | Representation kind/dimension (for example body_3d, footprint_2d, point), independent of file format. |
-| [affected_geometry_role](affected_geometry_role.md) | Geometry role affected when change_type is geometry_change. |
+| [affected_geometry_role](affected_geometry_role.md) | Geometry role affected for GeometryChange records. |
 
 
 

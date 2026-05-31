@@ -25,7 +25,7 @@ URI: [pbs:to_revision](https://schema.pragmaticbim.ch/to_revision)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Change](Change.md) | Detected difference for one subject between two revisions (content_kind change). Supports IFC model diffs, document/text diffs, and schema-entity field changes. |  no  |
+| [Change](Change.md) | Detected difference for one subject between two revisions (content_kind change). Supports IFC model diffs, document/text diffs, and schema-entity field changes. Use change_type together with the concrete subclass for interpretation. |  yes  |
 | [ChangeSet](ChangeSet.md) | Batch of Change records produced by comparing two model or document revisions. |  no  |
 | [PropertyChange](PropertyChange.md) | Attribute, PropertySet, schema slot, or document field change. |  no  |
 | [GeometryChange](GeometryChange.md) | Geometry or representation change for a subject. |  no  |

@@ -384,7 +384,7 @@
 
 
 <h1 id="slot-actual_start_at">Slot: actual_start_at<a class="headerlink" href="#slot-actual_start_at" title="Permanent link">&para;</a></h1>
-<p><em>Actual start timestamp for the time item where known.</em></p>
+<p><em>Actual start timestamp for the time record where known.</em></p>
 <div>
 <p>URI: <a href="https://schema.pragmaticbim.ch/actual_start_at">pbs:actual_start_at</a></p>
 <!-- no inheritance hierarchy -->
@@ -399,13 +399,8 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="TimeItem.html">TimeItem</a></td>
-<td>Planned work item with baseline and actual dates, optionally linked to model entities and a time plan.</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="Milestone.html">Milestone</a></td>
-<td>Zero-duration checkpoint or delivery target within a time plan.</td>
+<td><a href="TimeRecord.html">TimeRecord</a></td>
+<td>Planned work record with baseline and actual dates, optionally linked to model entities and a time plan. — Set milestone_at to mark as a zero-duration checkpoint. — Populate component_time_items to act as a plan container.</td>
 <td>no</td>
 </tr>
 </tbody>
@@ -426,7 +421,7 @@
 </tr>
 <tr>
 <td>Domain Of</td>
-<td><a href="TimeItem.html">TimeItem</a></td>
+<td><a href="TimeRecord.html">TimeRecord</a></td>
 </tr>
 </tbody>
 </table>
@@ -472,11 +467,11 @@
 <h2 id="linkml-source">LinkML Source<a class="headerlink" href="#linkml-source" title="Permanent link">&para;</a></h2>
 <details>
 <div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actual_start_at</span>
-<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Actual start timestamp for the time item where known.</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Actual start timestamp for the time record where known.</span>
 <span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="nt">domain_of</span><span class="p">:</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TimeItem</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TimeRecord</span>
 <span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">datetime</span>
 </code></pre></div>
 </details>

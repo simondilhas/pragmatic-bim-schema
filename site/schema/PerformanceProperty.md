@@ -125,14 +125,8 @@ URI: [pbs:PerformanceProperty](https://schema.pragmaticbim.ch/PerformancePropert
 | [Space](Space.md) | [performance_properties](performance_properties.md) | range | [PerformanceProperty](PerformanceProperty.md) |
 | [System](System.md) | [performance_properties](performance_properties.md) | range | [PerformanceProperty](PerformanceProperty.md) |
 | [ConnectionVirtual](ConnectionVirtual.md) | [performance_properties](performance_properties.md) | range | [PerformanceProperty](PerformanceProperty.md) |
-| [AbstractTimeRecord](AbstractTimeRecord.md) | [performance_properties](performance_properties.md) | range | [PerformanceProperty](PerformanceProperty.md) |
-| [TimeItem](TimeItem.md) | [performance_properties](performance_properties.md) | range | [PerformanceProperty](PerformanceProperty.md) |
-| [Milestone](Milestone.md) | [performance_properties](performance_properties.md) | range | [PerformanceProperty](PerformanceProperty.md) |
-| [TimePlan](TimePlan.md) | [performance_properties](performance_properties.md) | range | [PerformanceProperty](PerformanceProperty.md) |
-| [TimeDependency](TimeDependency.md) | [performance_properties](performance_properties.md) | range | [PerformanceProperty](PerformanceProperty.md) |
-| [AbstractCostRecord](AbstractCostRecord.md) | [performance_properties](performance_properties.md) | range | [PerformanceProperty](PerformanceProperty.md) |
-| [CostItem](CostItem.md) | [performance_properties](performance_properties.md) | range | [PerformanceProperty](PerformanceProperty.md) |
-| [CostAssembly](CostAssembly.md) | [performance_properties](performance_properties.md) | range | [PerformanceProperty](PerformanceProperty.md) |
+| [TimeRecord](TimeRecord.md) | [performance_properties](performance_properties.md) | range | [PerformanceProperty](PerformanceProperty.md) |
+| [CostRecord](CostRecord.md) | [performance_properties](performance_properties.md) | range | [PerformanceProperty](PerformanceProperty.md) |
 | [Material](Material.md) | [performance_properties](performance_properties.md) | range | [PerformanceProperty](PerformanceProperty.md) |
 
 
@@ -292,7 +286,7 @@ attributes:
     owner: PerformanceProperty
     domain_of:
     - PerformanceProperty
-    - PropertyDelta
+    - PropertyChange
     range: string
   source_property:
     name: source_property
@@ -303,7 +297,7 @@ attributes:
     owner: PerformanceProperty
     domain_of:
     - PerformanceProperty
-    - PropertyDelta
+    - PropertyChange
     range: string
   source_value_raw:
     name: source_value_raw

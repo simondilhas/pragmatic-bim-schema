@@ -80,6 +80,10 @@ classes:
         required: true
       property_path_kind:
         required: true
+      source_pset:
+        description: IFC PropertySet name when property_path_kind is ifc_pset.
+      source_property:
+        description: IFC property name within the PropertySet when property_path_kind is ifc_pset.
   GeometryChange:
     is_a: Change
     class_uri: pbs:GeometryChange
@@ -203,12 +207,6 @@ slots:
     minimum_value: 0
     required: true
     description: Target revision number for this change.
-  source_pset:
-    range: string
-    description: IFC PropertySet name when property_path_kind is ifc_pset.
-  source_property:
-    range: string
-    description: IFC property name within the PropertySet when property_path_kind is ifc_pset.
   affected_geometry_role:
     range: GeometryRepresentationType
     description: Geometry role affected for GeometryChange records.

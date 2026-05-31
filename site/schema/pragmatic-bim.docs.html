@@ -529,14 +529,8 @@ classDiagram
   Separator <|-- SeparatorSlab
   Separator <|-- SeparatorWall
   Entity <|-- VirtualEntity
-  VirtualEntity <|-- AbstractCostRecord
-  AbstractCostRecord <|-- CostAssembly
-  AbstractCostRecord <|-- CostItem
-  VirtualEntity <|-- AbstractTimeRecord
-  AbstractTimeRecord <|-- TimeItem
-  TimeItem <|-- Milestone
-  AbstractTimeRecord <|-- TimePlan
   VirtualEntity <|-- ConnectionVirtual
+  VirtualEntity <|-- CostRecord
   VirtualEntity <|-- Material
   VirtualEntity <|-- Space
   VirtualEntity <|-- SpatialContext
@@ -549,7 +543,7 @@ classDiagram
   SpatialContext <|-- ProjectContext
   SpatialContext <|-- ZoneContext
   VirtualEntity <|-- System
-  VirtualEntity <|-- TimeDependency
+  VirtualEntity <|-- TimeRecord
   PerformanceProperty <|-- AcousticProperty
   PerformanceProperty <|-- FireProperty
   PerformanceProperty <|-- MaterialProperty
@@ -580,10 +574,6 @@ classDiagram
   Change <|-- PropertyChange
   Change <|-- RequirementChange
   ChangeSet *-- Change
-  PropertyChange *-- PropertyDelta
-  RequirementChange *-- PropertyDelta
-  Change *-- StateRef
-  ChangeSet *-- StateRef
 </pre>
   </div>
 </div>
@@ -704,36 +694,12 @@ classDiagram
 <td>Logical or topological connection between spaces and/or physical elements.</td>
 </tr>
 <tr>
-<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="AbstractTimeRecord.html">AbstractTimeRecord</a></td>
-<td>Abstract base for reusable time/schedule record fields shared by atomic and grouped time records.</td>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="TimeRecord.html">TimeRecord</a></td>
+<td>Planned work record with baseline and actual dates, optionally linked to model entities and a time plan. — Set milestone_at to mark as a zero-duration checkpoint. — Populate component_time_items to act as a plan container.</td>
 </tr>
 <tr>
-<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="TimeItem.html">TimeItem</a></td>
-<td>Planned work item with baseline and actual dates, optionally linked to model entities and a time plan.</td>
-</tr>
-<tr>
-<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Milestone.html">Milestone</a></td>
-<td>Zero-duration checkpoint or delivery target within a time plan.</td>
-</tr>
-<tr>
-<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="TimePlan.html">TimePlan</a></td>
-<td>Grouped schedule container defining component items, milestones, and dependencies for a scoped plan.</td>
-</tr>
-<tr>
-<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="TimeDependency.html">TimeDependency</a></td>
-<td>Precedence relationship between two time items within a plan, optionally with lag.</td>
-</tr>
-<tr>
-<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="AbstractCostRecord.html">AbstractCostRecord</a></td>
-<td>Abstract base for reusable cost record fields shared by atomic and aggregated cost records.</td>
-</tr>
-<tr>
-<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="CostItem.html">CostItem</a></td>
-<td>Cost record used for estimation and calculation, optionally linked to quantities.</td>
-</tr>
-<tr>
-<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="CostAssembly.html">CostAssembly</a></td>
-<td>Aggregated unit price assembled from multiple cost items.</td>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="CostRecord.html">CostRecord</a></td>
+<td>Cost record for estimation and calculation, optionally linked to entities. Populate component_cost_items to act as an assembly (aggregated unit price).</td>
 </tr>
 <tr>
 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Material.html">Material</a></td>
@@ -808,8 +774,12 @@ classDiagram
 <td>Localized text value for a specific language tag.</td>
 </tr>
 <tr>
+<td><a href="TimeLink.html">TimeLink</a></td>
+<td>Inline typed precedence link from a TimeRecord to one successor. Not a VirtualEntity — no id, no mixin. Owned by the predecessor record.</td>
+</tr>
+<tr>
 <td><a href="Requirement.html">Requirement</a></td>
-<td>Prescriptive requirement record (content_kind requirement). Not an Entity; may apply to one or more model entities.</td>
+<td>Prescriptive requirement record (content_kind requirement). Not an Entity; may apply to one or more model entities. Domain is discriminated by concrete subclass (PerformanceRequirement, SpatialRequirement, etc.), not a separate slot.</td>
 </tr>
 <tr>
 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="PerformanceRequirement.html">PerformanceRequirement</a></td>
@@ -828,16 +798,8 @@ classDiagram
 <td>Client or programme requirement, including free-standing brief items.</td>
 </tr>
 <tr>
-<td><a href="StateRef.html">StateRef</a></td>
-<td>Pointer to a content state at a specific revision. Covers IFC models, geometry payloads, documents, and extracted text.</td>
-</tr>
-<tr>
-<td><a href="PropertyDelta.html">PropertyDelta</a></td>
-<td>Field-level difference between two revision states. Supports IFC attributes, PropertySets, schema slots, document fields, and text spans.</td>
-</tr>
-<tr>
 <td><a href="Change.html">Change</a></td>
-<td>Detected difference for one subject between two revisions (content_kind change). Supports IFC model diffs, document/text diffs, and schema-entity field changes.</td>
+<td>Detected difference for one subject between two revisions (content_kind change). Supports IFC model diffs, document/text diffs, and schema-entity field changes. Use change_type together with the concrete subclass for interpretation.</td>
 </tr>
 <tr>
 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="PropertyChange.html">PropertyChange</a></td>
@@ -880,11 +842,11 @@ classDiagram
 <tbody>
 <tr>
 <td><a href="actual_finish_at.html">actual_finish_at</a></td>
-<td>Actual finish timestamp for the time item where known.</td>
+<td>Actual finish timestamp for the time record where known.</td>
 </tr>
 <tr>
 <td><a href="actual_start_at.html">actual_start_at</a></td>
-<td>Actual start timestamp for the time item where known.</td>
+<td>Actual start timestamp for the time record where known.</td>
 </tr>
 <tr>
 <td><a href="address_country.html">address_country</a></td>
@@ -908,7 +870,7 @@ classDiagram
 </tr>
 <tr>
 <td><a href="affected_geometry_role.html">affected_geometry_role</a></td>
-<td>Geometry role affected when change_type is geometry_change.</td>
+<td>Geometry role affected for GeometryChange records.</td>
 </tr>
 <tr>
 <td><a href="affected_requirement_id.html">affected_requirement_id</a></td>
@@ -1004,11 +966,11 @@ classDiagram
 </tr>
 <tr>
 <td><a href="component_cost_items.html">component_cost_items</a></td>
-<td>Atomic cost items that are aggregated into this cost assembly.</td>
+<td>Cost records aggregated into this assembly record.</td>
 </tr>
 <tr>
 <td><a href="component_time_items.html">component_time_items</a></td>
-<td>Time items contained in this plan; milestone instances may also appear through the TimeItem subtype.</td>
+<td>Time records contained in this plan; set milestone_at on a record to mark it as a checkpoint.</td>
 </tr>
 <tr>
 <td><a href="connection_physical_requirement_drivers.html">connection_physical_requirement_drivers</a></td>
@@ -1059,16 +1021,8 @@ classDiagram
 <td>Classification of context entity (project, perimeter, legal_site, building, civil_structure, level, zone).</td>
 </tr>
 <tr>
-<td><a href="cost_assemblies.html">cost_assemblies</a></td>
-<td>Aggregated unit prices associated with this entity.</td>
-</tr>
-<tr>
 <td><a href="cost_category.html">cost_category</a></td>
 <td>Cost category label kept intentionally open pending classification-backed modeling.</td>
-</tr>
-<tr>
-<td><a href="cost_items.html">cost_items</a></td>
-<td>Cost items associated with this entity.</td>
 </tr>
 <tr>
 <td><a href="cost_quantity_type.html">cost_quantity_type</a></td>
@@ -1081,6 +1035,10 @@ classDiagram
 <tr>
 <td><a href="cost_quantity_value.html">cost_quantity_value</a></td>
 <td>Quantity magnitude used as basis for this cost calculation.</td>
+</tr>
+<tr>
+<td><a href="cost_records.html">cost_records</a></td>
+<td>Cost records associated with this entity.</td>
 </tr>
 <tr>
 <td><a href="created_at.html">created_at</a></td>
@@ -1112,7 +1070,7 @@ classDiagram
 </tr>
 <tr>
 <td><a href="dependency_type.html">dependency_type</a></td>
-<td>Precedence logic used between the predecessor and successor items.</td>
+<td>FS</td>
 </tr>
 <tr>
 <td><a href="description.html">description</a></td>
@@ -1123,8 +1081,8 @@ classDiagram
 <td>Timestamp when this change was detected.</td>
 </tr>
 <tr>
-<td><a href="document_state_refs.html">document_state_refs</a></td>
-<td>Optional baseline document states for the comparison that produced this changeset.</td>
+<td><a href="document_state_uris.html">document_state_uris</a></td>
+<td>Optional URIs or content hashes for baseline document states used in this comparison.</td>
 </tr>
 <tr>
 <td><a href="document_storage_link.html">document_storage_link</a></td>
@@ -1145,10 +1103,6 @@ classDiagram
 <tr>
 <td><a href="from_revision.html">from_revision</a></td>
 <td>Source revision number for this change.</td>
-</tr>
-<tr>
-<td><a href="from_state_ref.html">from_state_ref</a></td>
-<td>Content state pointer at the source revision.</td>
 </tr>
 <tr>
 <td><a href="from_value.html">from_value</a></td>
@@ -1187,8 +1141,8 @@ classDiagram
 <td>IFC GlobalId of the mapped entity.</td>
 </tr>
 <tr>
-<td><a href="ifc_state_ref.html">ifc_state_ref</a></td>
-<td>Optional baseline IFC model state for the comparison that produced this changeset.</td>
+<td><a href="ifc_state_uri.html">ifc_state_uri</a></td>
+<td>Optional URI, path, or content hash for the baseline IFC model state used in this comparison.</td>
 </tr>
 <tr>
 <td><a href="intent_verdict.html">intent_verdict</a></td>
@@ -1204,7 +1158,7 @@ classDiagram
 </tr>
 <tr>
 <td><a href="lag_days.html">lag_days</a></td>
-<td>Optional lag or lead offset in days applied to the dependency relation.</td>
+<td></td>
 </tr>
 <tr>
 <td><a href="language_tag.html">language_tag</a></td>
@@ -1272,7 +1226,7 @@ classDiagram
 </tr>
 <tr>
 <td><a href="milestone_at.html">milestone_at</a></td>
-<td>Target timestamp for the milestone checkpoint.</td>
+<td>Target timestamp for a zero-duration milestone checkpoint.</td>
 </tr>
 <tr>
 <td><a href="min_area.html">min_area</a></td>
@@ -1336,11 +1290,11 @@ classDiagram
 </tr>
 <tr>
 <td><a href="planned_finish_at.html">planned_finish_at</a></td>
-<td>Planned finish timestamp for the time item.</td>
+<td>Planned finish timestamp for the time record.</td>
 </tr>
 <tr>
 <td><a href="planned_start_at.html">planned_start_at</a></td>
-<td>Planned start timestamp for the time item.</td>
+<td>Planned start timestamp for the time record.</td>
 </tr>
 <tr>
 <td><a href="post_office_box_number.html">post_office_box_number</a></td>
@@ -1355,10 +1309,6 @@ classDiagram
 <td>Postal or ZIP code.</td>
 </tr>
 <tr>
-<td><a href="predecessor_item.html">predecessor_item</a></td>
-<td>Time item that must occur before the successor item.</td>
-</tr>
-<tr>
 <td><a href="produced_at.html">produced_at</a></td>
 <td>Timestamp when this changeset was produced.</td>
 </tr>
@@ -1369,10 +1319,6 @@ classDiagram
 <tr>
 <td><a href="programme_ref.html">programme_ref</a></td>
 <td>URI or identifier for a programme or brief document.</td>
-</tr>
-<tr>
-<td><a href="property_delta.html">property_delta</a></td>
-<td>Field-level differences detected between the two revision states.</td>
 </tr>
 <tr>
 <td><a href="property_key.html">property_key</a></td>
@@ -1451,10 +1397,6 @@ classDiagram
 <td>Requirement identifier for match_change records.</td>
 </tr>
 <tr>
-<td><a href="requirement_domain.html">requirement_domain</a></td>
-<td>Domain of this requirement record (performance, spatial, regulatory, brief).</td>
-</tr>
-<tr>
 <td><a href="requirement_property_key.html">requirement_property_key</a></td>
 <td>Canonical performance key for the target (for example u_value, resistance_rating). Aligns with performance property keys where applicable.</td>
 </tr>
@@ -1519,22 +1461,6 @@ classDiagram
 <td>Classification of space (void, circulation, usable, service).</td>
 </tr>
 <tr>
-<td><a href="state_ref.html">state_ref</a></td>
-<td>URI, path, or content hash identifying the stored content state.</td>
-</tr>
-<tr>
-<td><a href="state_ref_format.html">state_ref_format</a></td>
-<td>Optional serialization format (for example ifc, gltf, pdf, docx, markdown, plain_text, json).</td>
-</tr>
-<tr>
-<td><a href="state_ref_kind.html">state_ref_kind</a></td>
-<td>Kind of content referenced (for example ifc_model, document, text_extract).</td>
-</tr>
-<tr>
-<td><a href="state_ref_label.html">state_ref_label</a></td>
-<td>Optional human-readable label (for example LOD300 export, Spec v3 draft).</td>
-</tr>
-<tr>
 <td><a href="statement.html">statement</a></td>
 <td>Free-text requirement statement from client or programme.</td>
 </tr>
@@ -1551,8 +1477,8 @@ classDiagram
 <td>Street name and house number or equivalent address line.</td>
 </tr>
 <tr>
-<td><a href="successor_item.html">successor_item</a></td>
-<td>Time item whose timing is constrained by the predecessor item.</td>
+<td><a href="successors.html">successors</a></td>
+<td>Forward precedence links to successor records. Reverse lookup (find all predecessors of X) requires scanning all TimeRecord.successors — acceptable for document exchange, not for live graph queries.</td>
 </tr>
 <tr>
 <td><a href="system_discipline.html">system_discipline</a></td>
@@ -1565,6 +1491,10 @@ classDiagram
 <tr>
 <td><a href="tags.html">tags</a></td>
 <td>Optional free-form labels for filtering/grouping.</td>
+</tr>
+<tr>
+<td><a href="target_item.html">target_item</a></td>
+<td>The successor TimeRecord.</td>
 </tr>
 <tr>
 <td><a href="target_operator.html">target_operator</a></td>
@@ -1611,28 +1541,16 @@ classDiagram
 <td>Localized text value.</td>
 </tr>
 <tr>
-<td><a href="time_dependencies.html">time_dependencies</a></td>
-<td>Dependency relationships used within this time plan.</td>
-</tr>
-<tr>
-<td><a href="time_items.html">time_items</a></td>
-<td>Time items associated with this entity.</td>
-</tr>
-<tr>
 <td><a href="time_plan.html">time_plan</a></td>
-<td>Parent time plan this item or dependency belongs to.</td>
+<td>Parent time plan this record belongs to.</td>
 </tr>
 <tr>
-<td><a href="time_plans.html">time_plans</a></td>
-<td>Grouped time plans associated with this entity.</td>
+<td><a href="time_records.html">time_records</a></td>
+<td>Time records associated with this entity.</td>
 </tr>
 <tr>
 <td><a href="to_revision.html">to_revision</a></td>
 <td>Target revision number for this change.</td>
-</tr>
-<tr>
-<td><a href="to_state_ref.html">to_state_ref</a></td>
-<td>Content state pointer at the target revision.</td>
 </tr>
 <tr>
 <td><a href="to_value.html">to_value</a></td>
@@ -1714,6 +1632,10 @@ classDiagram
 <td></td>
 </tr>
 <tr>
+<td><a href="DependencyType.html">DependencyType</a></td>
+<td>Precedence logic between two time records (FS finish-to-start, SS start-to-start, FF finish-to-finish, SF start-to-finish).</td>
+</tr>
+<tr>
 <td><a href="EquipmentType.html">EquipmentType</a></td>
 <td></td>
 </tr>
@@ -1746,10 +1668,6 @@ classDiagram
 <td></td>
 </tr>
 <tr>
-<td><a href="RequirementDomain.html">RequirementDomain</a></td>
-<td>Domain of a prescriptive requirement record.</td>
-</tr>
-<tr>
 <td><a href="RequirementTargetOperator.html">RequirementTargetOperator</a></td>
 <td>Comparison operator for numeric or textual requirement targets.</td>
 </tr>
@@ -1778,10 +1696,6 @@ classDiagram
 <td>Spatial adjacency semantics for spatial requirements.</td>
 </tr>
 <tr>
-<td><a href="StateRefKind.html">StateRefKind</a></td>
-<td>Kind of content referenced by a StateRef pointer.</td>
-</tr>
-<tr>
 <td><a href="StatusType.html">StatusType</a></td>
 <td>Lifecycle or QA gate status used for model progression and approvals.</td>
 </tr>
@@ -1800,10 +1714,6 @@ classDiagram
 <tr>
 <td><a href="ThermalPropertyKey.html">ThermalPropertyKey</a></td>
 <td>Canonical thermal-related keys derived from IFC PropertySets.</td>
-</tr>
-<tr>
-<td><a href="TimeDependencyType.html">TimeDependencyType</a></td>
-<td>Precedence logic between two time items.</td>
 </tr>
 <tr>
 <td><a href="TransportMedium.html">TransportMedium</a></td>

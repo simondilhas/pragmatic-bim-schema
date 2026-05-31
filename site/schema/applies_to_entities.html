@@ -400,17 +400,17 @@
 <tbody>
 <tr>
 <td><a href="Requirement.html">Requirement</a></td>
-<td>Prescriptive requirement record (content_kind requirement). Not an Entity; may apply to one or more model entities.</td>
+<td>Prescriptive requirement record (content_kind requirement). Not an Entity; may apply to one or more model entities. Domain is discriminated by concrete subclass (PerformanceRequirement, SpatialRequirement, etc.), not a separate slot.</td>
 <td>no</td>
 </tr>
 <tr>
-<td><a href="AbstractTimeRecord.html">AbstractTimeRecord</a></td>
-<td>Abstract base for reusable time/schedule record fields shared by atomic and grouped time records.</td>
+<td><a href="TimeRecord.html">TimeRecord</a></td>
+<td>Planned work record with baseline and actual dates, optionally linked to model entities and a time plan. — Set milestone_at to mark as a zero-duration checkpoint. — Populate component_time_items to act as a plan container.</td>
 <td>no</td>
 </tr>
 <tr>
-<td><a href="AbstractCostRecord.html">AbstractCostRecord</a></td>
-<td>Abstract base for reusable cost record fields shared by atomic and aggregated cost records.</td>
+<td><a href="CostRecord.html">CostRecord</a></td>
+<td>Cost record for estimation and calculation, optionally linked to entities. Populate component_cost_items to act as an assembly (aggregated unit price).</td>
 <td>no</td>
 </tr>
 <tr>
@@ -433,31 +433,6 @@
 <td>Client or programme requirement, including free-standing brief items.</td>
 <td>no</td>
 </tr>
-<tr>
-<td><a href="TimeItem.html">TimeItem</a></td>
-<td>Planned work item with baseline and actual dates, optionally linked to model entities and a time plan.</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="Milestone.html">Milestone</a></td>
-<td>Zero-duration checkpoint or delivery target within a time plan.</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="TimePlan.html">TimePlan</a></td>
-<td>Grouped schedule container defining component items, milestones, and dependencies for a scoped plan.</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="CostItem.html">CostItem</a></td>
-<td>Cost record used for estimation and calculation, optionally linked to quantities.</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="CostAssembly.html">CostAssembly</a></td>
-<td>Aggregated unit price assembled from multiple cost items.</td>
-<td>no</td>
-</tr>
 </tbody>
 </table>
 <h2 id="properties">Properties<a class="headerlink" href="#properties" title="Permanent link">&para;</a></h2>
@@ -476,7 +451,7 @@
 </tr>
 <tr>
 <td>Domain Of</td>
-<td><a href="Requirement.html">Requirement</a>, <a href="AbstractTimeRecord.html">AbstractTimeRecord</a>, <a href="AbstractCostRecord.html">AbstractCostRecord</a></td>
+<td><a href="Requirement.html">Requirement</a>, <a href="TimeRecord.html">TimeRecord</a>, <a href="CostRecord.html">CostRecord</a></td>
 </tr>
 </tbody>
 </table>
@@ -528,8 +503,8 @@
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="nt">domain_of</span><span class="p">:</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Requirement</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AbstractTimeRecord</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AbstractCostRecord</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TimeRecord</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CostRecord</span>
 <span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Entity</span>
 <span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="nt">inlined</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>

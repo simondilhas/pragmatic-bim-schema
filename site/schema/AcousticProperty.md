@@ -225,7 +225,7 @@ attributes:
     owner: AcousticProperty
     domain_of:
     - PerformanceProperty
-    - PropertyDelta
+    - PropertyChange
     range: string
   source_property:
     name: source_property
@@ -236,7 +236,7 @@ attributes:
     owner: AcousticProperty
     domain_of:
     - PerformanceProperty
-    - PropertyDelta
+    - PropertyChange
     range: string
   source_value_raw:
     name: source_value_raw

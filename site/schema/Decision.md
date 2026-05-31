@@ -89,14 +89,8 @@ URI: [pbs:Decision](https://schema.pragmaticbim.ch/Decision)
 | [Space](Space.md) | [decisions](decisions.md) | range | [Decision](Decision.md) |
 | [System](System.md) | [decisions](decisions.md) | range | [Decision](Decision.md) |
 | [ConnectionVirtual](ConnectionVirtual.md) | [decisions](decisions.md) | range | [Decision](Decision.md) |
-| [AbstractTimeRecord](AbstractTimeRecord.md) | [decisions](decisions.md) | range | [Decision](Decision.md) |
-| [TimeItem](TimeItem.md) | [decisions](decisions.md) | range | [Decision](Decision.md) |
-| [Milestone](Milestone.md) | [decisions](decisions.md) | range | [Decision](Decision.md) |
-| [TimePlan](TimePlan.md) | [decisions](decisions.md) | range | [Decision](Decision.md) |
-| [TimeDependency](TimeDependency.md) | [decisions](decisions.md) | range | [Decision](Decision.md) |
-| [AbstractCostRecord](AbstractCostRecord.md) | [decisions](decisions.md) | range | [Decision](Decision.md) |
-| [CostItem](CostItem.md) | [decisions](decisions.md) | range | [Decision](Decision.md) |
-| [CostAssembly](CostAssembly.md) | [decisions](decisions.md) | range | [Decision](Decision.md) |
+| [TimeRecord](TimeRecord.md) | [decisions](decisions.md) | range | [Decision](Decision.md) |
+| [CostRecord](CostRecord.md) | [decisions](decisions.md) | range | [Decision](Decision.md) |
 | [Material](Material.md) | [decisions](decisions.md) | range | [Decision](Decision.md) |
 
 

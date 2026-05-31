@@ -5,11 +5,6 @@ search:
 
 # Slot: lag_days 
 
-
-_Optional lag or lead offset in days applied to the dependency relation._
-
-
-
 <div data-search-exclude markdown="1">
 
 
@@ -25,7 +20,7 @@ URI: [pbs:lag_days](https://schema.pragmaticbim.ch/lag_days)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [TimeDependency](TimeDependency.md) | Precedence relationship between two time items within a plan, optionally with lag. |  no  |
+| [TimeLink](TimeLink.md) | Inline typed precedence link from a TimeRecord to one successor. Not a VirtualEntity — no id, no mixin. Owned by the predecessor record. |  no  |
 
 
 
@@ -38,13 +33,21 @@ URI: [pbs:lag_days](https://schema.pragmaticbim.ch/lag_days)
 
 | Property | Value |
 | --- | --- |
-| Range | [Double](Double.md) |
-| Domain Of | [TimeDependency](TimeDependency.md) |
+| Range | [Integer](Integer.md) |
+| Domain Of | [TimeLink](TimeLink.md) |
 
 ### Cardinality and Requirements
 
 | Property | Value |
 | --- | --- |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| If Absent | `0` |
+| Owner | [TimeLink](TimeLink.md) |
+
+
 
 
 
@@ -84,12 +87,13 @@ URI: [pbs:lag_days](https://schema.pragmaticbim.ch/lag_days)
 <details>
 ```yaml
 name: lag_days
-description: Optional lag or lead offset in days applied to the dependency relation.
 from_schema: https://schema.pragmaticbim.ch
 rank: 1000
+ifabsent: '0'
+owner: TimeLink
 domain_of:
-- TimeDependency
-range: double
+- TimeLink
+range: integer
 
 ```
 </details></div>

@@ -394,14 +394,10 @@
       ChangeSet : changes
         ChangeSet --&gt; "*" Change : changes
         click Change href "./Change.html"
-      ChangeSet : document_state_refs
-        ChangeSet --&gt; "*" StateRef : document_state_refs
-        click StateRef href "./StateRef.html"
+      ChangeSet : document_state_uris
       ChangeSet : from_revision
       ChangeSet : id
-      ChangeSet : ifc_state_ref
-        ChangeSet --&gt; "0..1" StateRef : ifc_state_ref
-        click StateRef href "./StateRef.html"
+      ChangeSet : ifc_state_uri
       ChangeSet : produced_at
       ChangeSet : produced_by
         ChangeSet --&gt; "0..1" Agent : produced_by
@@ -459,15 +455,15 @@
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="ifc_state_ref.html">ifc_state_ref</a></td>
-<td>0..1 <br/> <a href="StateRef.html">StateRef</a></td>
-<td>Optional baseline IFC model state for the comparison that produced this changeset.</td>
+<td><a href="ifc_state_uri.html">ifc_state_uri</a></td>
+<td>0..1 <br/> <a href="Uriorcurie.html">Uriorcurie</a></td>
+<td>Optional URI, path, or content hash for the baseline IFC model state used in this comparison.</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="document_state_refs.html">document_state_refs</a></td>
-<td>* <br/> <a href="StateRef.html">StateRef</a></td>
-<td>Optional baseline document states for the comparison that produced this changeset.</td>
+<td><a href="document_state_uris.html">document_state_uris</a></td>
+<td>* <br/> <a href="Uriorcurie.html">Uriorcurie</a></td>
+<td>Optional URIs or content hashes for baseline document states used in this comparison.</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -529,8 +525,8 @@
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">from_revision</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">to_revision</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">changes</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ifc_state_ref</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">document_state_refs</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ifc_state_uri</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">document_state_uris</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">produced_at</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">produced_by</span>
 <span class="nt">slot_usage</span><span class="p">:</span>
@@ -608,29 +604,27 @@
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Change</span>
 <span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">    </span><span class="nt">inlined</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">  </span><span class="nt">ifc_state_ref</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ifc_state_ref</span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Optional baseline IFC model state for the comparison that produced</span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">this changeset.</span>
+<span class="w">  </span><span class="nt">ifc_state_uri</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ifc_state_uri</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Optional URI, path, or content hash for the baseline IFC model state</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">used in this comparison.</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ChangeSet</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ChangeSet</span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">StateRef</span>
-<span class="w">    </span><span class="nt">inlined</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">  </span><span class="nt">document_state_refs</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">document_state_refs</span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Optional baseline document states for the comparison that produced</span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">this changeset.</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">uriorcurie</span>
+<span class="w">  </span><span class="nt">document_state_uris</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">document_state_uris</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Optional URIs or content hashes for baseline document states used</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">in this comparison.</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ChangeSet</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ChangeSet</span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">StateRef</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">uriorcurie</span>
 <span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">    </span><span class="nt">inlined</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">  </span><span class="nt">produced_at</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">produced_at</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Timestamp when this changeset was produced.</span>

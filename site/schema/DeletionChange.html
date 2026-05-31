@@ -411,21 +411,17 @@
         click ChangeSeverity href "./ChangeSeverity.html"
       DeletionChange : change_source
       DeletionChange : change_type
+        DeletionChange --&gt; "1" ChangeType : change_type
+        click ChangeType href "./ChangeType.html"
       DeletionChange : detected_at
       DeletionChange : document_storage_link
       DeletionChange : from_revision
-      DeletionChange : from_state_ref
-        DeletionChange --&gt; "0..1" StateRef : from_state_ref
-        click StateRef href "./StateRef.html"
       DeletionChange : id
       DeletionChange : ifc_global_id
       DeletionChange : intent_verdict
         DeletionChange --&gt; "0..1" ChangeIntentVerdict : intent_verdict
         click ChangeIntentVerdict href "./ChangeIntentVerdict.html"
       DeletionChange : to_revision
-      DeletionChange : to_state_ref
-        DeletionChange --&gt; "0..1" StateRef : to_state_ref
-        click StateRef href "./StateRef.html"
       DeletionChange : triggered_process
       DeletionChange : triggered_task</code></pre>
 <h2 id="inheritance">Inheritance<a class="headerlink" href="#inheritance" title="Permanent link">&para;</a></h2>
@@ -469,7 +465,7 @@
 </tr>
 <tr>
 <td><a href="change_type.html">change_type</a></td>
-<td>1 <br/> <a href="String.html">String</a></td>
+<td>1 <br/> <a href="ChangeType.html">ChangeType</a></td>
 <td>Category of change detected between two revisions.</td>
 <td><a href="Change.html">Change</a></td>
 </tr>
@@ -525,18 +521,6 @@
 <td><a href="to_revision.html">to_revision</a></td>
 <td>1 <br/> <a href="Integer.html">Integer</a></td>
 <td>Target revision number for this change.</td>
-<td><a href="Change.html">Change</a></td>
-</tr>
-<tr>
-<td><a href="from_state_ref.html">from_state_ref</a></td>
-<td>0..1 <br/> <a href="StateRef.html">StateRef</a></td>
-<td>Content state pointer at the source revision.</td>
-<td><a href="Change.html">Change</a></td>
-</tr>
-<tr>
-<td><a href="to_state_ref.html">to_state_ref</a></td>
-<td>0..1 <br/> <a href="StateRef.html">StateRef</a></td>
-<td>Content state pointer at the target revision.</td>
 <td><a href="Change.html">Change</a></td>
 </tr>
 <tr>
@@ -603,11 +587,6 @@
 <span class="nt">exact_mappings</span><span class="p">:</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">prov:Activity</span>
 <span class="nt">is_a</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Change</span>
-<span class="nt">slot_usage</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">change_type</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">change_type</span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
-<span class="w">    </span><span class="nt">equals_string</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">deletion</span>
 <span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pbs:DeletionChange</span>
 </code></pre></div>
 </details>
@@ -619,11 +598,6 @@
 <span class="nt">exact_mappings</span><span class="p">:</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">prov:Activity</span>
 <span class="nt">is_a</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Change</span>
-<span class="nt">slot_usage</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">change_type</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">change_type</span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
-<span class="w">    </span><span class="nt">equals_string</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">deletion</span>
 <span class="nt">attributes</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">id</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">id</span>
@@ -649,9 +623,8 @@
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DeletionChange</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Change</span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ChangeType</span>
 <span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">    </span><span class="nt">equals_string</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">deletion</span>
 <span class="w">  </span><span class="nt">change_severity</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">change_severity</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Optional severity independent of change type.</span>
@@ -751,26 +724,6 @@
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">integer</span>
 <span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">    </span><span class="nt">minimum_value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
-<span class="w">  </span><span class="nt">from_state_ref</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">from_state_ref</span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Content state pointer at the source revision.</span>
-<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
-<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
-<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DeletionChange</span>
-<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Change</span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">StateRef</span>
-<span class="w">    </span><span class="nt">inlined</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">  </span><span class="nt">to_state_ref</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">to_state_ref</span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Content state pointer at the target revision.</span>
-<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
-<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
-<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DeletionChange</span>
-<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Change</span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">StateRef</span>
-<span class="w">    </span><span class="nt">inlined</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">  </span><span class="nt">triggered_task</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">triggered_task</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Id of a Task record that this change triggered or should trigger.</span>

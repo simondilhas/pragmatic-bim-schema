@@ -50,14 +50,8 @@ URI: [pbs:meaning_uri](https://schema.pragmaticbim.ch/meaning_uri)
 | [Space](Space.md) | Spatial container used for occupancy, circulation, service, or analysis. |  no  |
 | [System](System.md) | Building service system grouping that serves spaces or zones. |  no  |
 | [ConnectionVirtual](ConnectionVirtual.md) | Logical or topological connection between spaces and/or physical elements. |  no  |
-| [AbstractTimeRecord](AbstractTimeRecord.md) | Abstract base for reusable time/schedule record fields shared by atomic and grouped time records. |  no  |
-| [TimeItem](TimeItem.md) | Planned work item with baseline and actual dates, optionally linked to model entities and a time plan. |  no  |
-| [Milestone](Milestone.md) | Zero-duration checkpoint or delivery target within a time plan. |  no  |
-| [TimePlan](TimePlan.md) | Grouped schedule container defining component items, milestones, and dependencies for a scoped plan. |  no  |
-| [TimeDependency](TimeDependency.md) | Precedence relationship between two time items within a plan, optionally with lag. |  no  |
-| [AbstractCostRecord](AbstractCostRecord.md) | Abstract base for reusable cost record fields shared by atomic and aggregated cost records. |  no  |
-| [CostItem](CostItem.md) | Cost record used for estimation and calculation, optionally linked to quantities. |  no  |
-| [CostAssembly](CostAssembly.md) | Aggregated unit price assembled from multiple cost items. |  no  |
+| [TimeRecord](TimeRecord.md) | Planned work record with baseline and actual dates, optionally linked to model entities and a time plan. — Set milestone_at to mark as a zero-duration checkpoint. — Populate component_time_items to act as a plan container. |  no  |
+| [CostRecord](CostRecord.md) | Cost record for estimation and calculation, optionally linked to entities. Populate component_cost_items to act as an assembly (aggregated unit price). |  no  |
 | [Material](Material.md) | Material definition that can be associated with one or more entities. |  no  |
 
 

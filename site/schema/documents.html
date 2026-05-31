@@ -524,43 +524,13 @@
 <td>no</td>
 </tr>
 <tr>
-<td><a href="AbstractTimeRecord.html">AbstractTimeRecord</a></td>
-<td>Abstract base for reusable time/schedule record fields shared by atomic and grouped time records.</td>
+<td><a href="TimeRecord.html">TimeRecord</a></td>
+<td>Planned work record with baseline and actual dates, optionally linked to model entities and a time plan. — Set milestone_at to mark as a zero-duration checkpoint. — Populate component_time_items to act as a plan container.</td>
 <td>no</td>
 </tr>
 <tr>
-<td><a href="TimeItem.html">TimeItem</a></td>
-<td>Planned work item with baseline and actual dates, optionally linked to model entities and a time plan.</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="Milestone.html">Milestone</a></td>
-<td>Zero-duration checkpoint or delivery target within a time plan.</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="TimePlan.html">TimePlan</a></td>
-<td>Grouped schedule container defining component items, milestones, and dependencies for a scoped plan.</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="TimeDependency.html">TimeDependency</a></td>
-<td>Precedence relationship between two time items within a plan, optionally with lag.</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="AbstractCostRecord.html">AbstractCostRecord</a></td>
-<td>Abstract base for reusable cost record fields shared by atomic and aggregated cost records.</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="CostItem.html">CostItem</a></td>
-<td>Cost record used for estimation and calculation, optionally linked to quantities.</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="CostAssembly.html">CostAssembly</a></td>
-<td>Aggregated unit price assembled from multiple cost items.</td>
+<td><a href="CostRecord.html">CostRecord</a></td>
+<td>Cost record for estimation and calculation, optionally linked to entities. Populate component_cost_items to act as an assembly (aggregated unit price).</td>
 <td>no</td>
 </tr>
 <tr>

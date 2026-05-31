@@ -6,7 +6,7 @@ search:
 # Slot: dependency_type 
 
 
-_Precedence logic used between the predecessor and successor items._
+_FS | SS | FF | SF_
 
 
 
@@ -25,7 +25,7 @@ URI: [pbs:dependency_type](https://schema.pragmaticbim.ch/dependency_type)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [TimeDependency](TimeDependency.md) | Precedence relationship between two time items within a plan, optionally with lag. |  no  |
+| [TimeLink](TimeLink.md) | Inline typed precedence link from a TimeRecord to one successor. Not a VirtualEntity — no id, no mixin. Owned by the predecessor record. |  no  |
 
 
 
@@ -38,14 +38,21 @@ URI: [pbs:dependency_type](https://schema.pragmaticbim.ch/dependency_type)
 
 | Property | Value |
 | --- | --- |
-| Range | [TimeDependencyType](TimeDependencyType.md) |
-| Domain Of | [TimeDependency](TimeDependency.md) |
+| Range | [DependencyType](DependencyType.md) |
+| Domain Of | [TimeLink](TimeLink.md) |
 
 ### Cardinality and Requirements
 
 | Property | Value |
 | --- | --- |
-| Required | Yes |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| If Absent | `FS` |
+| Owner | [TimeLink](TimeLink.md) |
+
+
 
 
 
@@ -85,13 +92,14 @@ URI: [pbs:dependency_type](https://schema.pragmaticbim.ch/dependency_type)
 <details>
 ```yaml
 name: dependency_type
-description: Precedence logic used between the predecessor and successor items.
+description: FS | SS | FF | SF
 from_schema: https://schema.pragmaticbim.ch
 rank: 1000
+ifabsent: FS
+owner: TimeLink
 domain_of:
-- TimeDependency
-range: TimeDependencyType
-required: true
+- TimeLink
+range: DependencyType
 
 ```
 </details></div>

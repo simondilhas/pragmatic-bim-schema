@@ -34,21 +34,17 @@ URI: [pbs:AdditionChange](https://schema.pragmaticbim.ch/AdditionChange)
         click ChangeSeverity href "./ChangeSeverity.html"
       AdditionChange : change_source
       AdditionChange : change_type
+        AdditionChange --> "1" ChangeType : change_type
+        click ChangeType href "./ChangeType.html"
       AdditionChange : detected_at
       AdditionChange : document_storage_link
       AdditionChange : from_revision
-      AdditionChange : from_state_ref
-        AdditionChange --> "0..1" StateRef : from_state_ref
-        click StateRef href "./StateRef.html"
       AdditionChange : id
       AdditionChange : ifc_global_id
       AdditionChange : intent_verdict
         AdditionChange --> "0..1" ChangeIntentVerdict : intent_verdict
         click ChangeIntentVerdict href "./ChangeIntentVerdict.html"
       AdditionChange : to_revision
-      AdditionChange : to_state_ref
-        AdditionChange --> "0..1" StateRef : to_state_ref
-        click StateRef href "./StateRef.html"
       AdditionChange : triggered_process
       AdditionChange : triggered_task
 ```
@@ -74,7 +70,7 @@ URI: [pbs:AdditionChange](https://schema.pragmaticbim.ch/AdditionChange)
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [id](id.md) | 1 <br/> [String](String.md) | Unique local identifier. | [Change](Change.md) |
-| [change_type](change_type.md) | 1 <br/> [String](String.md) | Category of change detected between two revisions. | [Change](Change.md) |
+| [change_type](change_type.md) | 1 <br/> [ChangeType](ChangeType.md) | Category of change detected between two revisions. | [Change](Change.md) |
 | [change_severity](change_severity.md) | 0..1 <br/> [ChangeSeverity](ChangeSeverity.md) | Optional severity independent of change type. | [Change](Change.md) |
 | [intent_verdict](intent_verdict.md) | 0..1 <br/> [ChangeIntentVerdict](ChangeIntentVerdict.md) | Intent stability verdict from an automated judge (for example iterthink STABLE/NEW). | [Change](Change.md) |
 | [affected_subject_id](affected_subject_id.md) | 1 <br/> [String](String.md) | Identifier of the changed subject (entity id, document id, or external key). | [Change](Change.md) |
@@ -84,8 +80,6 @@ URI: [pbs:AdditionChange](https://schema.pragmaticbim.ch/AdditionChange)
 | [document_storage_link](document_storage_link.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | Document location when the subject is or embeds a Document. | [Change](Change.md) |
 | [from_revision](from_revision.md) | 1 <br/> [Integer](Integer.md) | Source revision number for this change. | [Change](Change.md) |
 | [to_revision](to_revision.md) | 1 <br/> [Integer](Integer.md) | Target revision number for this change. | [Change](Change.md) |
-| [from_state_ref](from_state_ref.md) | 0..1 <br/> [StateRef](StateRef.md) | Content state pointer at the source revision. | [Change](Change.md) |
-| [to_state_ref](to_state_ref.md) | 0..1 <br/> [StateRef](StateRef.md) | Content state pointer at the target revision. | [Change](Change.md) |
 | [triggered_task](triggered_task.md) | 0..1 <br/> [String](String.md) | Id of a Task record that this change triggered or should trigger. | [Change](Change.md) |
 | [triggered_process](triggered_process.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | External workflow process URI (for example yourcompanyos process instance). | [Change](Change.md) |
 | [detected_at](detected_at.md) | 0..1 <br/> [Datetime](Datetime.md) | Timestamp when this change was detected. | [Change](Change.md) |
@@ -146,11 +140,6 @@ from_schema: https://schema.pragmaticbim.ch
 exact_mappings:
 - prov:Activity
 is_a: Change
-slot_usage:
-  change_type:
-    name: change_type
-    range: string
-    equals_string: addition
 class_uri: pbs:AdditionChange
 
 ```
@@ -166,11 +155,6 @@ from_schema: https://schema.pragmaticbim.ch
 exact_mappings:
 - prov:Activity
 is_a: Change
-slot_usage:
-  change_type:
-    name: change_type
-    range: string
-    equals_string: addition
 attributes:
   id:
     name: id
@@ -196,9 +180,8 @@ attributes:
     owner: AdditionChange
     domain_of:
     - Change
-    range: string
+    range: ChangeType
     required: true
-    equals_string: addition
   change_severity:
     name: change_severity
     description: Optional severity independent of change type.
@@ -298,26 +281,6 @@ attributes:
     range: integer
     required: true
     minimum_value: 0
-  from_state_ref:
-    name: from_state_ref
-    description: Content state pointer at the source revision.
-    from_schema: https://schema.pragmaticbim.ch
-    rank: 1000
-    owner: AdditionChange
-    domain_of:
-    - Change
-    range: StateRef
-    inlined: true
-  to_state_ref:
-    name: to_state_ref
-    description: Content state pointer at the target revision.
-    from_schema: https://schema.pragmaticbim.ch
-    rank: 1000
-    owner: AdditionChange
-    domain_of:
-    - Change
-    range: StateRef
-    inlined: true
   triggered_task:
     name: triggered_task
     description: Id of a Task record that this change triggered or should trigger.

@@ -6,7 +6,7 @@ search:
 # Slot: component_cost_items 
 
 
-_Atomic cost items that are aggregated into this cost assembly._
+_Cost records aggregated into this assembly record._
 
 
 
@@ -25,7 +25,7 @@ URI: [pbs:component_cost_items](https://schema.pragmaticbim.ch/component_cost_it
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [CostAssembly](CostAssembly.md) | Aggregated unit price assembled from multiple cost items. |  no  |
+| [CostRecord](CostRecord.md) | Cost record for estimation and calculation, optionally linked to entities. Populate component_cost_items to act as an assembly (aggregated unit price). |  no  |
 
 
 
@@ -38,8 +38,8 @@ URI: [pbs:component_cost_items](https://schema.pragmaticbim.ch/component_cost_it
 
 | Property | Value |
 | --- | --- |
-| Range | [CostItem](CostItem.md) |
-| Domain Of | [CostAssembly](CostAssembly.md) |
+| Range | [CostRecord](CostRecord.md) |
+| Domain Of | [CostRecord](CostRecord.md) |
 
 ### Cardinality and Requirements
 
@@ -85,12 +85,12 @@ URI: [pbs:component_cost_items](https://schema.pragmaticbim.ch/component_cost_it
 <details>
 ```yaml
 name: component_cost_items
-description: Atomic cost items that are aggregated into this cost assembly.
+description: Cost records aggregated into this assembly record.
 from_schema: https://schema.pragmaticbim.ch
 rank: 1000
 domain_of:
-- CostAssembly
-range: CostItem
+- CostRecord
+range: CostRecord
 multivalued: true
 inlined: false
 

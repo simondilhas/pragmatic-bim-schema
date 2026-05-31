@@ -32,12 +32,9 @@ URI: [pbs:ProjectContext](https://schema.pragmaticbim.ch/ProjectContext)
       ProjectContext : context_type
         ProjectContext --> "1" ContextType : context_type
         click ContextType href "./ContextType.html"
-      ProjectContext : cost_assemblies
-        ProjectContext --> "*" CostAssembly : cost_assemblies
-        click CostAssembly href "./CostAssembly.html"
-      ProjectContext : cost_items
-        ProjectContext --> "*" CostItem : cost_items
-        click CostItem href "./CostItem.html"
+      ProjectContext : cost_records
+        ProjectContext --> "*" CostRecord : cost_records
+        click CostRecord href "./CostRecord.html"
       ProjectContext : created_at
       ProjectContext : decisions
         ProjectContext --> "*" Decision : decisions
@@ -103,12 +100,9 @@ URI: [pbs:ProjectContext](https://schema.pragmaticbim.ch/ProjectContext)
       ProjectContext : tasks
         ProjectContext --> "*" Task : tasks
         click Task href "./Task.html"
-      ProjectContext : time_items
-        ProjectContext --> "*" TimeItem : time_items
-        click TimeItem href "./TimeItem.html"
-      ProjectContext : time_plans
-        ProjectContext --> "*" TimePlan : time_plans
-        click TimePlan href "./TimePlan.html"
+      ProjectContext : time_records
+        ProjectContext --> "*" TimeRecord : time_records
+        click TimeRecord href "./TimeRecord.html"
       ProjectContext : zone_type
         ProjectContext --> "0..1" ZoneType : zone_type
         click ZoneType href "./ZoneType.html"
@@ -145,10 +139,8 @@ URI: [pbs:ProjectContext](https://schema.pragmaticbim.ch/ProjectContext)
 | [parent_level](parent_level.md) | 0..1 <br/> [LevelContext](LevelContext.md) | Parent level/storey context reference. | [SpatialContext](SpatialContext.md) |
 | [parent_zone](parent_zone.md) | 0..1 <br/> [ZoneContext](ZoneContext.md) | Parent zone context reference. | [SpatialContext](SpatialContext.md) |
 | [group_members](group_members.md) | * <br/> [Entity](Entity.md) | Zone members; may include spaces, separations, systems, etc. | [SpatialContext](SpatialContext.md) |
-| [cost_items](cost_items.md) | * <br/> [CostItem](CostItem.md) | Cost items associated with this entity. | [VirtualEntity](VirtualEntity.md) |
-| [cost_assemblies](cost_assemblies.md) | * <br/> [CostAssembly](CostAssembly.md) | Aggregated unit prices associated with this entity. | [VirtualEntity](VirtualEntity.md) |
-| [time_items](time_items.md) | * <br/> [TimeItem](TimeItem.md) | Time items associated with this entity. | [VirtualEntity](VirtualEntity.md) |
-| [time_plans](time_plans.md) | * <br/> [TimePlan](TimePlan.md) | Grouped time plans associated with this entity. | [VirtualEntity](VirtualEntity.md) |
+| [cost_records](cost_records.md) | * <br/> [CostRecord](CostRecord.md) | Cost records associated with this entity. | [VirtualEntity](VirtualEntity.md) |
+| [time_records](time_records.md) | * <br/> [TimeRecord](TimeRecord.md) | Time records associated with this entity. | [VirtualEntity](VirtualEntity.md) |
 | [materials](materials.md) | * <br/> [Material](Material.md) | Material definitions associated with this entity. | [VirtualEntity](VirtualEntity.md) |
 | [id](id.md) | 1 <br/> [String](String.md) | Unique local identifier. | [Entity](Entity.md) |
 | [name](name.md) | 1 <br/> [String](String.md) | Default display name. | [Entity](Entity.md) |
@@ -345,48 +337,26 @@ attributes:
     - SpatialContext
     range: Entity
     multivalued: true
-  cost_items:
-    name: cost_items
-    description: Cost items associated with this entity.
+  cost_records:
+    name: cost_records
+    description: Cost records associated with this entity.
     from_schema: https://schema.pragmaticbim.ch
     rank: 1000
     owner: ProjectContext
     domain_of:
     - VirtualEntity
-    range: CostItem
+    range: CostRecord
     multivalued: true
     inlined: false
-  cost_assemblies:
-    name: cost_assemblies
-    description: Aggregated unit prices associated with this entity.
+  time_records:
+    name: time_records
+    description: Time records associated with this entity.
     from_schema: https://schema.pragmaticbim.ch
     rank: 1000
     owner: ProjectContext
     domain_of:
     - VirtualEntity
-    range: CostAssembly
-    multivalued: true
-    inlined: false
-  time_items:
-    name: time_items
-    description: Time items associated with this entity.
-    from_schema: https://schema.pragmaticbim.ch
-    rank: 1000
-    owner: ProjectContext
-    domain_of:
-    - VirtualEntity
-    range: TimeItem
-    multivalued: true
-    inlined: false
-  time_plans:
-    name: time_plans
-    description: Grouped time plans associated with this entity.
-    from_schema: https://schema.pragmaticbim.ch
-    rank: 1000
-    owner: ProjectContext
-    domain_of:
-    - VirtualEntity
-    range: TimePlan
+    range: TimeRecord
     multivalued: true
     inlined: false
   materials:

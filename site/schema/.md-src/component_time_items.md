@@ -6,7 +6,7 @@ search:
 # Slot: component_time_items 
 
 
-_Time items contained in this plan; milestone instances may also appear through the TimeItem subtype._
+_Time records contained in this plan; set milestone_at on a record to mark it as a checkpoint._
 
 
 
@@ -25,7 +25,7 @@ URI: [pbs:component_time_items](https://schema.pragmaticbim.ch/component_time_it
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [TimePlan](TimePlan.md) | Grouped schedule container defining component items, milestones, and dependencies for a scoped plan. |  no  |
+| [TimeRecord](TimeRecord.md) | Planned work record with baseline and actual dates, optionally linked to model entities and a time plan. — Set milestone_at to mark as a zero-duration checkpoint. — Populate component_time_items to act as a plan container. |  no  |
 
 
 
@@ -38,8 +38,8 @@ URI: [pbs:component_time_items](https://schema.pragmaticbim.ch/component_time_it
 
 | Property | Value |
 | --- | --- |
-| Range | [TimeItem](TimeItem.md) |
-| Domain Of | [TimePlan](TimePlan.md) |
+| Range | [TimeRecord](TimeRecord.md) |
+| Domain Of | [TimeRecord](TimeRecord.md) |
 
 ### Cardinality and Requirements
 
@@ -85,13 +85,13 @@ URI: [pbs:component_time_items](https://schema.pragmaticbim.ch/component_time_it
 <details>
 ```yaml
 name: component_time_items
-description: Time items contained in this plan; milestone instances may also appear
-  through the TimeItem subtype.
+description: Time records contained in this plan; set milestone_at on a record to
+  mark it as a checkpoint.
 from_schema: https://schema.pragmaticbim.ch
 rank: 1000
 domain_of:
-- TimePlan
-range: TimeItem
+- TimeRecord
+range: TimeRecord
 multivalued: true
 inlined: false
 

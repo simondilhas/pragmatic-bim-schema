@@ -84,14 +84,8 @@ URI: [pbs:Document](https://schema.pragmaticbim.ch/Document)
 | [Space](Space.md) | [documents](documents.md) | range | [Document](Document.md) |
 | [System](System.md) | [documents](documents.md) | range | [Document](Document.md) |
 | [ConnectionVirtual](ConnectionVirtual.md) | [documents](documents.md) | range | [Document](Document.md) |
-| [AbstractTimeRecord](AbstractTimeRecord.md) | [documents](documents.md) | range | [Document](Document.md) |
-| [TimeItem](TimeItem.md) | [documents](documents.md) | range | [Document](Document.md) |
-| [Milestone](Milestone.md) | [documents](documents.md) | range | [Document](Document.md) |
-| [TimePlan](TimePlan.md) | [documents](documents.md) | range | [Document](Document.md) |
-| [TimeDependency](TimeDependency.md) | [documents](documents.md) | range | [Document](Document.md) |
-| [AbstractCostRecord](AbstractCostRecord.md) | [documents](documents.md) | range | [Document](Document.md) |
-| [CostItem](CostItem.md) | [documents](documents.md) | range | [Document](Document.md) |
-| [CostAssembly](CostAssembly.md) | [documents](documents.md) | range | [Document](Document.md) |
+| [TimeRecord](TimeRecord.md) | [documents](documents.md) | range | [Document](Document.md) |
+| [CostRecord](CostRecord.md) | [documents](documents.md) | range | [Document](Document.md) |
 | [Material](Material.md) | [documents](documents.md) | range | [Document](Document.md) |
 
 
